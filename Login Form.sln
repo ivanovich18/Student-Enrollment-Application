@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Login Form", "Login Form.csproj", "{9336C28A-E975-417B-9BF4-B321B813BF05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Student Enrollment Application", "Student Enrollment Application.csproj", "{9336C28A-E975-417B-9BF4-B321B813BF05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -69,6 +69,7 @@
             LoginBtn.TabIndex = 7;
             LoginBtn.Text = "Add Student";
             LoginBtn.UseVisualStyleBackColor = false;
+            LoginBtn.Click += LoginBtn_Click;
             // 
             // button2
             // 

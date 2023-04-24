@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Login_Form
 {
-    public partial class Add_Studentcs : Form
+    public partial class Records_Form : Form
     {
-        public Add_Studentcs()
+        public Records_Form()
         {
             InitializeComponent();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
