@@ -31,7 +31,7 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             UsernameTxtBox = new TextBox();
-            textBox1 = new TextBox();
+            PasswordTxtBox = new TextBox();
             button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -67,14 +67,14 @@
             UsernameTxtBox.Size = new Size(377, 46);
             UsernameTxtBox.TabIndex = 2;
             // 
-            // textBox1
+            // PasswordTxtBox
             // 
-            textBox1.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(550, 271);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Password";
-            textBox1.Size = new Size(377, 46);
-            textBox1.TabIndex = 3;
+            PasswordTxtBox.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            PasswordTxtBox.Location = new Point(550, 271);
+            PasswordTxtBox.Name = "PasswordTxtBox";
+            PasswordTxtBox.PlaceholderText = "Password";
+            PasswordTxtBox.Size = new Size(377, 46);
+            PasswordTxtBox.TabIndex = 3;
             // 
             // button1
             // 
@@ -95,7 +95,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1044, 623);
             Controls.Add(button1);
-            Controls.Add(textBox1);
+            Controls.Add(PasswordTxtBox);
             Controls.Add(UsernameTxtBox);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
@@ -115,7 +115,7 @@
         private Label label1;
         private PictureBox pictureBox1;
         private TextBox UsernameTxtBox;
-        private TextBox textBox1;
+        private TextBox PasswordTxtBox;
         private Button button1;
     }
 }

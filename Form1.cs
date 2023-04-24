@@ -14,7 +14,15 @@ namespace Login_Form
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("hello world");
+            // MessageBox.Show("hello world");
+            if (UsernameTxtBox.Text == "Admin" && PasswordTxtBox.Text == "admin123")
+            {
+                MessageBox.Show("Correct username and password!");
+            }
+            else
+            {
+                MessageBox.Show("Incorrect username or password!");
+            }
         }
     }
 }
