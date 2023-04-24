@@ -32,7 +32,7 @@
             pictureBox1 = new PictureBox();
             UsernameTxtBox = new TextBox();
             PasswordTxtBox = new TextBox();
-            button1 = new Button();
+            LoginBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -72,34 +72,37 @@
             PasswordTxtBox.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             PasswordTxtBox.Location = new Point(550, 271);
             PasswordTxtBox.Name = "PasswordTxtBox";
+            PasswordTxtBox.PasswordChar = '*';
             PasswordTxtBox.PlaceholderText = "Password";
             PasswordTxtBox.Size = new Size(377, 46);
             PasswordTxtBox.TabIndex = 3;
             // 
-            // button1
+            // LoginBtn
             // 
-            button1.BackColor = Color.Orange;
-            button1.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(675, 347);
-            button1.Name = "button1";
-            button1.Size = new Size(124, 56);
-            button1.TabIndex = 4;
-            button1.Text = "Login";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            LoginBtn.BackColor = Color.Orange;
+            LoginBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            LoginBtn.ForeColor = SystemColors.ControlLightLight;
+            LoginBtn.Location = new Point(675, 347);
+            LoginBtn.Name = "LoginBtn";
+            LoginBtn.Size = new Size(124, 56);
+            LoginBtn.TabIndex = 4;
+            LoginBtn.Text = "Login";
+            LoginBtn.UseVisualStyleBackColor = false;
+            LoginBtn.Click += button1_Click;
+            LoginBtn.KeyDown += LoginBtn_KeyDown;
             // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(19F, 47F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1044, 623);
-            Controls.Add(button1);
+            Controls.Add(LoginBtn);
             Controls.Add(PasswordTxtBox);
             Controls.Add(UsernameTxtBox);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
             Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Margin = new Padding(8, 9, 8, 9);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -116,6 +119,6 @@
         private PictureBox pictureBox1;
         private TextBox UsernameTxtBox;
         private TextBox PasswordTxtBox;
-        private Button button1;
+        private Button LoginBtn;
     }
 }
