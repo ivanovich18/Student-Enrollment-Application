@@ -30,15 +30,5 @@ namespace Login_Form
                 MessageBox.Show("Incorrect username or password!");
             }
         }
-
-        private void LoginBtn_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                LoginBtn.PerformClick();
-                MessageBox.Show("Enter!");
-            }
-               
-        }
     }
 }

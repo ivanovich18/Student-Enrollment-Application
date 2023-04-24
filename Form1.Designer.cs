@@ -89,7 +89,6 @@
             LoginBtn.Text = "Login";
             LoginBtn.UseVisualStyleBackColor = false;
             LoginBtn.Click += button1_Click;
-            LoginBtn.KeyDown += LoginBtn_KeyDown;
             // 
             // LoginForm
             // 

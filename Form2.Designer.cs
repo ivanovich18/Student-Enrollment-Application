@@ -30,6 +30,7 @@
         {
             button1 = new Button();
             label2 = new Label();
+            LoginBtn = new Button();
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
@@ -47,60 +48,86 @@
             // 
             // label2
             // 
+            label2.Dock = DockStyle.Top;
             label2.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(503, 63);
+            label2.Location = new Point(0, 0);
             label2.Margin = new Padding(8, 0, 8, 0);
             label2.Name = "label2";
-            label2.Size = new Size(510, 53);
+            label2.Size = new Size(1044, 190);
             label2.TabIndex = 2;
-            label2.Text = "Student Enrollment Application";
-            label2.TextAlign = ContentAlignment.TopCenter;
+            label2.Text = "Administrator Dashboard";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // LoginBtn
+            // 
+            LoginBtn.BackColor = Color.Green;
+            LoginBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            LoginBtn.ForeColor = SystemColors.ControlLightLight;
+            LoginBtn.Location = new Point(292, 203);
+            LoginBtn.Name = "LoginBtn";
+            LoginBtn.Size = new Size(219, 88);
+            LoginBtn.TabIndex = 7;
+            LoginBtn.Text = "Add Student";
+            LoginBtn.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
-            button2.Location = new Point(682, 196);
+            button2.BackColor = Color.DodgerBlue;
+            button2.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.ForeColor = SystemColors.ControlLightLight;
+            button2.Location = new Point(292, 297);
             button2.Name = "button2";
-            button2.Size = new Size(141, 64);
-            button2.TabIndex = 3;
-            button2.Text = "Add Student";
-            button2.UseVisualStyleBackColor = true;
+            button2.Size = new Size(219, 88);
+            button2.TabIndex = 8;
+            button2.Text = "Search Student";
+            button2.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
-            button3.Location = new Point(682, 275);
+            button3.BackColor = Color.Orange;
+            button3.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.ForeColor = SystemColors.ControlLightLight;
+            button3.Location = new Point(541, 203);
             button3.Name = "button3";
-            button3.Size = new Size(141, 64);
-            button3.TabIndex = 4;
-            button3.Text = "Search Student";
-            button3.UseVisualStyleBackColor = true;
+            button3.Size = new Size(219, 88);
+            button3.TabIndex = 9;
+            button3.Text = "Student Records";
+            button3.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
-            button4.Location = new Point(682, 355);
+            button4.BackColor = Color.Gray;
+            button4.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button4.ForeColor = SystemColors.ControlLightLight;
+            button4.Location = new Point(541, 297);
             button4.Name = "button4";
-            button4.Size = new Size(141, 64);
-            button4.TabIndex = 5;
-            button4.Text = "Student Records";
-            button4.UseVisualStyleBackColor = true;
+            button4.Size = new Size(219, 88);
+            button4.TabIndex = 10;
+            button4.Text = "Settings";
+            button4.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
-            button5.Location = new Point(682, 435);
+            button5.BackColor = Color.Red;
+            button5.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button5.ForeColor = SystemColors.ControlLightLight;
+            button5.Location = new Point(415, 467);
             button5.Name = "button5";
-            button5.Size = new Size(141, 64);
-            button5.TabIndex = 6;
-            button5.Text = "Settings";
-            button5.UseVisualStyleBackColor = true;
+            button5.Size = new Size(219, 88);
+            button5.TabIndex = 11;
+            button5.Text = "Logout";
+            button5.UseVisualStyleBackColor = false;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1457, 619);
+            ClientSize = new Size(1044, 623);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
+            Controls.Add(LoginBtn);
             Controls.Add(label2);
             Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
@@ -114,6 +141,7 @@
 
         private Button button1;
         private Label label2;
+        private Button LoginBtn;
         private Button button2;
         private Button button3;
         private Button button4;
