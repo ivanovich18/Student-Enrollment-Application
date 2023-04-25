@@ -403,6 +403,7 @@
             CancelBtn.TabIndex = 38;
             CancelBtn.Text = "Cancel";
             CancelBtn.UseVisualStyleBackColor = false;
+            CancelBtn.Click += CancelBtn_Click;
             // 
             // Add_Students
             // 
