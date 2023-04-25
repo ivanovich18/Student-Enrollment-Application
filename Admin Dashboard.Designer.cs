@@ -53,7 +53,7 @@
             label2.Location = new Point(0, 0);
             label2.Margin = new Padding(8, 0, 8, 0);
             label2.Name = "label2";
-            label2.Size = new Size(1044, 190);
+            label2.Size = new Size(994, 190);
             label2.TabIndex = 2;
             label2.Text = "Administrator Dashboard";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -63,7 +63,7 @@
             LoginBtn.BackColor = Color.Green;
             LoginBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             LoginBtn.ForeColor = SystemColors.ControlLightLight;
-            LoginBtn.Location = new Point(292, 203);
+            LoginBtn.Location = new Point(257, 189);
             LoginBtn.Name = "LoginBtn";
             LoginBtn.Size = new Size(219, 88);
             LoginBtn.TabIndex = 7;
@@ -76,7 +76,7 @@
             button2.BackColor = Color.DodgerBlue;
             button2.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             button2.ForeColor = SystemColors.ControlLightLight;
-            button2.Location = new Point(292, 297);
+            button2.Location = new Point(257, 283);
             button2.Name = "button2";
             button2.Size = new Size(219, 88);
             button2.TabIndex = 8;
@@ -88,7 +88,7 @@
             button3.BackColor = Color.Orange;
             button3.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             button3.ForeColor = SystemColors.ControlLightLight;
-            button3.Location = new Point(541, 203);
+            button3.Location = new Point(506, 189);
             button3.Name = "button3";
             button3.Size = new Size(219, 88);
             button3.TabIndex = 9;
@@ -100,7 +100,7 @@
             button4.BackColor = Color.Gray;
             button4.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             button4.ForeColor = SystemColors.ControlLightLight;
-            button4.Location = new Point(541, 297);
+            button4.Location = new Point(506, 283);
             button4.Name = "button4";
             button4.Size = new Size(219, 88);
             button4.TabIndex = 10;
@@ -112,7 +112,7 @@
             button5.BackColor = Color.Red;
             button5.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             button5.ForeColor = SystemColors.ControlLightLight;
-            button5.Location = new Point(415, 467);
+            button5.Location = new Point(380, 453);
             button5.Name = "button5";
             button5.Size = new Size(219, 88);
             button5.TabIndex = 11;
@@ -123,7 +123,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1044, 623);
+            ClientSize = new Size(994, 618);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
