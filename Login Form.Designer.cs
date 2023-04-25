@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             LoginLbl = new Label();
             CTULogo = new PictureBox();
             UsernameTxtBox = new TextBox();
@@ -110,6 +111,7 @@
             Controls.Add(LoginLbl);
             Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(8, 9, 8, 9);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
