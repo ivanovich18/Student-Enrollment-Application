@@ -85,7 +85,7 @@
             label2.Name = "label2";
             label2.Size = new Size(1044, 83);
             label2.TabIndex = 3;
-            label2.Text = "Add Student Form";
+            label2.Text = "New Student Form";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label3

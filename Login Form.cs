@@ -30,5 +30,10 @@ namespace Login_Form
                 MessageBox.Show("Incorrect username or password!");
             }
         }
+
+        private void UsernameTxtBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
