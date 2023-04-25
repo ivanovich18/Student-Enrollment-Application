@@ -66,6 +66,7 @@
             UsernameTxtBox.PlaceholderText = "Username";
             UsernameTxtBox.Size = new Size(377, 46);
             UsernameTxtBox.TabIndex = 2;
+            UsernameTxtBox.TextChanged += UsernameTxtBox_TextChanged;
             // 
             // PasswordTxtBox
             // 
