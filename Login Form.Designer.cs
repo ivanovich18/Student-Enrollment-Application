@@ -28,98 +28,105 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            pictureBox1 = new PictureBox();
+            components = new System.ComponentModel.Container();
+            LoginLbl = new Label();
+            CTULogo = new PictureBox();
             UsernameTxtBox = new TextBox();
             PasswordTxtBox = new TextBox();
             LoginBtn = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(components);
+            ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // LoginLbl
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(108, 406);
-            label1.Margin = new Padding(8, 0, 8, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(328, 47);
-            label1.TabIndex = 0;
-            label1.Text = "Administrator Login";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            LoginLbl.Dock = DockStyle.Top;
+            LoginLbl.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            LoginLbl.Location = new Point(0, 0);
+            LoginLbl.Margin = new Padding(8, 0, 8, 0);
+            LoginLbl.Name = "LoginLbl";
+            LoginLbl.Size = new Size(457, 491);
+            LoginLbl.TabIndex = 0;
+            LoginLbl.Text = "Administrator Login";
+            LoginLbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
+            // CTULogo
             // 
-            pictureBox1.Image = Properties.Resources.transparent_logo;
-            pictureBox1.Location = new Point(123, 125);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(295, 278);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            CTULogo.Image = Properties.Resources.transparent_logo;
+            CTULogo.Location = new Point(151, 49);
+            CTULogo.Name = "CTULogo";
+            CTULogo.Size = new Size(154, 154);
+            CTULogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            CTULogo.TabIndex = 1;
+            CTULogo.TabStop = false;
             // 
             // UsernameTxtBox
             // 
             UsernameTxtBox.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
-            UsernameTxtBox.Location = new Point(550, 197);
+            UsernameTxtBox.Location = new Point(58, 318);
             UsernameTxtBox.Name = "UsernameTxtBox";
             UsernameTxtBox.PlaceholderText = "Username";
-            UsernameTxtBox.Size = new Size(377, 46);
+            UsernameTxtBox.Size = new Size(341, 46);
             UsernameTxtBox.TabIndex = 2;
-            UsernameTxtBox.TextChanged += UsernameTxtBox_TextChanged;
             // 
             // PasswordTxtBox
             // 
             PasswordTxtBox.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
-            PasswordTxtBox.Location = new Point(550, 271);
+            PasswordTxtBox.Location = new Point(58, 384);
             PasswordTxtBox.Name = "PasswordTxtBox";
             PasswordTxtBox.PasswordChar = '*';
             PasswordTxtBox.PlaceholderText = "Password";
-            PasswordTxtBox.Size = new Size(377, 46);
+            PasswordTxtBox.Size = new Size(341, 46);
             PasswordTxtBox.TabIndex = 3;
             // 
             // LoginBtn
             // 
             LoginBtn.BackColor = Color.Orange;
-            LoginBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            LoginBtn.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             LoginBtn.ForeColor = SystemColors.ControlLightLight;
-            LoginBtn.Location = new Point(675, 347);
+            LoginBtn.Location = new Point(58, 508);
             LoginBtn.Name = "LoginBtn";
-            LoginBtn.Size = new Size(124, 56);
+            LoginBtn.Size = new Size(341, 65);
             LoginBtn.TabIndex = 4;
             LoginBtn.Text = "Login";
             LoginBtn.UseVisualStyleBackColor = false;
             LoginBtn.Click += button1_Click;
+            // 
+            // bunifuElipse1
+            // 
+            bunifuElipse1.ElipseRadius = 15;
+            bunifuElipse1.TargetControl = this;
             // 
             // LoginForm
             // 
             AcceptButton = LoginBtn;
             AutoScaleDimensions = new SizeF(19F, 47F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1044, 623);
+            ClientSize = new Size(457, 663);
             Controls.Add(LoginBtn);
             Controls.Add(PasswordTxtBox);
             Controls.Add(UsernameTxtBox);
-            Controls.Add(pictureBox1);
-            Controls.Add(label1);
+            Controls.Add(CTULogo);
+            Controls.Add(LoginLbl);
             Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(8, 9, 8, 9);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Student Enrollment Application";
+            Text = "Login Form";
             Load += LoginForm_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CTULogo).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private PictureBox pictureBox1;
+        private Label LoginLbl;
+        private PictureBox CTULogo;
         private TextBox UsernameTxtBox;
         private TextBox PasswordTxtBox;
         private Button LoginBtn;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

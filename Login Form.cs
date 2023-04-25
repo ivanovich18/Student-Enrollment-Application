@@ -32,10 +32,5 @@ namespace Login_Form
                 //Added a comment by Aldrin
             }
         }
-
-        private void UsernameTxtBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
