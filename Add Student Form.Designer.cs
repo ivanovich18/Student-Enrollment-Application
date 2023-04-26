@@ -1,4 +1,6 @@
-﻿namespace Login_Form
+﻿using System.Windows.Forms;
+
+namespace Login_Form
 {
     partial class Add_Students
     {
@@ -57,11 +59,14 @@
             pictureBox3 = new PictureBox();
             OpenCameraBtn = new Button();
             UploadImageBtn = new Button();
+            BirthdayPanel = new Panel();
+            BirthdayLbl = new Label();
             ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddStudentPic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            BirthdayPanel.SuspendLayout();
             SuspendLayout();
             // 
             // AddStudentLbl
@@ -84,7 +89,6 @@
             StudentNumberTxtBox.Margin = new Padding(13);
             StudentNumberTxtBox.Name = "StudentNumberTxtBox";
             StudentNumberTxtBox.PlaceholderText = " Student Number";
-            StudentNumberTxtBox.ReadOnly = true;
             StudentNumberTxtBox.Size = new Size(394, 39);
             StudentNumberTxtBox.TabIndex = 18;
             // 
@@ -186,7 +190,6 @@
             StudentIDTxtBox.Margin = new Padding(13);
             StudentIDTxtBox.Name = "StudentIDTxtBox";
             StudentIDTxtBox.PlaceholderText = " Student ID";
-            StudentIDTxtBox.ReadOnly = true;
             StudentIDTxtBox.Size = new Size(394, 39);
             StudentIDTxtBox.TabIndex = 47;
             // 
@@ -255,16 +258,18 @@
             BirthdayPicker.CalendarFont = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             BirthdayPicker.CalendarTitleBackColor = SystemColors.ControlText;
             BirthdayPicker.CalendarTitleForeColor = Color.DimGray;
+            BirthdayPicker.CustomFormat = " MM/dd/yyyy";
             BirthdayPicker.DropDownAlign = LeftRightAlignment.Right;
             BirthdayPicker.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            BirthdayPicker.Location = new Point(455, 626);
+            BirthdayPicker.Format = DateTimePickerFormat.Custom;
+            BirthdayPicker.Location = new Point(134, -1);
             BirthdayPicker.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
             BirthdayPicker.MaximumSize = new Size(394, 39);
             BirthdayPicker.MinDate = new DateTime(1980, 1, 1, 0, 0, 0, 0);
             BirthdayPicker.Name = "BirthdayPicker";
-            BirthdayPicker.Size = new Size(394, 39);
+            BirthdayPicker.Size = new Size(259, 39);
             BirthdayPicker.TabIndex = 53;
-            BirthdayPicker.Value = new DateTime(2023, 4, 26, 13, 23, 9, 0);
+            BirthdayPicker.Value = new DateTime(2023, 4, 25, 0, 0, 0, 0);
             // 
             // GenderCmbBox
             // 
@@ -400,11 +405,35 @@
             UploadImageBtn.Text = "Upload Image";
             UploadImageBtn.UseVisualStyleBackColor = false;
             // 
+            // BirthdayPanel
+            // 
+            BirthdayPanel.BackColor = Color.White;
+            BirthdayPanel.BorderStyle = BorderStyle.FixedSingle;
+            BirthdayPanel.Controls.Add(BirthdayLbl);
+            BirthdayPanel.Controls.Add(BirthdayPicker);
+            BirthdayPanel.Location = new Point(455, 629);
+            BirthdayPanel.Name = "BirthdayPanel";
+            BirthdayPanel.Size = new Size(394, 39);
+            BirthdayPanel.TabIndex = 65;
+            // 
+            // BirthdayLbl
+            // 
+            BirthdayLbl.AutoSize = true;
+            BirthdayLbl.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            BirthdayLbl.ForeColor = Color.DimGray;
+            BirthdayLbl.Location = new Point(3, 2);
+            BirthdayLbl.Name = "BirthdayLbl";
+            BirthdayLbl.Size = new Size(102, 32);
+            BirthdayLbl.TabIndex = 66;
+            BirthdayLbl.Text = "Birthday";
+            BirthdayLbl.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // Add_Students
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1504, 827);
+            Controls.Add(BirthdayPanel);
             Controls.Add(UploadImageBtn);
             Controls.Add(OpenCameraBtn);
             Controls.Add(pictureBox3);
@@ -416,7 +445,6 @@
             Controls.Add(CurrentAddressTxtBox);
             Controls.Add(BirthPlaceTxtBox);
             Controls.Add(GenderCmbBox);
-            Controls.Add(BirthdayPicker);
             Controls.Add(ExtensionNameCmbBox);
             Controls.Add(AgeTxtBox);
             Controls.Add(MiddleNameTxtBox);
@@ -443,6 +471,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            BirthdayPanel.ResumeLayout(false);
+            BirthdayPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -508,5 +538,7 @@
         private PictureBox pictureBox3;
         private Button OpenCameraBtn;
         private Button UploadImageBtn;
+        private Panel BirthdayPanel;
+        private Label BirthdayLbl;
     }
 }
