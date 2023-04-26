@@ -38,6 +38,8 @@
             button4 = new Button();
             bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(components);
             LeftPnl = new Panel();
+            pictureBox3 = new PictureBox();
+            LogoutBtn = new Button();
             ProjectTitleLbl = new Label();
             CTULogo = new PictureBox();
             FooterLbl = new Label();
@@ -45,15 +47,13 @@
             RecordsPic = new PictureBox();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            LogoutBtn = new Button();
             LeftPnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddStudentPic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RecordsPic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -143,14 +143,37 @@
             LeftPnl.Size = new Size(372, 663);
             LeftPnl.TabIndex = 12;
             // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.Orange;
+            pictureBox3.Image = Properties.Resources.logout;
+            pictureBox3.Location = new Point(34, 63);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(46, 40);
+            pictureBox3.TabIndex = 19;
+            pictureBox3.TabStop = false;
+            // 
+            // LogoutBtn
+            // 
+            LogoutBtn.FlatAppearance.BorderSize = 0;
+            LogoutBtn.FlatStyle = FlatStyle.Flat;
+            LogoutBtn.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            LogoutBtn.ForeColor = Color.White;
+            LogoutBtn.Location = new Point(34, 57);
+            LogoutBtn.Name = "LogoutBtn";
+            LogoutBtn.Size = new Size(147, 48);
+            LogoutBtn.TabIndex = 18;
+            LogoutBtn.Text = "       Logout";
+            LogoutBtn.UseVisualStyleBackColor = true;
+            // 
             // ProjectTitleLbl
             // 
             ProjectTitleLbl.AutoSize = true;
-            ProjectTitleLbl.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            ProjectTitleLbl.Font = new Font("Segoe UI", 18.75F, FontStyle.Bold, GraphicsUnit.Point);
             ProjectTitleLbl.ForeColor = Color.White;
-            ProjectTitleLbl.Location = new Point(25, 396);
+            ProjectTitleLbl.Location = new Point(35, 375);
             ProjectTitleLbl.Name = "ProjectTitleLbl";
-            ProjectTitleLbl.Size = new Size(324, 74);
+            ProjectTitleLbl.Size = new Size(301, 70);
             ProjectTitleLbl.TabIndex = 14;
             ProjectTitleLbl.Text = "STUDENT ENROLLMENT\r\nAPPLICATION\r\n";
             ProjectTitleLbl.TextAlign = ContentAlignment.MiddleCenter;
@@ -158,7 +181,7 @@
             // CTULogo
             // 
             CTULogo.Image = Properties.Resources.transparent_logo;
-            CTULogo.Location = new Point(77, 171);
+            CTULogo.Location = new Point(75, 147);
             CTULogo.Name = "CTULogo";
             CTULogo.Size = new Size(222, 222);
             CTULogo.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -218,29 +241,6 @@
             pictureBox2.TabIndex = 16;
             pictureBox2.TabStop = false;
             // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = Color.Orange;
-            pictureBox3.Image = Properties.Resources.logout;
-            pictureBox3.Location = new Point(45, 67);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(46, 40);
-            pictureBox3.TabIndex = 19;
-            pictureBox3.TabStop = false;
-            // 
-            // LogoutBtn
-            // 
-            LogoutBtn.FlatAppearance.BorderSize = 0;
-            LogoutBtn.FlatStyle = FlatStyle.Flat;
-            LogoutBtn.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            LogoutBtn.ForeColor = Color.White;
-            LogoutBtn.Location = new Point(45, 66);
-            LogoutBtn.Name = "LogoutBtn";
-            LogoutBtn.Size = new Size(147, 39);
-            LogoutBtn.TabIndex = 18;
-            LogoutBtn.Text = "       Logout";
-            LogoutBtn.UseVisualStyleBackColor = true;
-            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -264,12 +264,12 @@
             Load += Form2_Load;
             LeftPnl.ResumeLayout(false);
             LeftPnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)CTULogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)AddStudentPic).EndInit();
             ((System.ComponentModel.ISupportInitialize)RecordsPic).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
