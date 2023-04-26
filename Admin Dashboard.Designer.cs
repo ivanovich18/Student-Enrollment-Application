@@ -100,6 +100,7 @@
             SearchStudentBtn.TabIndex = 8;
             SearchStudentBtn.Text = "           Search Student";
             SearchStudentBtn.UseVisualStyleBackColor = false;
+            SearchStudentBtn.Click += SearchStudentBtn_Click;
             // 
             // StudentRecordsBtn
             // 

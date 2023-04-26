@@ -36,5 +36,12 @@ namespace Login_Form
             StudentRecordsForm studentRecordsForm = new StudentRecordsForm();
             studentRecordsForm.ShowDialog();
         }
+
+        private void SearchStudentBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SearchStudentForm searchStudentForm = new SearchStudentForm();
+            searchStudentForm.ShowDialog();
+        }
     }
 }
