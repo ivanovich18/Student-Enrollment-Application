@@ -54,10 +54,14 @@
             StudentTypeCmbBox = new ComboBox();
             DepartmentCmbBox = new ComboBox();
             ProgramCmbBox = new ComboBox();
+            pictureBox3 = new PictureBox();
+            OpenCameraBtn = new Button();
+            UploadImageBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddStudentPic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // AddStudentLbl
@@ -76,7 +80,7 @@
             StudentNumberTxtBox.BackColor = Color.White;
             StudentNumberTxtBox.BorderStyle = BorderStyle.FixedSingle;
             StudentNumberTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            StudentNumberTxtBox.Location = new Point(273, 223);
+            StudentNumberTxtBox.Location = new Point(428, 234);
             StudentNumberTxtBox.Margin = new Padding(13);
             StudentNumberTxtBox.Name = "StudentNumberTxtBox";
             StudentNumberTxtBox.PlaceholderText = "   Student Number";
@@ -176,7 +180,7 @@
             StudentIDTxtBox.BackColor = Color.White;
             StudentIDTxtBox.BorderStyle = BorderStyle.FixedSingle;
             StudentIDTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            StudentIDTxtBox.Location = new Point(273, 285);
+            StudentIDTxtBox.Location = new Point(428, 296);
             StudentIDTxtBox.Margin = new Padding(13);
             StudentIDTxtBox.Name = "StudentIDTxtBox";
             StudentIDTxtBox.PlaceholderText = "   Student ID";
@@ -188,7 +192,7 @@
             LastNameTxtBox.BackColor = Color.White;
             LastNameTxtBox.BorderStyle = BorderStyle.FixedSingle;
             LastNameTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            LastNameTxtBox.Location = new Point(273, 350);
+            LastNameTxtBox.Location = new Point(428, 361);
             LastNameTxtBox.Margin = new Padding(13);
             LastNameTxtBox.Name = "LastNameTxtBox";
             LastNameTxtBox.PlaceholderText = "   Last Name";
@@ -200,7 +204,7 @@
             FirstNameTxtBox.BackColor = Color.White;
             FirstNameTxtBox.BorderStyle = BorderStyle.FixedSingle;
             FirstNameTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            FirstNameTxtBox.Location = new Point(273, 415);
+            FirstNameTxtBox.Location = new Point(428, 426);
             FirstNameTxtBox.Margin = new Padding(13);
             FirstNameTxtBox.Name = "FirstNameTxtBox";
             FirstNameTxtBox.PlaceholderText = "   First Name";
@@ -212,7 +216,7 @@
             MiddleNameTxtBox.BackColor = Color.White;
             MiddleNameTxtBox.BorderStyle = BorderStyle.FixedSingle;
             MiddleNameTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            MiddleNameTxtBox.Location = new Point(273, 480);
+            MiddleNameTxtBox.Location = new Point(428, 491);
             MiddleNameTxtBox.Margin = new Padding(13);
             MiddleNameTxtBox.Name = "MiddleNameTxtBox";
             MiddleNameTxtBox.PlaceholderText = "   Middle Name";
@@ -224,7 +228,7 @@
             AgeTxtBox.BackColor = Color.White;
             AgeTxtBox.BorderStyle = BorderStyle.FixedSingle;
             AgeTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            AgeTxtBox.Location = new Point(760, 223);
+            AgeTxtBox.Location = new Point(915, 234);
             AgeTxtBox.Margin = new Padding(13);
             AgeTxtBox.Name = "AgeTxtBox";
             AgeTxtBox.PlaceholderText = "   Age";
@@ -236,7 +240,7 @@
             ExtensionNameCmbBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             ExtensionNameCmbBox.FormattingEnabled = true;
             ExtensionNameCmbBox.Items.AddRange(new object[] { "Jr.", "Sr.", "I", "II", "III", "IV" });
-            ExtensionNameCmbBox.Location = new Point(273, 544);
+            ExtensionNameCmbBox.Location = new Point(428, 555);
             ExtensionNameCmbBox.Name = "ExtensionNameCmbBox";
             ExtensionNameCmbBox.Size = new Size(394, 40);
             ExtensionNameCmbBox.TabIndex = 52;
@@ -246,7 +250,7 @@
             // 
             BirthdayPicker.CalendarFont = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             BirthdayPicker.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            BirthdayPicker.Location = new Point(273, 607);
+            BirthdayPicker.Location = new Point(428, 618);
             BirthdayPicker.MaximumSize = new Size(394, 39);
             BirthdayPicker.Name = "BirthdayPicker";
             BirthdayPicker.Size = new Size(394, 39);
@@ -258,7 +262,7 @@
             GenderCmbBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             GenderCmbBox.FormattingEnabled = true;
             GenderCmbBox.Items.AddRange(new object[] { "Male", "Female", "Non-binary" });
-            GenderCmbBox.Location = new Point(273, 670);
+            GenderCmbBox.Location = new Point(428, 681);
             GenderCmbBox.Name = "GenderCmbBox";
             GenderCmbBox.Size = new Size(394, 40);
             GenderCmbBox.TabIndex = 54;
@@ -269,7 +273,7 @@
             BirthPlaceTxtBox.BackColor = Color.White;
             BirthPlaceTxtBox.BorderStyle = BorderStyle.FixedSingle;
             BirthPlaceTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            BirthPlaceTxtBox.Location = new Point(760, 285);
+            BirthPlaceTxtBox.Location = new Point(915, 296);
             BirthPlaceTxtBox.Margin = new Padding(13);
             BirthPlaceTxtBox.Name = "BirthPlaceTxtBox";
             BirthPlaceTxtBox.PlaceholderText = "   Place of Birth";
@@ -281,7 +285,7 @@
             CurrentAddressTxtBox.BackColor = Color.White;
             CurrentAddressTxtBox.BorderStyle = BorderStyle.FixedSingle;
             CurrentAddressTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            CurrentAddressTxtBox.Location = new Point(760, 350);
+            CurrentAddressTxtBox.Location = new Point(915, 361);
             CurrentAddressTxtBox.Margin = new Padding(13);
             CurrentAddressTxtBox.Name = "CurrentAddressTxtBox";
             CurrentAddressTxtBox.PlaceholderText = "   Current Address";
@@ -293,7 +297,7 @@
             PermanentAddressTxtBox.BackColor = Color.White;
             PermanentAddressTxtBox.BorderStyle = BorderStyle.FixedSingle;
             PermanentAddressTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            PermanentAddressTxtBox.Location = new Point(760, 415);
+            PermanentAddressTxtBox.Location = new Point(915, 426);
             PermanentAddressTxtBox.Margin = new Padding(13);
             PermanentAddressTxtBox.Name = "PermanentAddressTxtBox";
             PermanentAddressTxtBox.PlaceholderText = "   Permanent Address";
@@ -306,7 +310,7 @@
             AcademicYearCmbBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             AcademicYearCmbBox.FormattingEnabled = true;
             AcademicYearCmbBox.Items.AddRange(new object[] { "2023 - 2024", "2024 - 2025", "2025 - 2026", "2026 - 2027", "2027 - 2028", "2028 - 2029", "2029 - 2030" });
-            AcademicYearCmbBox.Location = new Point(760, 480);
+            AcademicYearCmbBox.Location = new Point(915, 491);
             AcademicYearCmbBox.Name = "AcademicYearCmbBox";
             AcademicYearCmbBox.Size = new Size(394, 40);
             AcademicYearCmbBox.TabIndex = 58;
@@ -318,7 +322,7 @@
             StudentTypeCmbBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             StudentTypeCmbBox.FormattingEnabled = true;
             StudentTypeCmbBox.Items.AddRange(new object[] { "New", "Returnee", "Transferee" });
-            StudentTypeCmbBox.Location = new Point(760, 544);
+            StudentTypeCmbBox.Location = new Point(915, 555);
             StudentTypeCmbBox.Name = "StudentTypeCmbBox";
             StudentTypeCmbBox.Size = new Size(394, 40);
             StudentTypeCmbBox.TabIndex = 59;
@@ -330,7 +334,7 @@
             DepartmentCmbBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             DepartmentCmbBox.FormattingEnabled = true;
             DepartmentCmbBox.Items.AddRange(new object[] { "College of Arts and Sciences (CAS)", "College of Computer, Information and Communications Technology (CCICT)", "College of Education (COEd)", "College of Engineering (COE)", "College of Management and Entrepreneurship (CME)", "College of Technology (COT)" });
-            DepartmentCmbBox.Location = new Point(760, 606);
+            DepartmentCmbBox.Location = new Point(915, 617);
             DepartmentCmbBox.Name = "DepartmentCmbBox";
             DepartmentCmbBox.Size = new Size(394, 40);
             DepartmentCmbBox.TabIndex = 60;
@@ -342,17 +346,54 @@
             ProgramCmbBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             ProgramCmbBox.FormattingEnabled = true;
             ProgramCmbBox.Items.AddRange(new object[] { "-- College of Management and Entrepreneurship (CME) --", "Bachelor of Science in Business Administration major in Marketing Management (BSBA-MM)", "Bachelor of Science in Hospitality Management (BSHM)", "Bachelor of Public Administration (BPA)", "Bachelor of Science in Tourism Management (BSTM)", "", "-- College of Technology (COT) --", "Bachelor of Science in Graphics and Design (BSGD)", "Bachelor of Science in Mechatronics (BSMx)", "Bachelor of Science in Technology Management (BSTechM)", "Bachelor of Industrial Technology (BIT) - Automotive Technology", "Bachelor of Industrial Technology (BIT) - Civil Technology", "Bachelor of Industrial Technology (BIT) - Cosmetology", "Bachelor of Industrial Technology (BIT) - Drafting Technology", "Bachelor of Industrial Technology (BIT) - Electrical Technology", "Bachelor of Industrial Technology (BIT) - Electronics Technoloqy", "Bachelor of Industrial Technology (BIT) - Furniture and Cabinetwaking Technology", "Bachelor of Industrial Technology (BIT) - Food Preparation and Services Technology", "Bachelor of Industrial Technology (BIT) - Garments Technology", "Bachelor of Industrial Technology (BIT) - Interior Design Technology", "Bachelor of Industrial Technology (BIT) - Machine Shop Technology", "Bachelor of Industrial Technology (BIT) - Power Plant Technoloay", "Bachelor of Industrial Technology (BIT) - Refrigeration and Air Conditioning-Technology", "Bachelor of Industrial Technology (BIT) - Welding and Fabrication Technology", "", "-- College Of Education (COEd) --", "Bachelor of Elementary Education (BEEd)", "Bachelor of Secondary Education (BSEd) - Mathematics", "Bachelor of Secondary Education (BSEd) - Science", "Bachelor of Secondary Education (BSEd) - Filipino", "Bachelor of Secondary Education (BSEd) - Social Studies", "Bachelor of Technology and Livelihood Education (BTLEd) - Home Economics", "Bachelor of Technology and Livelihood Education (BTLEd) - Information and Communication Technology", "Bachelor of Technology and Livelihood Education (BTLEd) - Industrial Arts", "Bachelor of Early Childhood Education (BECEd)", "Bachelor of Special Needs Education (BSNEd)", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Automotive Technology", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Civil and Construction Technology", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Drafting Technology", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Electrical Technology", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Electronics Technology", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Garments and Fashion Design", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Food and Service Management", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Welding and Fabricatipn Technology", "Certificate of Technology (CT) - Computer Technology (for deaf student-applicants only)", "Certificate of Technology (CT) - Food Technology (for deaf student-applicants only)", "", "-- College of Arts and Sciences (CAS) --", "Bachelor of Arts in English Languape (BAEL) - English Language Studies as a DiscipIine (ELSD)", "Bachelor of Arts in English Languape (BAEL) - English Language Across Professions (ELAP)", "Bachelor of Arts in Literature (BAL) - Literary Cultural Studies (LCS)", "Bachelor of Arts in Literature (BAL) - Literature Across Professions (LAP)", "Bachelor of Science in Biology (BS Bio) - Ecology", "Bachelor of Science in Development Communication (BS Dev Com)", "Batsilyer ng Sining sa Filipino( BAF)", "Bachelor ot Science in Mathematics (BS Math)", "Bachelor of Science in Psychology (BS Psych)", "Bachelor of Science in Statistics (BS Stat)", "Bachelor of Science in Nursing (BSN) at Cebu City Medical Center - College of Nursing (CCMC-CN)", "", "-- College of Engineering (COE) --", "", "Bachelor of Science in Aerospace Engineering (BSAsE)", "Bachelor of Science in Civil Engineering (BSCE)", "Bachelor of Science in Computer Engineering (BSCpE)", "Bachelor of Science in Electronics Engineering (BSECE)", "Bachelor of Science in Electrical Engineering (BSEE)", "Bachelor of Science in Industrial Engineering (BSIE)", "Bachelor of Science in Mechanical Engineering (BSME)", "", "-- College Of Computer, Information and Communications Technology (CCICT) --", "Bachelor of Science in Information Technology (BSIT)", "Bachelor of Science in Information Systems (BSIS)", "Bachelor of Industrial Technology - Computer Technology (BIT-CT)" });
-            ProgramCmbBox.Location = new Point(760, 670);
+            ProgramCmbBox.Location = new Point(915, 681);
             ProgramCmbBox.Name = "ProgramCmbBox";
             ProgramCmbBox.Size = new Size(394, 40);
             ProgramCmbBox.TabIndex = 61;
             ProgramCmbBox.Text = "   Program";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.image;
+            pictureBox3.Location = new Point(172, 212);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(150, 150);
+            pictureBox3.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox3.TabIndex = 62;
+            pictureBox3.TabStop = false;
+            // 
+            // OpenCameraBtn
+            // 
+            OpenCameraBtn.BackColor = Color.Orange;
+            OpenCameraBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            OpenCameraBtn.ForeColor = SystemColors.ControlLightLight;
+            OpenCameraBtn.Location = new Point(148, 381);
+            OpenCameraBtn.Name = "OpenCameraBtn";
+            OpenCameraBtn.Size = new Size(196, 43);
+            OpenCameraBtn.TabIndex = 63;
+            OpenCameraBtn.Text = "Open Camera";
+            OpenCameraBtn.UseVisualStyleBackColor = false;
+            // 
+            // UploadImageBtn
+            // 
+            UploadImageBtn.BackColor = Color.Orange;
+            UploadImageBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            UploadImageBtn.ForeColor = SystemColors.ControlLightLight;
+            UploadImageBtn.Location = new Point(148, 441);
+            UploadImageBtn.Name = "UploadImageBtn";
+            UploadImageBtn.Size = new Size(196, 43);
+            UploadImageBtn.TabIndex = 64;
+            UploadImageBtn.Text = "Upload Image";
+            UploadImageBtn.UseVisualStyleBackColor = false;
             // 
             // Add_Students
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1504, 827);
+            Controls.Add(UploadImageBtn);
+            Controls.Add(OpenCameraBtn);
+            Controls.Add(pictureBox3);
             Controls.Add(ProgramCmbBox);
             Controls.Add(DepartmentCmbBox);
             Controls.Add(StudentTypeCmbBox);
@@ -387,6 +428,7 @@
             ((System.ComponentModel.ISupportInitialize)AddStudentPic).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -449,5 +491,8 @@
         private ComboBox StudentTypeCmbBox;
         private ComboBox DepartmentCmbBox;
         private ComboBox ProgramCmbBox;
+        private PictureBox pictureBox3;
+        private Button OpenCameraBtn;
+        private Button UploadImageBtn;
     }
 }
