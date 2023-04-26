@@ -30,7 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            LoginLbl = new Label();
             CTULogo = new PictureBox();
             UsernameTxtBox = new TextBox();
             PasswordTxtBox = new TextBox();
@@ -40,24 +39,13 @@
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
             pictureBox2 = new PictureBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
-            // 
-            // LoginLbl
-            // 
-            LoginLbl.Dock = DockStyle.Top;
-            LoginLbl.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            LoginLbl.Location = new Point(0, 0);
-            LoginLbl.Margin = new Padding(8, 0, 8, 0);
-            LoginLbl.Name = "LoginLbl";
-            LoginLbl.Size = new Size(457, 491);
-            LoginLbl.TabIndex = 0;
-            LoginLbl.Text = "Administrator Login";
-            LoginLbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // CTULogo
             // 
@@ -146,17 +134,28 @@
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
             // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(58, 224);
+            label1.Margin = new Padding(8, 0, 8, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(341, 42);
+            label1.TabIndex = 8;
+            label1.Text = "Administrator Login";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // LoginForm
             // 
             AcceptButton = LoginBtn;
             AutoScaleDimensions = new SizeF(19F, 47F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(457, 663);
+            Controls.Add(label1);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(LoginBtn);
             Controls.Add(CTULogo);
-            Controls.Add(LoginLbl);
             Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -176,8 +175,6 @@
         }
 
         #endregion
-
-        private Label LoginLbl;
         private PictureBox CTULogo;
         private TextBox UsernameTxtBox;
         private TextBox PasswordTxtBox;
@@ -187,5 +184,6 @@
         private PictureBox pictureBox1;
         private Panel panel2;
         private PictureBox pictureBox2;
+        private Label label1;
     }
 }
