@@ -150,7 +150,7 @@
             // 
             pictureBox3.BackColor = Color.Orange;
             pictureBox3.Image = Properties.Resources.search_new;
-            pictureBox3.Location = new Point(447, 480);
+            pictureBox3.Location = new Point(446, 480);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(34, 34);
             pictureBox3.SizeMode = PictureBoxSizeMode.AutoSize;
