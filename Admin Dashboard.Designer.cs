@@ -33,9 +33,9 @@
             button1 = new Button();
             label2 = new Label();
             AddStudentBtn = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            SearchStudentBtn = new Button();
+            StudentRecordsBtn = new Button();
+            SettingsBtn = new Button();
             bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(components);
             LeftPnl = new Panel();
             pictureBox3 = new PictureBox();
@@ -89,41 +89,42 @@
             AddStudentBtn.UseVisualStyleBackColor = false;
             AddStudentBtn.Click += AddStudentBtn_Click;
             // 
-            // button2
+            // SearchStudentBtn
             // 
-            button2.BackColor = Color.Orange;
-            button2.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.ForeColor = SystemColors.ControlLightLight;
-            button2.Location = new Point(517, 389);
-            button2.Name = "button2";
-            button2.Size = new Size(347, 98);
-            button2.TabIndex = 8;
-            button2.Text = "           Search Student";
-            button2.UseVisualStyleBackColor = false;
+            SearchStudentBtn.BackColor = Color.Orange;
+            SearchStudentBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            SearchStudentBtn.ForeColor = SystemColors.ControlLightLight;
+            SearchStudentBtn.Location = new Point(517, 389);
+            SearchStudentBtn.Name = "SearchStudentBtn";
+            SearchStudentBtn.Size = new Size(347, 98);
+            SearchStudentBtn.TabIndex = 8;
+            SearchStudentBtn.Text = "           Search Student";
+            SearchStudentBtn.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // StudentRecordsBtn
             // 
-            button3.BackColor = Color.Orange;
-            button3.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.ForeColor = SystemColors.ControlLightLight;
-            button3.Location = new Point(517, 268);
-            button3.Name = "button3";
-            button3.Size = new Size(347, 98);
-            button3.TabIndex = 9;
-            button3.Text = "             Student Records";
-            button3.UseVisualStyleBackColor = false;
+            StudentRecordsBtn.BackColor = Color.Orange;
+            StudentRecordsBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            StudentRecordsBtn.ForeColor = SystemColors.ControlLightLight;
+            StudentRecordsBtn.Location = new Point(517, 268);
+            StudentRecordsBtn.Name = "StudentRecordsBtn";
+            StudentRecordsBtn.Size = new Size(347, 98);
+            StudentRecordsBtn.TabIndex = 9;
+            StudentRecordsBtn.Text = "             Student Records";
+            StudentRecordsBtn.UseVisualStyleBackColor = false;
+            StudentRecordsBtn.Click += StudentRecordsBtn_Click;
             // 
-            // button4
+            // SettingsBtn
             // 
-            button4.BackColor = Color.Orange;
-            button4.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.ForeColor = SystemColors.ControlLightLight;
-            button4.Location = new Point(517, 510);
-            button4.Name = "button4";
-            button4.Size = new Size(347, 98);
-            button4.TabIndex = 10;
-            button4.Text = "Settings";
-            button4.UseVisualStyleBackColor = false;
+            SettingsBtn.BackColor = Color.Orange;
+            SettingsBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            SettingsBtn.ForeColor = SystemColors.ControlLightLight;
+            SettingsBtn.Location = new Point(517, 510);
+            SettingsBtn.Name = "SettingsBtn";
+            SettingsBtn.Size = new Size(347, 98);
+            SettingsBtn.TabIndex = 10;
+            SettingsBtn.Text = "Settings";
+            SettingsBtn.UseVisualStyleBackColor = false;
             // 
             // bunifuElipse1
             // 
@@ -255,9 +256,9 @@
             Controls.Add(RecordsPic);
             Controls.Add(AddStudentPic);
             Controls.Add(LeftPnl);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(SettingsBtn);
+            Controls.Add(StudentRecordsBtn);
+            Controls.Add(SearchStudentBtn);
             Controls.Add(AddStudentBtn);
             Controls.Add(label2);
             Controls.Add(button1);
@@ -283,9 +284,9 @@
         private Button button1;
         private Label label2;
         private Button LoginBtn;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button SearchStudentBtn;
+        private Button StudentRecordsBtn;
+        private Button SettingsBtn;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Panel LeftPnl;
         private Label FooterLbl;
