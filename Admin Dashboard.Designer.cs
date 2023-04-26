@@ -38,7 +38,6 @@
             button4 = new Button();
             bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(components);
             LeftPnl = new Panel();
-            LogoutBtn = new Button();
             ProjectTitleLbl = new Label();
             CTULogo = new PictureBox();
             FooterLbl = new Label();
@@ -46,12 +45,15 @@
             RecordsPic = new PictureBox();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            LogoutBtn = new Button();
             LeftPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddStudentPic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RecordsPic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -131,6 +133,7 @@
             // LeftPnl
             // 
             LeftPnl.BackColor = Color.Orange;
+            LeftPnl.Controls.Add(pictureBox3);
             LeftPnl.Controls.Add(LogoutBtn);
             LeftPnl.Controls.Add(ProjectTitleLbl);
             LeftPnl.Controls.Add(CTULogo);
@@ -139,16 +142,6 @@
             LeftPnl.Name = "LeftPnl";
             LeftPnl.Size = new Size(372, 663);
             LeftPnl.TabIndex = 12;
-            // 
-            // LogoutBtn
-            // 
-            LogoutBtn.FlatStyle = FlatStyle.Flat;
-            LogoutBtn.Location = new Point(25, 57);
-            LogoutBtn.Name = "LogoutBtn";
-            LogoutBtn.Size = new Size(120, 54);
-            LogoutBtn.TabIndex = 15;
-            LogoutBtn.Text = "Logout";
-            LogoutBtn.UseVisualStyleBackColor = true;
             // 
             // ProjectTitleLbl
             // 
@@ -225,6 +218,29 @@
             pictureBox2.TabIndex = 16;
             pictureBox2.TabStop = false;
             // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.Orange;
+            pictureBox3.Image = Properties.Resources.logout;
+            pictureBox3.Location = new Point(45, 67);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(46, 40);
+            pictureBox3.TabIndex = 19;
+            pictureBox3.TabStop = false;
+            // 
+            // LogoutBtn
+            // 
+            LogoutBtn.FlatAppearance.BorderSize = 0;
+            LogoutBtn.FlatStyle = FlatStyle.Flat;
+            LogoutBtn.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            LogoutBtn.ForeColor = Color.White;
+            LogoutBtn.Location = new Point(45, 66);
+            LogoutBtn.Name = "LogoutBtn";
+            LogoutBtn.Size = new Size(147, 39);
+            LogoutBtn.TabIndex = 18;
+            LogoutBtn.Text = "       Logout";
+            LogoutBtn.UseVisualStyleBackColor = true;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -253,6 +269,7 @@
             ((System.ComponentModel.ISupportInitialize)RecordsPic).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -268,7 +285,6 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Panel LeftPnl;
         private Label FooterLbl;
-        private Button LogoutBtn;
         private Label ProjectTitleLbl;
         private PictureBox CTULogo;
         private Panel Add;
@@ -278,5 +294,7 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private PictureBox RecordsPic;
+        private PictureBox pictureBox3;
+        private Button LogoutBtn;
     }
 }
