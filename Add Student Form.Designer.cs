@@ -65,6 +65,8 @@
             RegisterBtn = new Button();
             ClearBtn = new Button();
             CancelBtn = new Button();
+            CTULogo = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -405,12 +407,23 @@
             CancelBtn.UseVisualStyleBackColor = false;
             CancelBtn.Click += CancelBtn_Click;
             // 
+            // CTULogo
+            // 
+            CTULogo.Image = Properties.Resources.transparent_logo;
+            CTULogo.Location = new Point(105, 25);
+            CTULogo.Name = "CTULogo";
+            CTULogo.Size = new Size(117, 117);
+            CTULogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            CTULogo.TabIndex = 39;
+            CTULogo.TabStop = false;
+            // 
             // Add_Students
             // 
             AcceptButton = RegisterBtn;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1504, 827);
+            Controls.Add(CTULogo);
             Controls.Add(CancelBtn);
             Controls.Add(ClearBtn);
             Controls.Add(RegisterBtn);
@@ -452,6 +465,7 @@
             Name = "Add_Students";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Student";
+            ((System.ComponentModel.ISupportInitialize)CTULogo).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -494,5 +508,6 @@
         private Button RegisterBtn;
         private Button ClearBtn;
         private Button CancelBtn;
+        private PictureBox CTULogo;
     }
 }
