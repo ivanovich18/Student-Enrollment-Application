@@ -432,6 +432,7 @@ namespace Login_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1504, 827);
             Controls.Add(BirthdayPanel);
             Controls.Add(UploadImageBtn);

@@ -36,5 +36,5 @@ namespace Login_Form
                 //Added a comment by Aldrin
             */
         }
-        }
     }
+}
