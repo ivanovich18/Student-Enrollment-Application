@@ -29,443 +29,252 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_Students));
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            label12 = new Label();
-            label13 = new Label();
-            label14 = new Label();
-            label15 = new Label();
-            label16 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            textBox7 = new TextBox();
-            textBox8 = new TextBox();
-            textBox9 = new TextBox();
-            textBox10 = new TextBox();
-            textBox11 = new TextBox();
-            textBox13 = new TextBox();
-            textBox14 = new TextBox();
-            textBox12 = new TextBox();
-            textBox15 = new TextBox();
-            label17 = new Label();
-            textBox16 = new TextBox();
-            RegisterBtn = new Button();
-            ClearBtn = new Button();
-            CancelBtn = new Button();
+            AddStudentLbl = new Label();
+            StudentNumberTxtBox = new TextBox();
             CTULogo = new PictureBox();
+            AddStudentPnl = new Panel();
+            AddStudentPic = new PictureBox();
+            AddStudentBtn = new Button();
+            pictureBox1 = new PictureBox();
+            ClearBtn = new Button();
+            pictureBox2 = new PictureBox();
+            BackBtn = new Button();
+            StudentIDTxtBox = new TextBox();
+            LastNameTxtBox = new TextBox();
+            FirstNameTxtBox = new TextBox();
+            MiddleNameTxtBox = new TextBox();
+            textBox1 = new TextBox();
+            ExtensionNameCmbBox = new ComboBox();
+            BirthdayPicker = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AddStudentPic).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(273, 291);
-            label1.Name = "label1";
-            label1.Size = new Size(166, 30);
-            label1.TabIndex = 0;
-            label1.Text = "Student Number";
-            // 
-            // label2
-            // 
-            label2.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(974, 162);
-            label2.Margin = new Padding(8, 0, 8, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(469, 83);
-            label2.TabIndex = 3;
-            label2.Text = "New Student Form";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(273, 379);
-            label3.Name = "label3";
-            label3.Size = new Size(114, 30);
-            label3.TabIndex = 4;
-            label3.Text = "Student ID";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(273, 555);
-            label4.Name = "label4";
-            label4.Size = new Size(113, 30);
-            label4.TabIndex = 5;
-            label4.Text = "First Name";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(273, 467);
-            label5.Name = "label5";
-            label5.Size = new Size(112, 30);
-            label5.TabIndex = 6;
-            label5.Text = "Last Name";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(609, 291);
-            label6.Name = "label6";
-            label6.Size = new Size(97, 30);
-            label6.TabIndex = 7;
-            label6.Text = "Birthdate";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(609, 379);
-            label7.Name = "label7";
-            label7.Size = new Size(47, 30);
-            label7.TabIndex = 8;
-            label7.Text = "Sex";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(609, 731);
-            label8.Name = "label8";
-            label8.Size = new Size(193, 30);
-            label8.TabIndex = 9;
-            label8.Text = "Permanent Address";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(937, 467);
-            label9.Name = "label9";
-            label9.Size = new Size(129, 30);
-            label9.TabIndex = 10;
-            label9.Text = "Department";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(937, 379);
-            label10.Name = "label10";
-            label10.Size = new Size(140, 30);
-            label10.TabIndex = 11;
-            label10.Text = "Student Type";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(937, 289);
-            label11.Name = "label11";
-            label11.Size = new Size(154, 30);
-            label11.TabIndex = 12;
-            label11.Text = "Academic Year";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.Location = new Point(273, 643);
-            label12.Name = "label12";
-            label12.Size = new Size(139, 30);
-            label12.TabIndex = 13;
-            label12.Text = "Middle Name";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.Location = new Point(273, 731);
-            label13.Name = "label13";
-            label13.Size = new Size(168, 30);
-            label13.TabIndex = 14;
-            label13.Text = "Extension Name";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.Location = new Point(609, 467);
-            label14.Name = "label14";
-            label14.Size = new Size(52, 30);
-            label14.TabIndex = 15;
-            label14.Text = "Age";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label15.Location = new Point(609, 555);
-            label15.Name = "label15";
-            label15.Size = new Size(140, 30);
-            label15.TabIndex = 16;
-            label15.Text = "Place of Birth";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label16.Location = new Point(609, 643);
-            label16.Name = "label16";
-            label16.Size = new Size(170, 30);
-            label16.TabIndex = 17;
-            label16.Text = "Current Address";
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(305, 324);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(257, 35);
-            textBox1.TabIndex = 18;
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(305, 412);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(257, 35);
-            textBox2.TabIndex = 19;
-            // 
-            // textBox3
-            // 
-            textBox3.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(305, 502);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(257, 35);
-            textBox3.TabIndex = 20;
-            // 
-            // textBox4
-            // 
-            textBox4.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox4.Location = new Point(305, 590);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(257, 35);
-            textBox4.TabIndex = 21;
-            // 
-            // textBox5
-            // 
-            textBox5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox5.Location = new Point(305, 676);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(257, 35);
-            textBox5.TabIndex = 22;
-            // 
-            // textBox6
-            // 
-            textBox6.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox6.Location = new Point(305, 764);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(257, 35);
-            textBox6.TabIndex = 23;
-            // 
-            // textBox7
-            // 
-            textBox7.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox7.Location = new Point(639, 324);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(257, 35);
-            textBox7.TabIndex = 24;
-            // 
-            // textBox8
-            // 
-            textBox8.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox8.Location = new Point(639, 412);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(257, 35);
-            textBox8.TabIndex = 25;
-            // 
-            // textBox9
-            // 
-            textBox9.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox9.Location = new Point(639, 502);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(257, 35);
-            textBox9.TabIndex = 26;
-            // 
-            // textBox10
-            // 
-            textBox10.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox10.Location = new Point(639, 590);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(257, 35);
-            textBox10.TabIndex = 27;
-            // 
-            // textBox11
-            // 
-            textBox11.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox11.Location = new Point(639, 676);
-            textBox11.Multiline = true;
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(257, 35);
-            textBox11.TabIndex = 28;
-            // 
-            // textBox13
-            // 
-            textBox13.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox13.Location = new Point(639, 764);
-            textBox13.Multiline = true;
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(257, 35);
-            textBox13.TabIndex = 30;
-            // 
-            // textBox14
-            // 
-            textBox14.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox14.Location = new Point(974, 324);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(257, 35);
-            textBox14.TabIndex = 31;
-            // 
-            // textBox12
-            // 
-            textBox12.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox12.Location = new Point(974, 412);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(257, 35);
-            textBox12.TabIndex = 32;
-            // 
-            // textBox15
-            // 
-            textBox15.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox15.Location = new Point(974, 500);
-            textBox15.Name = "textBox15";
-            textBox15.Size = new Size(257, 35);
-            textBox15.TabIndex = 33;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label17.Location = new Point(937, 555);
-            label17.Name = "label17";
-            label17.Size = new Size(97, 30);
-            label17.TabIndex = 34;
-            label17.Text = "Program";
-            // 
-            // textBox16
-            // 
-            textBox16.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox16.Location = new Point(974, 590);
-            textBox16.Name = "textBox16";
-            textBox16.Size = new Size(257, 35);
-            textBox16.TabIndex = 35;
-            // 
-            // RegisterBtn
-            // 
-            RegisterBtn.BackColor = Color.Green;
-            RegisterBtn.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            RegisterBtn.ForeColor = SystemColors.ControlLightLight;
-            RegisterBtn.Location = new Point(961, 643);
-            RegisterBtn.Name = "RegisterBtn";
-            RegisterBtn.Size = new Size(257, 46);
-            RegisterBtn.TabIndex = 36;
-            RegisterBtn.Text = "Register";
-            RegisterBtn.UseVisualStyleBackColor = false;
-            // 
-            // ClearBtn
-            // 
-            ClearBtn.BackColor = Color.Orange;
-            ClearBtn.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            ClearBtn.ForeColor = SystemColors.ControlLightLight;
-            ClearBtn.Location = new Point(961, 702);
-            ClearBtn.Name = "ClearBtn";
-            ClearBtn.Size = new Size(257, 46);
-            ClearBtn.TabIndex = 37;
-            ClearBtn.Text = "Clear";
-            ClearBtn.UseVisualStyleBackColor = false;
-            // 
-            // CancelBtn
-            // 
-            CancelBtn.BackColor = Color.Red;
-            CancelBtn.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            CancelBtn.ForeColor = SystemColors.ControlLightLight;
-            CancelBtn.Location = new Point(961, 758);
-            CancelBtn.Name = "CancelBtn";
-            CancelBtn.Size = new Size(257, 46);
-            CancelBtn.TabIndex = 38;
-            CancelBtn.Text = "Cancel";
-            CancelBtn.UseVisualStyleBackColor = false;
-            CancelBtn.Click += CancelBtn_Click;
+            // AddStudentLbl
+            // 
+            AddStudentLbl.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            AddStudentLbl.Location = new Point(216, 30);
+            AddStudentLbl.Margin = new Padding(8, 0, 8, 0);
+            AddStudentLbl.Name = "AddStudentLbl";
+            AddStudentLbl.Size = new Size(347, 83);
+            AddStudentLbl.TabIndex = 3;
+            AddStudentLbl.Text = "New Student Form";
+            AddStudentLbl.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // StudentNumberTxtBox
+            // 
+            StudentNumberTxtBox.BackColor = Color.White;
+            StudentNumberTxtBox.BorderStyle = BorderStyle.FixedSingle;
+            StudentNumberTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            StudentNumberTxtBox.Location = new Point(273, 223);
+            StudentNumberTxtBox.Margin = new Padding(13);
+            StudentNumberTxtBox.Name = "StudentNumberTxtBox";
+            StudentNumberTxtBox.PlaceholderText = "   Student Number";
+            StudentNumberTxtBox.Size = new Size(394, 39);
+            StudentNumberTxtBox.TabIndex = 18;
             // 
             // CTULogo
             // 
             CTULogo.Image = Properties.Resources.transparent_logo;
-            CTULogo.Location = new Point(105, 25);
+            CTULogo.Location = new Point(75, 12);
             CTULogo.Name = "CTULogo";
             CTULogo.Size = new Size(117, 117);
             CTULogo.SizeMode = PictureBoxSizeMode.StretchImage;
             CTULogo.TabIndex = 39;
             CTULogo.TabStop = false;
             // 
+            // AddStudentPnl
+            // 
+            AddStudentPnl.BackColor = Color.Orange;
+            AddStudentPnl.Location = new Point(-8, 141);
+            AddStudentPnl.Name = "AddStudentPnl";
+            AddStudentPnl.Size = new Size(1516, 10);
+            AddStudentPnl.TabIndex = 40;
+            // 
+            // AddStudentPic
+            // 
+            AddStudentPic.BackColor = Color.Orange;
+            AddStudentPic.Image = (Image)resources.GetObject("AddStudentPic.Image");
+            AddStudentPic.Location = new Point(844, 60);
+            AddStudentPic.Name = "AddStudentPic";
+            AddStudentPic.Size = new Size(41, 30);
+            AddStudentPic.SizeMode = PictureBoxSizeMode.StretchImage;
+            AddStudentPic.TabIndex = 42;
+            AddStudentPic.TabStop = false;
+            // 
+            // AddStudentBtn
+            // 
+            AddStudentBtn.BackColor = Color.Orange;
+            AddStudentBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            AddStudentBtn.ForeColor = SystemColors.ControlLightLight;
+            AddStudentBtn.Location = new Point(814, 46);
+            AddStudentBtn.Name = "AddStudentBtn";
+            AddStudentBtn.Size = new Size(201, 57);
+            AddStudentBtn.TabIndex = 41;
+            AddStudentBtn.Text = "         Register";
+            AddStudentBtn.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Orange;
+            pictureBox1.Image = Properties.Resources.Backspace;
+            pictureBox1.Location = new Point(1086, 60);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(41, 30);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 44;
+            pictureBox1.TabStop = false;
+            // 
+            // ClearBtn
+            // 
+            ClearBtn.BackColor = Color.Orange;
+            ClearBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            ClearBtn.ForeColor = SystemColors.ControlLightLight;
+            ClearBtn.Location = new Point(1043, 46);
+            ClearBtn.Name = "ClearBtn";
+            ClearBtn.Size = new Size(201, 57);
+            ClearBtn.TabIndex = 43;
+            ClearBtn.Text = "        Clear";
+            ClearBtn.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Orange;
+            pictureBox2.Image = Properties.Resources.Back;
+            pictureBox2.Location = new Point(1320, 60);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(17, 30);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 46;
+            pictureBox2.TabStop = false;
+            // 
+            // BackBtn
+            // 
+            BackBtn.BackColor = Color.Orange;
+            BackBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            BackBtn.ForeColor = SystemColors.ControlLightLight;
+            BackBtn.Location = new Point(1262, 46);
+            BackBtn.Name = "BackBtn";
+            BackBtn.Size = new Size(201, 57);
+            BackBtn.TabIndex = 45;
+            BackBtn.Text = "     Back";
+            BackBtn.UseVisualStyleBackColor = false;
+            BackBtn.Click += BackBtn_Click;
+            // 
+            // StudentIDTxtBox
+            // 
+            StudentIDTxtBox.BackColor = Color.White;
+            StudentIDTxtBox.BorderStyle = BorderStyle.FixedSingle;
+            StudentIDTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            StudentIDTxtBox.Location = new Point(273, 285);
+            StudentIDTxtBox.Margin = new Padding(13);
+            StudentIDTxtBox.Name = "StudentIDTxtBox";
+            StudentIDTxtBox.PlaceholderText = "   Student ID";
+            StudentIDTxtBox.Size = new Size(394, 39);
+            StudentIDTxtBox.TabIndex = 47;
+            // 
+            // LastNameTxtBox
+            // 
+            LastNameTxtBox.BackColor = Color.White;
+            LastNameTxtBox.BorderStyle = BorderStyle.FixedSingle;
+            LastNameTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            LastNameTxtBox.Location = new Point(273, 350);
+            LastNameTxtBox.Margin = new Padding(13);
+            LastNameTxtBox.Name = "LastNameTxtBox";
+            LastNameTxtBox.PlaceholderText = "   Last Name";
+            LastNameTxtBox.Size = new Size(394, 39);
+            LastNameTxtBox.TabIndex = 48;
+            // 
+            // FirstNameTxtBox
+            // 
+            FirstNameTxtBox.BackColor = Color.White;
+            FirstNameTxtBox.BorderStyle = BorderStyle.FixedSingle;
+            FirstNameTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            FirstNameTxtBox.Location = new Point(273, 415);
+            FirstNameTxtBox.Margin = new Padding(13);
+            FirstNameTxtBox.Name = "FirstNameTxtBox";
+            FirstNameTxtBox.PlaceholderText = "   First Name";
+            FirstNameTxtBox.Size = new Size(394, 39);
+            FirstNameTxtBox.TabIndex = 49;
+            // 
+            // MiddleNameTxtBox
+            // 
+            MiddleNameTxtBox.BackColor = Color.White;
+            MiddleNameTxtBox.BorderStyle = BorderStyle.FixedSingle;
+            MiddleNameTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            MiddleNameTxtBox.Location = new Point(273, 480);
+            MiddleNameTxtBox.Margin = new Padding(13);
+            MiddleNameTxtBox.Name = "MiddleNameTxtBox";
+            MiddleNameTxtBox.PlaceholderText = "   Middle Name";
+            MiddleNameTxtBox.Size = new Size(394, 39);
+            MiddleNameTxtBox.TabIndex = 50;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.White;
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
+            textBox1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.Location = new Point(760, 223);
+            textBox1.Margin = new Padding(13);
+            textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "   Middle Name";
+            textBox1.Size = new Size(394, 39);
+            textBox1.TabIndex = 51;
+            // 
+            // ExtensionNameCmbBox
+            // 
+            ExtensionNameCmbBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            ExtensionNameCmbBox.FormattingEnabled = true;
+            ExtensionNameCmbBox.Items.AddRange(new object[] { "Jr.", "Sr.", "I", "II", "III", "IV" });
+            ExtensionNameCmbBox.Location = new Point(273, 544);
+            ExtensionNameCmbBox.Name = "ExtensionNameCmbBox";
+            ExtensionNameCmbBox.Size = new Size(394, 40);
+            ExtensionNameCmbBox.TabIndex = 52;
+            // 
+            // BirthdayPicker
+            // 
+            BirthdayPicker.CalendarFont = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            BirthdayPicker.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            BirthdayPicker.Location = new Point(273, 607);
+            BirthdayPicker.MaximumSize = new Size(394, 39);
+            BirthdayPicker.Name = "BirthdayPicker";
+            BirthdayPicker.Size = new Size(394, 39);
+            BirthdayPicker.TabIndex = 53;
+            BirthdayPicker.Value = new DateTime(2023, 4, 26, 13, 23, 9, 0);
+            // 
             // Add_Students
             // 
-            AcceptButton = RegisterBtn;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1504, 827);
-            Controls.Add(CTULogo);
-            Controls.Add(CancelBtn);
-            Controls.Add(ClearBtn);
-            Controls.Add(RegisterBtn);
-            Controls.Add(textBox16);
-            Controls.Add(label17);
-            Controls.Add(textBox15);
-            Controls.Add(textBox12);
-            Controls.Add(textBox14);
-            Controls.Add(textBox13);
-            Controls.Add(textBox11);
-            Controls.Add(textBox10);
-            Controls.Add(textBox9);
-            Controls.Add(textBox8);
-            Controls.Add(textBox7);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
+            Controls.Add(BirthdayPicker);
+            Controls.Add(ExtensionNameCmbBox);
             Controls.Add(textBox1);
-            Controls.Add(label16);
-            Controls.Add(label15);
-            Controls.Add(label14);
-            Controls.Add(label13);
-            Controls.Add(label12);
-            Controls.Add(label11);
-            Controls.Add(label10);
-            Controls.Add(label9);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(MiddleNameTxtBox);
+            Controls.Add(FirstNameTxtBox);
+            Controls.Add(LastNameTxtBox);
+            Controls.Add(StudentIDTxtBox);
+            Controls.Add(pictureBox2);
+            Controls.Add(BackBtn);
+            Controls.Add(pictureBox1);
+            Controls.Add(ClearBtn);
+            Controls.Add(AddStudentPic);
+            Controls.Add(AddStudentBtn);
+            Controls.Add(AddStudentPnl);
+            Controls.Add(CTULogo);
+            Controls.Add(StudentNumberTxtBox);
+            Controls.Add(AddStudentLbl);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Add_Students";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Add Student";
+            Text = " ";
             ((System.ComponentModel.ISupportInitialize)CTULogo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AddStudentPic).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -473,7 +282,7 @@
         #endregion
 
         private Label label1;
-        private Label label2;
+        private Label AddStudentLbl;
         private Label label3;
         private Label label4;
         private Label label5;
@@ -488,7 +297,7 @@
         private Label label14;
         private Label label15;
         private Label label16;
-        private TextBox textBox1;
+        private TextBox StudentNumberTxtBox;
         private TextBox textBox2;
         private TextBox textBox3;
         private TextBox textBox4;
@@ -505,9 +314,20 @@
         private TextBox textBox15;
         private Label label17;
         private TextBox textBox16;
-        private Button RegisterBtn;
-        private Button ClearBtn;
-        private Button CancelBtn;
         private PictureBox CTULogo;
+        private Panel AddStudentPnl;
+        private PictureBox AddStudentPic;
+        private Button AddStudentBtn;
+        private PictureBox pictureBox1;
+        private Button ClearBtn;
+        private PictureBox pictureBox2;
+        private Button BackBtn;
+        private TextBox StudentIDTxtBox;
+        private TextBox LastNameTxtBox;
+        private TextBox FirstNameTxtBox;
+        private TextBox MiddleNameTxtBox;
+        private TextBox textBox1;
+        private ComboBox ExtensionNameCmbBox;
+        private DateTimePicker BirthdayPicker;
     }
 }
