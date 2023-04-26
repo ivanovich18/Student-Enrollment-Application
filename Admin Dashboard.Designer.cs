@@ -96,7 +96,7 @@
             button2.Name = "button2";
             button2.Size = new Size(347, 98);
             button2.TabIndex = 8;
-            button2.Text = "          Search Student";
+            button2.Text = "           Search Student";
             button2.UseVisualStyleBackColor = false;
             // 
             // button3
@@ -208,7 +208,7 @@
             // 
             pictureBox1.BackColor = Color.Orange;
             pictureBox1.Image = Properties.Resources.search;
-            pictureBox1.Location = new Point(897, 475);
+            pictureBox1.Location = new Point(552, 412);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(57, 52);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -219,7 +219,7 @@
             // 
             pictureBox2.BackColor = Color.Orange;
             pictureBox2.Image = Properties.Resources.settings;
-            pictureBox2.Location = new Point(537, 534);
+            pictureBox2.Location = new Point(553, 531);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(53, 56);
             pictureBox2.TabIndex = 16;
