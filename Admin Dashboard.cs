@@ -17,7 +17,20 @@ namespace Login_Form
             InitializeComponent();
         }
 
-        private void LoginBtn_Click(object sender, EventArgs e)
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddStudentBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Add_Students addStudents = new Add_Students();
+            addStudents.ShowDialog();
+        }
+
+        private void AddStudentPnl_Paint(object sender, PaintEventArgs e)
         {
             this.Hide();
             Add_Students addStudents = new Add_Students();
