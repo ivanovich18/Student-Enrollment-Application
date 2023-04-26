@@ -29,5 +29,12 @@ namespace Login_Form
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
         }
+
+        private void StudentRecordsBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StudentRecordsForm studentRecordsForm = new StudentRecordsForm();
+            studentRecordsForm.ShowDialog();
+        }
     }
 }

@@ -46,7 +46,6 @@ namespace Login_Form
             FirstNameTxtBox = new TextBox();
             MiddleNameTxtBox = new TextBox();
             AgeTxtBox = new TextBox();
-            ExtensionNameCmbBox = new ComboBox();
             BirthdayPicker = new DateTimePicker();
             GenderCmbBox = new ComboBox();
             BirthPlaceTxtBox = new TextBox();
@@ -61,6 +60,7 @@ namespace Login_Form
             UploadImageBtn = new Button();
             BirthdayPanel = new Panel();
             BirthdayLbl = new Label();
+            EmailTxtBox = new TextBox();
             ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddStudentPic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -114,7 +114,7 @@ namespace Login_Form
             // 
             AddStudentPic.BackColor = Color.Orange;
             AddStudentPic.Image = (Image)resources.GetObject("AddStudentPic.Image");
-            AddStudentPic.Location = new Point(844, 60);
+            AddStudentPic.Location = new Point(811, 60);
             AddStudentPic.Name = "AddStudentPic";
             AddStudentPic.Size = new Size(41, 30);
             AddStudentPic.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -126,7 +126,7 @@ namespace Login_Form
             RegisterBtn.BackColor = Color.Orange;
             RegisterBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             RegisterBtn.ForeColor = SystemColors.ControlLightLight;
-            RegisterBtn.Location = new Point(814, 46);
+            RegisterBtn.Location = new Point(781, 46);
             RegisterBtn.Name = "RegisterBtn";
             RegisterBtn.Size = new Size(201, 57);
             RegisterBtn.TabIndex = 41;
@@ -138,7 +138,7 @@ namespace Login_Form
             // 
             pictureBox1.BackColor = Color.Orange;
             pictureBox1.Image = Properties.Resources.Backspace;
-            pictureBox1.Location = new Point(1086, 60);
+            pictureBox1.Location = new Point(1053, 60);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(41, 30);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -150,7 +150,7 @@ namespace Login_Form
             ClearBtn.BackColor = Color.Orange;
             ClearBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             ClearBtn.ForeColor = SystemColors.ControlLightLight;
-            ClearBtn.Location = new Point(1043, 46);
+            ClearBtn.Location = new Point(1010, 46);
             ClearBtn.Name = "ClearBtn";
             ClearBtn.Size = new Size(201, 57);
             ClearBtn.TabIndex = 43;
@@ -161,7 +161,7 @@ namespace Login_Form
             // 
             pictureBox2.BackColor = Color.Orange;
             pictureBox2.Image = Properties.Resources.Back;
-            pictureBox2.Location = new Point(1320, 60);
+            pictureBox2.Location = new Point(1287, 60);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(17, 30);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -173,7 +173,7 @@ namespace Login_Form
             BackBtn.BackColor = Color.Orange;
             BackBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             BackBtn.ForeColor = SystemColors.ControlLightLight;
-            BackBtn.Location = new Point(1262, 46);
+            BackBtn.Location = new Point(1229, 46);
             BackBtn.Name = "BackBtn";
             BackBtn.Size = new Size(201, 57);
             BackBtn.TabIndex = 45;
@@ -240,18 +240,6 @@ namespace Login_Form
             AgeTxtBox.PlaceholderText = " Age";
             AgeTxtBox.Size = new Size(394, 39);
             AgeTxtBox.TabIndex = 51;
-            // 
-            // ExtensionNameCmbBox
-            // 
-            ExtensionNameCmbBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            ExtensionNameCmbBox.ForeColor = Color.DimGray;
-            ExtensionNameCmbBox.FormattingEnabled = true;
-            ExtensionNameCmbBox.Items.AddRange(new object[] { "Jr.", "Sr.", "I", "II", "III", "IV" });
-            ExtensionNameCmbBox.Location = new Point(455, 558);
-            ExtensionNameCmbBox.Name = "ExtensionNameCmbBox";
-            ExtensionNameCmbBox.Size = new Size(394, 40);
-            ExtensionNameCmbBox.TabIndex = 52;
-            ExtensionNameCmbBox.Text = " Extension Name";
             // 
             // BirthdayPicker
             // 
@@ -428,12 +416,25 @@ namespace Login_Form
             BirthdayLbl.Text = "Birthday";
             BirthdayLbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // EmailTxtBox
+            // 
+            EmailTxtBox.BackColor = Color.White;
+            EmailTxtBox.BorderStyle = BorderStyle.FixedSingle;
+            EmailTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            EmailTxtBox.Location = new Point(455, 559);
+            EmailTxtBox.Margin = new Padding(13);
+            EmailTxtBox.Name = "EmailTxtBox";
+            EmailTxtBox.PlaceholderText = " Email";
+            EmailTxtBox.Size = new Size(394, 39);
+            EmailTxtBox.TabIndex = 66;
+            // 
             // Add_Students
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1504, 827);
+            Controls.Add(EmailTxtBox);
             Controls.Add(BirthdayPanel);
             Controls.Add(UploadImageBtn);
             Controls.Add(OpenCameraBtn);
@@ -446,7 +447,6 @@ namespace Login_Form
             Controls.Add(CurrentAddressTxtBox);
             Controls.Add(BirthPlaceTxtBox);
             Controls.Add(GenderCmbBox);
-            Controls.Add(ExtensionNameCmbBox);
             Controls.Add(AgeTxtBox);
             Controls.Add(MiddleNameTxtBox);
             Controls.Add(FirstNameTxtBox);
@@ -526,7 +526,6 @@ namespace Login_Form
         private TextBox FirstNameTxtBox;
         private TextBox MiddleNameTxtBox;
         private TextBox AgeTxtBox;
-        private ComboBox ExtensionNameCmbBox;
         private DateTimePicker BirthdayPicker;
         private ComboBox GenderCmbBox;
         private TextBox BirthPlaceTxtBox;
@@ -541,5 +540,6 @@ namespace Login_Form
         private Button UploadImageBtn;
         private Panel BirthdayPanel;
         private Label BirthdayLbl;
+        private TextBox EmailTxtBox;
     }
 }
