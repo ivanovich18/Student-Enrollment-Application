@@ -83,7 +83,8 @@
             StudentNumberTxtBox.Location = new Point(455, 212);
             StudentNumberTxtBox.Margin = new Padding(13);
             StudentNumberTxtBox.Name = "StudentNumberTxtBox";
-            StudentNumberTxtBox.PlaceholderText = "   Student Number";
+            StudentNumberTxtBox.PlaceholderText = " Student Number";
+            StudentNumberTxtBox.ReadOnly = true;
             StudentNumberTxtBox.Size = new Size(394, 39);
             StudentNumberTxtBox.TabIndex = 18;
             // 
@@ -184,7 +185,8 @@
             StudentIDTxtBox.Location = new Point(455, 281);
             StudentIDTxtBox.Margin = new Padding(13);
             StudentIDTxtBox.Name = "StudentIDTxtBox";
-            StudentIDTxtBox.PlaceholderText = "   Student ID";
+            StudentIDTxtBox.PlaceholderText = " Student ID";
+            StudentIDTxtBox.ReadOnly = true;
             StudentIDTxtBox.Size = new Size(394, 39);
             StudentIDTxtBox.TabIndex = 47;
             // 
@@ -196,7 +198,7 @@
             LastNameTxtBox.Location = new Point(455, 350);
             LastNameTxtBox.Margin = new Padding(13);
             LastNameTxtBox.Name = "LastNameTxtBox";
-            LastNameTxtBox.PlaceholderText = "   Last Name";
+            LastNameTxtBox.PlaceholderText = " Last Name";
             LastNameTxtBox.Size = new Size(394, 39);
             LastNameTxtBox.TabIndex = 48;
             // 
@@ -208,7 +210,7 @@
             FirstNameTxtBox.Location = new Point(455, 419);
             FirstNameTxtBox.Margin = new Padding(13);
             FirstNameTxtBox.Name = "FirstNameTxtBox";
-            FirstNameTxtBox.PlaceholderText = "   First Name";
+            FirstNameTxtBox.PlaceholderText = " First Name";
             FirstNameTxtBox.Size = new Size(394, 39);
             FirstNameTxtBox.TabIndex = 49;
             // 
@@ -220,7 +222,7 @@
             MiddleNameTxtBox.Location = new Point(455, 489);
             MiddleNameTxtBox.Margin = new Padding(13);
             MiddleNameTxtBox.Name = "MiddleNameTxtBox";
-            MiddleNameTxtBox.PlaceholderText = "   Middle Name";
+            MiddleNameTxtBox.PlaceholderText = " Middle Name";
             MiddleNameTxtBox.Size = new Size(394, 39);
             MiddleNameTxtBox.TabIndex = 50;
             // 
@@ -232,27 +234,33 @@
             AgeTxtBox.Location = new Point(961, 212);
             AgeTxtBox.Margin = new Padding(13);
             AgeTxtBox.Name = "AgeTxtBox";
-            AgeTxtBox.PlaceholderText = "   Age";
+            AgeTxtBox.PlaceholderText = " Age";
             AgeTxtBox.Size = new Size(394, 39);
             AgeTxtBox.TabIndex = 51;
             // 
             // ExtensionNameCmbBox
             // 
             ExtensionNameCmbBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            ExtensionNameCmbBox.ForeColor = Color.DimGray;
             ExtensionNameCmbBox.FormattingEnabled = true;
             ExtensionNameCmbBox.Items.AddRange(new object[] { "Jr.", "Sr.", "I", "II", "III", "IV" });
             ExtensionNameCmbBox.Location = new Point(455, 558);
             ExtensionNameCmbBox.Name = "ExtensionNameCmbBox";
             ExtensionNameCmbBox.Size = new Size(394, 40);
             ExtensionNameCmbBox.TabIndex = 52;
-            ExtensionNameCmbBox.Text = "   Extension Name";
+            ExtensionNameCmbBox.Text = " Extension Name";
             // 
             // BirthdayPicker
             // 
             BirthdayPicker.CalendarFont = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            BirthdayPicker.CalendarTitleBackColor = SystemColors.ControlText;
+            BirthdayPicker.CalendarTitleForeColor = Color.DimGray;
+            BirthdayPicker.DropDownAlign = LeftRightAlignment.Right;
             BirthdayPicker.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             BirthdayPicker.Location = new Point(455, 626);
+            BirthdayPicker.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
             BirthdayPicker.MaximumSize = new Size(394, 39);
+            BirthdayPicker.MinDate = new DateTime(1980, 1, 1, 0, 0, 0, 0);
             BirthdayPicker.Name = "BirthdayPicker";
             BirthdayPicker.Size = new Size(394, 39);
             BirthdayPicker.TabIndex = 53;
@@ -261,13 +269,14 @@
             // GenderCmbBox
             // 
             GenderCmbBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            GenderCmbBox.ForeColor = Color.DimGray;
             GenderCmbBox.FormattingEnabled = true;
             GenderCmbBox.Items.AddRange(new object[] { "Male", "Female", "Non-binary" });
             GenderCmbBox.Location = new Point(455, 698);
             GenderCmbBox.Name = "GenderCmbBox";
             GenderCmbBox.Size = new Size(394, 40);
             GenderCmbBox.TabIndex = 54;
-            GenderCmbBox.Text = "   Gender";
+            GenderCmbBox.Text = " Gender";
             // 
             // BirthPlaceTxtBox
             // 
@@ -277,7 +286,7 @@
             BirthPlaceTxtBox.Location = new Point(961, 281);
             BirthPlaceTxtBox.Margin = new Padding(13);
             BirthPlaceTxtBox.Name = "BirthPlaceTxtBox";
-            BirthPlaceTxtBox.PlaceholderText = "   Place of Birth";
+            BirthPlaceTxtBox.PlaceholderText = " Place of Birth";
             BirthPlaceTxtBox.Size = new Size(394, 39);
             BirthPlaceTxtBox.TabIndex = 55;
             // 
@@ -289,7 +298,7 @@
             CurrentAddressTxtBox.Location = new Point(961, 350);
             CurrentAddressTxtBox.Margin = new Padding(13);
             CurrentAddressTxtBox.Name = "CurrentAddressTxtBox";
-            CurrentAddressTxtBox.PlaceholderText = "   Current Address";
+            CurrentAddressTxtBox.PlaceholderText = " Current Address";
             CurrentAddressTxtBox.Size = new Size(394, 39);
             CurrentAddressTxtBox.TabIndex = 56;
             // 
@@ -301,7 +310,7 @@
             PermanentAddressTxtBox.Location = new Point(961, 419);
             PermanentAddressTxtBox.Margin = new Padding(13);
             PermanentAddressTxtBox.Name = "PermanentAddressTxtBox";
-            PermanentAddressTxtBox.PlaceholderText = "   Permanent Address";
+            PermanentAddressTxtBox.PlaceholderText = " Permanent Address";
             PermanentAddressTxtBox.Size = new Size(394, 39);
             PermanentAddressTxtBox.TabIndex = 57;
             // 
@@ -309,49 +318,53 @@
             // 
             AcademicYearCmbBox.AutoCompleteCustomSource.AddRange(new string[] { "2022 - 2023", "2023 - 2024", "2024 - 2025", "2025 - 2026", "2026 - 2027", "2027 - 2028", "2028 - 2029", "2029 - 2030" });
             AcademicYearCmbBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            AcademicYearCmbBox.ForeColor = Color.DimGray;
             AcademicYearCmbBox.FormattingEnabled = true;
             AcademicYearCmbBox.Items.AddRange(new object[] { "2023 - 2024", "2024 - 2025", "2025 - 2026", "2026 - 2027", "2027 - 2028", "2028 - 2029", "2029 - 2030" });
             AcademicYearCmbBox.Location = new Point(961, 488);
             AcademicYearCmbBox.Name = "AcademicYearCmbBox";
             AcademicYearCmbBox.Size = new Size(394, 40);
             AcademicYearCmbBox.TabIndex = 58;
-            AcademicYearCmbBox.Text = "   Academic Year";
+            AcademicYearCmbBox.Text = " Academic Year";
             // 
             // StudentTypeCmbBox
             // 
             StudentTypeCmbBox.AutoCompleteCustomSource.AddRange(new string[] { "2022 - 2023", "2023 - 2024", "2024 - 2025", "2025 - 2026", "2026 - 2027", "2027 - 2028", "2028 - 2029", "2029 - 2030" });
             StudentTypeCmbBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            StudentTypeCmbBox.ForeColor = Color.DimGray;
             StudentTypeCmbBox.FormattingEnabled = true;
             StudentTypeCmbBox.Items.AddRange(new object[] { "New", "Returnee", "Transferee" });
             StudentTypeCmbBox.Location = new Point(961, 558);
             StudentTypeCmbBox.Name = "StudentTypeCmbBox";
             StudentTypeCmbBox.Size = new Size(394, 40);
             StudentTypeCmbBox.TabIndex = 59;
-            StudentTypeCmbBox.Text = "   Student Type";
+            StudentTypeCmbBox.Text = " Student Type";
             // 
             // DepartmentCmbBox
             // 
             DepartmentCmbBox.AutoCompleteCustomSource.AddRange(new string[] { "College of Arts and Sciences (CAS)", "College Of Computer, Information and Communications Technology (CCICT)", "College Of Education (COEd)", "College of Engineering (COE)", "College of Management and Entrepreneurship (CME)", "College of Technology (COT)" });
             DepartmentCmbBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            DepartmentCmbBox.ForeColor = Color.DimGray;
             DepartmentCmbBox.FormattingEnabled = true;
             DepartmentCmbBox.Items.AddRange(new object[] { "College of Arts and Sciences (CAS)", "College of Computer, Information and Communications Technology (CCICT)", "College of Education (COEd)", "College of Engineering (COE)", "College of Management and Entrepreneurship (CME)", "College of Technology (COT)" });
             DepartmentCmbBox.Location = new Point(961, 628);
             DepartmentCmbBox.Name = "DepartmentCmbBox";
             DepartmentCmbBox.Size = new Size(394, 40);
             DepartmentCmbBox.TabIndex = 60;
-            DepartmentCmbBox.Text = "   Department";
+            DepartmentCmbBox.Text = " Department";
             // 
             // ProgramCmbBox
             // 
             ProgramCmbBox.AutoCompleteCustomSource.AddRange(new string[] { "-- College of Management and Entrepreneurship (CME) --", "", "Bachelor of Science in Business Administration major in Marketing Management (BSBA-MM)", "Bachelor of Science in Hospitality Management (BSHM)", "Bachelor of Public Administration (BPA)", "Bachelor of Science in Tourism Management (BSTM)", "", "-- College of Technology (COT) --", "", "Bachelor of Science in Graphics and Design (BSGD)", "Bachelor of Science in Mechatronics (BSMx)", "Bachelor of Science in Technology Management (BSTechM)", "Bachelor of Industrial Technology (BIT) - Automotive Technology", "Bachelor of Industrial Technology (BIT) - Civil Technology", "Bachelor of Industrial Technology (BIT) - Cosmetology", "Bachelor of Industrial Technology (BIT) - Drafting Technology", "Bachelor of Industrial Technology (BIT) - Electrical Technology", "Bachelor of Industrial Technology (BIT) - Electronics Technoloqy", "Bachelor of Industrial Technology (BIT) - Furniture and Cabinetwaking Technology", "Bachelor of Industrial Technology (BIT) - Food Preparation and Services Technology", "Bachelor of Industrial Technology (BIT) - Garments Technology", "Bachelor of Industrial Technology (BIT) - Interior Design Technology", "Bachelor of Industrial Technology (BIT) - Machine Shop Technology", "Bachelor of Industrial Technology (BIT) - Power Plant Technoloay", "Bachelor of Industrial Technology (BIT) - Refrigeration and Air Conditioning-Technology", "Bachelor of Industrial Technology (BIT) - Welding and Fabrication Technology", "", "-- College Of Education (COEd) --", "", "Bachelor of Elementary Education (BEEd)", "Bachelor of Secondary Education (BSEd) - Mathematics", "Bachelor of Secondary Education (BSEd) - Science", "Bachelor of Secondary Education (BSEd) - Filipino", "Bachelor of Secondary Education (BSEd) - Social Studies", "Bachelor of Technology and Livelihood Education (BTLEd) - Home Economics", "Bachelor of Technology and Livelihood Education (BTLEd) - Information and Communication Technology", "Bachelor of Technology and Livelihood Education (BTLEd) - Industrial Arts", "Bachelor of Early Childhood Education (BECEd)", "Bachelor of Special Needs Education (BSNEd)", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Automotive Technology", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Civil and Construction Technology", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Drafting Technology", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Electrical Technology", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Electronics Technology", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Garments and Fashion Design", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Food and Service Management", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Welding and Fabricatipn Technology", "Certificate of Technology (CT) - Computer Technology (for deaf student-applicants only)", "Certificate of Technology (CT) - Food Technology (for deaf student-applicants only)", "", "-- College of Arts and Sciences (CAS) --", "", "Bachelor of Arts in English Languape (BAEL) - English Language Studies as a DiscipIine (ELSD)", "Bachelor of Arts in English Languape (BAEL) - English Language Across Professions (ELAP)", "Bachelor of Arts in Literature (BAL) - Literary Cultural Studies (LCS)", "Bachelor of Arts in Literature (BAL) - Literature Across Professions (LAP)", "Bachelor of Science in Biology (BS Bio) - Ecology", "Bachelor of Science in Development Communication (BS Dev Com)", "Batsilyer ng Sining sa Filipino( BAF)", "Bachelor ot Science in Mathematics (BS Math)", "Bachelor of Science in Psychology (BS Psych)", "Bachelor of Science in Statistics (BS Stat)", "Bachelor of Science in Nursing (BSN) at Cebu City Medical Center - College of Nursing (CCMC-CN)", "", "-- College of Engineering (COE) --", "", "Bachelor of Science in Aerospace Engineering (BSAsE)", "Bachelor of Science in Civil Engineering (BSCE)", "Bachelor of Science in Computer Engineering (BSCpE)", "Bachelor of Science in Electronics Engineering (BSECE)", "Bachelor of Science in Electrical Engineering (BSEE)", "Bachelor of Science in Industrial Engineering (BSIE)", "Bachelor of Science in Mechanical Engineering (BSME)", "", "-- College Of Computer, Information and Communications Technology (CCICT) --", "Bachelor of Science in Information Technology (BSIT)", "Bachelor of Science in Information Systems (BSIS)", "Bachelor of Industrial Technology - Computer Technology (BIT-CT)" });
             ProgramCmbBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            ProgramCmbBox.ForeColor = Color.DimGray;
             ProgramCmbBox.FormattingEnabled = true;
             ProgramCmbBox.Items.AddRange(new object[] { "-- College of Management and Entrepreneurship (CME) --", "Bachelor of Science in Business Administration major in Marketing Management (BSBA-MM)", "Bachelor of Science in Hospitality Management (BSHM)", "Bachelor of Public Administration (BPA)", "Bachelor of Science in Tourism Management (BSTM)", "", "-- College of Technology (COT) --", "Bachelor of Science in Graphics and Design (BSGD)", "Bachelor of Science in Mechatronics (BSMx)", "Bachelor of Science in Technology Management (BSTechM)", "Bachelor of Industrial Technology (BIT) - Automotive Technology", "Bachelor of Industrial Technology (BIT) - Civil Technology", "Bachelor of Industrial Technology (BIT) - Cosmetology", "Bachelor of Industrial Technology (BIT) - Drafting Technology", "Bachelor of Industrial Technology (BIT) - Electrical Technology", "Bachelor of Industrial Technology (BIT) - Electronics Technoloqy", "Bachelor of Industrial Technology (BIT) - Furniture and Cabinetwaking Technology", "Bachelor of Industrial Technology (BIT) - Food Preparation and Services Technology", "Bachelor of Industrial Technology (BIT) - Garments Technology", "Bachelor of Industrial Technology (BIT) - Interior Design Technology", "Bachelor of Industrial Technology (BIT) - Machine Shop Technology", "Bachelor of Industrial Technology (BIT) - Power Plant Technoloay", "Bachelor of Industrial Technology (BIT) - Refrigeration and Air Conditioning-Technology", "Bachelor of Industrial Technology (BIT) - Welding and Fabrication Technology", "", "-- College Of Education (COEd) --", "Bachelor of Elementary Education (BEEd)", "Bachelor of Secondary Education (BSEd) - Mathematics", "Bachelor of Secondary Education (BSEd) - Science", "Bachelor of Secondary Education (BSEd) - Filipino", "Bachelor of Secondary Education (BSEd) - Social Studies", "Bachelor of Technology and Livelihood Education (BTLEd) - Home Economics", "Bachelor of Technology and Livelihood Education (BTLEd) - Information and Communication Technology", "Bachelor of Technology and Livelihood Education (BTLEd) - Industrial Arts", "Bachelor of Early Childhood Education (BECEd)", "Bachelor of Special Needs Education (BSNEd)", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Automotive Technology", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Civil and Construction Technology", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Drafting Technology", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Electrical Technology", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Electronics Technology", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Garments and Fashion Design", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Food and Service Management", "Bachelor of Technical-Vocational Teacher Education (BTVTEd) - Welding and Fabricatipn Technology", "Certificate of Technology (CT) - Computer Technology (for deaf student-applicants only)", "Certificate of Technology (CT) - Food Technology (for deaf student-applicants only)", "", "-- College of Arts and Sciences (CAS) --", "Bachelor of Arts in English Languape (BAEL) - English Language Studies as a DiscipIine (ELSD)", "Bachelor of Arts in English Languape (BAEL) - English Language Across Professions (ELAP)", "Bachelor of Arts in Literature (BAL) - Literary Cultural Studies (LCS)", "Bachelor of Arts in Literature (BAL) - Literature Across Professions (LAP)", "Bachelor of Science in Biology (BS Bio) - Ecology", "Bachelor of Science in Development Communication (BS Dev Com)", "Batsilyer ng Sining sa Filipino( BAF)", "Bachelor ot Science in Mathematics (BS Math)", "Bachelor of Science in Psychology (BS Psych)", "Bachelor of Science in Statistics (BS Stat)", "Bachelor of Science in Nursing (BSN) at Cebu City Medical Center - College of Nursing (CCMC-CN)", "", "-- College of Engineering (COE) --", "", "Bachelor of Science in Aerospace Engineering (BSAsE)", "Bachelor of Science in Civil Engineering (BSCE)", "Bachelor of Science in Computer Engineering (BSCpE)", "Bachelor of Science in Electronics Engineering (BSECE)", "Bachelor of Science in Electrical Engineering (BSEE)", "Bachelor of Science in Industrial Engineering (BSIE)", "Bachelor of Science in Mechanical Engineering (BSME)", "", "-- College Of Computer, Information and Communications Technology (CCICT) --", "Bachelor of Science in Information Technology (BSIT)", "Bachelor of Science in Information Systems (BSIS)", "Bachelor of Industrial Technology - Computer Technology (BIT-CT)" });
             ProgramCmbBox.Location = new Point(961, 698);
             ProgramCmbBox.Name = "ProgramCmbBox";
             ProgramCmbBox.Size = new Size(394, 40);
             ProgramCmbBox.TabIndex = 61;
-            ProgramCmbBox.Text = "   Program";
+            ProgramCmbBox.Text = " Program";
             // 
             // pictureBox3
             // 

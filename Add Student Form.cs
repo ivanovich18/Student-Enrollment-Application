@@ -33,7 +33,7 @@ namespace Login_Form
 
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(StudentNumberTxtBox.Text);
+            MessageBox.Show(StudentNumberTxtBox.PlaceholderText + ": " + StudentNumberTxtBox.Text);
         }
     }
-}
+    }
