@@ -55,7 +55,7 @@ namespace Login_Form
             StudentTypeCmbBox = new ComboBox();
             DepartmentCmbBox = new ComboBox();
             ProgramCmbBox = new ComboBox();
-            pictureBox3 = new PictureBox();
+            StudentImagePic = new PictureBox();
             OpenCameraBtn = new Button();
             UploadImageBtn = new Button();
             BirthdayPanel = new Panel();
@@ -65,7 +65,7 @@ namespace Login_Form
             ((System.ComponentModel.ISupportInitialize)AddStudentPic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)StudentImagePic).BeginInit();
             BirthdayPanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -359,15 +359,15 @@ namespace Login_Form
             ProgramCmbBox.TabIndex = 61;
             ProgramCmbBox.Text = " Program";
             // 
-            // pictureBox3
+            // StudentImagePic
             // 
-            pictureBox3.Image = Properties.Resources.image;
-            pictureBox3.Location = new Point(172, 212);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(150, 150);
-            pictureBox3.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox3.TabIndex = 62;
-            pictureBox3.TabStop = false;
+            StudentImagePic.Image = Properties.Resources.image;
+            StudentImagePic.Location = new Point(172, 212);
+            StudentImagePic.Name = "StudentImagePic";
+            StudentImagePic.Size = new Size(150, 150);
+            StudentImagePic.SizeMode = PictureBoxSizeMode.AutoSize;
+            StudentImagePic.TabIndex = 62;
+            StudentImagePic.TabStop = false;
             // 
             // OpenCameraBtn
             // 
@@ -438,7 +438,7 @@ namespace Login_Form
             Controls.Add(BirthdayPanel);
             Controls.Add(UploadImageBtn);
             Controls.Add(OpenCameraBtn);
-            Controls.Add(pictureBox3);
+            Controls.Add(StudentImagePic);
             Controls.Add(ProgramCmbBox);
             Controls.Add(DepartmentCmbBox);
             Controls.Add(StudentTypeCmbBox);
@@ -471,7 +471,7 @@ namespace Login_Form
             ((System.ComponentModel.ISupportInitialize)AddStudentPic).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)StudentImagePic).EndInit();
             BirthdayPanel.ResumeLayout(false);
             BirthdayPanel.PerformLayout();
             ResumeLayout(false);
@@ -535,7 +535,7 @@ namespace Login_Form
         private ComboBox StudentTypeCmbBox;
         private ComboBox DepartmentCmbBox;
         private ComboBox ProgramCmbBox;
-        private PictureBox pictureBox3;
+        private PictureBox StudentImagePic;
         private Button OpenCameraBtn;
         private Button UploadImageBtn;
         private Panel BirthdayPanel;
