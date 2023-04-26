@@ -156,6 +156,8 @@
             // LogoutBtn
             // 
             LogoutBtn.FlatAppearance.BorderSize = 0;
+            LogoutBtn.FlatAppearance.MouseDownBackColor = Color.Orange;
+            LogoutBtn.FlatAppearance.MouseOverBackColor = Color.Orange;
             LogoutBtn.FlatStyle = FlatStyle.Flat;
             LogoutBtn.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             LogoutBtn.ForeColor = Color.White;
@@ -258,6 +260,7 @@
             Controls.Add(label2);
             Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Student Enrollment Application";
