@@ -167,6 +167,7 @@
             LogoutBtn.TabIndex = 18;
             LogoutBtn.Text = "       Logout";
             LogoutBtn.UseVisualStyleBackColor = true;
+            LogoutBtn.Click += LogoutBtn_Click;
             // 
             // ProjectTitleLbl
             // 
@@ -264,7 +265,6 @@
             Name = "Form2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Student Enrollment Application";
-            Load += Form2_Load;
             LeftPnl.ResumeLayout(false);
             LeftPnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
