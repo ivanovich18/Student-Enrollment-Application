@@ -30,5 +30,10 @@ namespace Login_Form
             Form2 mainForm = new Form2();
             mainForm.ShowDialog();
         }
+
+        private void RegisterBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(StudentNumberTxtBox.Text);
+        }
     }
 }
