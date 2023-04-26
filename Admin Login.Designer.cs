@@ -59,8 +59,10 @@
             // 
             // UsernameTxtBox
             // 
+            UsernameTxtBox.BackColor = SystemColors.Control;
             UsernameTxtBox.BorderStyle = BorderStyle.None;
             UsernameTxtBox.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            UsernameTxtBox.ForeColor = SystemColors.WindowText;
             UsernameTxtBox.Location = new Point(61, 13);
             UsernameTxtBox.Name = "UsernameTxtBox";
             UsernameTxtBox.PlaceholderText = "Username";
@@ -69,6 +71,7 @@
             // 
             // PasswordTxtBox
             // 
+            PasswordTxtBox.BackColor = SystemColors.Control;
             PasswordTxtBox.BorderStyle = BorderStyle.None;
             PasswordTxtBox.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             PasswordTxtBox.Location = new Point(61, 13);
@@ -98,7 +101,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.White;
+            panel1.BackColor = SystemColors.Control;
             panel1.Controls.Add(UsernameTxtBox);
             panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(58, 312);
@@ -117,7 +120,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.White;
+            panel2.BackColor = SystemColors.Control;
             panel2.Controls.Add(pictureBox2);
             panel2.Controls.Add(PasswordTxtBox);
             panel2.Location = new Point(58, 398);
@@ -150,6 +153,7 @@
             AcceptButton = LoginBtn;
             AutoScaleDimensions = new SizeF(19F, 47F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(457, 663);
             Controls.Add(label1);
             Controls.Add(panel2);
