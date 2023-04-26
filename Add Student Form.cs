@@ -36,4 +36,4 @@ namespace Login_Form
             MessageBox.Show(StudentNumberTxtBox.PlaceholderText + ": " + StudentNumberTxtBox.Text);
         }
     }
-    }
+}
