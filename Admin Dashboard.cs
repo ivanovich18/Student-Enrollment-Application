@@ -43,5 +43,12 @@ namespace Login_Form
             SearchStudentForm searchStudentForm = new SearchStudentForm();
             searchStudentForm.ShowDialog();
         }
+
+        private void SettingsBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminSettingsForm adminSettingsForm = new AdminSettingsForm();
+            adminSettingsForm.ShowDialog();
+        }
     }
 }

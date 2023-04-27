@@ -21,5 +21,12 @@ namespace Login_Form
         {
 
         }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form2 mainForm = new Form2();
+            mainForm.ShowDialog();
+        }
     }
 }
