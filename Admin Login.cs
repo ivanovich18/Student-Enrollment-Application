@@ -14,12 +14,9 @@ namespace Login_Form
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form2 mainForm = new Form2();
-            mainForm.ShowDialog();
-            /*
-            
-            //if (UsernameTxtBox.Text == "Admin" && PasswordTxtBox.Text == "admin123")
+            string adminUsername = UsernameTxtBox.Text;
+            string adminPassword = PasswordTxtBox.Text;
+            if (adminUsername == "Admin" && adminPassword == "admin123")
             {
                 MessageBox.Show("Correct username and password!");
                 // If user inputs correct login credentials, hide login form and display main form
@@ -32,7 +29,7 @@ namespace Login_Form
                 MessageBox.Show("Incorrect username or password!");
                 //Added a comment by Ivan
                 //Added a comment by Aldrin
-            */
+            }
         }
     }
 }
