@@ -82,7 +82,7 @@
             // 
             pictureBox2.BackColor = Color.Orange;
             pictureBox2.Image = Properties.Resources.Back;
-            pictureBox2.Location = new Point(794, 56);
+            pictureBox2.Location = new Point(793, 56);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(17, 30);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -94,7 +94,7 @@
             BackBtn.BackColor = Color.Orange;
             BackBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             BackBtn.ForeColor = SystemColors.ControlLightLight;
-            BackBtn.Location = new Point(735, 42);
+            BackBtn.Location = new Point(734, 42);
             BackBtn.Name = "BackBtn";
             BackBtn.Size = new Size(201, 57);
             BackBtn.TabIndex = 56;

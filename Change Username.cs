@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Login_Form
 {
-    public partial class AdminSettingsForm : Form
+    public partial class Change_Username : Form
     {
-        public AdminSettingsForm()
+        public Change_Username()
         {
             InitializeComponent();
         }
