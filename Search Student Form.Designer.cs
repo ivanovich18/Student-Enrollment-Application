@@ -100,6 +100,7 @@
             BackBtn.TabIndex = 56;
             BackBtn.Text = "     Back";
             BackBtn.UseVisualStyleBackColor = false;
+            BackBtn.Click += BackBtn_Click;
             // 
             // EnterIDNumberLbl
             // 
