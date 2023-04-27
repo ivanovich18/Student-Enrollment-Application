@@ -18,9 +18,7 @@ namespace Login_Form
             Form2 mainForm = new Form2();
             mainForm.ShowDialog();
             /*
-            // if (e.KeyCode == Keys.Enter)
-            //   LoginBtn.PerformClick();
-            // MainForm
+            
             //if (UsernameTxtBox.Text == "Admin" && PasswordTxtBox.Text == "admin123")
             {
                 MessageBox.Show("Correct username and password!");
