@@ -30,11 +30,11 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminSettingsForm));
-            LoginBtn = new Button();
-            button1 = new Button();
+            ChangeUsernameBtn = new Button();
+            ChangePasswordBtn = new Button();
             bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(components);
             pictureBox2 = new PictureBox();
-            BackBtn = new Button();
+            SettingsBackBtn = new Button();
             AddStudentPnl = new Panel();
             SettingsLbl = new Label();
             CTULogo = new PictureBox();
@@ -42,29 +42,29 @@
             ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
             SuspendLayout();
             // 
-            // LoginBtn
+            // ChangeUsernameBtn
             // 
-            LoginBtn.BackColor = Color.Orange;
-            LoginBtn.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
-            LoginBtn.ForeColor = SystemColors.ControlLightLight;
-            LoginBtn.Location = new Point(214, 278);
-            LoginBtn.Name = "LoginBtn";
-            LoginBtn.Size = new Size(614, 88);
-            LoginBtn.TabIndex = 8;
-            LoginBtn.Text = "Change Username";
-            LoginBtn.UseVisualStyleBackColor = false;
+            ChangeUsernameBtn.BackColor = Color.Orange;
+            ChangeUsernameBtn.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
+            ChangeUsernameBtn.ForeColor = SystemColors.ControlLightLight;
+            ChangeUsernameBtn.Location = new Point(198, 300);
+            ChangeUsernameBtn.Name = "ChangeUsernameBtn";
+            ChangeUsernameBtn.Size = new Size(614, 88);
+            ChangeUsernameBtn.TabIndex = 8;
+            ChangeUsernameBtn.Text = "Change Username";
+            ChangeUsernameBtn.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // ChangePasswordBtn
             // 
-            button1.BackColor = Color.Orange;
-            button1.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(214, 404);
-            button1.Name = "button1";
-            button1.Size = new Size(614, 88);
-            button1.TabIndex = 9;
-            button1.Text = "Change Password";
-            button1.UseVisualStyleBackColor = false;
+            ChangePasswordBtn.BackColor = Color.Orange;
+            ChangePasswordBtn.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
+            ChangePasswordBtn.ForeColor = SystemColors.ControlLightLight;
+            ChangePasswordBtn.Location = new Point(198, 426);
+            ChangePasswordBtn.Name = "ChangePasswordBtn";
+            ChangePasswordBtn.Size = new Size(614, 88);
+            ChangePasswordBtn.TabIndex = 9;
+            ChangePasswordBtn.Text = "Change Password";
+            ChangePasswordBtn.UseVisualStyleBackColor = false;
             // 
             // bunifuElipse1
             // 
@@ -75,31 +75,31 @@
             // 
             pictureBox2.BackColor = Color.Orange;
             pictureBox2.Image = Properties.Resources.Back;
-            pictureBox2.Location = new Point(827, 55);
+            pictureBox2.Location = new Point(793, 56);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(17, 30);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 62;
             pictureBox2.TabStop = false;
             // 
-            // BackBtn
+            // SettingsBackBtn
             // 
-            BackBtn.BackColor = Color.Orange;
-            BackBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            BackBtn.ForeColor = SystemColors.ControlLightLight;
-            BackBtn.Location = new Point(768, 41);
-            BackBtn.Name = "BackBtn";
-            BackBtn.Size = new Size(201, 57);
-            BackBtn.TabIndex = 61;
-            BackBtn.Text = "     Back";
-            BackBtn.UseVisualStyleBackColor = false;
+            SettingsBackBtn.BackColor = Color.Orange;
+            SettingsBackBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            SettingsBackBtn.ForeColor = SystemColors.ControlLightLight;
+            SettingsBackBtn.Location = new Point(734, 42);
+            SettingsBackBtn.Name = "SettingsBackBtn";
+            SettingsBackBtn.Size = new Size(201, 57);
+            SettingsBackBtn.TabIndex = 61;
+            SettingsBackBtn.Text = "     Back";
+            SettingsBackBtn.UseVisualStyleBackColor = false;
             // 
             // AddStudentPnl
             // 
             AddStudentPnl.BackColor = Color.Orange;
-            AddStudentPnl.Location = new Point(-6, 138);
+            AddStudentPnl.Location = new Point(-6, 141);
             AddStudentPnl.Name = "AddStudentPnl";
-            AddStudentPnl.Size = new Size(1058, 10);
+            AddStudentPnl.Size = new Size(1020, 10);
             AddStudentPnl.TabIndex = 60;
             // 
             // SettingsLbl
@@ -116,7 +116,7 @@
             // CTULogo
             // 
             CTULogo.Image = Properties.Resources.transparent_logo;
-            CTULogo.Location = new Point(75, 18);
+            CTULogo.Location = new Point(74, 21);
             CTULogo.Name = "CTULogo";
             CTULogo.Size = new Size(100, 100);
             CTULogo.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -127,14 +127,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1044, 623);
+            ClientSize = new Size(1010, 663);
             Controls.Add(pictureBox2);
-            Controls.Add(BackBtn);
+            Controls.Add(SettingsBackBtn);
             Controls.Add(AddStudentPnl);
             Controls.Add(SettingsLbl);
             Controls.Add(CTULogo);
-            Controls.Add(button1);
-            Controls.Add(LoginBtn);
+            Controls.Add(ChangePasswordBtn);
+            Controls.Add(ChangeUsernameBtn);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AdminSettingsForm";
@@ -146,11 +146,11 @@
         }
 
         #endregion
-        private Button LoginBtn;
-        private Button button1;
+        private Button ChangeUsernameBtn;
+        private Button ChangePasswordBtn;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private PictureBox pictureBox2;
-        private Button BackBtn;
+        private Button SettingsBackBtn;
         private Panel AddStudentPnl;
         private Label SettingsLbl;
         private PictureBox CTULogo;
