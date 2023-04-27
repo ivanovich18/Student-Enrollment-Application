@@ -53,6 +53,7 @@
             ChangeUsernameBtn.TabIndex = 8;
             ChangeUsernameBtn.Text = "Change Username";
             ChangeUsernameBtn.UseVisualStyleBackColor = false;
+            ChangeUsernameBtn.Click += ChangeUsernameBtn_Click;
             // 
             // ChangePasswordBtn
             // 
@@ -65,6 +66,7 @@
             ChangePasswordBtn.TabIndex = 9;
             ChangePasswordBtn.Text = "Change Password";
             ChangePasswordBtn.UseVisualStyleBackColor = false;
+            ChangePasswordBtn.Click += ChangePasswordBtn_Click;
             // 
             // bunifuElipse1
             // 

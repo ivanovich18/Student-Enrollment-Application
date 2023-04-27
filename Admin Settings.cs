@@ -23,5 +23,20 @@ namespace Login_Form
             Form2 mainForm = new Form2();
             mainForm.ShowDialog();
         }
+
+        private void ChangeUsernameBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ChangeUsernameForm changeUsernameForm = new ChangeUsernameForm();
+            changeUsernameForm.ShowDialog();
+        }
+
+        private void ChangePasswordBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ChangePasswordLbl changePasswordForm = new ChangePasswordLbl();
+            changePasswordForm.ShowDialog();
+            
+        }
     }
 }

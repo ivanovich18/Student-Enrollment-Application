@@ -170,6 +170,7 @@
             SettingsBackBtn.TabIndex = 80;
             SettingsBackBtn.Text = "     Back";
             SettingsBackBtn.UseVisualStyleBackColor = false;
+            SettingsBackBtn.Click += SettingsBackBtn_Click;
             // 
             // AddStudentPnl
             // 
