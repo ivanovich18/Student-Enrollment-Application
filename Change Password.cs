@@ -16,5 +16,12 @@ namespace Login_Form
         {
             InitializeComponent();
         }
+
+        private void SettingsBackBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminSettingsForm adminSettingsForm = new AdminSettingsForm();
+            adminSettingsForm.ShowDialog();
+        }
     }
 }
