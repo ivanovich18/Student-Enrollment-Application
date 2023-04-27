@@ -30,6 +30,7 @@ namespace Login_Form
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_Students));
             AddStudentLbl = new Label();
             StudentNumberTxtBox = new TextBox();
@@ -61,6 +62,7 @@ namespace Login_Form
             BirthdayPanel = new Panel();
             BirthdayLbl = new Label();
             EmailTxtBox = new TextBox();
+            bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(components);
             ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddStudentPic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -428,6 +430,11 @@ namespace Login_Form
             EmailTxtBox.Size = new Size(394, 39);
             EmailTxtBox.TabIndex = 66;
             // 
+            // bunifuElipse1
+            // 
+            bunifuElipse1.ElipseRadius = 15;
+            bunifuElipse1.TargetControl = this;
+            // 
             // Add_Students
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -541,5 +548,6 @@ namespace Login_Form
         private Panel BirthdayPanel;
         private Label BirthdayLbl;
         private TextBox EmailTxtBox;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }
