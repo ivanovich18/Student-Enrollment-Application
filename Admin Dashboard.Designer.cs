@@ -126,6 +126,7 @@
             SettingsBtn.TabIndex = 10;
             SettingsBtn.Text = "Settings";
             SettingsBtn.UseVisualStyleBackColor = false;
+            SettingsBtn.Click += SettingsBtn_Click;
             // 
             // bunifuElipse1
             // 
