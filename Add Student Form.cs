@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using MySql.Data.MySqlClient;
 
 namespace Login_Form
 {
     public partial class Add_Students : Form
     {
+        MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
+
         public Add_Students()
         {
             InitializeComponent();
@@ -34,32 +37,84 @@ namespace Login_Form
 
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(StudentNumberTxtBox.PlaceholderText + ": " + StudentNumberTxtBox.Text);
-        }
+            string insertQuery = "INSERT INTO student_records (student_id, last_name, first_name, middle_name, email, birthday, gender, age, birth_place, current_address, permanent_address, academic_year, student_type, department, program) VALUES (@student_id, @last_name, @first_name, @middle_name, @email, @birthday, @gender, @age, @birth_place, @current_address, @permanent_address, @academic_year, @student_type, @department, @program)";
+            MySqlCommand command = new MySqlCommand(insertQuery, connection);
 
+            // add parameters to the command object
+            command.Parameters.AddWithValue("@student_id", StudentIDTxtBox.Text);
+            command.Parameters.AddWithValue("@last_name", LastNameTxtBox.Text);
+            command.Parameters.AddWithValue("@first_name", FirstNameTxtBox.Text);
+            command.Parameters.AddWithValue("@middle_name", MiddleNameTxtBox.Text);
+            command.Parameters.AddWithValue("@email", EmailTxtBox.Text);
+
+            command.Parameters.AddWithValue("@birthday", BirthdayPicker.Value.Date);
+            command.Parameters.AddWithValue("@gender", GenderCmbBox.SelectedItem.ToString());
+            command.Parameters.AddWithValue("@age", AgeTxtBox.Text);
+            command.Parameters.AddWithValue("@birth_place", BirthPlaceTxtBox.Text);
+            command.Parameters.AddWithValue("@current_address", CurrentAddressTxtBox.Text);
+            command.Parameters.AddWithValue("@permanent_address", PermanentAddressTxtBox.Text);
+            command.Parameters.AddWithValue("@academic_year", AcademicYearCmbBox.SelectedItem.ToString());
+            command.Parameters.AddWithValue("@student_type", StudentTypeCmbBox.SelectedItem.ToString());
+            command.Parameters.AddWithValue("@department", DepartmentCmbBox.SelectedItem.ToString());
+            command.Parameters.AddWithValue("@program", ProgramCmbBox.SelectedItem.ToString());
+
+            // open the connection
+            connection.Open();
+
+            // execute the command
+            int rowsAffected = command.ExecuteNonQuery();
+
+            // close the connection
+            connection.Close();
+
+            /*
+            DialogResult result = MessageBox.Show("Are you sure you want to add new student", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                // User clicked "Yes"
+            }
+            else
+            {
+                // User clicked "No" or closed the dialog
+            }
+        }
+            */
+        }
         private void ClearBtn_Click(object sender, EventArgs e)
         {
-            // TextBox
-            StudentNumberTxtBox.Clear();
-            StudentIDTxtBox.Clear();
-            LastNameTxtBox.Clear();
-            FirstNameTxtBox.Clear();
-            MiddleNameTxtBox.Clear();
-            EmailTxtBox.Clear();
-            AgeTxtBox.Clear();
-            CurrentAddressTxtBox.Clear();
-            PermanentAddressTxtBox.Clear();
-            BirthPlaceTxtBox.Clear();
+            DialogResult result = MessageBox.Show("Are you sure you want to clear all fields?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                // User clicked "Yes"
 
-            // DateTimePicker
-            BirthdayPicker.Value = DateTime.Today;
+                // TextBox
+                StudentNumberTxtBox.Clear();
+                StudentIDTxtBox.Clear();
+                LastNameTxtBox.Clear();
+                FirstNameTxtBox.Clear();
+                MiddleNameTxtBox.Clear();
+                EmailTxtBox.Clear();
+                AgeTxtBox.Clear();
+                CurrentAddressTxtBox.Clear();
+                PermanentAddressTxtBox.Clear();
+                BirthPlaceTxtBox.Clear();
 
-            // ComboBox
-            GenderCmbBox.SelectedIndex = 0;
-            AcademicYearCmbBox.SelectedIndex = 0;
-            StudentTypeCmbBox.SelectedIndex = 0;
-            DepartmentCmbBox.SelectedIndex = 0;
-            ProgramCmbBox.SelectedIndex = 0;
+                // DateTimePicker
+                BirthdayPicker.Value = DateTime.Today;
+
+                // ComboBox
+                GenderCmbBox.SelectedIndex = 0;
+                AcademicYearCmbBox.SelectedIndex = 0;
+                StudentTypeCmbBox.SelectedIndex = 0;
+                DepartmentCmbBox.SelectedIndex = 0;
+                ProgramCmbBox.SelectedIndex = 0;
+
+                MessageBox.Show("All fields are cleared!", "Cleared");
+            }
+            else
+            {
+                // User clicked "No" or closed the dialog
+            }
         }
 
         private void Add_Students_Load(object sender, EventArgs e)
@@ -104,5 +159,6 @@ namespace Login_Form
             ProgramCmbBox.DisplayMember = "Text";
             ProgramCmbBox.ValueMember = "Value";
         }
+
     }
 }

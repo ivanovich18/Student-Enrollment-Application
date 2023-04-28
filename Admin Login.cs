@@ -9,7 +9,7 @@ namespace Login_Form
         MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
         MySqlCommand command;
         MySqlDataReader reader;
-
+        
         public LoginForm()
         {
             InitializeComponent();
