@@ -91,6 +91,8 @@ namespace Login_Form
             StudentNumberTxtBox.Margin = new Padding(13);
             StudentNumberTxtBox.Name = "StudentNumberTxtBox";
             StudentNumberTxtBox.PlaceholderText = "Student Number";
+            StudentNumberTxtBox.ReadOnly = true;
+            StudentNumberTxtBox.RightToLeft = RightToLeft.No;
             StudentNumberTxtBox.Size = new Size(394, 39);
             StudentNumberTxtBox.TabIndex = 18;
             // 
@@ -193,6 +195,7 @@ namespace Login_Form
             StudentIDTxtBox.Margin = new Padding(13);
             StudentIDTxtBox.Name = "StudentIDTxtBox";
             StudentIDTxtBox.PlaceholderText = "Student ID";
+            StudentIDTxtBox.ReadOnly = true;
             StudentIDTxtBox.Size = new Size(394, 39);
             StudentIDTxtBox.TabIndex = 47;
             // 
