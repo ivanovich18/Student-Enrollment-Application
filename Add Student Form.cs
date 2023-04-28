@@ -37,7 +37,7 @@ namespace Login_Form
 
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to add new student", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Are you sure you want to add new student?", "Confirmation", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 // User clicked "Yes"
@@ -70,6 +70,8 @@ namespace Login_Form
 
                 // close the connection
                 connection.Close();
+
+                ClearFields();
             }
             else
             {
@@ -83,27 +85,7 @@ namespace Login_Form
             {
                 // User clicked "Yes"
 
-                // TextBox
-                StudentNumberTxtBox.Clear();
-                StudentIDTxtBox.Clear();
-                LastNameTxtBox.Clear();
-                FirstNameTxtBox.Clear();
-                MiddleNameTxtBox.Clear();
-                EmailTxtBox.Clear();
-                AgeTxtBox.Clear();
-                CurrentAddressTxtBox.Clear();
-                PermanentAddressTxtBox.Clear();
-                BirthPlaceTxtBox.Clear();
-
-                // DateTimePicker
-                BirthdayPicker.Value = DateTime.Today;
-
-                // ComboBox
-                GenderCmbBox.SelectedIndex = 0;
-                AcademicYearCmbBox.SelectedIndex = 0;
-                StudentTypeCmbBox.SelectedIndex = 0;
-                DepartmentCmbBox.SelectedIndex = 0;
-                ProgramCmbBox.SelectedIndex = 0;
+                ClearFields();
 
                 MessageBox.Show("All fields are cleared!", "Cleared");
             }
@@ -156,5 +138,29 @@ namespace Login_Form
             ProgramCmbBox.ValueMember = "Value";
         }
 
+        private void ClearFields()
+        {
+            // Textboxes
+            StudentNumberTxtBox.Clear();
+            StudentIDTxtBox.Clear();
+            LastNameTxtBox.Clear();
+            FirstNameTxtBox.Clear();
+            MiddleNameTxtBox.Clear();
+            EmailTxtBox.Clear();
+            AgeTxtBox.Clear();
+            CurrentAddressTxtBox.Clear();
+            PermanentAddressTxtBox.Clear();
+            BirthPlaceTxtBox.Clear();
+
+            // DateTimePicker
+            BirthdayPicker.Value = DateTime.Today;
+
+            // ComboBox
+            GenderCmbBox.SelectedIndex = 0;
+            AcademicYearCmbBox.SelectedIndex = 0;
+            StudentTypeCmbBox.SelectedIndex = 0;
+            DepartmentCmbBox.SelectedIndex = 0;
+            ProgramCmbBox.SelectedIndex = 0;
+        }
     }
 }
