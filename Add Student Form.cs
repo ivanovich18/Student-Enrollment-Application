@@ -37,48 +37,44 @@ namespace Login_Form
 
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
-            string insertQuery = "INSERT INTO student_records (student_id, last_name, first_name, middle_name, email, birthday, gender, age, birth_place, current_address, permanent_address, academic_year, student_type, department, program) VALUES (@student_id, @last_name, @first_name, @middle_name, @email, @birthday, @gender, @age, @birth_place, @current_address, @permanent_address, @academic_year, @student_type, @department, @program)";
-            MySqlCommand command = new MySqlCommand(insertQuery, connection);
-
-            // add parameters to the command object
-            command.Parameters.AddWithValue("@student_id", StudentIDTxtBox.Text);
-            command.Parameters.AddWithValue("@last_name", LastNameTxtBox.Text);
-            command.Parameters.AddWithValue("@first_name", FirstNameTxtBox.Text);
-            command.Parameters.AddWithValue("@middle_name", MiddleNameTxtBox.Text);
-            command.Parameters.AddWithValue("@email", EmailTxtBox.Text);
-
-            command.Parameters.AddWithValue("@birthday", BirthdayPicker.Value.Date);
-            command.Parameters.AddWithValue("@gender", GenderCmbBox.SelectedItem.ToString());
-            command.Parameters.AddWithValue("@age", AgeTxtBox.Text);
-            command.Parameters.AddWithValue("@birth_place", BirthPlaceTxtBox.Text);
-            command.Parameters.AddWithValue("@current_address", CurrentAddressTxtBox.Text);
-            command.Parameters.AddWithValue("@permanent_address", PermanentAddressTxtBox.Text);
-            command.Parameters.AddWithValue("@academic_year", AcademicYearCmbBox.SelectedItem.ToString());
-            command.Parameters.AddWithValue("@student_type", StudentTypeCmbBox.SelectedItem.ToString());
-            command.Parameters.AddWithValue("@department", DepartmentCmbBox.SelectedItem.ToString());
-            command.Parameters.AddWithValue("@program", ProgramCmbBox.SelectedItem.ToString());
-
-            // open the connection
-            connection.Open();
-
-            // execute the command
-            int rowsAffected = command.ExecuteNonQuery();
-
-            // close the connection
-            connection.Close();
-
-            /*
             DialogResult result = MessageBox.Show("Are you sure you want to add new student", "Confirmation", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 // User clicked "Yes"
+
+                string insertQuery = "INSERT INTO student_records (student_id, last_name, first_name, middle_name, email, birthday, gender, age, birth_place, current_address, permanent_address, academic_year, student_type, department, program) VALUES (@student_id, @last_name, @first_name, @middle_name, @email, @birthday, @gender, @age, @birth_place, @current_address, @permanent_address, @academic_year, @student_type, @department, @program)";
+                MySqlCommand command = new MySqlCommand(insertQuery, connection);
+
+                // Add parameters to the command object
+                command.Parameters.AddWithValue("@student_id", StudentIDTxtBox.Text);
+                command.Parameters.AddWithValue("@last_name", LastNameTxtBox.Text);
+                command.Parameters.AddWithValue("@first_name", FirstNameTxtBox.Text);
+                command.Parameters.AddWithValue("@middle_name", MiddleNameTxtBox.Text);
+                command.Parameters.AddWithValue("@email", EmailTxtBox.Text);
+                command.Parameters.AddWithValue("@birthday", BirthdayPicker.Value.Date);
+                command.Parameters.AddWithValue("@gender", GenderCmbBox.SelectedItem.ToString());
+                command.Parameters.AddWithValue("@age", AgeTxtBox.Text);
+                command.Parameters.AddWithValue("@birth_place", BirthPlaceTxtBox.Text);
+                command.Parameters.AddWithValue("@current_address", CurrentAddressTxtBox.Text);
+                command.Parameters.AddWithValue("@permanent_address", PermanentAddressTxtBox.Text);
+                command.Parameters.AddWithValue("@academic_year", AcademicYearCmbBox.SelectedItem.ToString());
+                command.Parameters.AddWithValue("@student_type", StudentTypeCmbBox.SelectedItem.ToString());
+                command.Parameters.AddWithValue("@department", DepartmentCmbBox.SelectedItem.ToString());
+                command.Parameters.AddWithValue("@program", ProgramCmbBox.SelectedItem.ToString());
+
+                // Open the connection
+                connection.Open();
+
+                // execute the command
+                int rowsAffected = command.ExecuteNonQuery();
+
+                // close the connection
+                connection.Close();
             }
             else
             {
                 // User clicked "No" or closed the dialog
             }
-        }
-            */
         }
         private void ClearBtn_Click(object sender, EventArgs e)
         {
