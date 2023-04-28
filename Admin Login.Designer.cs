@@ -92,7 +92,7 @@
             LoginBtn.TabIndex = 4;
             LoginBtn.Text = "Login";
             LoginBtn.UseVisualStyleBackColor = false;
-            LoginBtn.Click += button1_Click;
+            LoginBtn.Click += LoginBtn_Click;
             // 
             // bunifuElipse1
             // 
@@ -167,7 +167,6 @@
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login Form";
-            Load += LoginForm_Load;
             ((System.ComponentModel.ISupportInitialize)CTULogo).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
