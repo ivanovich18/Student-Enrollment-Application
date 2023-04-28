@@ -44,7 +44,9 @@ namespace Login_Form
                 else
                 {
                     loginAttempts++;
-                    MessageBox.Show("Incorrect username or password.");
+                    MessageBox.Show("Incorrect username or password!");
+                    UsernameTxtBox.Text = "";
+                    PasswordTxtBox.Text = "";
                 }
             }
             catch (Exception ex)
