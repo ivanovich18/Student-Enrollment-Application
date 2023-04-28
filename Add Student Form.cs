@@ -21,13 +21,6 @@ namespace Login_Form
             InitializeComponent();
         }
 
-        private void CancelBtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form2 mainForm = new Form2();
-            mainForm.ShowDialog();
-        }
-
         private void BackBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -72,6 +65,8 @@ namespace Login_Form
                 connection.Close();
 
                 ClearFields();
+
+                MessageBox.Show("Successfully registered!")
             }
             else
             {
