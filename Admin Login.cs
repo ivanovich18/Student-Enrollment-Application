@@ -4,6 +4,8 @@ namespace Login_Form
 {
     public partial class LoginForm : Form
     {
+        int loginAttempts = 0;
+
         MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
         MySqlCommand command;
         MySqlDataReader reader;
@@ -34,8 +36,14 @@ namespace Login_Form
                     Form2 mainForm = new Form2();
                     mainForm.ShowDialog();
                 }
+                if (loginAttempts == 4)
+                {
+                    MessageBox.Show("Too many invalid login attempts!");
+                    Application.Exit();
+                }
                 else
                 {
+                    loginAttempts++;
                     MessageBox.Show("Incorrect username or password.");
                 }
             }
@@ -54,20 +62,6 @@ namespace Login_Form
                     connection.Close();
                 }
             }
-            /*
-            if (adminUsername == "Admin" && adminPassword == "admin123")
-            {
-                MessageBox.Show("Correct username and password!");
-                // If user inputs correct login credentials, hide login form and display main form
-                this.Hide();
-                Form2 mainForm = new Form2();
-                mainForm.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Incorrect username or password!");
-            }
-            */
         }
     }
 }
