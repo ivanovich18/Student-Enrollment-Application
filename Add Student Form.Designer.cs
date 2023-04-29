@@ -461,9 +461,9 @@ namespace Login_Form
             StudentIDLbl.ForeColor = Color.Black;
             StudentIDLbl.Location = new Point(604, 350);
             StudentIDLbl.Name = "StudentIDLbl";
-            StudentIDLbl.Size = new Size(143, 35);
+            StudentIDLbl.Size = new Size(30, 35);
             StudentIDLbl.TabIndex = 68;
-            StudentIDLbl.Text = "Student ID: ";
+            StudentIDLbl.Text = "...";
             StudentIDLbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label2

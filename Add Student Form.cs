@@ -146,6 +146,8 @@ namespace Login_Form
             ProgramCmbBox.Enabled = true;
             ProgramCmbBox.DisplayMember = "Text";
             ProgramCmbBox.ValueMember = "Value";
+
+            StudentIDLbl.ForeColor = Color.White;
         }
 
         private void ClearFields()
@@ -188,6 +190,16 @@ namespace Login_Form
             object selectedItem = AcademicYearCmbBox.SelectedItem;
             string selectedText = selectedItem.ToString();
             StudentIDLbl.Text = selectedText + "-" + "0" + countStr;
+
+
+            if (AcademicYearCmbBox.SelectedIndex == 0)
+            {
+                StudentIDLbl.ForeColor = Color.White;
+            }
+            else
+            {
+                StudentIDLbl.ForeColor = Color.Black;
+            }
             /*
             if (selectedItem != null)
             {

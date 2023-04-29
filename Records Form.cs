@@ -13,9 +13,6 @@ namespace Login_Form
 {
     public partial class StudentRecordsForm : Form
     {
-        MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
-        
-
         public StudentRecordsForm()
         {
             InitializeComponent();
@@ -35,17 +32,14 @@ namespace Login_Form
 
         private void StudentRecordsForm_Load(object sender, EventArgs e)
         {
-            // connection.Open();
-            // string sql = "SELECT student_number, student_id, last_name, first_name, program, department, student_type, academic_year FROM student_records)";
-            // string sql = "SELECT student_number, student_id, last_name, first_name, program, department, student_type, academic_year FROM student_records WHERE 1)";
-            // MySqlCommand command = new MySqlCommand(sql, connection);
-            // MySqlDataReader reader = command.ExecuteReader();
-
-            // DataTable dataTable = new DataTable();
-            // dataTable.Load(reader);
-            // StudentRecordsTable.DataSource = dataTable;
-
-            // connection.Close();
+            MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
+            connection.Open();
+            MySqlCommand command = new MySqlCommand("SELECT * FROM app_student_records", connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            StudentRecordsTable.DataSource = table;
+            connection.Close();
         }
     }
 }
