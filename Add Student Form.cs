@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Login_Form
 {
     public partial class Add_Students : Form
     {
         MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
+        MySqlCommand command;
+        MySqlDataReader reader;
 
         public Add_Students()
         {
@@ -92,6 +95,18 @@ namespace Login_Form
 
         private void Add_Students_Load(object sender, EventArgs e)
         {
+            MySqlConnection conn = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(student_number) + 1 FROM app_student_records;", conn);
+            // execute command and retrieve count value as object
+            object result = cmd.ExecuteScalar();
+            // convert object to string and store in variable
+            string countStr = result.ToString();
+            // close connection
+            conn.Close();
+
+            StudentNumberCountLbl.Text = StudentNumberCountLbl.Text + " " + countStr;
+
             // Gender
             GenderCmbBox.Items.Insert(0, "Gender");
             GenderCmbBox.SelectedIndex = 0;
@@ -156,6 +171,30 @@ namespace Login_Form
             StudentTypeCmbBox.SelectedIndex = 0;
             DepartmentCmbBox.SelectedIndex = 0;
             ProgramCmbBox.SelectedIndex = 0;
+        }
+
+        private void AcademicYearCmbBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(student_number) + 1 FROM app_student_records;", conn);
+            // execute command and retrieve count value as object
+            object result = cmd.ExecuteScalar();
+            // convert object to string and store in variable
+            string countStr = result.ToString();
+            // close connection
+            conn.Close();
+
+            object selectedItem = AcademicYearCmbBox.SelectedItem;
+            string selectedText = selectedItem.ToString();
+            StudentIDLbl.Text = selectedText + "-" + "0" + countStr;
+            /*
+            if (selectedItem != null)
+            {
+                string selectedText = selectedItem.ToString();
+                StudentIDLbl.Text = StudentIDLbl.Text + " " + selectedText + "-" + countStr;
+            }
+            */
         }
     }
 }

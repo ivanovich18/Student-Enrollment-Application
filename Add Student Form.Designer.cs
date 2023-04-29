@@ -63,6 +63,9 @@ namespace Login_Form
             BirthdayLbl = new Label();
             EmailTxtBox = new TextBox();
             bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(components);
+            StudentNumberCountLbl = new Label();
+            StudentIDLbl = new Label();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddStudentPic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -87,13 +90,14 @@ namespace Login_Form
             StudentNumberTxtBox.BackColor = Color.White;
             StudentNumberTxtBox.BorderStyle = BorderStyle.FixedSingle;
             StudentNumberTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            StudentNumberTxtBox.Location = new Point(455, 212);
+            StudentNumberTxtBox.Location = new Point(22, 766);
             StudentNumberTxtBox.Margin = new Padding(13);
             StudentNumberTxtBox.Name = "StudentNumberTxtBox";
             StudentNumberTxtBox.PlaceholderText = "Student Number";
             StudentNumberTxtBox.RightToLeft = RightToLeft.No;
             StudentNumberTxtBox.Size = new Size(394, 39);
             StudentNumberTxtBox.TabIndex = 18;
+            StudentNumberTxtBox.Visible = false;
             // 
             // CTULogo
             // 
@@ -190,19 +194,20 @@ namespace Login_Form
             StudentIDTxtBox.BackColor = Color.White;
             StudentIDTxtBox.BorderStyle = BorderStyle.FixedSingle;
             StudentIDTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            StudentIDTxtBox.Location = new Point(455, 281);
+            StudentIDTxtBox.Location = new Point(22, 711);
             StudentIDTxtBox.Margin = new Padding(13);
             StudentIDTxtBox.Name = "StudentIDTxtBox";
             StudentIDTxtBox.PlaceholderText = "Student ID";
             StudentIDTxtBox.Size = new Size(394, 39);
             StudentIDTxtBox.TabIndex = 47;
+            StudentIDTxtBox.Visible = false;
             // 
             // LastNameTxtBox
             // 
             LastNameTxtBox.BackColor = Color.White;
             LastNameTxtBox.BorderStyle = BorderStyle.FixedSingle;
             LastNameTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            LastNameTxtBox.Location = new Point(455, 350);
+            LastNameTxtBox.Location = new Point(455, 419);
             LastNameTxtBox.Margin = new Padding(13);
             LastNameTxtBox.Name = "LastNameTxtBox";
             LastNameTxtBox.PlaceholderText = "Last Name";
@@ -214,7 +219,7 @@ namespace Login_Form
             FirstNameTxtBox.BackColor = Color.White;
             FirstNameTxtBox.BorderStyle = BorderStyle.FixedSingle;
             FirstNameTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            FirstNameTxtBox.Location = new Point(455, 419);
+            FirstNameTxtBox.Location = new Point(458, 489);
             FirstNameTxtBox.Margin = new Padding(13);
             FirstNameTxtBox.Name = "FirstNameTxtBox";
             FirstNameTxtBox.PlaceholderText = "First Name";
@@ -226,7 +231,7 @@ namespace Login_Form
             MiddleNameTxtBox.BackColor = Color.White;
             MiddleNameTxtBox.BorderStyle = BorderStyle.FixedSingle;
             MiddleNameTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            MiddleNameTxtBox.Location = new Point(455, 489);
+            MiddleNameTxtBox.Location = new Point(455, 559);
             MiddleNameTxtBox.Margin = new Padding(13);
             MiddleNameTxtBox.Name = "MiddleNameTxtBox";
             MiddleNameTxtBox.PlaceholderText = "Middle Name";
@@ -269,7 +274,7 @@ namespace Login_Form
             GenderCmbBox.ForeColor = Color.DimGray;
             GenderCmbBox.FormattingEnabled = true;
             GenderCmbBox.Items.AddRange(new object[] { "Male", "Female", "Non-binary", "Prefer not to say" });
-            GenderCmbBox.Location = new Point(455, 698);
+            GenderCmbBox.Location = new Point(961, 488);
             GenderCmbBox.Name = "GenderCmbBox";
             GenderCmbBox.Size = new Size(394, 40);
             GenderCmbBox.TabIndex = 54;
@@ -317,11 +322,12 @@ namespace Login_Form
             AcademicYearCmbBox.ForeColor = Color.DimGray;
             AcademicYearCmbBox.FormattingEnabled = true;
             AcademicYearCmbBox.Items.AddRange(new object[] { "2023-2024", "2024-2025", "2025-2026", "2026-2027", "2027-2028", "2028-2029", "2029-2030" });
-            AcademicYearCmbBox.Location = new Point(961, 488);
+            AcademicYearCmbBox.Location = new Point(455, 211);
             AcademicYearCmbBox.Name = "AcademicYearCmbBox";
             AcademicYearCmbBox.Size = new Size(394, 40);
             AcademicYearCmbBox.TabIndex = 58;
             AcademicYearCmbBox.Text = "Academic Year";
+            AcademicYearCmbBox.SelectedIndexChanged += AcademicYearCmbBox_SelectedIndexChanged;
             // 
             // StudentTypeCmbBox
             // 
@@ -424,7 +430,7 @@ namespace Login_Form
             EmailTxtBox.BackColor = Color.White;
             EmailTxtBox.BorderStyle = BorderStyle.FixedSingle;
             EmailTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            EmailTxtBox.Location = new Point(455, 559);
+            EmailTxtBox.Location = new Point(455, 698);
             EmailTxtBox.Margin = new Padding(13);
             EmailTxtBox.Name = "EmailTxtBox";
             EmailTxtBox.PlaceholderText = "Email";
@@ -436,12 +442,51 @@ namespace Login_Form
             bunifuElipse1.ElipseRadius = 15;
             bunifuElipse1.TargetControl = this;
             // 
+            // StudentNumberCountLbl
+            // 
+            StudentNumberCountLbl.AutoSize = true;
+            StudentNumberCountLbl.Font = new Font("Segoe UI", 18.75F, FontStyle.Regular, GraphicsUnit.Point);
+            StudentNumberCountLbl.ForeColor = Color.Black;
+            StudentNumberCountLbl.Location = new Point(455, 281);
+            StudentNumberCountLbl.Name = "StudentNumberCountLbl";
+            StudentNumberCountLbl.Size = new Size(210, 35);
+            StudentNumberCountLbl.TabIndex = 67;
+            StudentNumberCountLbl.Text = "Student Number: ";
+            StudentNumberCountLbl.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // StudentIDLbl
+            // 
+            StudentIDLbl.AutoSize = true;
+            StudentIDLbl.Font = new Font("Segoe UI", 18.75F, FontStyle.Regular, GraphicsUnit.Point);
+            StudentIDLbl.ForeColor = Color.Black;
+            StudentIDLbl.Location = new Point(604, 350);
+            StudentIDLbl.Name = "StudentIDLbl";
+            StudentIDLbl.Size = new Size(143, 35);
+            StudentIDLbl.TabIndex = 68;
+            StudentIDLbl.Text = "Student ID: ";
+            StudentIDLbl.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 18.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(455, 350);
+            label2.Name = "label2";
+            label2.Size = new Size(143, 35);
+            label2.TabIndex = 69;
+            label2.Text = "Student ID: ";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // Add_Students
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1504, 827);
+            Controls.Add(label2);
+            Controls.Add(StudentIDLbl);
+            Controls.Add(StudentNumberCountLbl);
             Controls.Add(EmailTxtBox);
             Controls.Add(BirthdayPanel);
             Controls.Add(UploadImageBtn);
@@ -551,5 +596,8 @@ namespace Login_Form
         private Label BirthdayLbl;
         private TextBox EmailTxtBox;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Label StudentNumberCountLbl;
+        private Label StudentIDLbl;
+        private Label label2;
     }
 }
