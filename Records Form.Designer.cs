@@ -31,6 +31,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentRecordsForm));
             StudentRecordsTable = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
@@ -64,12 +65,19 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             StudentRecordsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             StudentRecordsTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            StudentRecordsTable.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, Program, Department, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
+            StudentRecordsTable.Columns.AddRange(new DataGridViewColumn[] { Column1, dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, Program, Department, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
             StudentRecordsTable.Location = new Point(77, 208);
             StudentRecordsTable.Name = "StudentRecordsTable";
             StudentRecordsTable.RowTemplate.Height = 25;
             StudentRecordsTable.Size = new Size(1354, 554);
             StudentRecordsTable.TabIndex = 4;
+            // 
+            // Column1
+            // 
+            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column1.FillWeight = 15F;
+            Column1.HeaderText = "#";
+            Column1.Name = "Column1";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -216,6 +224,7 @@
             Name = "StudentRecordsForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Student Records";
+            Load += StudentRecordsForm_Load;
             ((System.ComponentModel.ISupportInitialize)StudentRecordsTable).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -232,6 +241,7 @@
         private Panel AddStudentPnl;
         private PictureBox CTULogo;
         private Label AddStudentLbl;
+        private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;

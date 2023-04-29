@@ -20,7 +20,7 @@ namespace Login_Form
             string username = UsernameTxtBox.Text;
             string password = PasswordTxtBox.Text;
 
-            string query = "SELECT * FROM admin_credentials WHERE username='" + username + "' AND password='" + password + "'";
+            string query = "SELECT * FROM app_admin_credentials WHERE username='" + username + "' AND password='" + password + "'";
 
             command = new MySqlCommand(query, connection);
 

@@ -35,7 +35,7 @@ namespace Login_Form
             {
                 // User clicked "Yes"
 
-                string insertQuery = "INSERT INTO student_records (student_id, last_name, first_name, middle_name, email, birthday, gender, age, birth_place, current_address, permanent_address, academic_year, student_type, department, program) VALUES (@student_id, @last_name, @first_name, @middle_name, @email, @birthday, @gender, @age, @birth_place, @current_address, @permanent_address, @academic_year, @student_type, @department, @program)";
+                string insertQuery = "INSERT INTO app_student_records (student_id, last_name, first_name, middle_name, email, birthday, gender, age, birth_place, current_address, permanent_address, academic_year, student_type, department, program) VALUES (@student_id, @last_name, @first_name, @middle_name, @email, @birthday, @gender, @age, @birth_place, @current_address, @permanent_address, @academic_year, @student_type, @department, @program)";
                 MySqlCommand command = new MySqlCommand(insertQuery, connection);
 
                 // Add parameters to the command object
@@ -66,7 +66,7 @@ namespace Login_Form
 
                 ClearFields();
 
-                MessageBox.Show("Successfully registered!")
+                MessageBox.Show("Successfully registered!");
             }
             else
             {
