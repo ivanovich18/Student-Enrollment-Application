@@ -35,17 +35,17 @@ namespace Login_Form
 
         private void StudentRecordsForm_Load(object sender, EventArgs e)
         {
-            connection.Open();
+            // connection.Open();
             // string sql = "SELECT student_number, student_id, last_name, first_name, program, department, student_type, academic_year FROM student_records)";
-            string sql = "SELECT student_number, student_id, last_name, first_name, program, department, student_type, academic_year FROM student_records WHERE 1)";
-            MySqlCommand command = new MySqlCommand(sql, connection);
-            MySqlDataReader reader = command.ExecuteReader();
+            // string sql = "SELECT student_number, student_id, last_name, first_name, program, department, student_type, academic_year FROM student_records WHERE 1)";
+            // MySqlCommand command = new MySqlCommand(sql, connection);
+            // MySqlDataReader reader = command.ExecuteReader();
 
-            DataTable dataTable = new DataTable();
-            dataTable.Load(reader);
-            StudentRecordsTable.DataSource = dataTable;
+            // DataTable dataTable = new DataTable();
+            // dataTable.Load(reader);
+            // StudentRecordsTable.DataSource = dataTable;
 
-            connection.Close();
+            // connection.Close();
         }
     }
 }
