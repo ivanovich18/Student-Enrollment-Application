@@ -34,7 +34,7 @@ namespace Login_Form
         {
             MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
             connection.Open();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM app_student_records", connection);
+            MySqlCommand command = new MySqlCommand("SELECT student_number, student_id, last_name, first_name, program, department, student_type, academic_year FROM app_student_records", connection);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);

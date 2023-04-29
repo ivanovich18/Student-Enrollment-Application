@@ -15,6 +15,8 @@ namespace Login_Form
 {
     public partial class Add_Students : Form
     {
+        string new_studentIDlbl;
+
         MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
         MySqlCommand command;
         MySqlDataReader reader;
@@ -42,7 +44,7 @@ namespace Login_Form
                 MySqlCommand command = new MySqlCommand(insertQuery, connection);
 
                 // Add parameters to the command object
-                command.Parameters.AddWithValue("@student_id", StudentIDTxtBox.Text);
+                command.Parameters.AddWithValue("@student_id", new_studentIDlbl);
                 command.Parameters.AddWithValue("@last_name", LastNameTxtBox.Text);
                 command.Parameters.AddWithValue("@first_name", FirstNameTxtBox.Text);
                 command.Parameters.AddWithValue("@middle_name", MiddleNameTxtBox.Text);
@@ -148,6 +150,10 @@ namespace Login_Form
             ProgramCmbBox.ValueMember = "Value";
 
             StudentIDLbl.ForeColor = Color.White;
+
+            System.Windows.Forms.TextBox lastname = new System.Windows.Forms.TextBox();
+            lastname.Padding = new Padding(10);
+            this.Controls.Add(lastname);
         }
 
         private void ClearFields()
@@ -190,6 +196,7 @@ namespace Login_Form
             object selectedItem = AcademicYearCmbBox.SelectedItem;
             string selectedText = selectedItem.ToString();
             StudentIDLbl.Text = selectedText + "-" + "0" + countStr;
+            new_studentIDlbl = selectedText + "-" + "0" + countStr;
 
 
             if (AcademicYearCmbBox.SelectedIndex == 0)
