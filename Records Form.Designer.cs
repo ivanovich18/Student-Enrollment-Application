@@ -73,6 +73,7 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 55;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += BackBtn_Click;
             // 
             // BackBtn
             // 

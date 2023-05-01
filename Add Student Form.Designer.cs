@@ -111,6 +111,7 @@ namespace Login_Form
             AddStudentPic.SizeMode = PictureBoxSizeMode.StretchImage;
             AddStudentPic.TabIndex = 42;
             AddStudentPic.TabStop = false;
+            AddStudentPic.Click += RegisterBtn_Click;
             // 
             // RegisterBtn
             // 
@@ -135,6 +136,7 @@ namespace Login_Form
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 44;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += ClearBtn_Click;
             // 
             // ClearBtn
             // 
@@ -159,6 +161,7 @@ namespace Login_Form
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 46;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += BackBtn_Click;
             // 
             // BackBtn
             // 
@@ -293,7 +296,7 @@ namespace Login_Form
             AcademicYearCmbBox.ForeColor = Color.DimGray;
             AcademicYearCmbBox.FormattingEnabled = true;
             AcademicYearCmbBox.Items.AddRange(new object[] { "2023-2024", "2024-2025", "2025-2026", "2026-2027", "2027-2028", "2028-2029", "2029-2030" });
-            AcademicYearCmbBox.Location = new Point(455, 211);
+            AcademicYearCmbBox.Location = new Point(455, 349);
             AcademicYearCmbBox.Name = "AcademicYearCmbBox";
             AcademicYearCmbBox.Size = new Size(394, 40);
             AcademicYearCmbBox.TabIndex = 58;
@@ -418,7 +421,7 @@ namespace Login_Form
             StudentNumberCountLbl.AutoSize = true;
             StudentNumberCountLbl.Font = new Font("Segoe UI", 18.75F, FontStyle.Regular, GraphicsUnit.Point);
             StudentNumberCountLbl.ForeColor = Color.Black;
-            StudentNumberCountLbl.Location = new Point(455, 281);
+            StudentNumberCountLbl.Location = new Point(455, 212);
             StudentNumberCountLbl.Name = "StudentNumberCountLbl";
             StudentNumberCountLbl.Size = new Size(210, 35);
             StudentNumberCountLbl.TabIndex = 67;
@@ -430,7 +433,7 @@ namespace Login_Form
             StudentIDLbl.AutoSize = true;
             StudentIDLbl.Font = new Font("Segoe UI", 18.75F, FontStyle.Regular, GraphicsUnit.Point);
             StudentIDLbl.ForeColor = Color.Black;
-            StudentIDLbl.Location = new Point(604, 350);
+            StudentIDLbl.Location = new Point(604, 281);
             StudentIDLbl.Name = "StudentIDLbl";
             StudentIDLbl.Size = new Size(30, 35);
             StudentIDLbl.TabIndex = 68;
@@ -442,7 +445,7 @@ namespace Login_Form
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18.75F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(455, 350);
+            label2.Location = new Point(455, 281);
             label2.Name = "label2";
             label2.Size = new Size(143, 35);
             label2.TabIndex = 69;
