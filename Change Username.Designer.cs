@@ -228,6 +228,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ChangeUsernameForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Change Username";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)CTULogo).EndInit();

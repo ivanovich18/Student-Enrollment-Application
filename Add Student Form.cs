@@ -159,8 +159,6 @@ namespace Login_Form
         private void ClearFields()
         {
             // Textboxes
-            //StudentNumberTxtBox.Clear();
-            // StudentIDTxtBox.Clear();
             LastNameTxtBox.Clear();
             FirstNameTxtBox.Clear();
             MiddleNameTxtBox.Clear();
@@ -207,13 +205,6 @@ namespace Login_Form
             {
                 StudentIDLbl.ForeColor = Color.Black;
             }
-            /*
-            if (selectedItem != null)
-            {
-                string selectedText = selectedItem.ToString();
-                StudentIDLbl.Text = StudentIDLbl.Text + " " + selectedText + "-" + countStr;
-            }
-            */
         }
     }
 }

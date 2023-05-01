@@ -503,38 +503,7 @@ namespace Login_Form
 
         #endregion
 
-        private Label label1;
         private Label AddStudentLbl;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
-        private Label label9;
-        private Label label10;
-        private Label label11;
-        private Label label12;
-        private Label label13;
-        private Label label14;
-        private Label label15;
-        private Label label16;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private TextBox textBox7;
-        private TextBox textBox8;
-        private TextBox textBox9;
-        private TextBox textBox10;
-        private TextBox textBox11;
-        private TextBox textBox13;
-        private TextBox textBox14;
-        private TextBox textBox12;
-        private TextBox textBox15;
-        private Label label17;
-        private TextBox textBox16;
         private PictureBox CTULogo;
         private Panel AddStudentPnl;
         private PictureBox AddStudentPic;
