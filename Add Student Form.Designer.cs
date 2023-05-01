@@ -454,7 +454,7 @@ namespace Login_Form
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1603, 906);
+            ClientSize = new Size(1504, 827);
             Controls.Add(label2);
             Controls.Add(StudentIDLbl);
             Controls.Add(StudentNumberCountLbl);
