@@ -38,22 +38,22 @@
             SettingsBtn = new Button();
             bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(components);
             LeftPnl = new Panel();
-            pictureBox3 = new PictureBox();
+            LogoutPictureBox = new PictureBox();
             LogoutBtn = new Button();
             ProjectTitleLbl = new Label();
             CTULogo = new PictureBox();
             FooterLbl = new Label();
             AddStudentPic = new PictureBox();
             RecordsPic = new PictureBox();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
+            SearchPic = new PictureBox();
+            SettingsPic = new PictureBox();
             LeftPnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)LogoutPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddStudentPic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RecordsPic).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)SearchPic).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)SettingsPic).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -136,7 +136,7 @@
             // LeftPnl
             // 
             LeftPnl.BackColor = Color.Orange;
-            LeftPnl.Controls.Add(pictureBox3);
+            LeftPnl.Controls.Add(LogoutPictureBox);
             LeftPnl.Controls.Add(LogoutBtn);
             LeftPnl.Controls.Add(ProjectTitleLbl);
             LeftPnl.Controls.Add(CTULogo);
@@ -146,15 +146,16 @@
             LeftPnl.Size = new Size(372, 663);
             LeftPnl.TabIndex = 12;
             // 
-            // pictureBox3
+            // LogoutPictureBox
             // 
-            pictureBox3.BackColor = Color.Orange;
-            pictureBox3.Image = Properties.Resources.logout;
-            pictureBox3.Location = new Point(34, 63);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(46, 40);
-            pictureBox3.TabIndex = 19;
-            pictureBox3.TabStop = false;
+            LogoutPictureBox.BackColor = Color.Orange;
+            LogoutPictureBox.Image = Properties.Resources.logout;
+            LogoutPictureBox.Location = new Point(34, 63);
+            LogoutPictureBox.Name = "LogoutPictureBox";
+            LogoutPictureBox.Size = new Size(46, 40);
+            LogoutPictureBox.TabIndex = 19;
+            LogoutPictureBox.TabStop = false;
+            LogoutPictureBox.Click += LogoutPictureBox_Click;
             // 
             // LogoutBtn
             // 
@@ -215,6 +216,7 @@
             AddStudentPic.Size = new Size(64, 48);
             AddStudentPic.TabIndex = 13;
             AddStudentPic.TabStop = false;
+            AddStudentPic.Click += AddStudentPic_Click;
             // 
             // RecordsPic
             // 
@@ -225,27 +227,30 @@
             RecordsPic.Size = new Size(64, 48);
             RecordsPic.TabIndex = 14;
             RecordsPic.TabStop = false;
+            RecordsPic.Click += RecordsPic_Click;
             // 
-            // pictureBox1
+            // SearchPic
             // 
-            pictureBox1.BackColor = Color.Orange;
-            pictureBox1.Image = Properties.Resources.search;
-            pictureBox1.Location = new Point(552, 412);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(57, 52);
-            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox1.TabIndex = 15;
-            pictureBox1.TabStop = false;
+            SearchPic.BackColor = Color.Orange;
+            SearchPic.Image = Properties.Resources.search;
+            SearchPic.Location = new Point(552, 412);
+            SearchPic.Name = "SearchPic";
+            SearchPic.Size = new Size(57, 52);
+            SearchPic.SizeMode = PictureBoxSizeMode.AutoSize;
+            SearchPic.TabIndex = 15;
+            SearchPic.TabStop = false;
+            SearchPic.Click += SearchPic_Click;
             // 
-            // pictureBox2
+            // SettingsPic
             // 
-            pictureBox2.BackColor = Color.Orange;
-            pictureBox2.Image = Properties.Resources.settings;
-            pictureBox2.Location = new Point(553, 531);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(53, 56);
-            pictureBox2.TabIndex = 16;
-            pictureBox2.TabStop = false;
+            SettingsPic.BackColor = Color.Orange;
+            SettingsPic.Image = Properties.Resources.settings;
+            SettingsPic.Location = new Point(553, 531);
+            SettingsPic.Name = "SettingsPic";
+            SettingsPic.Size = new Size(53, 56);
+            SettingsPic.TabIndex = 16;
+            SettingsPic.TabStop = false;
+            SettingsPic.Click += SettingsPic_Click;
             // 
             // Form2
             // 
@@ -253,8 +258,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1010, 663);
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
+            Controls.Add(SettingsPic);
+            Controls.Add(SearchPic);
             Controls.Add(RecordsPic);
             Controls.Add(AddStudentPic);
             Controls.Add(LeftPnl);
@@ -271,12 +276,12 @@
             Text = "Student Enrollment Application";
             LeftPnl.ResumeLayout(false);
             LeftPnl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)LogoutPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)CTULogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)AddStudentPic).EndInit();
             ((System.ComponentModel.ISupportInitialize)RecordsPic).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SearchPic).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SettingsPic).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -298,10 +303,10 @@
         private Button AddStudentBtn;
         private Panel AddStudentPnl;
         private PictureBox AddStudentPic;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
+        private PictureBox SettingsPic;
+        private PictureBox SearchPic;
         private PictureBox RecordsPic;
-        private PictureBox pictureBox3;
+        private PictureBox LogoutPictureBox;
         private Button LogoutBtn;
     }
 }

@@ -9,7 +9,7 @@ namespace Login_Form
         MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
         MySqlCommand command;
         MySqlDataReader reader;
-
+        
         public LoginForm()
         {
             InitializeComponent();
@@ -20,7 +20,7 @@ namespace Login_Form
             string username = UsernameTxtBox.Text;
             string password = PasswordTxtBox.Text;
 
-            string query = "SELECT * FROM admin_credentials WHERE username='" + username + "' AND password='" + password + "'";
+            string query = "SELECT * FROM app_admin_credentials WHERE username='" + username + "' AND password='" + password + "'";
 
             command = new MySqlCommand(query, connection);
 
@@ -45,8 +45,8 @@ namespace Login_Form
                 {
                     loginAttempts++;
                     MessageBox.Show("Incorrect username or password!");
-                    UsernameTxtBox.Text = "";
-                    PasswordTxtBox.Text = "";
+                    UsernameTxtBox.Clear();
+                    PasswordTxtBox.Clear();
                 }
             }
             catch (Exception ex)

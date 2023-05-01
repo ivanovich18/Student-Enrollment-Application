@@ -50,5 +50,47 @@ namespace Login_Form
             AdminSettingsForm adminSettingsForm = new AdminSettingsForm();
             adminSettingsForm.ShowDialog();
         }
+
+        private void LogoutPictureBox_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+        }
+
+        private void AddStudentPic_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Add_Students addStudents = new Add_Students();
+            addStudents.ShowDialog();
+        }
+
+        private void RecordsPic_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StudentRecordsForm studentRecordsForm = new StudentRecordsForm();
+            studentRecordsForm.ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SearchStudentForm searchStudentForm = new SearchStudentForm();
+            searchStudentForm.ShowDialog();
+        }
+
+        private void SearchPic_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SearchStudentForm searchStudentForm = new SearchStudentForm();
+            searchStudentForm.ShowDialog();
+        }
+
+        private void SettingsPic_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminSettingsForm adminSettingsForm = new AdminSettingsForm();
+            adminSettingsForm.ShowDialog();
+        }
     }
 }

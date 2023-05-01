@@ -31,13 +31,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentRecordsForm));
             StudentRecordsTable = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            Program = new DataGridViewTextBoxColumn();
-            Department = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             pictureBox2 = new PictureBox();
             BackBtn = new Button();
             pictureBox1 = new PictureBox();
@@ -64,62 +57,11 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             StudentRecordsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             StudentRecordsTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            StudentRecordsTable.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, Program, Department, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
             StudentRecordsTable.Location = new Point(77, 208);
             StudentRecordsTable.Name = "StudentRecordsTable";
             StudentRecordsTable.RowTemplate.Height = 25;
             StudentRecordsTable.Size = new Size(1354, 554);
             StudentRecordsTable.TabIndex = 4;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn1.FillWeight = 35F;
-            dataGridViewTextBoxColumn1.HeaderText = "Student ID";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn2.FillWeight = 40F;
-            dataGridViewTextBoxColumn2.HeaderText = "Last Name";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn3.FillWeight = 40F;
-            dataGridViewTextBoxColumn3.HeaderText = "First Name";
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // Program
-            // 
-            Program.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Program.FillWeight = 65F;
-            Program.HeaderText = "Program";
-            Program.Name = "Program";
-            // 
-            // Department
-            // 
-            Department.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Department.FillWeight = 65F;
-            Department.HeaderText = "Department";
-            Department.Name = "Department";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn4.FillWeight = 40F;
-            dataGridViewTextBoxColumn4.HeaderText = "Student Type";
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            dataGridViewTextBoxColumn5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn5.FillWeight = 40F;
-            dataGridViewTextBoxColumn5.HeaderText = "Academic Year";
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // pictureBox2
             // 
@@ -131,6 +73,7 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 55;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += BackBtn_Click;
             // 
             // BackBtn
             // 
@@ -216,6 +159,7 @@
             Name = "StudentRecordsForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Student Records";
+            Load += StudentRecordsForm_Load;
             ((System.ComponentModel.ISupportInitialize)StudentRecordsTable).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -232,12 +176,5 @@
         private Panel AddStudentPnl;
         private PictureBox CTULogo;
         private Label AddStudentLbl;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn Program;
-        private DataGridViewTextBoxColumn Department;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }
