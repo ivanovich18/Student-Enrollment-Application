@@ -150,10 +150,6 @@ namespace Login_Form
             ProgramCmbBox.ValueMember = "Value";
 
             StudentIDLbl.ForeColor = Color.White;
-
-            System.Windows.Forms.TextBox lastname = new System.Windows.Forms.TextBox();
-            lastname.Padding = new Padding(10);
-            this.Controls.Add(lastname);
         }
 
         private void ClearFields()
