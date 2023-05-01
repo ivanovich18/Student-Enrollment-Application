@@ -192,7 +192,6 @@ namespace Login_Form
             StudentIDLbl.Text = selectedText + "-" + "0" + countStr;
             new_studentIDlbl = selectedText + "-" + "0" + countStr;
 
-
             if (AcademicYearCmbBox.SelectedIndex == 0)
             {
                 StudentIDLbl.ForeColor = Color.White;
