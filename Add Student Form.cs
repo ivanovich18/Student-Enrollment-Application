@@ -39,39 +39,46 @@ namespace Login_Form
             if (result == DialogResult.Yes)
             {
                 // User clicked "Yes"
+                if (!string.IsNullOrEmpty(LastNameTxtBox.Text) && !string.IsNullOrEmpty(FirstNameTxtBox.Text) && !string.IsNullOrEmpty(MiddleNameTxtBox.Text) && !string.IsNullOrEmpty(EmailTxtBox.Text) && !string.IsNullOrEmpty(AgeTxtBox.Text) && !string.IsNullOrEmpty(BirthPlaceTxtBox.Text) && !string.IsNullOrEmpty(CurrentAddressTxtBox.Text) && !string.IsNullOrEmpty(PermanentAddressTxtBox.Text) && GenderCmbBox.SelectedIndex != 0 && AcademicYearCmbBox.SelectedIndex != 0 && StudentTypeCmbBox.SelectedIndex != 0 && DepartmentCmbBox.SelectedIndex != 0 && ProgramCmbBox.SelectedIndex != 0)
+                {
+                    string insertQuery = "INSERT INTO app_student_records (student_id, last_name, first_name, middle_name, email, birthday, gender, age, birth_place, current_address, permanent_address, academic_year, student_type, department, program) VALUES (@student_id, @last_name, @first_name, @middle_name, @email, @birthday, @gender, @age, @birth_place, @current_address, @permanent_address, @academic_year, @student_type, @department, @program)";
+                    MySqlCommand command = new MySqlCommand(insertQuery, connection);
 
-                string insertQuery = "INSERT INTO app_student_records (student_id, last_name, first_name, middle_name, email, birthday, gender, age, birth_place, current_address, permanent_address, academic_year, student_type, department, program) VALUES (@student_id, @last_name, @first_name, @middle_name, @email, @birthday, @gender, @age, @birth_place, @current_address, @permanent_address, @academic_year, @student_type, @department, @program)";
-                MySqlCommand command = new MySqlCommand(insertQuery, connection);
+                    // Add parameters to the command object
+                    command.Parameters.AddWithValue("@student_id", new_studentIDlbl);
+                    command.Parameters.AddWithValue("@last_name", LastNameTxtBox.Text);
+                    command.Parameters.AddWithValue("@first_name", FirstNameTxtBox.Text);
+                    command.Parameters.AddWithValue("@middle_name", MiddleNameTxtBox.Text);
+                    command.Parameters.AddWithValue("@email", EmailTxtBox.Text);
+                    command.Parameters.AddWithValue("@birthday", BirthdayPicker.Value.Date);
+                    command.Parameters.AddWithValue("@gender", GenderCmbBox.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@age", AgeTxtBox.Text);
+                    command.Parameters.AddWithValue("@birth_place", BirthPlaceTxtBox.Text);
+                    command.Parameters.AddWithValue("@current_address", CurrentAddressTxtBox.Text);
+                    command.Parameters.AddWithValue("@permanent_address", PermanentAddressTxtBox.Text);
+                    command.Parameters.AddWithValue("@academic_year", AcademicYearCmbBox.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@student_type", StudentTypeCmbBox.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@department", DepartmentCmbBox.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@program", ProgramCmbBox.SelectedItem.ToString());
 
-                // Add parameters to the command object
-                command.Parameters.AddWithValue("@student_id", new_studentIDlbl);
-                command.Parameters.AddWithValue("@last_name", LastNameTxtBox.Text);
-                command.Parameters.AddWithValue("@first_name", FirstNameTxtBox.Text);
-                command.Parameters.AddWithValue("@middle_name", MiddleNameTxtBox.Text);
-                command.Parameters.AddWithValue("@email", EmailTxtBox.Text);
-                command.Parameters.AddWithValue("@birthday", BirthdayPicker.Value.Date);
-                command.Parameters.AddWithValue("@gender", GenderCmbBox.SelectedItem.ToString());
-                command.Parameters.AddWithValue("@age", AgeTxtBox.Text);
-                command.Parameters.AddWithValue("@birth_place", BirthPlaceTxtBox.Text);
-                command.Parameters.AddWithValue("@current_address", CurrentAddressTxtBox.Text);
-                command.Parameters.AddWithValue("@permanent_address", PermanentAddressTxtBox.Text);
-                command.Parameters.AddWithValue("@academic_year", AcademicYearCmbBox.SelectedItem.ToString());
-                command.Parameters.AddWithValue("@student_type", StudentTypeCmbBox.SelectedItem.ToString());
-                command.Parameters.AddWithValue("@department", DepartmentCmbBox.SelectedItem.ToString());
-                command.Parameters.AddWithValue("@program", ProgramCmbBox.SelectedItem.ToString());
+                    // Open the connection
+                    connection.Open();
 
-                // Open the connection
-                connection.Open();
+                    // execute the command
+                    int rowsAffected = command.ExecuteNonQuery();
 
-                // execute the command
-                int rowsAffected = command.ExecuteNonQuery();
+                    // close the connection
+                    connection.Close();
 
-                // close the connection
-                connection.Close();
+                    ClearFields();
 
-                ClearFields();
-
-                MessageBox.Show("Successfully registered!");
+                    MessageBox.Show("Successfully registered!");
+                    this.Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("Please fill all fields!");
+                }
             }
             else
             {
