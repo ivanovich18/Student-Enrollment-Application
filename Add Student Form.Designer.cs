@@ -33,7 +33,6 @@ namespace Login_Form
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_Students));
             AddStudentLbl = new Label();
-            StudentNumberTxtBox = new TextBox();
             CTULogo = new PictureBox();
             AddStudentPnl = new Panel();
             AddStudentPic = new PictureBox();
@@ -42,7 +41,6 @@ namespace Login_Form
             ClearBtn = new Button();
             pictureBox2 = new PictureBox();
             BackBtn = new Button();
-            StudentIDTxtBox = new TextBox();
             LastNameTxtBox = new TextBox();
             FirstNameTxtBox = new TextBox();
             MiddleNameTxtBox = new TextBox();
@@ -85,24 +83,10 @@ namespace Login_Form
             AddStudentLbl.Text = "New Student Form";
             AddStudentLbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // StudentNumberTxtBox
-            // 
-            StudentNumberTxtBox.BackColor = Color.White;
-            StudentNumberTxtBox.BorderStyle = BorderStyle.FixedSingle;
-            StudentNumberTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            StudentNumberTxtBox.Location = new Point(22, 766);
-            StudentNumberTxtBox.Margin = new Padding(13);
-            StudentNumberTxtBox.Name = "StudentNumberTxtBox";
-            StudentNumberTxtBox.PlaceholderText = "Student Number";
-            StudentNumberTxtBox.RightToLeft = RightToLeft.No;
-            StudentNumberTxtBox.Size = new Size(394, 39);
-            StudentNumberTxtBox.TabIndex = 18;
-            StudentNumberTxtBox.Visible = false;
-            // 
             // CTULogo
             // 
             CTULogo.Image = Properties.Resources.transparent_logo;
-            CTULogo.Location = new Point(75, 12);
+            CTULogo.Location = new Point(77, 12);
             CTULogo.Name = "CTULogo";
             CTULogo.Size = new Size(117, 117);
             CTULogo.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -189,19 +173,6 @@ namespace Login_Form
             BackBtn.UseVisualStyleBackColor = false;
             BackBtn.Click += BackBtn_Click;
             // 
-            // StudentIDTxtBox
-            // 
-            StudentIDTxtBox.BackColor = Color.White;
-            StudentIDTxtBox.BorderStyle = BorderStyle.FixedSingle;
-            StudentIDTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            StudentIDTxtBox.Location = new Point(22, 711);
-            StudentIDTxtBox.Margin = new Padding(13);
-            StudentIDTxtBox.Name = "StudentIDTxtBox";
-            StudentIDTxtBox.PlaceholderText = "Student ID";
-            StudentIDTxtBox.Size = new Size(394, 39);
-            StudentIDTxtBox.TabIndex = 47;
-            StudentIDTxtBox.Visible = false;
-            // 
             // LastNameTxtBox
             // 
             LastNameTxtBox.BackColor = Color.White;
@@ -219,7 +190,7 @@ namespace Login_Form
             FirstNameTxtBox.BackColor = Color.White;
             FirstNameTxtBox.BorderStyle = BorderStyle.FixedSingle;
             FirstNameTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            FirstNameTxtBox.Location = new Point(458, 489);
+            FirstNameTxtBox.Location = new Point(455, 489);
             FirstNameTxtBox.Margin = new Padding(13);
             FirstNameTxtBox.Name = "FirstNameTxtBox";
             FirstNameTxtBox.PlaceholderText = "First Name";
@@ -483,7 +454,7 @@ namespace Login_Form
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1504, 827);
+            ClientSize = new Size(1603, 906);
             Controls.Add(label2);
             Controls.Add(StudentIDLbl);
             Controls.Add(StudentNumberCountLbl);
@@ -504,7 +475,6 @@ namespace Login_Form
             Controls.Add(MiddleNameTxtBox);
             Controls.Add(FirstNameTxtBox);
             Controls.Add(LastNameTxtBox);
-            Controls.Add(StudentIDTxtBox);
             Controls.Add(pictureBox2);
             Controls.Add(BackBtn);
             Controls.Add(pictureBox1);
@@ -513,7 +483,6 @@ namespace Login_Form
             Controls.Add(RegisterBtn);
             Controls.Add(AddStudentPnl);
             Controls.Add(CTULogo);
-            Controls.Add(StudentNumberTxtBox);
             Controls.Add(AddStudentLbl);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -550,7 +519,6 @@ namespace Login_Form
         private Label label14;
         private Label label15;
         private Label label16;
-        private TextBox StudentNumberTxtBox;
         private TextBox textBox2;
         private TextBox textBox3;
         private TextBox textBox4;
@@ -575,7 +543,6 @@ namespace Login_Form
         private Button ClearBtn;
         private PictureBox pictureBox2;
         private Button BackBtn;
-        private TextBox StudentIDTxtBox;
         private TextBox LastNameTxtBox;
         private TextBox FirstNameTxtBox;
         private TextBox MiddleNameTxtBox;

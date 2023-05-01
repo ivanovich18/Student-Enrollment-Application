@@ -159,8 +159,8 @@ namespace Login_Form
         private void ClearFields()
         {
             // Textboxes
-            StudentNumberTxtBox.Clear();
-            StudentIDTxtBox.Clear();
+            //StudentNumberTxtBox.Clear();
+            // StudentIDTxtBox.Clear();
             LastNameTxtBox.Clear();
             FirstNameTxtBox.Clear();
             MiddleNameTxtBox.Clear();
