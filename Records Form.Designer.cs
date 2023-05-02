@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentRecordsForm));
             StudentRecordsTable = new DataGridView();
@@ -38,6 +39,7 @@
             AddStudentPnl = new Panel();
             CTULogo = new PictureBox();
             AddStudentLbl = new Label();
+            bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(components);
             ((System.ComponentModel.ISupportInitialize)StudentRecordsTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -141,6 +143,11 @@
             AddStudentLbl.Text = "Student Records";
             AddStudentLbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // bunifuElipse1
+            // 
+            bunifuElipse1.ElipseRadius = 15;
+            bunifuElipse1.TargetControl = this;
+            // 
             // StudentRecordsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -177,5 +184,6 @@
         private Panel AddStudentPnl;
         private PictureBox CTULogo;
         private Label AddStudentLbl;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }
