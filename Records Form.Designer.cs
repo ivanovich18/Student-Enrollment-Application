@@ -46,6 +46,7 @@
             // 
             // StudentRecordsTable
             // 
+            StudentRecordsTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             StudentRecordsTable.BackgroundColor = Color.Orange;
             StudentRecordsTable.BorderStyle = BorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
