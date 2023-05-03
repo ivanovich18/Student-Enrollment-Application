@@ -76,7 +76,7 @@
             PasswordTxtBox.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             PasswordTxtBox.Location = new Point(61, 13);
             PasswordTxtBox.Name = "PasswordTxtBox";
-            PasswordTxtBox.PasswordChar = '*';
+            PasswordTxtBox.PasswordChar = '•';
             PasswordTxtBox.PlaceholderText = "Password";
             PasswordTxtBox.Size = new Size(270, 36);
             PasswordTxtBox.TabIndex = 3;
