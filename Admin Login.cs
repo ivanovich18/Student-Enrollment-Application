@@ -65,5 +65,19 @@ namespace Login_Form
                 }
             }
         }
+
+        private void AppExitBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit the application?", "Confirmation", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                // User clicked "Yes"
+                Application.Exit();
+            }
+            else
+            {
+                // User clicked "No" or closed the dialog
+            }
+        }
     }
 }
