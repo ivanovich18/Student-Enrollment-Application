@@ -20,7 +20,7 @@ namespace Login_Form
         private void AddStudentBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            AddStudentForm addStudents = new AddStudentForm();
+            Add_Students addStudents = new Add_Students();
             addStudents.ShowDialog();
         }
         private void LogoutBtn_Click(object sender, EventArgs e)

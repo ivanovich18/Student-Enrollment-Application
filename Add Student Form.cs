@@ -38,31 +38,6 @@ namespace Login_Form
             InitializeComponent();
         }
 
-        VideoCaptureDevice videoCapture;
-        FilterInfoCollection filterInfo;
-
-        void StartCamera()
-        {
-            try
-            {
-                filterInfo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-                videoCapture = new VideoCaptureDevice(filterInfo[0].MonikerString);
-                videoCapture.NewFrame += new NewFrameEventHandler(Camera_On);
-                videoCapture.Start();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        private void BackBtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            AdminDashboardForm mainForm = new AdminDashboardForm();
-            mainForm.ShowDialog();
-        }
-
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to add new student?", "Confirmation", MessageBoxButtons.YesNo);
@@ -110,85 +85,27 @@ namespace Login_Form
                     MessageBox.Show("Please fill all fields!");
                 }
             }
-            else
-            {
-                // User clicked "No" or closed the dialog
-            }
         }
+
         private void ClearBtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to clear all fields?", "Confirmation", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 // User clicked "Yes"
-
                 ClearFields();
-
                 MessageBox.Show("All fields are cleared!", "Cleared");
             }
-            else
-            {
-                // User clicked "No" or closed the dialog
-            }
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminDashboardForm mainForm = new AdminDashboardForm();
+            mainForm.ShowDialog();
         }
 
         private void Add_Students_Load(object sender, EventArgs e)
-        {
-            Form_Load();
-        }
-
-        private void ClearFields()
-        {
-            // Textboxes
-            LastNameTxtBox.Clear();
-            FirstNameTxtBox.Clear();
-            MiddleNameTxtBox.Clear();
-            EmailTxtBox.Clear();
-            AgeTxtBox.Clear();
-            CurrentAddressTxtBox.Clear();
-            PermanentAddressTxtBox.Clear();
-            BirthPlaceTxtBox.Clear();
-
-            // DateTimePicker
-            BirthdayPicker.Value = DateTime.Today;
-
-            // ComboBox
-            GenderCmbBox.SelectedIndex = 0;
-            AcademicYearCmbBox.SelectedIndex = 0;
-            StudentTypeCmbBox.SelectedIndex = 0;
-            DepartmentCmbBox.SelectedIndex = 0;
-            ProgramCmbBox.Items.Insert(0, "Program");
-            ProgramCmbBox.SelectedIndex = 0;
-        }
-
-        private void AcademicYearCmbBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            MySqlConnection conn = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
-            conn.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(student_number) + 1 FROM app_student_records;", conn);
-            // execute command and retrieve count value as object
-            object result = cmd.ExecuteScalar();
-            // convert object to string and store in variable
-            string countStr = result.ToString();
-            // close connection
-            conn.Close();
-
-            object selectedItem = AcademicYearCmbBox.SelectedItem;
-            string selectedText = selectedItem.ToString();
-            StudentIDLbl.Text = selectedText + "-" + "0" + countStr;
-            new_studentIDlbl = selectedText + "-" + "0" + countStr;
-
-            if (AcademicYearCmbBox.SelectedIndex == 0)
-            {
-                StudentIDLbl.ForeColor = Color.White;
-            }
-            else
-            {
-                StudentIDLbl.ForeColor = Color.Black;
-            }
-        }
-
-        private void Form_Load()
         {
             MySqlConnection conn = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
             conn.Open();
@@ -256,6 +173,57 @@ namespace Login_Form
             GraphicsPath gp = new GraphicsPath();
             gp.AddEllipse(0, 0, StudentActualPic.Width, StudentActualPic.Height);
             StudentActualPic.Region = new Region(gp);
+        }
+
+        private void ClearFields()
+        {
+            // Textboxes
+            LastNameTxtBox.Clear();
+            FirstNameTxtBox.Clear();
+            MiddleNameTxtBox.Clear();
+            EmailTxtBox.Clear();
+            AgeTxtBox.Clear();
+            CurrentAddressTxtBox.Clear();
+            PermanentAddressTxtBox.Clear();
+            BirthPlaceTxtBox.Clear();
+
+            // DateTimePicker
+            BirthdayPicker.Value = DateTime.Today;
+
+            // ComboBox
+            GenderCmbBox.SelectedIndex = 0;
+            AcademicYearCmbBox.SelectedIndex = 0;
+            StudentTypeCmbBox.SelectedIndex = 0;
+            DepartmentCmbBox.SelectedIndex = 0;
+            ProgramCmbBox.Items.Insert(0, "Program");
+            ProgramCmbBox.SelectedIndex = 0;
+        }
+
+        private void AcademicYearCmbBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(student_number) + 1 FROM app_student_records;", conn);
+            // execute command and retrieve count value as object
+            object result = cmd.ExecuteScalar();
+            // convert object to string and store in variable
+            string countStr = result.ToString();
+            // close connection
+            conn.Close();
+
+            object selectedItem = AcademicYearCmbBox.SelectedItem;
+            string selectedText = selectedItem.ToString();
+            StudentIDLbl.Text = selectedText + "-" + "0" + countStr;
+            new_studentIDlbl = selectedText + "-" + "0" + countStr;
+
+            if (AcademicYearCmbBox.SelectedIndex == 0)
+            {
+                StudentIDLbl.ForeColor = Color.White;
+            }
+            else
+            {
+                StudentIDLbl.ForeColor = Color.Black;
+            }
         }
 
         private void DepartmentCmbBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -352,6 +320,24 @@ namespace Login_Form
                     ProgramCmbBox.Items.Add("(BIT-Refrigeration and Air Conditioning - Technology) Bachelor of Industrial Technology - Refrigeration and Air Conditioning Technology");
                     ProgramCmbBox.Items.Add("(BIT-Welding and Fabrication Technology) Bachelor of Industrial Technology - Welding and Fabrication Technology");
                     break;
+            }
+        }
+
+        VideoCaptureDevice videoCapture;
+        FilterInfoCollection filterInfo;
+
+        void StartCamera()
+        {
+            try
+            {
+                filterInfo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+                videoCapture = new VideoCaptureDevice(filterInfo[0].MonikerString);
+                videoCapture.NewFrame += new NewFrameEventHandler(Camera_On);
+                videoCapture.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
