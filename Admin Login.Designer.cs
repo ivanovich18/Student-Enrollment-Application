@@ -86,6 +86,7 @@
             // LoginBtn
             // 
             LoginBtn.BackColor = Color.Orange;
+            LoginBtn.Cursor = Cursors.Hand;
             LoginBtn.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             LoginBtn.ForeColor = SystemColors.ControlLightLight;
             LoginBtn.Location = new Point(58, 508);
@@ -152,6 +153,7 @@
             // 
             // AppExitBtn
             // 
+            AppExitBtn.Cursor = Cursors.Hand;
             AppExitBtn.Image = Properties.Resources.app_exit;
             AppExitBtn.Location = new Point(402, 20);
             AppExitBtn.Name = "AppExitBtn";
