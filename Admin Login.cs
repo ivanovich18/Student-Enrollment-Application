@@ -33,7 +33,7 @@ namespace Login_Form
                 {
                     MessageBox.Show("Login Successful!");
                     this.Hide();
-                    Form2 mainForm = new Form2();
+                    AdminDashboardForm mainForm = new AdminDashboardForm();
                     mainForm.ShowDialog();
                 }
                 if (loginAttempts == 4)

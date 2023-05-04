@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Login_Form
 {
-    public partial class Form2 : Form
+    public partial class AdminDashboardForm : Form
     {
-        public Form2()
+        public AdminDashboardForm()
         {
             InitializeComponent();
         }
@@ -45,48 +45,6 @@ namespace Login_Form
         }
 
         private void SettingsBtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            AdminSettingsForm adminSettingsForm = new AdminSettingsForm();
-            adminSettingsForm.ShowDialog();
-        }
-
-        private void LogoutPictureBox_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            LoginForm loginForm = new LoginForm();
-            loginForm.ShowDialog();
-        }
-
-        private void AddStudentPic_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Add_Students addStudents = new Add_Students();
-            addStudents.ShowDialog();
-        }
-
-        private void RecordsPic_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            StudentRecordsForm studentRecordsForm = new StudentRecordsForm();
-            studentRecordsForm.ShowDialog();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            SearchStudentForm searchStudentForm = new SearchStudentForm();
-            searchStudentForm.ShowDialog();
-        }
-
-        private void SearchPic_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            SearchStudentForm searchStudentForm = new SearchStudentForm();
-            searchStudentForm.ShowDialog();
-        }
-
-        private void SettingsPic_Click(object sender, EventArgs e)
         {
             this.Hide();
             AdminSettingsForm adminSettingsForm = new AdminSettingsForm();

@@ -1,6 +1,6 @@
 ﻿namespace Login_Form
 {
-    partial class Form2
+    partial class AdminDashboardForm : Form
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboardForm));
             button1 = new Button();
             label2 = new Label();
             AddStudentBtn = new Button();
@@ -160,7 +160,7 @@
             LogoutPictureBox.Size = new Size(46, 40);
             LogoutPictureBox.TabIndex = 19;
             LogoutPictureBox.TabStop = false;
-            LogoutPictureBox.Click += LogoutPictureBox_Click;
+            LogoutPictureBox.Click += LogoutBtn_Click;
             // 
             // LogoutBtn
             // 
@@ -223,7 +223,7 @@
             AddStudentPic.Size = new Size(64, 48);
             AddStudentPic.TabIndex = 13;
             AddStudentPic.TabStop = false;
-            AddStudentPic.Click += AddStudentPic_Click;
+            AddStudentPic.Click += AddStudentBtn_Click;
             // 
             // RecordsPic
             // 
@@ -235,7 +235,7 @@
             RecordsPic.Size = new Size(64, 48);
             RecordsPic.TabIndex = 14;
             RecordsPic.TabStop = false;
-            RecordsPic.Click += RecordsPic_Click;
+            RecordsPic.Click += StudentRecordsBtn_Click;
             // 
             // SearchPic
             // 
@@ -248,7 +248,7 @@
             SearchPic.SizeMode = PictureBoxSizeMode.AutoSize;
             SearchPic.TabIndex = 15;
             SearchPic.TabStop = false;
-            SearchPic.Click += SearchPic_Click;
+            SearchPic.Click += SearchStudentBtn_Click;
             // 
             // SettingsPic
             // 
@@ -260,9 +260,9 @@
             SettingsPic.Size = new Size(53, 56);
             SettingsPic.TabIndex = 16;
             SettingsPic.TabStop = false;
-            SettingsPic.Click += SettingsPic_Click;
+            SettingsPic.Click += SettingsBtn_Click;
             // 
-            // Form2
+            // AdminDashboardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -281,7 +281,7 @@
             Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Form2";
+            Name = "AdminDashboardForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Student Enrollment Application";
             LeftPnl.ResumeLayout(false);
