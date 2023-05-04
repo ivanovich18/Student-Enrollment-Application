@@ -74,10 +74,6 @@ namespace Login_Form
                 // User clicked "Yes"
                 Application.Exit();
             }
-            else
-            {
-                // User clicked "No" or closed the dialog
-            }
         }
     }
 }
