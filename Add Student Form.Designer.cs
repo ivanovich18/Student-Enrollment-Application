@@ -107,6 +107,7 @@ namespace Login_Form
             // AddStudentPic
             // 
             AddStudentPic.BackColor = Color.Orange;
+            AddStudentPic.Cursor = Cursors.Hand;
             AddStudentPic.Image = (Image)resources.GetObject("AddStudentPic.Image");
             AddStudentPic.Location = new Point(811, 60);
             AddStudentPic.Name = "AddStudentPic";
@@ -119,6 +120,7 @@ namespace Login_Form
             // RegisterBtn
             // 
             RegisterBtn.BackColor = Color.Orange;
+            RegisterBtn.Cursor = Cursors.Hand;
             RegisterBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             RegisterBtn.ForeColor = SystemColors.ControlLightLight;
             RegisterBtn.Location = new Point(781, 46);
@@ -132,6 +134,7 @@ namespace Login_Form
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Orange;
+            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = Properties.Resources.Backspace;
             pictureBox1.Location = new Point(1053, 60);
             pictureBox1.Name = "pictureBox1";
@@ -144,6 +147,7 @@ namespace Login_Form
             // ClearBtn
             // 
             ClearBtn.BackColor = Color.Orange;
+            ClearBtn.Cursor = Cursors.Hand;
             ClearBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             ClearBtn.ForeColor = SystemColors.ControlLightLight;
             ClearBtn.Location = new Point(1010, 46);
@@ -157,6 +161,7 @@ namespace Login_Form
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.Orange;
+            pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = Properties.Resources.Back;
             pictureBox2.Location = new Point(1287, 60);
             pictureBox2.Name = "pictureBox2";
@@ -169,6 +174,7 @@ namespace Login_Form
             // BackBtn
             // 
             BackBtn.BackColor = Color.Orange;
+            BackBtn.Cursor = Cursors.Hand;
             BackBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             BackBtn.ForeColor = SystemColors.ControlLightLight;
             BackBtn.Location = new Point(1229, 46);
@@ -184,7 +190,7 @@ namespace Login_Form
             LastNameTxtBox.BackColor = Color.White;
             LastNameTxtBox.BorderStyle = BorderStyle.FixedSingle;
             LastNameTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            LastNameTxtBox.Location = new Point(455, 419);
+            LastNameTxtBox.Location = new Point(464, 432);
             LastNameTxtBox.Margin = new Padding(13);
             LastNameTxtBox.Name = "LastNameTxtBox";
             LastNameTxtBox.PlaceholderText = "Last Name";
@@ -196,7 +202,7 @@ namespace Login_Form
             FirstNameTxtBox.BackColor = Color.White;
             FirstNameTxtBox.BorderStyle = BorderStyle.FixedSingle;
             FirstNameTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            FirstNameTxtBox.Location = new Point(455, 489);
+            FirstNameTxtBox.Location = new Point(464, 502);
             FirstNameTxtBox.Margin = new Padding(13);
             FirstNameTxtBox.Name = "FirstNameTxtBox";
             FirstNameTxtBox.PlaceholderText = "First Name";
@@ -208,7 +214,7 @@ namespace Login_Form
             MiddleNameTxtBox.BackColor = Color.White;
             MiddleNameTxtBox.BorderStyle = BorderStyle.FixedSingle;
             MiddleNameTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            MiddleNameTxtBox.Location = new Point(455, 559);
+            MiddleNameTxtBox.Location = new Point(464, 572);
             MiddleNameTxtBox.Margin = new Padding(13);
             MiddleNameTxtBox.Name = "MiddleNameTxtBox";
             MiddleNameTxtBox.PlaceholderText = "Middle Name";
@@ -220,7 +226,7 @@ namespace Login_Form
             AgeTxtBox.BackColor = Color.White;
             AgeTxtBox.BorderStyle = BorderStyle.FixedSingle;
             AgeTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            AgeTxtBox.Location = new Point(961, 212);
+            AgeTxtBox.Location = new Point(970, 225);
             AgeTxtBox.Margin = new Padding(13);
             AgeTxtBox.Name = "AgeTxtBox";
             AgeTxtBox.PlaceholderText = "Age";
@@ -239,7 +245,7 @@ namespace Login_Form
             BirthdayPicker.Location = new Point(134, -1);
             BirthdayPicker.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
             BirthdayPicker.MaximumSize = new Size(394, 39);
-            BirthdayPicker.MinDate = new DateTime(1980, 1, 1, 0, 0, 0, 0);
+            BirthdayPicker.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             BirthdayPicker.Name = "BirthdayPicker";
             BirthdayPicker.Size = new Size(259, 39);
             BirthdayPicker.TabIndex = 53;
@@ -251,7 +257,7 @@ namespace Login_Form
             GenderCmbBox.ForeColor = Color.DimGray;
             GenderCmbBox.FormattingEnabled = true;
             GenderCmbBox.Items.AddRange(new object[] { "Male", "Female", "Non-binary", "Prefer not to say" });
-            GenderCmbBox.Location = new Point(961, 488);
+            GenderCmbBox.Location = new Point(970, 501);
             GenderCmbBox.Name = "GenderCmbBox";
             GenderCmbBox.Size = new Size(394, 40);
             GenderCmbBox.TabIndex = 54;
@@ -261,7 +267,7 @@ namespace Login_Form
             BirthPlaceTxtBox.BackColor = Color.White;
             BirthPlaceTxtBox.BorderStyle = BorderStyle.FixedSingle;
             BirthPlaceTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            BirthPlaceTxtBox.Location = new Point(961, 281);
+            BirthPlaceTxtBox.Location = new Point(970, 294);
             BirthPlaceTxtBox.Margin = new Padding(13);
             BirthPlaceTxtBox.Name = "BirthPlaceTxtBox";
             BirthPlaceTxtBox.PlaceholderText = "Place of Birth";
@@ -273,7 +279,7 @@ namespace Login_Form
             CurrentAddressTxtBox.BackColor = Color.White;
             CurrentAddressTxtBox.BorderStyle = BorderStyle.FixedSingle;
             CurrentAddressTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            CurrentAddressTxtBox.Location = new Point(961, 350);
+            CurrentAddressTxtBox.Location = new Point(970, 363);
             CurrentAddressTxtBox.Margin = new Padding(13);
             CurrentAddressTxtBox.Name = "CurrentAddressTxtBox";
             CurrentAddressTxtBox.PlaceholderText = "Current Address";
@@ -285,7 +291,7 @@ namespace Login_Form
             PermanentAddressTxtBox.BackColor = Color.White;
             PermanentAddressTxtBox.BorderStyle = BorderStyle.FixedSingle;
             PermanentAddressTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            PermanentAddressTxtBox.Location = new Point(961, 419);
+            PermanentAddressTxtBox.Location = new Point(970, 432);
             PermanentAddressTxtBox.Margin = new Padding(13);
             PermanentAddressTxtBox.Name = "PermanentAddressTxtBox";
             PermanentAddressTxtBox.PlaceholderText = "Permanent Address";
@@ -299,7 +305,7 @@ namespace Login_Form
             AcademicYearCmbBox.ForeColor = Color.DimGray;
             AcademicYearCmbBox.FormattingEnabled = true;
             AcademicYearCmbBox.Items.AddRange(new object[] { "2023-2024", "2024-2025", "2025-2026", "2026-2027", "2027-2028", "2028-2029", "2029-2030" });
-            AcademicYearCmbBox.Location = new Point(455, 349);
+            AcademicYearCmbBox.Location = new Point(464, 362);
             AcademicYearCmbBox.Name = "AcademicYearCmbBox";
             AcademicYearCmbBox.Size = new Size(394, 40);
             AcademicYearCmbBox.TabIndex = 58;
@@ -313,7 +319,7 @@ namespace Login_Form
             StudentTypeCmbBox.ForeColor = Color.DimGray;
             StudentTypeCmbBox.FormattingEnabled = true;
             StudentTypeCmbBox.Items.AddRange(new object[] { "New", "Returnee", "Transferee" });
-            StudentTypeCmbBox.Location = new Point(961, 558);
+            StudentTypeCmbBox.Location = new Point(970, 571);
             StudentTypeCmbBox.Name = "StudentTypeCmbBox";
             StudentTypeCmbBox.Size = new Size(394, 40);
             StudentTypeCmbBox.TabIndex = 59;
@@ -325,7 +331,7 @@ namespace Login_Form
             DepartmentCmbBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             DepartmentCmbBox.ForeColor = Color.DimGray;
             DepartmentCmbBox.FormattingEnabled = true;
-            DepartmentCmbBox.Location = new Point(961, 628);
+            DepartmentCmbBox.Location = new Point(970, 641);
             DepartmentCmbBox.Name = "DepartmentCmbBox";
             DepartmentCmbBox.Size = new Size(394, 40);
             DepartmentCmbBox.TabIndex = 60;
@@ -338,7 +344,7 @@ namespace Login_Form
             ProgramCmbBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             ProgramCmbBox.ForeColor = Color.DimGray;
             ProgramCmbBox.FormattingEnabled = true;
-            ProgramCmbBox.Location = new Point(961, 698);
+            ProgramCmbBox.Location = new Point(970, 711);
             ProgramCmbBox.Name = "ProgramCmbBox";
             ProgramCmbBox.Size = new Size(394, 40);
             ProgramCmbBox.TabIndex = 61;
@@ -347,7 +353,7 @@ namespace Login_Form
             // StudentImageCoverPic
             // 
             StudentImageCoverPic.Image = Properties.Resources.image;
-            StudentImageCoverPic.Location = new Point(130, 199);
+            StudentImageCoverPic.Location = new Point(139, 225);
             StudentImageCoverPic.Name = "StudentImageCoverPic";
             StudentImageCoverPic.Size = new Size(240, 240);
             StudentImageCoverPic.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -357,11 +363,12 @@ namespace Login_Form
             // OpenCameraBtn
             // 
             OpenCameraBtn.BackColor = Color.Orange;
+            OpenCameraBtn.Cursor = Cursors.Hand;
             OpenCameraBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             OpenCameraBtn.ForeColor = SystemColors.ControlLightLight;
-            OpenCameraBtn.Location = new Point(157, 471);
+            OpenCameraBtn.Location = new Point(139, 484);
             OpenCameraBtn.Name = "OpenCameraBtn";
-            OpenCameraBtn.Size = new Size(196, 43);
+            OpenCameraBtn.Size = new Size(240, 43);
             OpenCameraBtn.TabIndex = 63;
             OpenCameraBtn.Text = "Open Camera";
             OpenCameraBtn.UseVisualStyleBackColor = false;
@@ -370,11 +377,12 @@ namespace Login_Form
             // UploadImageBtn
             // 
             UploadImageBtn.BackColor = Color.Orange;
+            UploadImageBtn.Cursor = Cursors.Hand;
             UploadImageBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             UploadImageBtn.ForeColor = SystemColors.ControlLightLight;
-            UploadImageBtn.Location = new Point(157, 604);
+            UploadImageBtn.Location = new Point(139, 606);
             UploadImageBtn.Name = "UploadImageBtn";
-            UploadImageBtn.Size = new Size(196, 43);
+            UploadImageBtn.Size = new Size(240, 43);
             UploadImageBtn.TabIndex = 64;
             UploadImageBtn.Text = "Upload Image";
             UploadImageBtn.UseVisualStyleBackColor = false;
@@ -386,7 +394,7 @@ namespace Login_Form
             BirthdayPanel.BorderStyle = BorderStyle.FixedSingle;
             BirthdayPanel.Controls.Add(BirthdayLbl);
             BirthdayPanel.Controls.Add(BirthdayPicker);
-            BirthdayPanel.Location = new Point(455, 629);
+            BirthdayPanel.Location = new Point(464, 642);
             BirthdayPanel.Name = "BirthdayPanel";
             BirthdayPanel.Size = new Size(394, 39);
             BirthdayPanel.TabIndex = 65;
@@ -408,7 +416,7 @@ namespace Login_Form
             EmailTxtBox.BackColor = Color.White;
             EmailTxtBox.BorderStyle = BorderStyle.FixedSingle;
             EmailTxtBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            EmailTxtBox.Location = new Point(455, 698);
+            EmailTxtBox.Location = new Point(464, 711);
             EmailTxtBox.Margin = new Padding(13);
             EmailTxtBox.Name = "EmailTxtBox";
             EmailTxtBox.PlaceholderText = "Email";
@@ -425,7 +433,7 @@ namespace Login_Form
             StudentNumberCountLbl.AutoSize = true;
             StudentNumberCountLbl.Font = new Font("Segoe UI", 18.75F, FontStyle.Regular, GraphicsUnit.Point);
             StudentNumberCountLbl.ForeColor = Color.Black;
-            StudentNumberCountLbl.Location = new Point(455, 212);
+            StudentNumberCountLbl.Location = new Point(461, 225);
             StudentNumberCountLbl.Name = "StudentNumberCountLbl";
             StudentNumberCountLbl.Size = new Size(210, 35);
             StudentNumberCountLbl.TabIndex = 67;
@@ -437,7 +445,7 @@ namespace Login_Form
             StudentIDLbl.AutoSize = true;
             StudentIDLbl.Font = new Font("Segoe UI", 18.75F, FontStyle.Regular, GraphicsUnit.Point);
             StudentIDLbl.ForeColor = Color.Black;
-            StudentIDLbl.Location = new Point(604, 281);
+            StudentIDLbl.Location = new Point(610, 294);
             StudentIDLbl.Name = "StudentIDLbl";
             StudentIDLbl.Size = new Size(30, 35);
             StudentIDLbl.TabIndex = 68;
@@ -449,7 +457,7 @@ namespace Login_Form
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18.75F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(455, 281);
+            label2.Location = new Point(461, 294);
             label2.Name = "label2";
             label2.Size = new Size(143, 35);
             label2.TabIndex = 69;
@@ -458,7 +466,7 @@ namespace Login_Form
             // 
             // StudentActualPic
             // 
-            StudentActualPic.Location = new Point(130, 199);
+            StudentActualPic.Location = new Point(139, 225);
             StudentActualPic.Name = "StudentActualPic";
             StudentActualPic.Size = new Size(240, 240);
             StudentActualPic.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -468,11 +476,12 @@ namespace Login_Form
             // CaptureBtn
             // 
             CaptureBtn.BackColor = Color.Orange;
+            CaptureBtn.Cursor = Cursors.Hand;
             CaptureBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             CaptureBtn.ForeColor = SystemColors.ControlLightLight;
-            CaptureBtn.Location = new Point(157, 538);
+            CaptureBtn.Location = new Point(139, 545);
             CaptureBtn.Name = "CaptureBtn";
-            CaptureBtn.Size = new Size(196, 43);
+            CaptureBtn.Size = new Size(240, 43);
             CaptureBtn.TabIndex = 71;
             CaptureBtn.Text = "Capture";
             CaptureBtn.UseVisualStyleBackColor = false;

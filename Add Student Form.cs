@@ -242,6 +242,8 @@ namespace Login_Form
             ProgramCmbBox.DisplayMember = "Text";
             ProgramCmbBox.ValueMember = "Value";
 
+            BirthdayPicker.Value = DateTime.Today;
+
             StudentIDLbl.ForeColor = Color.White;
 
             DepartmentCmbBox.Items.Add("(CAS) College of Arts and Sciences");
