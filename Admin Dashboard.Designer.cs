@@ -79,6 +79,7 @@
             // AddStudentBtn
             // 
             AddStudentBtn.BackColor = Color.Orange;
+            AddStudentBtn.Cursor = Cursors.Hand;
             AddStudentBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             AddStudentBtn.ForeColor = SystemColors.ControlLightLight;
             AddStudentBtn.Location = new Point(517, 147);
@@ -92,6 +93,7 @@
             // SearchStudentBtn
             // 
             SearchStudentBtn.BackColor = Color.Orange;
+            SearchStudentBtn.Cursor = Cursors.Hand;
             SearchStudentBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             SearchStudentBtn.ForeColor = SystemColors.ControlLightLight;
             SearchStudentBtn.Location = new Point(517, 389);
@@ -105,6 +107,7 @@
             // StudentRecordsBtn
             // 
             StudentRecordsBtn.BackColor = Color.Orange;
+            StudentRecordsBtn.Cursor = Cursors.Hand;
             StudentRecordsBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             StudentRecordsBtn.ForeColor = SystemColors.ControlLightLight;
             StudentRecordsBtn.Location = new Point(517, 268);
@@ -118,6 +121,7 @@
             // SettingsBtn
             // 
             SettingsBtn.BackColor = Color.Orange;
+            SettingsBtn.Cursor = Cursors.Hand;
             SettingsBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             SettingsBtn.ForeColor = SystemColors.ControlLightLight;
             SettingsBtn.Location = new Point(517, 510);
@@ -149,6 +153,7 @@
             // LogoutPictureBox
             // 
             LogoutPictureBox.BackColor = Color.Orange;
+            LogoutPictureBox.Cursor = Cursors.Hand;
             LogoutPictureBox.Image = Properties.Resources.logout;
             LogoutPictureBox.Location = new Point(34, 63);
             LogoutPictureBox.Name = "LogoutPictureBox";
@@ -159,6 +164,7 @@
             // 
             // LogoutBtn
             // 
+            LogoutBtn.Cursor = Cursors.Hand;
             LogoutBtn.FlatAppearance.BorderSize = 0;
             LogoutBtn.FlatAppearance.MouseDownBackColor = Color.Orange;
             LogoutBtn.FlatAppearance.MouseOverBackColor = Color.Orange;
@@ -210,6 +216,7 @@
             // AddStudentPic
             // 
             AddStudentPic.BackColor = Color.Orange;
+            AddStudentPic.Cursor = Cursors.Hand;
             AddStudentPic.Image = (Image)resources.GetObject("AddStudentPic.Image");
             AddStudentPic.Location = new Point(548, 173);
             AddStudentPic.Name = "AddStudentPic";
@@ -221,6 +228,7 @@
             // RecordsPic
             // 
             RecordsPic.BackColor = Color.Orange;
+            RecordsPic.Cursor = Cursors.Hand;
             RecordsPic.Image = Properties.Resources.records;
             RecordsPic.Location = new Point(548, 294);
             RecordsPic.Name = "RecordsPic";
@@ -232,6 +240,7 @@
             // SearchPic
             // 
             SearchPic.BackColor = Color.Orange;
+            SearchPic.Cursor = Cursors.Hand;
             SearchPic.Image = Properties.Resources.search;
             SearchPic.Location = new Point(552, 412);
             SearchPic.Name = "SearchPic";
@@ -244,6 +253,7 @@
             // SettingsPic
             // 
             SettingsPic.BackColor = Color.Orange;
+            SettingsPic.Cursor = Cursors.Hand;
             SettingsPic.Image = Properties.Resources.settings;
             SettingsPic.Location = new Point(553, 531);
             SettingsPic.Name = "SettingsPic";
