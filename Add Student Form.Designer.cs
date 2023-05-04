@@ -54,7 +54,7 @@ namespace Login_Form
             StudentTypeCmbBox = new ComboBox();
             DepartmentCmbBox = new ComboBox();
             ProgramCmbBox = new ComboBox();
-            StudentImagePic = new PictureBox();
+            StudentImageCoverPic = new PictureBox();
             OpenCameraBtn = new Button();
             UploadImageBtn = new Button();
             BirthdayPanel = new Panel();
@@ -64,12 +64,15 @@ namespace Login_Form
             StudentNumberCountLbl = new Label();
             StudentIDLbl = new Label();
             label2 = new Label();
+            StudentActualPic = new PictureBox();
+            CaptureBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddStudentPic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)StudentImagePic).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)StudentImageCoverPic).BeginInit();
             BirthdayPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)StudentActualPic).BeginInit();
             SuspendLayout();
             // 
             // AddStudentLbl
@@ -341,39 +344,41 @@ namespace Login_Form
             ProgramCmbBox.TabIndex = 61;
             ProgramCmbBox.Text = " Program";
             // 
-            // StudentImagePic
+            // StudentImageCoverPic
             // 
-            StudentImagePic.Image = Properties.Resources.image;
-            StudentImagePic.Location = new Point(172, 212);
-            StudentImagePic.Name = "StudentImagePic";
-            StudentImagePic.Size = new Size(150, 150);
-            StudentImagePic.SizeMode = PictureBoxSizeMode.AutoSize;
-            StudentImagePic.TabIndex = 62;
-            StudentImagePic.TabStop = false;
+            StudentImageCoverPic.Image = Properties.Resources.image;
+            StudentImageCoverPic.Location = new Point(130, 199);
+            StudentImageCoverPic.Name = "StudentImageCoverPic";
+            StudentImageCoverPic.Size = new Size(240, 240);
+            StudentImageCoverPic.SizeMode = PictureBoxSizeMode.StretchImage;
+            StudentImageCoverPic.TabIndex = 62;
+            StudentImageCoverPic.TabStop = false;
             // 
             // OpenCameraBtn
             // 
             OpenCameraBtn.BackColor = Color.Orange;
             OpenCameraBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             OpenCameraBtn.ForeColor = SystemColors.ControlLightLight;
-            OpenCameraBtn.Location = new Point(148, 381);
+            OpenCameraBtn.Location = new Point(157, 471);
             OpenCameraBtn.Name = "OpenCameraBtn";
             OpenCameraBtn.Size = new Size(196, 43);
             OpenCameraBtn.TabIndex = 63;
             OpenCameraBtn.Text = "Open Camera";
             OpenCameraBtn.UseVisualStyleBackColor = false;
+            OpenCameraBtn.Click += OpenCameraBtn_Click;
             // 
             // UploadImageBtn
             // 
             UploadImageBtn.BackColor = Color.Orange;
             UploadImageBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             UploadImageBtn.ForeColor = SystemColors.ControlLightLight;
-            UploadImageBtn.Location = new Point(148, 441);
+            UploadImageBtn.Location = new Point(157, 604);
             UploadImageBtn.Name = "UploadImageBtn";
             UploadImageBtn.Size = new Size(196, 43);
             UploadImageBtn.TabIndex = 64;
             UploadImageBtn.Text = "Upload Image";
             UploadImageBtn.UseVisualStyleBackColor = false;
+            UploadImageBtn.Click += UploadImageBtn_Click;
             // 
             // BirthdayPanel
             // 
@@ -451,12 +456,35 @@ namespace Login_Form
             label2.Text = "Student ID: ";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // StudentActualPic
+            // 
+            StudentActualPic.Location = new Point(130, 199);
+            StudentActualPic.Name = "StudentActualPic";
+            StudentActualPic.Size = new Size(240, 240);
+            StudentActualPic.SizeMode = PictureBoxSizeMode.CenterImage;
+            StudentActualPic.TabIndex = 70;
+            StudentActualPic.TabStop = false;
+            // 
+            // CaptureBtn
+            // 
+            CaptureBtn.BackColor = Color.Orange;
+            CaptureBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            CaptureBtn.ForeColor = SystemColors.ControlLightLight;
+            CaptureBtn.Location = new Point(157, 538);
+            CaptureBtn.Name = "CaptureBtn";
+            CaptureBtn.Size = new Size(196, 43);
+            CaptureBtn.TabIndex = 71;
+            CaptureBtn.Text = "Capture";
+            CaptureBtn.UseVisualStyleBackColor = false;
+            CaptureBtn.Click += CaptureBtn_Click;
+            // 
             // Add_Students
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1504, 827);
+            Controls.Add(CaptureBtn);
             Controls.Add(label2);
             Controls.Add(StudentIDLbl);
             Controls.Add(StudentNumberCountLbl);
@@ -464,7 +492,6 @@ namespace Login_Form
             Controls.Add(BirthdayPanel);
             Controls.Add(UploadImageBtn);
             Controls.Add(OpenCameraBtn);
-            Controls.Add(StudentImagePic);
             Controls.Add(ProgramCmbBox);
             Controls.Add(DepartmentCmbBox);
             Controls.Add(StudentTypeCmbBox);
@@ -486,19 +513,23 @@ namespace Login_Form
             Controls.Add(AddStudentPnl);
             Controls.Add(CTULogo);
             Controls.Add(AddStudentLbl);
+            Controls.Add(StudentImageCoverPic);
+            Controls.Add(StudentActualPic);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Add_Students";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
+            FormClosing += Add_Students_FormClosing;
             Load += Add_Students_Load;
             ((System.ComponentModel.ISupportInitialize)CTULogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)AddStudentPic).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)StudentImagePic).EndInit();
+            ((System.ComponentModel.ISupportInitialize)StudentImageCoverPic).EndInit();
             BirthdayPanel.ResumeLayout(false);
             BirthdayPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)StudentActualPic).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -527,8 +558,6 @@ namespace Login_Form
         private ComboBox StudentTypeCmbBox;
         private ComboBox DepartmentCmbBox;
         private ComboBox ProgramCmbBox;
-        private PictureBox StudentImagePic;
-        private Button OpenCameraBtn;
         private Button UploadImageBtn;
         private Panel BirthdayPanel;
         private Label BirthdayLbl;
@@ -537,5 +566,9 @@ namespace Login_Form
         private Label StudentNumberCountLbl;
         private Label StudentIDLbl;
         private Label label2;
+        public PictureBox StudentImageCoverPic;
+        public Button OpenCameraBtn;
+        private PictureBox StudentActualPic;
+        public Button CaptureBtn;
     }
 }

@@ -17,12 +17,17 @@ using static System.Formats.Asn1.AsnWriter;
 using System.Runtime.Intrinsics.X86;
 using System.Reflection.PortableExecutable;
 using System.Web.Services.Description;
+using System.Text.RegularExpressions;
+using AForge.Video;
+using AForge.Video.DirectShow;
+using System.Drawing.Drawing2D;
 
 namespace Login_Form
 {
     public partial class Add_Students : Form
     {
         string new_studentIDlbl;
+        private bool isCaptured = false;
 
         MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
         MySqlCommand command;
@@ -31,6 +36,24 @@ namespace Login_Form
         public Add_Students()
         {
             InitializeComponent();
+        }
+
+        VideoCaptureDevice videoCapture;
+        FilterInfoCollection filterInfo;
+
+        void StartCamera()
+        {
+            try
+            {
+                filterInfo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+                videoCapture = new VideoCaptureDevice(filterInfo[0].MonikerString);
+                videoCapture.NewFrame += new NewFrameEventHandler(Camera_On);
+                videoCapture.Start();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private void BackBtn_Click(object sender, EventArgs e)
@@ -227,6 +250,10 @@ namespace Login_Form
             DepartmentCmbBox.Items.Add("(COE) College of Engineering");
             DepartmentCmbBox.Items.Add("(CME) College of Management and Entrepreneurship");
             DepartmentCmbBox.Items.Add("(COT) College of Technology");
+
+            GraphicsPath gp = new GraphicsPath();
+            gp.AddEllipse(0, 0, StudentActualPic.Width, StudentActualPic.Height);
+            StudentActualPic.Region = new Region(gp);
         }
 
         private void DepartmentCmbBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -323,6 +350,141 @@ namespace Login_Form
                     ProgramCmbBox.Items.Add("(BIT-Refrigeration and Air Conditioning - Technology) Bachelor of Industrial Technology - Refrigeration and Air Conditioning Technology");
                     ProgramCmbBox.Items.Add("(BIT-Welding and Fabrication Technology) Bachelor of Industrial Technology - Welding and Fabrication Technology");
                     break;
+            }
+        }
+
+        private void OpenCameraBtn_Click(object sender, EventArgs e)
+        {
+            StudentActualPic.SizeMode = PictureBoxSizeMode.CenterImage;
+            StudentImageCoverPic.Hide();
+            StartCamera();
+            // Change the button text
+            System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
+            btn.Text = "Stop Camera";
+
+            // Change the button click function
+            btn.Click -= OpenCameraBtn_Click; // Remove the current event handler
+            btn.Click += new EventHandler(StopCameraBtn_Click); // Add the new event handler
+        }
+
+        private void Camera_On(object sender, NewFrameEventArgs eventArgs)
+        {
+            if (!isCaptured)
+            {
+                StudentActualPic.Image = (Bitmap)eventArgs.Frame.Clone();
+            }
+        }
+
+        private void Add_Students_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Stop the video capture
+            if (videoCapture != null && videoCapture.IsRunning)
+            {
+                videoCapture.SignalToStop();
+                videoCapture.WaitForStop();
+                videoCapture = null;
+            }
+            StudentActualPic.Image = null;
+        }
+
+        private void StopCameraBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to stop camera?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                // User clicked "Yes"
+                // Stop the video capture
+                if (videoCapture != null && videoCapture.IsRunning)
+                {
+                    videoCapture.SignalToStop();
+                    videoCapture.WaitForStop();
+                    videoCapture = null;
+                }
+                StudentActualPic.Image = null;
+                StudentImageCoverPic.Show();
+
+                // Change the button text
+                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
+                btn.Text = "Open Camera";
+
+                // Change the button click function
+                btn.Click -= StopCameraBtn_Click; // Remove the current event handler
+                btn.Click += new EventHandler(OpenCameraBtn_Click); // Add the new event handler
+            }
+            else
+            {
+                // User clicked "No" or closed the dialog
+            }
+        }
+
+        private void CaptureBtn_Click(object sender, EventArgs e)
+        {
+            isCaptured = !isCaptured;
+            string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-student-id" + ".jpg";
+            var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height);
+            StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle);
+            System.Drawing.Imaging.ImageFormat imageFormat = null;
+            imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg;
+            bitmap.Save(filename, imageFormat);
+            MessageBox.Show("Image successfully captured!");
+
+            // Change the button text
+            System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
+            btn.Text = "Retake";
+
+            // Change the button click function
+            btn.Click -= CaptureBtn_Click; // Remove the current event handler
+            btn.Click += new EventHandler(RetakeBtn_Click); // Add the new event handler
+        }
+
+        private void RetakeBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to capture again?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                // User clicked "Yes"
+                // Change the button text
+                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
+                btn.Text = "Capture";
+
+                // Change the button click function
+                btn.Click -= RetakeBtn_Click; // Remove the current event handler
+                btn.Click += new EventHandler(CaptureBtn_Click); // Add the new event handler
+
+                isCaptured = !isCaptured;
+                string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-student-id" + ".jpg";
+                var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height);
+                StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle);
+                System.Drawing.Imaging.ImageFormat imageFormat = null;
+                imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg;
+                bitmap.Save(filename, imageFormat);
+            }
+            else
+            {
+                // User clicked "No" or closed the dialog
+            }
+        }
+
+        private void UploadImageBtn_Click(object sender, EventArgs e)
+        {
+            // Create an instance of the OpenFileDialog class
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            // Set the default filter and title
+            openFileDialog.Filter = "Image Files (*.bmp;*.jpg;*.png)|*.bmp;*.jpg;*.png|All Files (*.*)|*.*";
+            openFileDialog.Title = "Open Image";
+
+            // Display the file dialog box
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StudentImageCoverPic.Hide();
+
+                // Get the selected file name
+                string fileName = openFileDialog.FileName;
+
+                // Set the Image property of the PictureBox control
+                StudentActualPic.Image = Image.FromFile(fileName);
+                StudentActualPic.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
     }
