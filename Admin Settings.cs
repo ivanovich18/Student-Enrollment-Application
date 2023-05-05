@@ -20,7 +20,7 @@ namespace Login_Form
         private void SettingsBackBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form2 mainForm = new Form2();
+            AdminDashboardForm mainForm = new AdminDashboardForm();
             mainForm.ShowDialog();
         }
 

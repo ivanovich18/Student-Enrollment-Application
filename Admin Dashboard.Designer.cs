@@ -1,6 +1,6 @@
 ﻿namespace Login_Form
 {
-    partial class Form2
+    partial class AdminDashboardForm : Form
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboardForm));
             button1 = new Button();
             label2 = new Label();
             AddStudentBtn = new Button();
@@ -79,6 +79,7 @@
             // AddStudentBtn
             // 
             AddStudentBtn.BackColor = Color.Orange;
+            AddStudentBtn.Cursor = Cursors.Hand;
             AddStudentBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             AddStudentBtn.ForeColor = SystemColors.ControlLightLight;
             AddStudentBtn.Location = new Point(517, 147);
@@ -92,6 +93,7 @@
             // SearchStudentBtn
             // 
             SearchStudentBtn.BackColor = Color.Orange;
+            SearchStudentBtn.Cursor = Cursors.Hand;
             SearchStudentBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             SearchStudentBtn.ForeColor = SystemColors.ControlLightLight;
             SearchStudentBtn.Location = new Point(517, 389);
@@ -105,6 +107,7 @@
             // StudentRecordsBtn
             // 
             StudentRecordsBtn.BackColor = Color.Orange;
+            StudentRecordsBtn.Cursor = Cursors.Hand;
             StudentRecordsBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             StudentRecordsBtn.ForeColor = SystemColors.ControlLightLight;
             StudentRecordsBtn.Location = new Point(517, 268);
@@ -118,6 +121,7 @@
             // SettingsBtn
             // 
             SettingsBtn.BackColor = Color.Orange;
+            SettingsBtn.Cursor = Cursors.Hand;
             SettingsBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             SettingsBtn.ForeColor = SystemColors.ControlLightLight;
             SettingsBtn.Location = new Point(517, 510);
@@ -149,16 +153,18 @@
             // LogoutPictureBox
             // 
             LogoutPictureBox.BackColor = Color.Orange;
+            LogoutPictureBox.Cursor = Cursors.Hand;
             LogoutPictureBox.Image = Properties.Resources.logout;
             LogoutPictureBox.Location = new Point(34, 63);
             LogoutPictureBox.Name = "LogoutPictureBox";
             LogoutPictureBox.Size = new Size(46, 40);
             LogoutPictureBox.TabIndex = 19;
             LogoutPictureBox.TabStop = false;
-            LogoutPictureBox.Click += LogoutPictureBox_Click;
+            LogoutPictureBox.Click += LogoutBtn_Click;
             // 
             // LogoutBtn
             // 
+            LogoutBtn.Cursor = Cursors.Hand;
             LogoutBtn.FlatAppearance.BorderSize = 0;
             LogoutBtn.FlatAppearance.MouseDownBackColor = Color.Orange;
             LogoutBtn.FlatAppearance.MouseOverBackColor = Color.Orange;
@@ -210,28 +216,31 @@
             // AddStudentPic
             // 
             AddStudentPic.BackColor = Color.Orange;
+            AddStudentPic.Cursor = Cursors.Hand;
             AddStudentPic.Image = (Image)resources.GetObject("AddStudentPic.Image");
             AddStudentPic.Location = new Point(548, 173);
             AddStudentPic.Name = "AddStudentPic";
             AddStudentPic.Size = new Size(64, 48);
             AddStudentPic.TabIndex = 13;
             AddStudentPic.TabStop = false;
-            AddStudentPic.Click += AddStudentPic_Click;
+            AddStudentPic.Click += AddStudentBtn_Click;
             // 
             // RecordsPic
             // 
             RecordsPic.BackColor = Color.Orange;
+            RecordsPic.Cursor = Cursors.Hand;
             RecordsPic.Image = Properties.Resources.records;
             RecordsPic.Location = new Point(548, 294);
             RecordsPic.Name = "RecordsPic";
             RecordsPic.Size = new Size(64, 48);
             RecordsPic.TabIndex = 14;
             RecordsPic.TabStop = false;
-            RecordsPic.Click += RecordsPic_Click;
+            RecordsPic.Click += StudentRecordsBtn_Click;
             // 
             // SearchPic
             // 
             SearchPic.BackColor = Color.Orange;
+            SearchPic.Cursor = Cursors.Hand;
             SearchPic.Image = Properties.Resources.search;
             SearchPic.Location = new Point(552, 412);
             SearchPic.Name = "SearchPic";
@@ -239,20 +248,21 @@
             SearchPic.SizeMode = PictureBoxSizeMode.AutoSize;
             SearchPic.TabIndex = 15;
             SearchPic.TabStop = false;
-            SearchPic.Click += SearchPic_Click;
+            SearchPic.Click += SearchStudentBtn_Click;
             // 
             // SettingsPic
             // 
             SettingsPic.BackColor = Color.Orange;
+            SettingsPic.Cursor = Cursors.Hand;
             SettingsPic.Image = Properties.Resources.settings;
             SettingsPic.Location = new Point(553, 531);
             SettingsPic.Name = "SettingsPic";
             SettingsPic.Size = new Size(53, 56);
             SettingsPic.TabIndex = 16;
             SettingsPic.TabStop = false;
-            SettingsPic.Click += SettingsPic_Click;
+            SettingsPic.Click += SettingsBtn_Click;
             // 
-            // Form2
+            // AdminDashboardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -271,7 +281,7 @@
             Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Form2";
+            Name = "AdminDashboardForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Student Enrollment Application";
             LeftPnl.ResumeLayout(false);

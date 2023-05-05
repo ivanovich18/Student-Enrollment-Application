@@ -40,11 +40,13 @@
             panel2 = new Panel();
             pictureBox2 = new PictureBox();
             label1 = new Label();
+            AppExitBtn = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AppExitBtn).BeginInit();
             SuspendLayout();
             // 
             // CTULogo
@@ -76,7 +78,7 @@
             PasswordTxtBox.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             PasswordTxtBox.Location = new Point(61, 13);
             PasswordTxtBox.Name = "PasswordTxtBox";
-            PasswordTxtBox.PasswordChar = '*';
+            PasswordTxtBox.PasswordChar = '•';
             PasswordTxtBox.PlaceholderText = "Password";
             PasswordTxtBox.Size = new Size(270, 36);
             PasswordTxtBox.TabIndex = 3;
@@ -84,6 +86,7 @@
             // LoginBtn
             // 
             LoginBtn.BackColor = Color.Orange;
+            LoginBtn.Cursor = Cursors.Hand;
             LoginBtn.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             LoginBtn.ForeColor = SystemColors.ControlLightLight;
             LoginBtn.Location = new Point(58, 508);
@@ -148,6 +151,17 @@
             label1.Text = "Administrator Login";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // AppExitBtn
+            // 
+            AppExitBtn.Cursor = Cursors.Hand;
+            AppExitBtn.Image = Properties.Resources.app_exit;
+            AppExitBtn.Location = new Point(402, 20);
+            AppExitBtn.Name = "AppExitBtn";
+            AppExitBtn.Size = new Size(34, 34);
+            AppExitBtn.TabIndex = 9;
+            AppExitBtn.TabStop = false;
+            AppExitBtn.Click += AppExitBtn_Click;
+            // 
             // LoginForm
             // 
             AcceptButton = LoginBtn;
@@ -155,6 +169,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(457, 663);
+            Controls.Add(AppExitBtn);
             Controls.Add(label1);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -174,6 +189,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AppExitBtn).EndInit();
             ResumeLayout(false);
         }
 
@@ -188,5 +204,6 @@
         private Panel panel2;
         private PictureBox pictureBox2;
         private Label label1;
+        private PictureBox AppExitBtn;
     }
 }

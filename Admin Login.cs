@@ -9,7 +9,7 @@ namespace Login_Form
         MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
         MySqlCommand command;
         MySqlDataReader reader;
-        
+
         public LoginForm()
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace Login_Form
                 {
                     MessageBox.Show("Login Successful!");
                     this.Hide();
-                    Form2 mainForm = new Form2();
+                    AdminDashboardForm mainForm = new AdminDashboardForm();
                     mainForm.ShowDialog();
                 }
                 if (loginAttempts == 4)
@@ -63,6 +63,15 @@ namespace Login_Form
                 {
                     connection.Close();
                 }
+            }
+        }
+
+        private void AppExitBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit the application?", "Confirmation", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
             }
         }
     }
