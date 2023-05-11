@@ -48,7 +48,7 @@ namespace Login_Form
             if (result == DialogResult.Yes)
             {
                 // User clicked "Yes"
-                if (!string.IsNullOrEmpty(LastNameTxtBox.Text) && !string.IsNullOrEmpty(FirstNameTxtBox.Text) && !string.IsNullOrEmpty(MiddleNameTxtBox.Text) && !string.IsNullOrEmpty(EmailTxtBox.Text) && !string.IsNullOrEmpty(AgeTxtBox.Text) && !string.IsNullOrEmpty(BirthPlaceTxtBox.Text) && !string.IsNullOrEmpty(CurrentAddressTxtBox.Text) && !string.IsNullOrEmpty(PermanentAddressTxtBox.Text) && GenderCmbBox.SelectedIndex != 0 && AcademicYearCmbBox.SelectedIndex != 0 && StudentTypeCmbBox.SelectedIndex != 0 && DepartmentCmbBox.SelectedIndex != 0 && ProgramCmbBox.SelectedIndex != 0 && StudentActualPic != null)
+                if (!string.IsNullOrEmpty(LastNameTxtBox.Text) && !string.IsNullOrEmpty(FirstNameTxtBox.Text) && !string.IsNullOrEmpty(MiddleNameTxtBox.Text) && !string.IsNullOrEmpty(EmailTxtBox.Text) && !string.IsNullOrEmpty(AgeTxtBox.Text) && !string.IsNullOrEmpty(BirthPlaceTxtBox.Text) && !string.IsNullOrEmpty(CurrentAddressTxtBox.Text) && !string.IsNullOrEmpty(PermanentAddressTxtBox.Text) && GenderCmbBox.SelectedIndex != 0 && AcademicYearCmbBox.SelectedIndex != 0 && StudentTypeCmbBox.SelectedIndex != 0 && DepartmentCmbBox.SelectedIndex != 0 && ProgramCmbBox.SelectedIndex != 0 && StudentActualPic.Image != null)
                 {
                     string insertQuery = "INSERT INTO app_student_records (student_id, last_name, first_name, middle_name, email, birthday, gender, age, birth_place, current_address, permanent_address, academic_year, student_type, department, program, id_photo) VALUES (@student_id, @last_name, @first_name, @middle_name, @email, @birthday, @gender, @age, @birth_place, @current_address, @permanent_address, @academic_year, @student_type, @department, @program, @id_photo)";
                     MySqlCommand command = new MySqlCommand(insertQuery, connection);
@@ -417,7 +417,7 @@ namespace Login_Form
         private void CaptureBtn_Click(object sender, EventArgs e)
         {
             isCaptured = !isCaptured;
-            string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-student-id" + ".jpg";
+            string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-id-photo" + ".jpg";
             var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height);
             StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle);
             System.Drawing.Imaging.ImageFormat imageFormat = null;
@@ -443,13 +443,7 @@ namespace Login_Form
             if (result == DialogResult.Yes)
             {
                 // User clicked "Yes"
-                // Change the button text
-                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
-                btn.Text = "Capture";
-
-                // Change the button click function
-                btn.Click -= RetakeBtn_Click; // Remove the current event handler
-                btn.Click += new EventHandler(CaptureBtn_Click); // Add the new event handler
+                
 
                 isCaptured = !isCaptured;
                 string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-student-id" + ".jpg";
@@ -458,6 +452,24 @@ namespace Login_Form
                 System.Drawing.Imaging.ImageFormat imageFormat = null;
                 imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg;
                 bitmap.Save(filename, imageFormat);
+
+                if (File.Exists(filename))
+                {
+                    File.Delete(filename);
+                    MessageBox.Show("Image deleted successfully.");
+                }
+                else
+                {
+                    MessageBox.Show("Image not found.");
+                }
+
+                // Change the button text
+                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
+                btn.Text = "Capture";
+
+                // Change the button click function
+                btn.Click -= RetakeBtn_Click; // Remove the current event handler
+                btn.Click += new EventHandler(CaptureBtn_Click); // Add the new event handler
             }
             else
             {
@@ -485,6 +497,8 @@ namespace Login_Form
                 // Set the Image property of the PictureBox control
                 StudentActualPic.Image = Image.FromFile(fileName);
                 StudentActualPic.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                imageData = File.ReadAllBytes(fileName);
             }
         }
     }
