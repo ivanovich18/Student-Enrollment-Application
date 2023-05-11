@@ -181,7 +181,6 @@
             Margin = new Padding(8, 9, 8, 9);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Login Form";
             ((System.ComponentModel.ISupportInitialize)CTULogo).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
