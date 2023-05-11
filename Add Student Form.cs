@@ -23,6 +23,7 @@ using AForge.Video;
 using AForge.Video.DirectShow;
 using System.Drawing.Drawing2D;
 using System.Diagnostics.Metrics;
+using System.Reflection;
 
 namespace Login_Form
 {
@@ -83,7 +84,6 @@ namespace Login_Form
                     ClearFields();
 
                     MessageBox.Show("Successfully registered!");
-                    this.Refresh();
                 }
                 else
                 {
@@ -204,8 +204,11 @@ namespace Login_Form
             ProgramCmbBox.SelectedIndex = 0;
 
             // Picture Box
+            /*
             StudentImageCoverPic.Show();
             StudentActualPic.Image = null;
+            */
+            StopCamera();
         }
 
         private void AcademicYearCmbBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -334,6 +337,7 @@ namespace Login_Form
 
         VideoCaptureDevice videoCapture;
         FilterInfoCollection filterInfo;
+        private System.Windows.Forms.Button sender;
 
         void StartCamera()
         {
@@ -348,6 +352,24 @@ namespace Login_Form
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+        void StopCamera()
+        {
+            if (videoCapture != null && videoCapture.IsRunning)
+            {
+                videoCapture.SignalToStop();
+                videoCapture.WaitForStop();
+                videoCapture = null;
+            }
+            StudentActualPic.Image = null;
+            StudentImageCoverPic.Show();
+
+            // Change the button text
+            CaptureBtn.Text = "Capture";
+
+            // Change the button click function
+            CaptureBtn.Click -= RetakeBtn_Click; // Remove the current event handler
+            CaptureBtn.Click += new EventHandler(CaptureBtn_Click); // Add the new event handler
         }
 
         private void OpenCameraBtn_Click(object sender, EventArgs e)
@@ -391,14 +413,7 @@ namespace Login_Form
             {
                 // User clicked "Yes"
                 // Stop the video capture
-                if (videoCapture != null && videoCapture.IsRunning)
-                {
-                    videoCapture.SignalToStop();
-                    videoCapture.WaitForStop();
-                    videoCapture = null;
-                }
-                StudentActualPic.Image = null;
-                StudentImageCoverPic.Show();
+                StopCamera();
 
                 // Change the button text
                 System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
@@ -443,10 +458,16 @@ namespace Login_Form
             if (result == DialogResult.Yes)
             {
                 // User clicked "Yes"
-                
+                // Change the button text
+                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
+                btn.Text = "Capture";
+
+                // Change the button click function
+                btn.Click -= RetakeBtn_Click; // Remove the current event handler
+                btn.Click += new EventHandler(CaptureBtn_Click); // Add the new event handler
 
                 isCaptured = !isCaptured;
-                string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-student-id" + ".jpg";
+                string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-id-photo" + ".jpg";
                 var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height);
                 StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle);
                 System.Drawing.Imaging.ImageFormat imageFormat = null;
@@ -462,14 +483,6 @@ namespace Login_Form
                 {
                     MessageBox.Show("Image not found.");
                 }
-
-                // Change the button text
-                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
-                btn.Text = "Capture";
-
-                // Change the button click function
-                btn.Click -= RetakeBtn_Click; // Remove the current event handler
-                btn.Click += new EventHandler(CaptureBtn_Click); // Add the new event handler
             }
             else
             {
@@ -499,7 +512,20 @@ namespace Login_Form
                 StudentActualPic.SizeMode = PictureBoxSizeMode.StretchImage;
 
                 imageData = File.ReadAllBytes(fileName);
+
+                // Change the button text
+                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
+                btn.Text = "Reupload";
+
+                // Change the button click function
+                btn.Click -= UploadImageBtn_Click; // Remove the current event handler
+                btn.Click += new EventHandler(ReuploadBtn_Click); // Add the new event handler
             }
+        }
+
+        private void ReuploadBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
