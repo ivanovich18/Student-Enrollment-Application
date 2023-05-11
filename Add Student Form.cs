@@ -18,16 +18,20 @@ using System.Runtime.Intrinsics.X86;
 using System.Reflection.PortableExecutable;
 using System.Web.Services.Description;
 using System.Text.RegularExpressions;
+using System.IO;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using System.Drawing.Drawing2D;
+using System.Diagnostics.Metrics;
 
 namespace Login_Form
 {
     public partial class Add_Students : Form
     {
         string new_studentIDlbl;
+        byte[] imageData;
         private bool isCaptured = false;
+        string countStr;
 
         MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
         MySqlCommand command;
@@ -44,9 +48,9 @@ namespace Login_Form
             if (result == DialogResult.Yes)
             {
                 // User clicked "Yes"
-                if (!string.IsNullOrEmpty(LastNameTxtBox.Text) && !string.IsNullOrEmpty(FirstNameTxtBox.Text) && !string.IsNullOrEmpty(MiddleNameTxtBox.Text) && !string.IsNullOrEmpty(EmailTxtBox.Text) && !string.IsNullOrEmpty(AgeTxtBox.Text) && !string.IsNullOrEmpty(BirthPlaceTxtBox.Text) && !string.IsNullOrEmpty(CurrentAddressTxtBox.Text) && !string.IsNullOrEmpty(PermanentAddressTxtBox.Text) && GenderCmbBox.SelectedIndex != 0 && AcademicYearCmbBox.SelectedIndex != 0 && StudentTypeCmbBox.SelectedIndex != 0 && DepartmentCmbBox.SelectedIndex != 0 && ProgramCmbBox.SelectedIndex != 0)
+                if (!string.IsNullOrEmpty(LastNameTxtBox.Text) && !string.IsNullOrEmpty(FirstNameTxtBox.Text) && !string.IsNullOrEmpty(MiddleNameTxtBox.Text) && !string.IsNullOrEmpty(EmailTxtBox.Text) && !string.IsNullOrEmpty(AgeTxtBox.Text) && !string.IsNullOrEmpty(BirthPlaceTxtBox.Text) && !string.IsNullOrEmpty(CurrentAddressTxtBox.Text) && !string.IsNullOrEmpty(PermanentAddressTxtBox.Text) && GenderCmbBox.SelectedIndex != 0 && AcademicYearCmbBox.SelectedIndex != 0 && StudentTypeCmbBox.SelectedIndex != 0 && DepartmentCmbBox.SelectedIndex != 0 && ProgramCmbBox.SelectedIndex != 0 && StudentActualPic != null)
                 {
-                    string insertQuery = "INSERT INTO app_student_records (student_id, last_name, first_name, middle_name, email, birthday, gender, age, birth_place, current_address, permanent_address, academic_year, student_type, department, program) VALUES (@student_id, @last_name, @first_name, @middle_name, @email, @birthday, @gender, @age, @birth_place, @current_address, @permanent_address, @academic_year, @student_type, @department, @program)";
+                    string insertQuery = "INSERT INTO app_student_records (student_id, last_name, first_name, middle_name, email, birthday, gender, age, birth_place, current_address, permanent_address, academic_year, student_type, department, program, id_photo) VALUES (@student_id, @last_name, @first_name, @middle_name, @email, @birthday, @gender, @age, @birth_place, @current_address, @permanent_address, @academic_year, @student_type, @department, @program, @id_photo)";
                     MySqlCommand command = new MySqlCommand(insertQuery, connection);
 
                     // Add parameters to the command object
@@ -65,6 +69,7 @@ namespace Login_Form
                     command.Parameters.AddWithValue("@student_type", StudentTypeCmbBox.SelectedItem.ToString());
                     command.Parameters.AddWithValue("@department", DepartmentCmbBox.SelectedItem.ToString());
                     command.Parameters.AddWithValue("@program", ProgramCmbBox.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@id_photo", imageData);
 
                     // Open the connection
                     connection.Open();
@@ -78,7 +83,7 @@ namespace Login_Form
                     ClearFields();
 
                     MessageBox.Show("Successfully registered!");
-                    // Form_Load();
+                    this.Refresh();
                 }
                 else
                 {
@@ -113,7 +118,7 @@ namespace Login_Form
             // execute command and retrieve count value as object
             object result = cmd.ExecuteScalar();
             // convert object to string and store in variable
-            string countStr = result.ToString();
+            countStr = result.ToString();
             // close connection
             conn.Close();
 
@@ -197,6 +202,10 @@ namespace Login_Form
             DepartmentCmbBox.SelectedIndex = 0;
             ProgramCmbBox.Items.Insert(0, "Program");
             ProgramCmbBox.SelectedIndex = 0;
+
+            // Picture Box
+            StudentImageCoverPic.Show();
+            StudentActualPic.Image = null;
         }
 
         private void AcademicYearCmbBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -252,7 +261,7 @@ namespace Login_Form
                 case 2: // CCICT
                     ProgramCmbBox.Items.Insert(0, "Program");
                     ProgramCmbBox.SelectedIndex = 0;
-                    ProgramCmbBox.Items.Add("(BSIT)Bachelor of Science in Information Technology");
+                    ProgramCmbBox.Items.Add("(BSIT) Bachelor of Science in Information Technology");
                     ProgramCmbBox.Items.Add("(BSIS) Bachelor of Science in Information Systems");
                     ProgramCmbBox.Items.Add("(BIT-CT) Bachelor of Industrial Technology - Computer Technology");
                     break;
@@ -283,7 +292,7 @@ namespace Login_Form
                 case 4: // COE
                     ProgramCmbBox.Items.Insert(0, "Program");
                     ProgramCmbBox.SelectedIndex = 0;
-                    ProgramCmbBox.Items.Add("(BSAsE)Bachelor of Science in Aerospace Engineering");
+                    ProgramCmbBox.Items.Add("(BSAsE) Bachelor of Science in Aerospace Engineering");
                     ProgramCmbBox.Items.Add("(BSCE) Bachelor of Science in Civil Engineering");
                     ProgramCmbBox.Items.Add("(BSCpE) Bachelor of Science in Computer Engineering");
                     ProgramCmbBox.Items.Add("(BSECE) Bachelor of Science in Electronics Engineering");
@@ -302,7 +311,7 @@ namespace Login_Form
                 case 6: // COT
                     ProgramCmbBox.Items.Insert(0, "Program");
                     ProgramCmbBox.SelectedIndex = 0;
-                    ProgramCmbBox.Items.Add("(BSGD)Bachelor of Science in Graphics and Design");
+                    ProgramCmbBox.Items.Add("(BSGD) Bachelor of Science in Graphics and Design");
                     ProgramCmbBox.Items.Add("(BSMx) Bachelor of Science in Mechatronics");
                     ProgramCmbBox.Items.Add("(BSTechM) Bachelor of Science in Technology Management");
                     ProgramCmbBox.Items.Add("(BIT-Automotive Technology) Bachelor of Industrial Technology - Automotive Technology");
@@ -415,6 +424,9 @@ namespace Login_Form
             imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg;
             bitmap.Save(filename, imageFormat);
             MessageBox.Show("Image successfully captured!");
+
+            // Read the image file into a byte array
+            imageData = File.ReadAllBytes(filename);
 
             // Change the button text
             System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
