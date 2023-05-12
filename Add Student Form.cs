@@ -273,7 +273,7 @@ namespace Login_Form
                     ProgramCmbBox.Items.Add("(BSIS) Bachelor of Science in Information Systems");
                     ProgramCmbBox.Items.Add("(BIT-CT) Bachelor of Industrial Technology - Computer Technology");
                     break;
-                case 3: // COEd
+                case 3: // COED
                     ProgramCmbBox.Items.Insert(0, "Program");
                     ProgramCmbBox.SelectedIndex = 0;
                     ProgramCmbBox.Items.Add("(BEEd) Bachelor of Elementary Education");
@@ -340,7 +340,7 @@ namespace Login_Form
             }
         }
 
-        private System.Windows.Forms.Button sender;
+        // private System.Windows.Forms.Button sender;
 
         void StartCamera()
         {
