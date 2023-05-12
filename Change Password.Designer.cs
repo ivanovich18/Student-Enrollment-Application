@@ -60,6 +60,7 @@
             UpdatePasswordBtn.TabIndex = 88;
             UpdatePasswordBtn.Text = "Update";
             UpdatePasswordBtn.UseVisualStyleBackColor = false;
+            UpdatePasswordBtn.Click += UpdatePasswordBtn_Click;
             // 
             // ConfirmNewPasswordTxtBox
             // 
