@@ -24,6 +24,7 @@ using AForge.Video.DirectShow;
 using System.Drawing.Drawing2D;
 using System.Diagnostics.Metrics;
 using System.Reflection;
+using DirectShowLib;
 
 namespace Login_Form
 {
@@ -33,6 +34,10 @@ namespace Login_Form
         byte[] imageData;
         private bool isCaptured = false;
         string countStr;
+        private VideoCaptureDevice videoDevice;
+
+        VideoCaptureDevice videoCapture;
+        FilterInfoCollection filterInfo;
 
         MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
         MySqlCommand command;
@@ -335,15 +340,13 @@ namespace Login_Form
             }
         }
 
-        VideoCaptureDevice videoCapture;
-        FilterInfoCollection filterInfo;
         private System.Windows.Forms.Button sender;
 
         void StartCamera()
         {
             try
             {
-                filterInfo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+                filterInfo = new FilterInfoCollection(AForge.Video.DirectShow.FilterCategory.VideoInputDevice);
                 videoCapture = new VideoCaptureDevice(filterInfo[0].MonikerString);
                 videoCapture.NewFrame += new NewFrameEventHandler(Camera_On);
                 videoCapture.Start();
@@ -489,43 +492,39 @@ namespace Login_Form
                 // User clicked "No" or closed the dialog
             }
         }
-
-        private void UploadImageBtn_Click(object sender, EventArgs e)
-        {
-            // Create an instance of the OpenFileDialog class
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            // Set the default filter and title
-            openFileDialog.Filter = "Image Files (*.bmp;*.jpg;*.png)|*.bmp;*.jpg;*.png|All Files (*.*)|*.*";
-            openFileDialog.Title = "Open Image";
-
-            // Display the file dialog box
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                StudentImageCoverPic.Hide();
-
-                // Get the selected file name
-                string fileName = openFileDialog.FileName;
-
-                // Set the Image property of the PictureBox control
-                StudentActualPic.Image = Image.FromFile(fileName);
-                StudentActualPic.SizeMode = PictureBoxSizeMode.StretchImage;
-
-                imageData = File.ReadAllBytes(fileName);
-
-                // Change the button text
-                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
-                btn.Text = "Reupload";
-
-                // Change the button click function
-                btn.Click -= UploadImageBtn_Click; // Remove the current event handler
-                btn.Click += new EventHandler(ReuploadBtn_Click); // Add the new event handler
-            }
-        }
-
-        private void ReuploadBtn_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
+/*
+private void UploadImageBtn_Click(object sender, EventArgs e)
+{
+// Create an instance of the OpenFileDialog class
+OpenFileDialog openFileDialog = new OpenFileDialog();
+
+// Set the default filter and title
+openFileDialog.Filter = "Image Files (*.bmp;*.jpg;*.png)|*.bmp;*.jpg;*.png|All Files (*.*)|*.*";
+openFileDialog.Title = "Open Image";
+
+// Display the file dialog box
+if (openFileDialog.ShowDialog() == DialogResult.OK)
+{
+StudentImageCoverPic.Hide();
+
+// Get the selected file name
+string fileName = openFileDialog.FileName;
+
+// Set the Image property of the PictureBox control
+StudentActualPic.Image = Image.FromFile(fileName);
+StudentActualPic.SizeMode = PictureBoxSizeMode.StretchImage;
+
+imageData = File.ReadAllBytes(fileName);
+
+// Change the button text
+System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
+btn.Text = "Reupload";
+
+// Change the button click function
+btn.Click -= UploadImageBtn_Click; // Remove the current event handler
+btn.Click += new EventHandler(ReuploadBtn_Click); // Add the new event handler
+}
+}
+*/
