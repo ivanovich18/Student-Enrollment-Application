@@ -200,6 +200,7 @@
             UpdateUsernameBtn.TabIndex = 74;
             UpdateUsernameBtn.Text = "Update";
             UpdateUsernameBtn.UseVisualStyleBackColor = false;
+            UpdateUsernameBtn.Click += UpdateUsernameBtn_Click;
             // 
             // bunifuElipse1
             // 
