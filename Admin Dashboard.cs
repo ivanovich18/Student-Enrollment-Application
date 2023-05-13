@@ -25,9 +25,13 @@ namespace Login_Form
         }
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            LoginForm loginForm = new LoginForm();
-            loginForm.ShowDialog();
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Hide();
+                LoginForm loginForm = new LoginForm();
+                loginForm.ShowDialog();
+            }
         }
 
         private void StudentRecordsBtn_Click(object sender, EventArgs e)
