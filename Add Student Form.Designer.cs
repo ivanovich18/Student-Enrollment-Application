@@ -56,7 +56,6 @@ namespace Login_Form
             ProgramCmbBox = new ComboBox();
             StudentImageCoverPic = new PictureBox();
             OpenCameraBtn = new Button();
-            UploadImageBtn = new Button();
             BirthdayPanel = new Panel();
             BirthdayLbl = new Label();
             EmailTxtBox = new TextBox();
@@ -193,7 +192,7 @@ namespace Login_Form
             LastNameTxtBox.Location = new Point(464, 432);
             LastNameTxtBox.Margin = new Padding(13);
             LastNameTxtBox.Name = "LastNameTxtBox";
-            LastNameTxtBox.PlaceholderText = "Last Name";
+            LastNameTxtBox.PlaceholderText = " Last Name";
             LastNameTxtBox.Size = new Size(394, 39);
             LastNameTxtBox.TabIndex = 48;
             // 
@@ -205,7 +204,7 @@ namespace Login_Form
             FirstNameTxtBox.Location = new Point(464, 502);
             FirstNameTxtBox.Margin = new Padding(13);
             FirstNameTxtBox.Name = "FirstNameTxtBox";
-            FirstNameTxtBox.PlaceholderText = "First Name";
+            FirstNameTxtBox.PlaceholderText = " First Name";
             FirstNameTxtBox.Size = new Size(394, 39);
             FirstNameTxtBox.TabIndex = 49;
             // 
@@ -217,7 +216,7 @@ namespace Login_Form
             MiddleNameTxtBox.Location = new Point(464, 572);
             MiddleNameTxtBox.Margin = new Padding(13);
             MiddleNameTxtBox.Name = "MiddleNameTxtBox";
-            MiddleNameTxtBox.PlaceholderText = "Middle Name";
+            MiddleNameTxtBox.PlaceholderText = " Middle Name";
             MiddleNameTxtBox.Size = new Size(394, 39);
             MiddleNameTxtBox.TabIndex = 50;
             // 
@@ -229,7 +228,7 @@ namespace Login_Form
             AgeTxtBox.Location = new Point(970, 225);
             AgeTxtBox.Margin = new Padding(13);
             AgeTxtBox.Name = "AgeTxtBox";
-            AgeTxtBox.PlaceholderText = "Age";
+            AgeTxtBox.PlaceholderText = " Age";
             AgeTxtBox.Size = new Size(394, 39);
             AgeTxtBox.TabIndex = 51;
             // 
@@ -270,7 +269,7 @@ namespace Login_Form
             BirthPlaceTxtBox.Location = new Point(970, 294);
             BirthPlaceTxtBox.Margin = new Padding(13);
             BirthPlaceTxtBox.Name = "BirthPlaceTxtBox";
-            BirthPlaceTxtBox.PlaceholderText = "Place of Birth";
+            BirthPlaceTxtBox.PlaceholderText = " Place of Birth";
             BirthPlaceTxtBox.Size = new Size(394, 39);
             BirthPlaceTxtBox.TabIndex = 55;
             // 
@@ -282,7 +281,7 @@ namespace Login_Form
             CurrentAddressTxtBox.Location = new Point(970, 363);
             CurrentAddressTxtBox.Margin = new Padding(13);
             CurrentAddressTxtBox.Name = "CurrentAddressTxtBox";
-            CurrentAddressTxtBox.PlaceholderText = "Current Address";
+            CurrentAddressTxtBox.PlaceholderText = " Current Address";
             CurrentAddressTxtBox.Size = new Size(394, 39);
             CurrentAddressTxtBox.TabIndex = 56;
             // 
@@ -294,7 +293,7 @@ namespace Login_Form
             PermanentAddressTxtBox.Location = new Point(970, 432);
             PermanentAddressTxtBox.Margin = new Padding(13);
             PermanentAddressTxtBox.Name = "PermanentAddressTxtBox";
-            PermanentAddressTxtBox.PlaceholderText = "Permanent Address";
+            PermanentAddressTxtBox.PlaceholderText = " Permanent Address";
             PermanentAddressTxtBox.Size = new Size(394, 39);
             PermanentAddressTxtBox.TabIndex = 57;
             // 
@@ -309,7 +308,7 @@ namespace Login_Form
             AcademicYearCmbBox.Name = "AcademicYearCmbBox";
             AcademicYearCmbBox.Size = new Size(394, 40);
             AcademicYearCmbBox.TabIndex = 58;
-            AcademicYearCmbBox.Text = "Academic Year";
+            AcademicYearCmbBox.Text = " Academic Year";
             AcademicYearCmbBox.SelectedIndexChanged += AcademicYearCmbBox_SelectedIndexChanged;
             // 
             // StudentTypeCmbBox
@@ -352,7 +351,7 @@ namespace Login_Form
             // 
             // StudentImageCoverPic
             // 
-            StudentImageCoverPic.Image = Properties.Resources.image;
+            StudentImageCoverPic.Image = Properties.Resources.camera_cover;
             StudentImageCoverPic.Location = new Point(139, 225);
             StudentImageCoverPic.Name = "StudentImageCoverPic";
             StudentImageCoverPic.Size = new Size(240, 240);
@@ -366,27 +365,13 @@ namespace Login_Form
             OpenCameraBtn.Cursor = Cursors.Hand;
             OpenCameraBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             OpenCameraBtn.ForeColor = SystemColors.ControlLightLight;
-            OpenCameraBtn.Location = new Point(139, 484);
+            OpenCameraBtn.Location = new Point(139, 494);
             OpenCameraBtn.Name = "OpenCameraBtn";
             OpenCameraBtn.Size = new Size(240, 43);
             OpenCameraBtn.TabIndex = 63;
             OpenCameraBtn.Text = "Open Camera";
             OpenCameraBtn.UseVisualStyleBackColor = false;
             OpenCameraBtn.Click += OpenCameraBtn_Click;
-            // 
-            // UploadImageBtn
-            // 
-            UploadImageBtn.BackColor = Color.Orange;
-            UploadImageBtn.Cursor = Cursors.Hand;
-            UploadImageBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            UploadImageBtn.ForeColor = SystemColors.ControlLightLight;
-            UploadImageBtn.Location = new Point(139, 606);
-            UploadImageBtn.Name = "UploadImageBtn";
-            UploadImageBtn.Size = new Size(240, 43);
-            UploadImageBtn.TabIndex = 64;
-            UploadImageBtn.Text = "Upload Image";
-            UploadImageBtn.UseVisualStyleBackColor = false;
-            UploadImageBtn.Click += UploadImageBtn_Click;
             // 
             // BirthdayPanel
             // 
@@ -419,7 +404,7 @@ namespace Login_Form
             EmailTxtBox.Location = new Point(464, 711);
             EmailTxtBox.Margin = new Padding(13);
             EmailTxtBox.Name = "EmailTxtBox";
-            EmailTxtBox.PlaceholderText = "Email";
+            EmailTxtBox.PlaceholderText = " Email";
             EmailTxtBox.Size = new Size(394, 39);
             EmailTxtBox.TabIndex = 66;
             // 
@@ -445,7 +430,7 @@ namespace Login_Form
             StudentIDLbl.AutoSize = true;
             StudentIDLbl.Font = new Font("Segoe UI", 18.75F, FontStyle.Regular, GraphicsUnit.Point);
             StudentIDLbl.ForeColor = Color.Black;
-            StudentIDLbl.Location = new Point(610, 294);
+            StudentIDLbl.Location = new Point(604, 294);
             StudentIDLbl.Name = "StudentIDLbl";
             StudentIDLbl.Size = new Size(30, 35);
             StudentIDLbl.TabIndex = 68;
@@ -479,7 +464,7 @@ namespace Login_Form
             CaptureBtn.Cursor = Cursors.Hand;
             CaptureBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             CaptureBtn.ForeColor = SystemColors.ControlLightLight;
-            CaptureBtn.Location = new Point(139, 545);
+            CaptureBtn.Location = new Point(139, 555);
             CaptureBtn.Name = "CaptureBtn";
             CaptureBtn.Size = new Size(240, 43);
             CaptureBtn.TabIndex = 71;
@@ -493,13 +478,11 @@ namespace Login_Form
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1504, 827);
-            Controls.Add(CaptureBtn);
             Controls.Add(label2);
             Controls.Add(StudentIDLbl);
             Controls.Add(StudentNumberCountLbl);
             Controls.Add(EmailTxtBox);
             Controls.Add(BirthdayPanel);
-            Controls.Add(UploadImageBtn);
             Controls.Add(OpenCameraBtn);
             Controls.Add(ProgramCmbBox);
             Controls.Add(DepartmentCmbBox);
@@ -524,6 +507,7 @@ namespace Login_Form
             Controls.Add(AddStudentLbl);
             Controls.Add(StudentImageCoverPic);
             Controls.Add(StudentActualPic);
+            Controls.Add(CaptureBtn);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Add_Students";
@@ -567,7 +551,6 @@ namespace Login_Form
         private ComboBox StudentTypeCmbBox;
         private ComboBox DepartmentCmbBox;
         private ComboBox ProgramCmbBox;
-        private Button UploadImageBtn;
         private Panel BirthdayPanel;
         private Label BirthdayLbl;
         private TextBox EmailTxtBox;

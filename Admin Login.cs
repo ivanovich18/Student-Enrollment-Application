@@ -31,27 +31,27 @@ namespace Login_Form
 
                 if (reader.Read())
                 {
-                    MessageBox.Show("Login Successful!");
+                    MessageBox.Show("Login Successful!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                     AdminDashboardForm mainForm = new AdminDashboardForm();
                     mainForm.ShowDialog();
                 }
                 if (loginAttempts == 4)
                 {
-                    MessageBox.Show("Too many invalid login attempts!");
+                    MessageBox.Show("Too many invalid login attempts!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Application.Exit();
                 }
                 else
                 {
                     loginAttempts++;
-                    MessageBox.Show("Incorrect username or password!");
+                    MessageBox.Show("Incorrect username or password!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     UsernameTxtBox.Clear();
                     PasswordTxtBox.Clear();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -68,10 +68,26 @@ namespace Login_Form
 
         private void AppExitBtn_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit the application?", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 Application.Exit();
+            }
+        }
+
+        private void ShowPassBtn_Click(object sender, EventArgs e)
+        {
+            if (PasswordTxtBox.PasswordChar == '•')
+            {
+                // Show the password characters
+                PasswordTxtBox.PasswordChar = '\0';
+                ShowPassBtn.Image = Properties.Resources.hide_pass;
+            }
+            else
+            {
+                // Hide the password characters
+                PasswordTxtBox.PasswordChar = '•';
+                ShowPassBtn.Image = Properties.Resources.show_pass;
             }
         }
     }

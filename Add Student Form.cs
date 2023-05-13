@@ -23,6 +23,8 @@ using AForge.Video;
 using AForge.Video.DirectShow;
 using System.Drawing.Drawing2D;
 using System.Diagnostics.Metrics;
+using System.Reflection;
+using DirectShowLib;
 
 namespace Login_Form
 {
@@ -32,6 +34,10 @@ namespace Login_Form
         byte[] imageData;
         private bool isCaptured = false;
         string countStr;
+        private VideoCaptureDevice videoDevice;
+
+        VideoCaptureDevice videoCapture;
+        FilterInfoCollection filterInfo;
 
         MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
         MySqlCommand command;
@@ -44,7 +50,7 @@ namespace Login_Form
 
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to add new student?", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Are you sure you want to add new student?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 // User clicked "Yes"
@@ -82,24 +88,23 @@ namespace Login_Form
 
                     ClearFields();
 
-                    MessageBox.Show("Successfully registered!");
-                    this.Refresh();
+                    MessageBox.Show("Successfully registered!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Please fill all fields!");
+                    MessageBox.Show("Please fill all fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void ClearBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to clear all fields?", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Are you sure you want to clear all fields?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (result == DialogResult.Yes)
             {
                 // User clicked "Yes"
                 ClearFields();
-                MessageBox.Show("All fields are cleared!", "Cleared");
+                MessageBox.Show("All fields are cleared!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -180,6 +185,12 @@ namespace Login_Form
             StudentActualPic.Region = new Region(gp);
         }
 
+        private void Add_Students_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Stop the video capture
+            StopCamera();
+        }
+
         private void ClearFields()
         {
             // Textboxes
@@ -204,8 +215,24 @@ namespace Login_Form
             ProgramCmbBox.SelectedIndex = 0;
 
             // Picture Box
+            /*
             StudentImageCoverPic.Show();
             StudentActualPic.Image = null;
+            */
+            StopCamera();
+
+            // Change the button text
+            OpenCameraBtn.Text = "Open Camera";
+
+            // Change the button click function
+            OpenCameraBtn.Click -= StopCameraBtn_Click; // Remove the current event handler
+            OpenCameraBtn.Click += new EventHandler(OpenCameraBtn_Click); // Add the new event handler
+
+            CaptureBtn.Text = "Capture";
+
+            // Change the button click function
+            CaptureBtn.Click -= RetakeBtn_Click; // Remove the current event handler
+            CaptureBtn.Click += new EventHandler(CaptureBtn_Click); // Add the new event handler
         }
 
         private void AcademicYearCmbBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -265,7 +292,7 @@ namespace Login_Form
                     ProgramCmbBox.Items.Add("(BSIS) Bachelor of Science in Information Systems");
                     ProgramCmbBox.Items.Add("(BIT-CT) Bachelor of Industrial Technology - Computer Technology");
                     break;
-                case 3: // COEd
+                case 3: // COED
                     ProgramCmbBox.Items.Insert(0, "Program");
                     ProgramCmbBox.SelectedIndex = 0;
                     ProgramCmbBox.Items.Add("(BEEd) Bachelor of Elementary Education");
@@ -332,22 +359,39 @@ namespace Login_Form
             }
         }
 
-        VideoCaptureDevice videoCapture;
-        FilterInfoCollection filterInfo;
+        // private System.Windows.Forms.Button sender;
+        private void Camera_On(object sender, NewFrameEventArgs eventArgs)
+        {
+            if (!isCaptured)
+            {
+                StudentActualPic.Image = (Bitmap)eventArgs.Frame.Clone();
+            }
+        }
 
         void StartCamera()
         {
             try
             {
-                filterInfo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+                filterInfo = new FilterInfoCollection(AForge.Video.DirectShow.FilterCategory.VideoInputDevice);
                 videoCapture = new VideoCaptureDevice(filterInfo[0].MonikerString);
                 videoCapture.NewFrame += new NewFrameEventHandler(Camera_On);
                 videoCapture.Start();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        void StopCamera()
+        {
+            if (videoCapture != null && videoCapture.IsRunning)
+            {
+                videoCapture.SignalToStop();
+                videoCapture.WaitForStop();
+                videoCapture = null;
+            }
+            StudentActualPic.Image = null;
+            StudentImageCoverPic.Show();
         }
 
         private void OpenCameraBtn_Click(object sender, EventArgs e)
@@ -364,41 +408,12 @@ namespace Login_Form
             btn.Click += new EventHandler(StopCameraBtn_Click); // Add the new event handler
         }
 
-        private void Camera_On(object sender, NewFrameEventArgs eventArgs)
-        {
-            if (!isCaptured)
-            {
-                StudentActualPic.Image = (Bitmap)eventArgs.Frame.Clone();
-            }
-        }
-
-        private void Add_Students_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            // Stop the video capture
-            if (videoCapture != null && videoCapture.IsRunning)
-            {
-                videoCapture.SignalToStop();
-                videoCapture.WaitForStop();
-                videoCapture = null;
-            }
-            StudentActualPic.Image = null;
-        }
-
         private void StopCameraBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to stop camera?", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Are you sure you want to stop camera?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                // User clicked "Yes"
-                // Stop the video capture
-                if (videoCapture != null && videoCapture.IsRunning)
-                {
-                    videoCapture.SignalToStop();
-                    videoCapture.WaitForStop();
-                    videoCapture = null;
-                }
-                StudentActualPic.Image = null;
-                StudentImageCoverPic.Show();
+                StopCamera();
 
                 // Change the button text
                 System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
@@ -408,45 +423,57 @@ namespace Login_Form
                 btn.Click -= StopCameraBtn_Click; // Remove the current event handler
                 btn.Click += new EventHandler(OpenCameraBtn_Click); // Add the new event handler
             }
-            else
-            {
-                // User clicked "No" or closed the dialog
-            }
         }
 
         private void CaptureBtn_Click(object sender, EventArgs e)
         {
-            isCaptured = !isCaptured;
-            string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-id-photo" + ".jpg";
-            var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height);
-            StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle);
-            System.Drawing.Imaging.ImageFormat imageFormat = null;
-            imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg;
-            bitmap.Save(filename, imageFormat);
-            MessageBox.Show("Image successfully captured!");
+            if (StudentActualPic.Image == null)
+            {
+                MessageBox.Show("Please open camera first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (AcademicYearCmbBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please select academic year first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                isCaptured = !isCaptured;
+                string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-id-photo" + ".jpg";
+                var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height);
+                StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle);
+                System.Drawing.Imaging.ImageFormat imageFormat = null;
+                imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg;
+                bitmap.Save(filename, imageFormat);
 
-            // Read the image file into a byte array
-            imageData = File.ReadAllBytes(filename);
+                // Read the image file into a byte array
+                imageData = File.ReadAllBytes(filename);
 
-            // Change the button text
-            System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
-            btn.Text = "Retake";
+                // Change the button text
+                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
+                btn.Text = "Retake";
 
-            // Change the button click function
-            btn.Click -= CaptureBtn_Click; // Remove the current event handler
-            btn.Click += new EventHandler(RetakeBtn_Click); // Add the new event handler
+                // Change the button click function
+                btn.Click -= CaptureBtn_Click; // Remove the current event handler
+                btn.Click += new EventHandler(RetakeBtn_Click); // Add the new event handler
+            }
         }
 
         private void RetakeBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to capture again?", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Are you sure you want to capture again?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 // User clicked "Yes"
-                
+                // Change the button text
+                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
+                btn.Text = "Capture";
+
+                // Change the button click function
+                btn.Click -= RetakeBtn_Click; // Remove the current event handler
+                btn.Click += new EventHandler(CaptureBtn_Click); // Add the new event handler
 
                 isCaptured = !isCaptured;
-                string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-student-id" + ".jpg";
+                string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-id-photo" + ".jpg";
                 var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height);
                 StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle);
                 System.Drawing.Imaging.ImageFormat imageFormat = null;
@@ -456,49 +483,12 @@ namespace Login_Form
                 if (File.Exists(filename))
                 {
                     File.Delete(filename);
-                    MessageBox.Show("Image deleted successfully.");
+                    MessageBox.Show("Image deleted successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Image not found.");
+                    MessageBox.Show("Image not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-                // Change the button text
-                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
-                btn.Text = "Capture";
-
-                // Change the button click function
-                btn.Click -= RetakeBtn_Click; // Remove the current event handler
-                btn.Click += new EventHandler(CaptureBtn_Click); // Add the new event handler
-            }
-            else
-            {
-                // User clicked "No" or closed the dialog
-            }
-        }
-
-        private void UploadImageBtn_Click(object sender, EventArgs e)
-        {
-            // Create an instance of the OpenFileDialog class
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            // Set the default filter and title
-            openFileDialog.Filter = "Image Files (*.bmp;*.jpg;*.png)|*.bmp;*.jpg;*.png|All Files (*.*)|*.*";
-            openFileDialog.Title = "Open Image";
-
-            // Display the file dialog box
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                StudentImageCoverPic.Hide();
-
-                // Get the selected file name
-                string fileName = openFileDialog.FileName;
-
-                // Set the Image property of the PictureBox control
-                StudentActualPic.Image = Image.FromFile(fileName);
-                StudentActualPic.SizeMode = PictureBoxSizeMode.StretchImage;
-
-                imageData = File.ReadAllBytes(fileName);
             }
         }
     }

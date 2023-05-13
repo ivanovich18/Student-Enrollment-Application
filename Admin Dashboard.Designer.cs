@@ -155,7 +155,7 @@
             LogoutPictureBox.BackColor = Color.Orange;
             LogoutPictureBox.Cursor = Cursors.Hand;
             LogoutPictureBox.Image = Properties.Resources.logout;
-            LogoutPictureBox.Location = new Point(34, 63);
+            LogoutPictureBox.Location = new Point(41, 63);
             LogoutPictureBox.Name = "LogoutPictureBox";
             LogoutPictureBox.Size = new Size(46, 40);
             LogoutPictureBox.TabIndex = 19;
@@ -173,9 +173,9 @@
             LogoutBtn.ForeColor = Color.White;
             LogoutBtn.Location = new Point(34, 57);
             LogoutBtn.Name = "LogoutBtn";
-            LogoutBtn.Size = new Size(147, 48);
+            LogoutBtn.Size = new Size(153, 48);
             LogoutBtn.TabIndex = 18;
-            LogoutBtn.Text = "       Logout";
+            LogoutBtn.Text = "        Logout";
             LogoutBtn.UseVisualStyleBackColor = true;
             LogoutBtn.Click += LogoutBtn_Click;
             // 
