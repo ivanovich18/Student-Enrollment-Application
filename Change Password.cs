@@ -25,6 +25,7 @@ namespace Login_Form
             AdminSettingsForm adminSettingsForm = new AdminSettingsForm();
             adminSettingsForm.ShowDialog();
         }
+
         private bool CheckPassword(string password, string newPassword)
         {
             MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
@@ -59,6 +60,7 @@ namespace Login_Form
             }
             return false;
         }
+
         private void UpdatePassword(string password, string newPassword)
         {
             MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
@@ -73,6 +75,7 @@ namespace Login_Form
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Password updated successfully!");
+                    ClearFields();
                 }
             }
             catch (Exception ex)
@@ -84,6 +87,7 @@ namespace Login_Form
                 connection.Close();
             }
         }
+
         // This function is called when the update button is clicked
         private void UpdatePasswordBtn_Click(object sender, EventArgs e)
         {
@@ -100,12 +104,21 @@ namespace Login_Form
                 else
                 {
                     MessageBox.Show("New password and confirm new password do not match.");
+                    ClearFields();
                 }
             }
             else
             {
                 MessageBox.Show("Password doesn't match or new password is the same as the current password.");
+                ClearFields();
             }
+        }
+
+        void ClearFields()
+        {
+            OldPasswordTxtBox.Clear();
+            NewPasswordTxtBox.Clear();
+            ConfirmNewPasswordTxtBox.Clear();
         }
     }
 }
