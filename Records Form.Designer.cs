@@ -35,7 +35,7 @@
             pictureBox2 = new PictureBox();
             BackBtn = new Button();
             pictureBox1 = new PictureBox();
-            ClearBtn = new Button();
+            ExportBtn = new Button();
             AddStudentPnl = new Panel();
             CTULogo = new PictureBox();
             AddStudentLbl = new Label();
@@ -102,17 +102,18 @@
             pictureBox1.TabIndex = 53;
             pictureBox1.TabStop = false;
             // 
-            // ClearBtn
+            // ExportBtn
             // 
-            ClearBtn.BackColor = Color.Orange;
-            ClearBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            ClearBtn.ForeColor = SystemColors.ControlLightLight;
-            ClearBtn.Location = new Point(1010, 46);
-            ClearBtn.Name = "ClearBtn";
-            ClearBtn.Size = new Size(201, 57);
-            ClearBtn.TabIndex = 52;
-            ClearBtn.Text = "       Export";
-            ClearBtn.UseVisualStyleBackColor = false;
+            ExportBtn.BackColor = Color.Orange;
+            ExportBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            ExportBtn.ForeColor = SystemColors.ControlLightLight;
+            ExportBtn.Location = new Point(1010, 46);
+            ExportBtn.Name = "ExportBtn";
+            ExportBtn.Size = new Size(201, 57);
+            ExportBtn.TabIndex = 52;
+            ExportBtn.Text = "       Export";
+            ExportBtn.UseVisualStyleBackColor = false;
+            ExportBtn.Click += ExportBtn_Click;
             // 
             // AddStudentPnl
             // 
@@ -157,7 +158,7 @@
             Controls.Add(pictureBox2);
             Controls.Add(BackBtn);
             Controls.Add(pictureBox1);
-            Controls.Add(ClearBtn);
+            Controls.Add(ExportBtn);
             Controls.Add(AddStudentPnl);
             Controls.Add(CTULogo);
             Controls.Add(AddStudentLbl);
@@ -180,7 +181,7 @@
         private PictureBox pictureBox2;
         private Button BackBtn;
         private PictureBox pictureBox1;
-        private Button ClearBtn;
+        private Button ExportBtn;
         private Panel AddStudentPnl;
         private PictureBox CTULogo;
         private Label AddStudentLbl;
