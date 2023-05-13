@@ -80,6 +80,7 @@ namespace Login_Form
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Username updated successfully!");
+                    ClearFields();
                 }
             }
             catch (Exception ex)
@@ -99,8 +100,6 @@ namespace Login_Form
             string newUsername = NewUsernameTxtBox.Text;
             string confirmNewUsername = ConfirmNewUsernameTxtBox.Text;
             
-            
-
             if (CheckUsername(username, newUsername))
             {
                 if (newUsername == confirmNewUsername) 
@@ -110,14 +109,21 @@ namespace Login_Form
                 else 
                 {
                     MessageBox.Show("New username and confirm new username do not match.");
+                    ClearFields();
                 }
             }
             else
             {
                 MessageBox.Show("Username doesn't match or new username is the same as the current username.");
+                ClearFields();
             }
+        }
 
-
+        void ClearFields()
+        {
+            OldUsernameTxtBox.Clear();
+            NewUsernameTxtBox.Clear();
+            ConfirmNewUsernameTxtBox.Clear();
         }
     }
 }
