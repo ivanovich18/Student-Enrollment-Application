@@ -12,7 +12,7 @@
 
 #### Project Preview:
 ![image](https://user-images.githubusercontent.com/88656474/234764050-967cba34-c095-4c63-b8b8-f09f01194fc7.png)
-![image](https://user-images.githubusercontent.com/88656474/234764059-020d5bf2-e111-4d45-8b1f-a05387a54dc4.png)
+![image](https://user-images.githubusercontent.com/88656474/235610009-ce8f5d6f-c265-4749-8092-ed8bfaa73c3b.png)
 
 
 
