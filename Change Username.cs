@@ -79,7 +79,7 @@ namespace Login_Form
                 int rowsAffected = command.ExecuteNonQuery();
                 if (rowsAffected > 0)
                 {
-                    MessageBox.Show("Username updated successfully!");
+                    MessageBox.Show("Username updated successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearFields();
                 }
             }
@@ -99,23 +99,27 @@ namespace Login_Form
             string username = OldUsernameTxtBox.Text;
             string newUsername = NewUsernameTxtBox.Text;
             string confirmNewUsername = ConfirmNewUsernameTxtBox.Text;
-            
-            if (CheckUsername(username, newUsername))
+
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to change username?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
             {
-                if (newUsername == confirmNewUsername) 
+                if (CheckUsername(username, newUsername))
                 {
-                    UpdateUsername(username, newUsername);
+                    if (newUsername == confirmNewUsername)
+                    {
+                        UpdateUsername(username, newUsername);
+                    }
+                    else
+                    {
+                        MessageBox.Show("New username and confirm new username do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ClearFields();
+                    }
                 }
-                else 
+                else
                 {
-                    MessageBox.Show("New username and confirm new username do not match.");
+                    MessageBox.Show("Username doesn't match or new username is the same as the current username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ClearFields();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Username doesn't match or new username is the same as the current username.");
-                ClearFields();
             }
         }
 

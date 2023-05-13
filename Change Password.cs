@@ -74,7 +74,7 @@ namespace Login_Form
                 int rowsAffected = command.ExecuteNonQuery();
                 if (rowsAffected > 0)
                 {
-                    MessageBox.Show("Password updated successfully!");
+                    MessageBox.Show("Password updated successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearFields();
                 }
             }
@@ -95,22 +95,27 @@ namespace Login_Form
             string newPassword = NewPasswordTxtBox.Text;
             string confirmNewPassword = ConfirmNewPasswordTxtBox.Text;
 
-            if (CheckPassword(password, newPassword))
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to change password?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
             {
-                if (newPassword == confirmNewPassword)
+
+                if (CheckPassword(password, newPassword))
                 {
-                    UpdatePassword(password, newPassword);
+                    if (newPassword == confirmNewPassword)
+                    {
+                        UpdatePassword(password, newPassword);
+                    }
+                    else
+                    {
+                        MessageBox.Show("New password and confirm new password do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ClearFields();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("New password and confirm new password do not match.");
+                    MessageBox.Show("Password doesn't match or new password is the same as the current password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ClearFields();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Password doesn't match or new password is the same as the current password.");
-                ClearFields();
             }
         }
 
