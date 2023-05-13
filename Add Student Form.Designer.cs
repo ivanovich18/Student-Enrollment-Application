@@ -430,7 +430,7 @@ namespace Login_Form
             StudentIDLbl.AutoSize = true;
             StudentIDLbl.Font = new Font("Segoe UI", 18.75F, FontStyle.Regular, GraphicsUnit.Point);
             StudentIDLbl.ForeColor = Color.Black;
-            StudentIDLbl.Location = new Point(610, 294);
+            StudentIDLbl.Location = new Point(604, 294);
             StudentIDLbl.Name = "StudentIDLbl";
             StudentIDLbl.Size = new Size(30, 35);
             StudentIDLbl.TabIndex = 68;
