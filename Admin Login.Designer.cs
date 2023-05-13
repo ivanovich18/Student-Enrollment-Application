@@ -38,6 +38,7 @@
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            ShowPassBtn = new PictureBox();
             pictureBox2 = new PictureBox();
             label1 = new Label();
             AppExitBtn = new PictureBox();
@@ -45,6 +46,7 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ShowPassBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AppExitBtn).BeginInit();
             SuspendLayout();
@@ -124,12 +126,25 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.Control;
+            panel2.Controls.Add(ShowPassBtn);
             panel2.Controls.Add(pictureBox2);
             panel2.Controls.Add(PasswordTxtBox);
             panel2.Location = new Point(58, 398);
             panel2.Name = "panel2";
             panel2.Size = new Size(341, 65);
             panel2.TabIndex = 7;
+            // 
+            // ShowPassBtn
+            // 
+            ShowPassBtn.Cursor = Cursors.Hand;
+            ShowPassBtn.Image = Properties.Resources.show_pass;
+            ShowPassBtn.Location = new Point(296, 20);
+            ShowPassBtn.Name = "ShowPassBtn";
+            ShowPassBtn.Size = new Size(33, 26);
+            ShowPassBtn.SizeMode = PictureBoxSizeMode.CenterImage;
+            ShowPassBtn.TabIndex = 7;
+            ShowPassBtn.TabStop = false;
+            ShowPassBtn.Click += ShowPassBtn_Click;
             // 
             // pictureBox2
             // 
@@ -171,10 +186,10 @@
             ClientSize = new Size(457, 663);
             Controls.Add(AppExitBtn);
             Controls.Add(label1);
-            Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(LoginBtn);
             Controls.Add(CTULogo);
+            Controls.Add(panel2);
             Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -187,6 +202,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ShowPassBtn).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)AppExitBtn).EndInit();
             ResumeLayout(false);
@@ -204,5 +220,6 @@
         private PictureBox pictureBox2;
         private Label label1;
         private PictureBox AppExitBtn;
+        private PictureBox ShowPassBtn;
     }
 }
