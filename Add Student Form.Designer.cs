@@ -351,7 +351,7 @@ namespace Login_Form
             // 
             // StudentImageCoverPic
             // 
-            StudentImageCoverPic.Image = Properties.Resources.image;
+            StudentImageCoverPic.Image = Properties.Resources.camera_cover;
             StudentImageCoverPic.Location = new Point(139, 225);
             StudentImageCoverPic.Name = "StudentImageCoverPic";
             StudentImageCoverPic.Size = new Size(240, 240);

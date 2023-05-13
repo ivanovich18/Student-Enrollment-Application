@@ -50,7 +50,7 @@ namespace Login_Form
 
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to add new student?", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Are you sure you want to add new student?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 // User clicked "Yes"
@@ -88,23 +88,23 @@ namespace Login_Form
 
                     ClearFields();
 
-                    MessageBox.Show("Successfully registered!");
+                    MessageBox.Show("Successfully registered!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Please fill all fields!");
+                    MessageBox.Show("Please fill all fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void ClearBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to clear all fields?", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Are you sure you want to clear all fields?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (result == DialogResult.Yes)
             {
                 // User clicked "Yes"
                 ClearFields();
-                MessageBox.Show("All fields are cleared!", "Cleared");
+                MessageBox.Show("All fields are cleared!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -379,7 +379,7 @@ namespace Login_Form
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         void StopCamera()
@@ -410,7 +410,7 @@ namespace Login_Form
 
         private void StopCameraBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to stop camera?", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Are you sure you want to stop camera?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 StopCamera();
@@ -429,11 +429,11 @@ namespace Login_Form
         {
             if (StudentActualPic.Image == null)
             {
-                MessageBox.Show("Please open camera first.");
+                MessageBox.Show("Please open camera first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (AcademicYearCmbBox.SelectedIndex == 0)
             {
-                MessageBox.Show("Please select academic year first.");
+                MessageBox.Show("Please select academic year first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -460,7 +460,7 @@ namespace Login_Form
 
         private void RetakeBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to capture again?", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Are you sure you want to capture again?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 // User clicked "Yes"
@@ -483,11 +483,11 @@ namespace Login_Form
                 if (File.Exists(filename))
                 {
                     File.Delete(filename);
-                    MessageBox.Show("Image deleted successfully.");
+                    MessageBox.Show("Image deleted successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Image not found.");
+                    MessageBox.Show("Image not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
