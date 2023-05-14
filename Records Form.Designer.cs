@@ -101,6 +101,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 53;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += ExportBtn_Click;
             // 
             // ExportBtn
             // 
