@@ -56,11 +56,17 @@ namespace Login_Form
                 if (reader.Read())
                 {
                     // Convert the row into a string
-                    string rowAsString = string.Format("Last Name: {0} \nFirst Name: {1}",
-                        reader["last_name"], reader["first_name"]);
-
+                     string rowAsString = string.Format("Student ID: {0}\nLast Name: {1}\nFirst Name: {2}\nEmailL {3}",
+                       reader["student_id"], reader["last_name"], reader["first_name"], reader["email"]);
+                    MessageBox.Show(rowAsString, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     // Display the string in a MessageBox
-                    MessageBox.Show(rowAsString);
+                    /*
+                    MessageBox.Show(String.Format("Student Number: {0}", reader["student_number"]));
+                    MessageBox.Show(String.Format("Student ID: {0}", reader["student_id"]));
+                    MessageBox.Show(String.Format("Last Name: {0}", reader["last_name"]));
+                    MessageBox.Show(String.Format("First Name: {0}", reader["first_name"]));
+                    MessageBox.Show(String.Format("Middle Name: {0}", reader["middle_name"]));
+                    */
                 }
                 reader.Close();
             }
