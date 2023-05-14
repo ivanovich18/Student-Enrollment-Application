@@ -50,8 +50,10 @@ namespace Login_Form
                     
                     // MessageBox.Show(String.Format("Student Number: {0}", reader["student_number"]));
                     // last_name = string.
-                    string last_name = reader.GetString(0);
+                    string last_name = string.Format("{0}", reader["last_name"]);
+                    string first_name = string.Format("{0}", reader["first_name"]);
                     LastNameLbl.Text += last_name;
+                    FirstNameLbl.Text += first_name;
                     // Convert the row into a string
                     //string rowAsString = string.Format("Student ID: {0}\nLast Name: {1}\nFirst Name: {2}\nEmail: {3}",
                     //  reader["student_id"], reader["last_name"], reader["first_name"], reader["email"]);

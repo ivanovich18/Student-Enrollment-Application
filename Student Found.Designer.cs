@@ -35,7 +35,7 @@
             // LastNameLbl
             // 
             LastNameLbl.AutoSize = true;
-            LastNameLbl.Location = new Point(32, 215);
+            LastNameLbl.Location = new Point(32, 82);
             LastNameLbl.Name = "LastNameLbl";
             LastNameLbl.Size = new Size(69, 15);
             LastNameLbl.TabIndex = 0;
@@ -44,7 +44,7 @@
             // FirstNameLbl
             // 
             FirstNameLbl.AutoSize = true;
-            FirstNameLbl.Location = new Point(32, 176);
+            FirstNameLbl.Location = new Point(32, 42);
             FirstNameLbl.Name = "FirstNameLbl";
             FirstNameLbl.Size = new Size(67, 15);
             FirstNameLbl.TabIndex = 1;
@@ -60,8 +60,6 @@
             Name = "Student_Found";
             Text = "Student_Found";
             Load += Student_Found_Load;
-            Controls.SetChildIndex(LastNameLbl, 0);
-            Controls.SetChildIndex(FirstNameLbl, 0);
             ResumeLayout(false);
             PerformLayout();
         }
