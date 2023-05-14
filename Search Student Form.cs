@@ -21,11 +21,11 @@ namespace Login_Form
         }
 
 
-        public string idNumber()
+        public string idNumberPass
         {
-            return StudentNumberTxtBox.Text;
+            get { return StudentNumberTxtBox.Text; }
+            set { StudentNumberTxtBox.Text = value; }
         }
-        
 
         private void BackBtn_Click(object sender, EventArgs e)
         {
@@ -55,10 +55,16 @@ namespace Login_Form
                 MySqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
+                    DialogResult result = MessageBox.Show("Student ID number exists!", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
+                    {
+                        Student_Found student_Found = new Student_Found(this);
+                        student_Found.ShowDialog();
+                    }
                     // Convert the row into a string
-                     string rowAsString = string.Format("Student ID: {0}\nLast Name: {1}\nFirst Name: {2}\nEmailL {3}",
-                       reader["student_id"], reader["last_name"], reader["first_name"], reader["email"]);
-                    MessageBox.Show(rowAsString, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //string rowAsString = string.Format("Student ID: {0}\nLast Name: {1}\nFirst Name: {2}\nEmail: {3}",
+                    //  reader["student_id"], reader["last_name"], reader["first_name"], reader["email"]);
+                    //MessageBox.Show(rowAsString, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     // Display the string in a MessageBox
                     /*
                     MessageBox.Show(String.Format("Student Number: {0}", reader["student_number"]));
@@ -67,6 +73,11 @@ namespace Login_Form
                     MessageBox.Show(String.Format("First Name: {0}", reader["first_name"]));
                     MessageBox.Show(String.Format("Middle Name: {0}", reader["middle_name"]));
                     */
+                }
+                else
+                {
+                    MessageBox.Show("Student ID number does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    StudentNumberTxtBox.Clear();
                 }
                 reader.Close();
             }
