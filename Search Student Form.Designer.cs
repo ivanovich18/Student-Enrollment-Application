@@ -146,6 +146,7 @@
             SearchBtn.TabIndex = 61;
             SearchBtn.Text = "      Search";
             SearchBtn.UseVisualStyleBackColor = false;
+            SearchBtn.Click += SearchBtn_Click;
             // 
             // SearchPic
             // 
