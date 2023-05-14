@@ -48,6 +48,7 @@
             // 
             // StudentRecordsTable
             // 
+            StudentRecordsTable.AllowUserToAddRows = false;
             StudentRecordsTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             StudentRecordsTable.BackgroundColor = Color.Orange;
             StudentRecordsTable.BorderStyle = BorderStyle.None;
@@ -62,6 +63,7 @@
             StudentRecordsTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             StudentRecordsTable.Location = new Point(77, 208);
             StudentRecordsTable.Name = "StudentRecordsTable";
+            StudentRecordsTable.ReadOnly = true;
             StudentRecordsTable.RowTemplate.Height = 25;
             StudentRecordsTable.Size = new Size(1354, 554);
             StudentRecordsTable.TabIndex = 4;
