@@ -137,7 +137,7 @@
             // ShowPassBtn
             // 
             ShowPassBtn.Cursor = Cursors.Hand;
-            ShowPassBtn.Image = Properties.Resources.show_pass;
+            ShowPassBtn.Image = Properties.Resources.hide_pass;
             ShowPassBtn.Location = new Point(296, 20);
             ShowPassBtn.Name = "ShowPassBtn";
             ShowPassBtn.Size = new Size(33, 26);

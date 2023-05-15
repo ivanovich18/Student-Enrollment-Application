@@ -81,13 +81,13 @@ namespace Login_Form
             {
                 // Show the password characters
                 PasswordTxtBox.PasswordChar = '\0';
-                ShowPassBtn.Image = Properties.Resources.hide_pass;
+                ShowPassBtn.Image = Properties.Resources.show_pass;
             }
             else
             {
                 // Hide the password characters
                 PasswordTxtBox.PasswordChar = '•';
-                ShowPassBtn.Image = Properties.Resources.show_pass;
+                ShowPassBtn.Image = Properties.Resources.hide_pass;
             }
         }
     }
