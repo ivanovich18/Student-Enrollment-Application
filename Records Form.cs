@@ -29,7 +29,7 @@ namespace Login_Form
 
         private void StudentRecordsForm_Load(object sender, EventArgs e)
         {
-            /*
+            
             connection.Open();
             MySqlCommand command = new MySqlCommand("SELECT student_number AS '#', student_id AS 'Student ID', last_name AS 'Last Name', first_name AS 'First Name', program AS 'Program', department AS 'Department', student_type AS 'Student Type', academic_year AS 'Academic Year' FROM app_student_records", connection);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
@@ -37,7 +37,7 @@ namespace Login_Form
             adapter.Fill(table);
             StudentRecordsTable.DataSource = table;
             connection.Close();
-            */
+            
         }
 
         private void ExportBtn_Click(object sender, EventArgs e)

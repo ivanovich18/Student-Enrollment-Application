@@ -25,12 +25,6 @@ namespace Login_Form
         private void Student_Found_Load(object sender, EventArgs e)
         {
             string idNumber = studentForm.StudentNumberTxtBox.Text;
-            /*
-            SearchStudentForm search = new SearchStudentForm();
-            string idNumber = search.idNumberPass;
-            */
-            MessageBox.Show(idNumber);
-            // Establish a connection to the MySQL database
             string connectionString = "server=localhost;user=root;password=;database=student_enrollment_application";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -47,28 +41,84 @@ namespace Login_Form
                 MySqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    
+
                     // MessageBox.Show(String.Format("Student Number: {0}", reader["student_number"]));
                     // last_name = string.
+                    string student_number = string.Format("{0}", reader["student_number"]);
+                    string student_id = string.Format("{0}", reader["student_id"]);
+                    string academic_year = string.Format("{0}", reader["academic_year"]);
                     string last_name = string.Format("{0}", reader["last_name"]);
                     string first_name = string.Format("{0}", reader["first_name"]);
+                    string middle_name = string.Format("{0}", reader["middle_name"]);
+                    string email = string.Format("{0}", reader["email"]);
+                    string birthday = string.Format("{0}", reader["birthday"]);
+
+                    DateTime birthdayDate;
+                    if (DateTime.TryParse(birthday, out birthdayDate))
+                    {
+                        string formattedBirthday = birthdayDate.ToString("MM/dd/yyyy");
+                        BirthdayLbl.Text += formattedBirthday;
+                        Console.WriteLine(formattedBirthday); // Output: 05/16/2023
+                                                              // Use the formattedBirthday value as needed in your Windows Forms application
+                    }
+                    else
+                    {
+                        // Handle invalid or null birthday values
+                        Console.WriteLine("Invalid birthday");
+                    }
+
+                    string gender = string.Format("{0}", reader["gender"]);
+                    string age = string.Format("{0}", reader["age"]);
+                    string birth_place = string.Format("{0}", reader["birth_place"]);
+                    string current_address = string.Format("{0}", reader["current_address"]);
+                    string permanent_address = string.Format("{0}", reader["permanent_address"]);
+                    string student_type = string.Format("{0}", reader["student_type"]);
+                    string department = string.Format("{0}", reader["department"]);
+                    string program = string.Format("{0}", reader["program"]);
+                    string creation_date = string.Format("{0}", reader["creation_date"]);
+
+                    StudentNumberLbl.Text += student_number;
+                    StudentIDLbl.Text += student_id;
                     LastNameLbl.Text += last_name;
                     FirstNameLbl.Text += first_name;
-                    // Convert the row into a string
-                    //string rowAsString = string.Format("Student ID: {0}\nLast Name: {1}\nFirst Name: {2}\nEmail: {3}",
-                    //  reader["student_id"], reader["last_name"], reader["first_name"], reader["email"]);
-                    //MessageBox.Show(rowAsString, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Display the string in a MessageBox
-                    /*
-                    
-                    MessageBox.Show(String.Format("Student ID: {0}", reader["student_id"]));
-                    MessageBox.Show(String.Format("Last Name: {0}", reader["last_name"]));
-                    MessageBox.Show(String.Format("First Name: {0}", reader["first_name"]));
-                    MessageBox.Show(String.Format("Middle Name: {0}", reader["middle_name"]));
-                    */
+                    MiddleNameLbl.Text += middle_name;
+                    AcademicYearLbl.Text += academic_year;
+                    // BirthdayLbl.Text += formattedBirthday;
+                    EmailLbl.Text += email;
+                    AgeLbl.Text += age;
+                    BirthplaceLbl.Text += birth_place;
+                    CurrentAddressLbl.Text += current_address;
+                    PermanentAddressLbl.Text += permanent_address;
+                    GenderLbl.Text += gender;
+                    StudentTypeLbl.Text += student_type;
+                    DepartmentLbl.Text += department;
+                    ProgramLbl.Text += program;
+                    CreationDateLbl.Text += creation_date;
+
+                    // Create a MemoryStream object to store the binary data of the picture blob
+                    MemoryStream stream = new MemoryStream();
+
+                    // Read the binary data of the picture blob and write it to the MemoryStream object
+                    byte[] buffer = (byte[])reader["id_photo"];
+                    stream.Write(buffer, 0, buffer.Length);
+
+                    // Convert the binary data of the picture blob to an Image object
+                    Image image = Image.FromStream(stream);
+
+                    // Set the Image property of the PictureBox control to the Image object
+                    StudentPhoto.Image = image;
                 }
                 reader.Close();
+                command.Dispose();
+                connection.Close();
             }
+        }
+
+        private void AppExitBtn_Click(object sender, EventArgs e)
+        {
+            SearchStudentForm searchStudentForm = new SearchStudentForm();
+            this.Hide();
+            searchStudentForm.Show();
         }
     }
 }
