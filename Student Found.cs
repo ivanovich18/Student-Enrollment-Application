@@ -14,17 +14,44 @@ namespace Login_Form
 {
     public partial class Student_Found : Form
     {
-        SearchStudentForm studentForm;
+        // SearchStudentForm studentForm;
+        private string id_number;
 
+        public Student_Found()
+        {
+            InitializeComponent();
+        }
+        /*
         public Student_Found(SearchStudentForm studentForm)
         {
             InitializeComponent();
             this.studentForm = studentForm;
+
+        }
+        */
+        public Student_Found(string id_number)
+        {
+            InitializeComponent();
+            this.id_number = id_number;
         }
 
         private void Student_Found_Load(object sender, EventArgs e)
         {
-            string idNumber = studentForm.StudentNumberTxtBox.Text;
+            string idNumber;
+
+            if (this.GetType() == typeof(SearchStudentForm))
+            {
+                idNumber = null;
+            }
+            //else if (this.GetType() == typeof(Student_Found))
+            //{
+            // idNumber = studentForm.StudentNumberTxtBox.Text;
+            //}
+            else
+            {
+                idNumber = id_number.Trim();
+            }
+
             string connectionString = "server=localhost;user=root;password=;database=student_enrollment_application";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -116,9 +143,9 @@ namespace Login_Form
 
         private void AppExitBtn_Click(object sender, EventArgs e)
         {
-            SearchStudentForm searchStudentForm = new SearchStudentForm();
-            this.Hide();
-            searchStudentForm.Show();
+            StudentRecordsForm recordsForm = new StudentRecordsForm();
+            this.Close();
+            recordsForm.Show();
         }
     }
 }

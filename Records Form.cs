@@ -1,4 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Relational;
+using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +31,6 @@ namespace Login_Form
 
         private void StudentRecordsForm_Load(object sender, EventArgs e)
         {
-            
             connection.Open();
             MySqlCommand command = new MySqlCommand("SELECT student_number AS '#', student_id AS 'Student ID', last_name AS 'Last Name', first_name AS 'First Name', program AS 'Program', department AS 'Department', student_type AS 'Student Type', academic_year AS 'Academic Year' FROM app_student_records", connection);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
@@ -37,7 +38,6 @@ namespace Login_Form
             adapter.Fill(table);
             StudentRecordsTable.DataSource = table;
             connection.Close();
-            
         }
 
         private void ExportBtn_Click(object sender, EventArgs e)
@@ -104,6 +104,57 @@ namespace Login_Form
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void StudentRecordsTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+        }
+
+        private void StudentRecordsTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Check if a valid row is clicked
+            {
+                DataGridViewRow row = StudentRecordsTable.Rows[e.RowIndex];
+
+                // Retrieve the data from the clicked row
+                string id_number = row.Cells["Student ID"].Value.ToString();
+
+                // Create and show the new form, passing the number as a parameter
+                Student_Found student_Found = new Student_Found(id_number);
+                student_Found.Show();
+            }
+        }
+
+        private void DeleteRow_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to permanently delete student?\n\nThis is irreversible.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                // Get the selected row index from the DataGridView
+                int selectedRowIndex = StudentRecordsTable.SelectedCells[0].RowIndex;
+
+                // Get the value of the key column from the selected row
+                string keyValue = StudentRecordsTable.Rows[selectedRowIndex].Cells["Student ID"].Value.ToString();
+
+                string connectionString = "server=localhost;user=root;password=;database=student_enrollment_application";
+                string deleteQuery = $"DELETE FROM app_student_records WHERE student_id = @KeyValue";
+
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    using (MySqlCommand command = new MySqlCommand(deleteQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@KeyValue", keyValue);
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
+
+                // Remove the selected row from the DataGridView
+                StudentRecordsTable.Rows.RemoveAt(selectedRowIndex);
+                MessageBox.Show("Student record successfully deleted!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

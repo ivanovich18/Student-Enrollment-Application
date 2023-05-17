@@ -53,6 +53,10 @@
             panel5 = new Panel();
             panel6 = new Panel();
             bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(components);
+            panel7 = new Panel();
+            panel8 = new Panel();
+            panel9 = new Panel();
+            panel10 = new Panel();
             ((System.ComponentModel.ISupportInitialize)StudentPhoto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AppExitBtn).BeginInit();
             SuspendLayout();
@@ -311,12 +315,48 @@
             bunifuElipse1.ElipseRadius = 15;
             bunifuElipse1.TargetControl = this;
             // 
+            // panel7
+            // 
+            panel7.BackColor = Color.Black;
+            panel7.Location = new Point(1134, 1);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(5, 749);
+            panel7.TabIndex = 25;
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.Black;
+            panel8.Location = new Point(0, 1);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(5, 749);
+            panel8.TabIndex = 26;
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.Black;
+            panel9.Location = new Point(0, 0);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(1136, 5);
+            panel9.TabIndex = 27;
+            // 
+            // panel10
+            // 
+            panel10.BackColor = Color.Black;
+            panel10.Location = new Point(3, 739);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(1136, 5);
+            panel10.TabIndex = 28;
+            // 
             // Student_Found
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1140, 745);
+            Controls.Add(panel10);
+            Controls.Add(panel9);
+            Controls.Add(panel8);
+            Controls.Add(panel7);
             Controls.Add(CurrentAddressLbl);
             Controls.Add(EmailLbl);
             Controls.Add(CreationDateLbl);
@@ -380,5 +420,9 @@
         private Panel panel5;
         private Panel panel6;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Panel panel10;
+        private Panel panel9;
+        private Panel panel8;
+        private Panel panel7;
     }
 }

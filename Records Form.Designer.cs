@@ -42,6 +42,7 @@
             CTULogo = new PictureBox();
             AddStudentLbl = new Label();
             bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(components);
+            DeleteRow = new Button();
             ((System.ComponentModel.ISupportInitialize)StudentRecordsTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -85,6 +86,8 @@
             StudentRecordsTable.RowTemplate.Height = 25;
             StudentRecordsTable.Size = new Size(1354, 554);
             StudentRecordsTable.TabIndex = 4;
+            StudentRecordsTable.CellClick += StudentRecordsTable_CellClick;
+            StudentRecordsTable.CellDoubleClick += StudentRecordsTable_CellDoubleClick;
             // 
             // pictureBox2
             // 
@@ -170,12 +173,26 @@
             bunifuElipse1.ElipseRadius = 15;
             bunifuElipse1.TargetControl = this;
             // 
+            // DeleteRow
+            // 
+            DeleteRow.BackColor = Color.Orange;
+            DeleteRow.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            DeleteRow.ForeColor = SystemColors.ControlLightLight;
+            DeleteRow.Location = new Point(1280, 697);
+            DeleteRow.Name = "DeleteRow";
+            DeleteRow.Size = new Size(129, 46);
+            DeleteRow.TabIndex = 56;
+            DeleteRow.Text = "Delete";
+            DeleteRow.UseVisualStyleBackColor = false;
+            DeleteRow.Click += DeleteRow_Click;
+            // 
             // StudentRecordsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1504, 827);
+            Controls.Add(DeleteRow);
             Controls.Add(pictureBox2);
             Controls.Add(BackBtn);
             Controls.Add(pictureBox1);
@@ -207,5 +224,6 @@
         private PictureBox CTULogo;
         private Label AddStudentLbl;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Button DeleteRow;
     }
 }
