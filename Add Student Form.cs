@@ -1,63 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using MySql.Data.MySqlClient;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using Microsoft.VisualBasic.Devices;
-using Microsoft.VisualBasic;
-using static Bunifu.UI.WinForms.Helpers.Transitions.Transition;
-using static System.Formats.Asn1.AsnWriter;
-using System.Runtime.Intrinsics.X86;
-using System.Reflection.PortableExecutable;
-using System.Web.Services.Description;
-using System.Text.RegularExpressions;
-using System.IO;
-using AForge.Video;
+﻿using AForge.Video;
 using AForge.Video.DirectShow;
-using System.Drawing.Drawing2D;
-using System.Diagnostics.Metrics;
-using System.Reflection;
-using DirectShowLib;
+using Google.Protobuf.WellKnownTypes;
+using MySql.Data.MySqlClient;
+using System;
 
 namespace Login_Form
 {
     public partial class Add_Students : Form
     {
-        string new_studentIDlbl;
-        byte[] imageData;
-        private bool isCaptured = false;
-        string countStr;
-        private VideoCaptureDevice videoDevice;
+        string new_studentIDlbl; // Declaration of a string variable to store the student ID label.
+        byte[] imageData; // Declaration of a byte array variable to store the image data.
+        private bool isCaptured = false; // Declaration and initialization of a boolean variable to indicate if an image is captured.
+        string countStr; // Declaration of a string variable to store a count value.
 
-        VideoCaptureDevice videoCapture;
-        FilterInfoCollection filterInfo;
+        VideoCaptureDevice videoCapture; // Declaration of a VideoCaptureDevice object for capturing video.
+        FilterInfoCollection filterInfo; // Declaration of a FilterInfoCollection object to store filter information.
 
-        MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
-        MySqlCommand command;
-        MySqlDataReader reader;
-
+        MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application"); // Creation of a MySqlConnection object and initialization with the connection string.
+        
         public Add_Students()
         {
-            InitializeComponent();
+            InitializeComponent(); // Initializes the components of the form.
         }
 
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to add new student?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            DialogResult result = MessageBox.Show("Are you sure you want to add new student?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question); // Displays a confirmation dialog with a question message and Yes/No buttons.
+            if (result == DialogResult.Yes) // User clicked "Yes"
             {
-                // User clicked "Yes"
                 if (!string.IsNullOrEmpty(LastNameTxtBox.Text) && !string.IsNullOrEmpty(FirstNameTxtBox.Text) && !string.IsNullOrEmpty(MiddleNameTxtBox.Text) && !string.IsNullOrEmpty(EmailTxtBox.Text) && !string.IsNullOrEmpty(AgeTxtBox.Text) && !string.IsNullOrEmpty(BirthPlaceTxtBox.Text) && !string.IsNullOrEmpty(CurrentAddressTxtBox.Text) && !string.IsNullOrEmpty(PermanentAddressTxtBox.Text) && GenderCmbBox.SelectedIndex != 0 && AcademicYearCmbBox.SelectedIndex != 0 && StudentTypeCmbBox.SelectedIndex != 0 && DepartmentCmbBox.SelectedIndex != 0 && ProgramCmbBox.SelectedIndex != 0 && StudentActualPic.Image != null)
                 {
+                    // Check if all the required fields and selections are filled or selected
                     string insertQuery = "INSERT INTO app_student_records (student_id, last_name, first_name, middle_name, email, birthday, gender, age, birth_place, current_address, permanent_address, academic_year, student_type, department, program, id_photo) VALUES (@student_id, @last_name, @first_name, @middle_name, @email, @birthday, @gender, @age, @birth_place, @current_address, @permanent_address, @academic_year, @student_type, @department, @program, @id_photo)";
-                    MySqlCommand command = new MySqlCommand(insertQuery, connection);
+                    MySqlCommand command = new MySqlCommand(insertQuery, connection); // Creation of a MySqlCommand object with the INSERT query and connection.
 
                     // Add parameters to the command object
                     command.Parameters.AddWithValue("@student_id", new_studentIDlbl);
@@ -77,65 +52,55 @@ namespace Login_Form
                     command.Parameters.AddWithValue("@program", ProgramCmbBox.SelectedItem.ToString());
                     command.Parameters.AddWithValue("@id_photo", imageData);
 
-                    // Open the connection
-                    connection.Open();
+                    connection.Open(); // Open the connection
+                    int rowsAffected = command.ExecuteNonQuery(); // Executes the command and returns the number of rows affected.
+                    connection.Close(); // Close the connection
+                    ClearFields(); // Call the user-defined ClearFields function to clear the fields
 
-                    // execute the command
-                    int rowsAffected = command.ExecuteNonQuery();
-
-                    // close the connection
-                    connection.Close();
-
-                    ClearFields();
-
-                    MessageBox.Show("Successfully registered!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Successfully registered!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information); // Displays a success message box.
                 }
                 else
                 {
-                    MessageBox.Show("Please fill all fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please fill all fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); // Displays an error message box.
                 }
             }
         }
 
         private void ClearBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to clear all fields?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-            if (result == DialogResult.Yes)
+            DialogResult result = MessageBox.Show("Are you sure you want to clear all fields?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation); // Displays a warning dialog with a Yes/No option.
+            if (result == DialogResult.Yes) // User clicked "Yes"
             {
-                // User clicked "Yes"
-                ClearFields();
-                MessageBox.Show("All fields are cleared!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearFields(); // Calls the ClearFields() method to clear all input fields.
+                MessageBox.Show("All fields are cleared!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information); // Displays an information message box.
             }
         }
 
         private void BackBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            AdminDashboardForm mainForm = new AdminDashboardForm();
-            mainForm.ShowDialog();
+            this.Hide(); // Hides the current form.
+            AdminDashboardForm mainForm = new AdminDashboardForm(); // Creates an instance of the AdminDashboardForm.
+            mainForm.ShowDialog(); // Shows the AdminDashboardForm as a dialog.
         }
 
         private void Add_Students_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
-            conn.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(student_number) + 1 FROM app_student_records;", conn);
-            // execute command and retrieve count value as object
-            object result = cmd.ExecuteScalar();
-            // convert object to string and store in variable
-            countStr = result.ToString();
-            // close connection
-            conn.Close();
+            MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application"); // Creates a MySqlConnection object and initializes it with the connection string.
+            connection.Open(); // Opens the database connection.
+            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(student_number) + 1 FROM app_student_records;", connection); // Creates a MySqlCommand object with the SQL query to retrieve the count of student numbers.
+            object result = cmd.ExecuteScalar(); // Executes the query and retrieves the count value as an object.
+            countStr = result.ToString(); // Converts the object to a string and stores it in the countStr variable.
+            connection.Close(); // Closes the database connection.
 
-            StudentNumberCountLbl.Text = StudentNumberCountLbl.Text + " " + countStr;
+            StudentNumberCountLbl.Text = StudentNumberCountLbl.Text + " " + countStr; // Updates the StudentNumberCountLbl text by appending the count value.
 
             // Gender
-            GenderCmbBox.Items.Insert(0, "Gender");
-            GenderCmbBox.SelectedIndex = 0;
-            GenderCmbBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            GenderCmbBox.Enabled = true;
-            GenderCmbBox.DisplayMember = "Text";
-            GenderCmbBox.ValueMember = "Value";
+            GenderCmbBox.Items.Insert(0, "Gender"); // Adds a default "Gender" item at index 0.
+            GenderCmbBox.SelectedIndex = 0; // Sets the selected index to 0.
+            GenderCmbBox.DropDownStyle = ComboBoxStyle.DropDownList; // Sets the drop-down style to DropDownList.
+            GenderCmbBox.Enabled = true; // Enables the Gender ComboBox.
+            GenderCmbBox.DisplayMember = "Text"; // Sets the display member property to "Text".
+            GenderCmbBox.ValueMember = "Value"; // Sets the value member property to "Value".
 
             // Academic Year
             AcademicYearCmbBox.Items.Insert(0, "Academic Year");
@@ -169,32 +134,27 @@ namespace Login_Form
             ProgramCmbBox.DisplayMember = "Text";
             ProgramCmbBox.ValueMember = "Value";
 
-            BirthdayPicker.Value = DateTime.Today;
+            BirthdayPicker.Value = DateTime.Today; // Sets the value of the BirthdayPicker to the current date.
 
-            StudentIDLbl.ForeColor = Color.White;
+            StudentIDLbl.ForeColor = Color.White; // Sets the text color of the StudentIDLbl to white.
 
+            // Adds department items to the Department ComboBox.
             DepartmentCmbBox.Items.Add("(CAS) College of Arts and Sciences");
             DepartmentCmbBox.Items.Add("(CCICT) College of Computer, Information and Communications Technology");
             DepartmentCmbBox.Items.Add("(COEd) College of Education");
             DepartmentCmbBox.Items.Add("(COE) College of Engineering");
             DepartmentCmbBox.Items.Add("(CME) College of Management and Entrepreneurship");
             DepartmentCmbBox.Items.Add("(COT) College of Technology");
-
-
-            //GraphicsPath gp = new GraphicsPath();
-            //gp.AddEllipse(0, 0, StudentActualPic.Width, StudentActualPic.Height);
-            //StudentActualPic.Region = new Region(gp);
         }
 
         private void Add_Students_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Stop the video capture
-            StopCamera();
+            StopCamera(); // Stops the video capture when the form is closing.
         }
 
         private void ClearFields()
         {
-            // Textboxes
+            // Clears the texts in the textboxes.
             LastNameTxtBox.Clear();
             FirstNameTxtBox.Clear();
             MiddleNameTxtBox.Clear();
@@ -204,76 +164,63 @@ namespace Login_Form
             PermanentAddressTxtBox.Clear();
             BirthPlaceTxtBox.Clear();
 
-            // DateTimePicker
-            BirthdayPicker.Value = DateTime.Today;
-
-            // ComboBox
+            // Sets the selected index of the combo box to 0 (first).
             GenderCmbBox.SelectedIndex = 0;
             AcademicYearCmbBox.SelectedIndex = 0;
             StudentTypeCmbBox.SelectedIndex = 0;
             DepartmentCmbBox.SelectedIndex = 0;
-            ProgramCmbBox.Items.Insert(0, "Program");
+            ProgramCmbBox.Items.Insert(0, "Program"); // Inserts a default "Program" item at index 0.
             ProgramCmbBox.SelectedIndex = 0;
 
-            // Picture Box
-            /*
-            StudentImageCoverPic.Show();
-            StudentActualPic.Image = null;
-            */
-            StopCamera();
+            StopCamera(); // Stops the camera.
 
-            // Change the button text
-            OpenCameraBtn.Text = "Open Camera";
+            OpenCameraBtn.Text = "Open Camera"; // Changes the text of OpenCameraBtn to "Open Camera".
 
-            // Change the button click function
-            OpenCameraBtn.Click -= StopCameraBtn_Click; // Remove the current event handler
-            OpenCameraBtn.Click += new EventHandler(OpenCameraBtn_Click); // Add the new event handler
+            OpenCameraBtn.Click -= StopCameraBtn_Click; // Removes the current event handler from OpenCameraBtn's click event.
+            OpenCameraBtn.Click += new EventHandler(OpenCameraBtn_Click); // Adds a new event handler to OpenCameraBtn's click event.
 
-            CaptureBtn.Text = "Capture";
+            CaptureBtn.Text = "Capture"; // Changes the text of CaptureBtn to "Capture".
 
-            // Change the button click function
-            CaptureBtn.Click -= RetakeBtn_Click; // Remove the current event handler
-            CaptureBtn.Click += new EventHandler(CaptureBtn_Click); // Add the new event handler
+            CaptureBtn.Click -= RetakeBtn_Click; // Removes the current event handler from CaptureBtn's click event.
+            CaptureBtn.Click += new EventHandler(CaptureBtn_Click); // Adds a new event handler to CaptureBtn's click event.
         }
 
         private void AcademicYearCmbBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application");
-            conn.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(student_number) + 1 FROM app_student_records;", conn);
-            // execute command and retrieve count value as object
-            object result = cmd.ExecuteScalar();
-            // convert object to string and store in variable
-            string countStr = result.ToString();
-            // close connection
-            conn.Close();
+            MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application"); // Creates a MySqlConnection object and initializes it with the connection string.
+            connection.Open(); // Opens the database connection.
+            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(student_number) + 1 FROM app_student_records;", connection); // Creates a MySqlCommand object with the SQL query to retrieve the count of student numbers.
+            object result = cmd.ExecuteScalar(); // Executes the query and retrieves the count value as an object.
+            string countStr = result.ToString(); // Converts the object to a string and stores it in the countStr variable.
+            connection.Close(); // Closes the database connection.
 
-            object selectedItem = AcademicYearCmbBox.SelectedItem;
-            string selectedText = selectedItem.ToString();
-            StudentIDLbl.Text = selectedText + "-" + "0" + countStr;
-            new_studentIDlbl = selectedText + "-" + "0" + countStr;
+            object selectedItem = AcademicYearCmbBox.SelectedItem; // Gets the selected item from AcademicYearCmbBox
+            string selectedText = selectedItem.ToString(); // Converts the selected item to a string.
+            StudentIDLbl.Text = selectedText + "-" + "0" + countStr; // Sets the text of StudentIDLbl using the selected academic year and the count value.
+            new_studentIDlbl = selectedText + "-" + "0" + countStr; // Updates the value of the new_studentIDlbl variable with the new student ID.
 
             if (AcademicYearCmbBox.SelectedIndex == 0)
             {
-                StudentIDLbl.ForeColor = Color.White;
+                StudentIDLbl.ForeColor = Color.White; // Sets the text color of StudentIDLbl to white if the selected index of AcademicYearCmbBox is 0.
             }
             else
             {
-                StudentIDLbl.ForeColor = Color.Black;
+                StudentIDLbl.ForeColor = Color.Black; // Sets the text color of StudentIDLbl to black if the selected index of AcademicYearCmbBox is not 0.
             }
         }
 
         private void DepartmentCmbBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ProgramCmbBox.Items.Clear();
+            ProgramCmbBox.Items.Clear(); // Clears the items in the ProgramCmbBox.
 
             switch (DepartmentCmbBox.SelectedIndex)
             {
                 case 0: // Default
                     break;
                 case 1: // CAS
-                    ProgramCmbBox.Items.Insert(0, "Program");
-                    ProgramCmbBox.SelectedIndex = 0;
+                    ProgramCmbBox.Items.Insert(0, "Program"); // Inserts a default "Program" item at index 0.
+                    ProgramCmbBox.SelectedIndex = 0; // Sets the selected index of ProgramCmbBox to 0.
+                    // Adds specific program items for the departments
                     ProgramCmbBox.Items.Add("(BAEL-ELSD) Bachelor of Arts in English Language - English Language Studies as a Discipline");
                     ProgramCmbBox.Items.Add("(BAEL-ELAP) Bachelor of Arts in English Language - English Language Across Professions");
                     ProgramCmbBox.Items.Add("(BAL-LCS) Bachelor of Arts in Literature - Literary Cultural Studies");
@@ -360,12 +307,11 @@ namespace Login_Form
             }
         }
 
-        // private System.Windows.Forms.Button sender;
         private void Camera_On(object sender, NewFrameEventArgs eventArgs)
         {
             if (!isCaptured)
             {
-                StudentActualPic.Image = (Bitmap)eventArgs.Frame.Clone();
+                StudentActualPic.Image = (Bitmap)eventArgs.Frame.Clone(); // Sets the image of StudentActualPic to the captured frame.
             }
         }
 
@@ -374,39 +320,38 @@ namespace Login_Form
             try
             {
                 filterInfo = new FilterInfoCollection(AForge.Video.DirectShow.FilterCategory.VideoInputDevice);
-                videoCapture = new VideoCaptureDevice(filterInfo[0].MonikerString);
-                videoCapture.NewFrame += new NewFrameEventHandler(Camera_On);
-                videoCapture.Start();
+                videoCapture = new VideoCaptureDevice(filterInfo[0].MonikerString); // Initializes the video capture device using the first device in the filterInfo collection.
+                videoCapture.NewFrame += new NewFrameEventHandler(Camera_On); // Registers the Camera_On event handler for the NewFrame event.
+                videoCapture.Start(); // Starts the video capture.
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); // Displays an error message if an exception occurs.
             }
         }
         void StopCamera()
         {
             if (videoCapture != null && videoCapture.IsRunning)
             {
-                videoCapture.SignalToStop();
-                videoCapture.WaitForStop();
-                videoCapture = null;
+                videoCapture.SignalToStop(); // Signals the video capture to stop.
+                videoCapture.WaitForStop(); // Waits for the video capture to stop.
+                videoCapture = null; // Sets the video capture object to null.
             }
-            StudentActualPic.Image = null;
-            StudentImageCoverPic.Show();
+            StudentActualPic.Image = null; // Clears the image displayed in StudentActualPic.
+            StudentImageCoverPic.Show(); // Shows the StudentImageCoverPic.
         }
 
         private void OpenCameraBtn_Click(object sender, EventArgs e)
         {
-            StudentActualPic.SizeMode = PictureBoxSizeMode.CenterImage;
-            StudentImageCoverPic.Hide();
-            StartCamera();
-            // Change the button text
-            System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
-            btn.Text = "Stop Camera";
+            StudentActualPic.SizeMode = PictureBoxSizeMode.CenterImage; // Sets the picture box size mode to CenterImage.
+            StudentImageCoverPic.Hide(); // Hides the StudentImageCoverPic.
+            StartCamera(); // Starts the camera capture.
 
-            // Change the button click function
-            btn.Click -= OpenCameraBtn_Click; // Remove the current event handler
-            btn.Click += new EventHandler(StopCameraBtn_Click); // Add the new event handler
+            System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender; // Retrieves the button that triggered the event.
+            btn.Text = "Stop Camera"; // Sets the button text to "Stop Camera".
+
+            btn.Click -= OpenCameraBtn_Click; // Removes the current event handler.
+            btn.Click += new EventHandler(StopCameraBtn_Click); // Adds the new event handler for the StopCameraBtn_Click method.
         }
 
         private void StopCameraBtn_Click(object sender, EventArgs e)
@@ -414,15 +359,13 @@ namespace Login_Form
             DialogResult result = MessageBox.Show("Are you sure you want to stop camera?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                StopCamera();
+                StopCamera(); // Stops the camera capture.
 
-                // Change the button text
-                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
-                btn.Text = "Open Camera";
+                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender; // Retrieves the button that triggered the event.
+                btn.Text = "Open Camera"; // Sets the button text to "Open Camera".
 
-                // Change the button click function
-                btn.Click -= StopCameraBtn_Click; // Remove the current event handler
-                btn.Click += new EventHandler(OpenCameraBtn_Click); // Add the new event handler
+                btn.Click -= StopCameraBtn_Click; // Removes the current event handler.
+                btn.Click += new EventHandler(OpenCameraBtn_Click); // Adds the new event handler for the OpenCameraBtn_Click method.
             }
         }
 
@@ -430,65 +373,59 @@ namespace Login_Form
         {
             if (StudentActualPic.Image == null)
             {
-                MessageBox.Show("Please open camera first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please open camera first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning); // Displays a warning message if the camera is not open.
             }
             else if (AcademicYearCmbBox.SelectedIndex == 0)
             {
-                MessageBox.Show("Please select academic year first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select academic year first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning); // Displays a warning message if the academic year is not selected.
             }
             else
             {
-                isCaptured = !isCaptured;
-                string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-id-photo" + ".jpg";
-                var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height);
-                StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle);
-                System.Drawing.Imaging.ImageFormat imageFormat = null;
-                imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg;
-                bitmap.Save(filename, imageFormat);
+                isCaptured = !isCaptured; // Toggles the isCaptured variable.
+                string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-id-photo" + ".jpg"; // Constructs the filename for the captured image.
+                var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height); // Creates a bitmap with the same size as StudentActualPic.
+                StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle); // Draws the contents of StudentActualPic onto the bitmap.
+                System.Drawing.Imaging.ImageFormat imageFormat = null; // Initializes the image format variable.
+                imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg; // Sets the image format to JPEG.
+                bitmap.Save(filename, imageFormat); // Saves the bitmap to the specified filename as a JPEG image.
 
-                // Read the image file into a byte array
-                imageData = File.ReadAllBytes(filename);
+                imageData = File.ReadAllBytes(filename); // Reads the image file into a byte array.
 
-                // Change the button text
-                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
-                btn.Text = "Retake";
+                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender; // Retrieves the button that triggered the event.
+                btn.Text = "Retake"; // Sets the button text to "Retake".
 
-                // Change the button click function
-                btn.Click -= CaptureBtn_Click; // Remove the current event handler
-                btn.Click += new EventHandler(RetakeBtn_Click); // Add the new event handler
+                btn.Click -= CaptureBtn_Click; // Removes the current event handler.
+                btn.Click += new EventHandler(RetakeBtn_Click); // Adds the new event handler for the RetakeBtn_Click method.
             }
         }
 
         private void RetakeBtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to capture again?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if (result == DialogResult.Yes) // User clicked "Yes"
             {
-                // User clicked "Yes"
-                // Change the button text
                 System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
                 btn.Text = "Capture";
 
-                // Change the button click function
                 btn.Click -= RetakeBtn_Click; // Remove the current event handler
                 btn.Click += new EventHandler(CaptureBtn_Click); // Add the new event handler
 
-                isCaptured = !isCaptured;
-                string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-id-photo" + ".jpg";
-                var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height);
-                StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle);
-                System.Drawing.Imaging.ImageFormat imageFormat = null;
-                imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg;
-                bitmap.Save(filename, imageFormat);
+                isCaptured = !isCaptured; // Toggles the isCaptured variable.
+                string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-id-photo" + ".jpg"; // Constructs the filename for the captured image.
+                var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height); // Creates a bitmap with the same size as StudentActualPic.
+                StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle); // Draws the contents of StudentActualPic onto the bitmap.
+                System.Drawing.Imaging.ImageFormat imageFormat = null; // Initializes the image format variable.
+                imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg; // Sets the image format to JPEG.
+                bitmap.Save(filename, imageFormat); // Saves the bitmap to the specified filename as a JPEG image.
 
                 if (File.Exists(filename))
                 {
-                    File.Delete(filename);
-                    MessageBox.Show("Image deleted successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    File.Delete(filename); // Deletes the captured image file.
+                    MessageBox.Show("Image deleted successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information); // Displays a success message.
                 }
                 else
                 {
-                    MessageBox.Show("Image not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Image not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); // Displays an error message if the image file is not found.
                 }
             }
         }

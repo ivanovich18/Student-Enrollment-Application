@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Login_Form
+﻿namespace Login_Form
 {
     public partial class AdminDashboardForm : Form
     {
@@ -49,7 +39,7 @@ namespace Login_Form
         }
 
         private void StudentRecordsBtn_Click(object sender, EventArgs e)
-        { 
+        {
             this.Hide(); // Hides the current AdminDashboardForm.
             StudentRecordsForm studentRecordsForm = new StudentRecordsForm(); // Creates an instance of the StudentRecordsForm.
             studentRecordsForm.ShowDialog(); // Displays the StudentRecordsForm as a dialog.
