@@ -1,6 +1,6 @@
 ﻿namespace Login_Form
 {
-    partial class ChangePasswordLbl
+    partial class ChangePasswordForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangePasswordLbl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangePasswordForm));
             UpdatePasswordBtn = new Button();
             ConfirmNewPasswordTxtBox = new TextBox();
             ConfirmNewPasswordLbl = new Label();
@@ -207,7 +207,7 @@
             bunifuElipse1.ElipseRadius = 15;
             bunifuElipse1.TargetControl = this;
             // 
-            // ChangePasswordLbl
+            // ChangePasswordForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -228,7 +228,7 @@
             Controls.Add(CTULogo);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "ChangePasswordLbl";
+            Name = "ChangePasswordForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Change Password";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
