@@ -1,15 +1,4 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics.Metrics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Login_Form
 {
@@ -20,59 +9,47 @@ namespace Login_Form
             InitializeComponent();
         }
 
-        /*
-        public string idNumberPass
-        {
-            get { return StudentNumberTxtBox.Text; }
-            set { StudentNumberTxtBox.Text = value; }
-        }
-        */
         private void BackBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            AdminDashboardForm mainForm = new AdminDashboardForm();
-            mainForm.ShowDialog();
+            this.Hide(); // Hides the current form
+            AdminDashboardForm mainForm = new AdminDashboardForm(); // Creates a new instance of the AdminDashboardForm
+            mainForm.ShowDialog(); // Displays the AdminDashboardForm as a dialog
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            string idNumber = StudentNumberTxtBox.Text;
+            string idNumber = StudentNumberTxtBox.Text; // Retrieves the student number from the StudentNumberTxtBox
 
             // Establish a connection to the MySQL database
             string connectionString = "server=localhost;user=root;password=;database=student_enrollment_application";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                connection.Open();
+                connection.Open(); // Opens the database connection
 
-                // Define a query to retrieve a row from a table based on the student number
+                // Defines a query to retrieve a row from a table based on the student number
                 string query = "SELECT * FROM app_student_records WHERE student_id = @idNumber";
-                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlCommand command = new MySqlCommand(query, connection); // Creates a MySqlCommand object with the query and connection
 
-                // Add a parameter to the query based on the value of the TextBox
-                //string idNumber = StudentNumberTxtBox.Text;
-                command.Parameters.AddWithValue("@idNumber", idNumber);
+                command.Parameters.AddWithValue("@idNumber", idNumber); // Adds a parameter to the command representing the student number
 
-                // Execute the query and retrieve the row
+                // Executes the query and retrieves the result as a MySqlDataReader
                 MySqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
+
+                if (reader.Read()) // Checks if a row was retrieved
                 {
-                    DialogResult result = MessageBox.Show("Student ID number exists!\n\nDo you want to view record?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    if (result == DialogResult.Yes)
+                    DialogResult result = MessageBox.Show("Student ID number exists!\n\nDo you want to view record?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information); // Asks the user if they want to view the student record
+                    if (result == DialogResult.Yes) // If the user chooses to view the record
                     {
-                        /*
-                        string rowAsString = string.Format("Student Number: {0}\nStudent Id: {1}\nAcademic Year: {2}\nLast Name: {3}\nFirst Name: {4}\nMiddle Name: {5}\nEmail: {6}\nBirthday: {7}\nGender: {8}\nAge: {9}\nBirth Place: {10}\nCurrent Address: {11}\nPermanent Address: {12}\nStudent Type: {13}\nDepartment: {14}\nProgram: {15}\nCreation Date: {16}", reader["student_number"], reader["student_id"], reader["academic_year"], reader["last_name"], reader["first_name"], reader["middle_name"], reader["email"], reader["birthday"], reader["gender"], reader["age"], reader["birth_place"], reader["current_address"], reader["permanent_address"], reader["student_type"], reader["department"], reader["program"], reader["creation_date"]);
-                        MessageBox.Show(rowAsString, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        */
-                        Student_Found student_Found = new Student_Found(idNumber);
-                        student_Found.ShowDialog();
+                        Student_Found student_Found = new Student_Found(idNumber); // Creates a new instance of the Student_Found form, passing the student ID number
+                        student_Found.ShowDialog(); // Displays the Student_Found form as a dialog
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Student ID number does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    StudentNumberTxtBox.Clear();
+                    MessageBox.Show("Student ID number does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); // Displays an error message indicating that the student ID number does not exist
+                    StudentNumberTxtBox.Clear(); // Displays an error message indicating that the student ID number does not exist
                 }
-                reader.Close();
+                reader.Close(); // Closes the reader
             }
         }
     }
