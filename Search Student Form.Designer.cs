@@ -211,11 +211,11 @@
         private PictureBox pictureBox2;
         private Button BackBtn;
         private Label EnterIDNumberLbl;
-        private TextBox StudentNumberTxtBox;
         private PictureBox StudentImagePic;
         private Button SearchBtn;
         private PictureBox SearchPic;
         private Panel SearchStudentPnl;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        public TextBox StudentNumberTxtBox;
     }
 }

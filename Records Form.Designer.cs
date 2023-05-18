@@ -42,16 +42,18 @@
             CTULogo = new PictureBox();
             AddStudentLbl = new Label();
             bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(components);
+            DeleteBtn = new Button();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)StudentRecordsTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // StudentRecordsTable
             // 
             StudentRecordsTable.AllowUserToAddRows = false;
-            StudentRecordsTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             StudentRecordsTable.BackgroundColor = Color.Orange;
             StudentRecordsTable.BorderStyle = BorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -73,7 +75,6 @@
             StudentRecordsTable.DefaultCellStyle = dataGridViewCellStyle2;
             StudentRecordsTable.Location = new Point(77, 208);
             StudentRecordsTable.Name = "StudentRecordsTable";
-            StudentRecordsTable.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -85,6 +86,8 @@
             StudentRecordsTable.RowTemplate.Height = 25;
             StudentRecordsTable.Size = new Size(1354, 554);
             StudentRecordsTable.TabIndex = 4;
+            StudentRecordsTable.CellDoubleClick += StudentRecordsTable_CellDoubleClick;
+            StudentRecordsTable.CellEndEdit += StudentRecordsTable_CellEndEdit;
             // 
             // pictureBox2
             // 
@@ -170,12 +173,38 @@
             bunifuElipse1.ElipseRadius = 15;
             bunifuElipse1.TargetControl = this;
             // 
+            // DeleteBtn
+            // 
+            DeleteBtn.BackColor = Color.Orange;
+            DeleteBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            DeleteBtn.ForeColor = SystemColors.ControlLightLight;
+            DeleteBtn.Location = new Point(791, 46);
+            DeleteBtn.Name = "DeleteBtn";
+            DeleteBtn.Size = new Size(201, 57);
+            DeleteBtn.TabIndex = 57;
+            DeleteBtn.Text = "      Delete";
+            DeleteBtn.UseVisualStyleBackColor = false;
+            DeleteBtn.Click += DeleteBtn_Click;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.Orange;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(833, 57);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(28, 35);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 58;
+            pictureBox3.TabStop = false;
+            // 
             // StudentRecordsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1504, 827);
+            Controls.Add(pictureBox3);
+            Controls.Add(DeleteBtn);
             Controls.Add(pictureBox2);
             Controls.Add(BackBtn);
             Controls.Add(pictureBox1);
@@ -190,10 +219,12 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Student Records";
             Load += StudentRecordsForm_Load;
+            Shown += StudentRecordsForm_Shown;
             ((System.ComponentModel.ISupportInitialize)StudentRecordsTable).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)CTULogo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -207,5 +238,7 @@
         private PictureBox CTULogo;
         private Label AddStudentLbl;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Button DeleteBtn;
+        private PictureBox pictureBox3;
     }
 }

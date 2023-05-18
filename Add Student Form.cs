@@ -180,9 +180,10 @@ namespace Login_Form
             DepartmentCmbBox.Items.Add("(CME) College of Management and Entrepreneurship");
             DepartmentCmbBox.Items.Add("(COT) College of Technology");
 
-            GraphicsPath gp = new GraphicsPath();
-            gp.AddEllipse(0, 0, StudentActualPic.Width, StudentActualPic.Height);
-            StudentActualPic.Region = new Region(gp);
+
+            //GraphicsPath gp = new GraphicsPath();
+            //gp.AddEllipse(0, 0, StudentActualPic.Width, StudentActualPic.Height);
+            //StudentActualPic.Region = new Region(gp);
         }
 
         private void Add_Students_FormClosing(object sender, FormClosingEventArgs e)

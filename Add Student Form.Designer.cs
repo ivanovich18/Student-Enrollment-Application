@@ -505,9 +505,9 @@ namespace Login_Form
             Controls.Add(AddStudentPnl);
             Controls.Add(CTULogo);
             Controls.Add(AddStudentLbl);
+            Controls.Add(CaptureBtn);
             Controls.Add(StudentImageCoverPic);
             Controls.Add(StudentActualPic);
-            Controls.Add(CaptureBtn);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Add_Students";
