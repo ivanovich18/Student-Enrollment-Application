@@ -4,21 +4,15 @@ namespace Login_Form
 {
     public partial class Student_Found : Form
     {
-        // SearchStudentForm studentForm;
         private string id_number;
 
+        // Constructor without parameters
         public Student_Found()
         {
             InitializeComponent();
         }
-        /*
-        public Student_Found(SearchStudentForm studentForm)
-        {
-            InitializeComponent();
-            this.studentForm = studentForm;
 
-        }
-        */
+        // Constructor with the student ID number parameter
         public Student_Found(string id_number)
         {
             InitializeComponent();
@@ -29,38 +23,35 @@ namespace Login_Form
         {
             string idNumber;
 
-            if (this.GetType() == typeof(SearchStudentForm))
+            if (this.GetType() == typeof(SearchStudentForm)) // Constructor with the student ID number parameter
             {
-                idNumber = null;
+                idNumber = null; // Set idNumber to null if the current form is SearchStudentForm
             }
-            //else if (this.GetType() == typeof(Student_Found))
-            //{
-            // idNumber = studentForm.StudentNumberTxtBox.Text;
-            //}
             else
             {
-                idNumber = id_number.Trim();
+                idNumber = id_number.Trim(); // Trim the id_number and assign it to idNumber variable
             }
 
+            // Establish a connection to the MySQL database
             string connectionString = "server=localhost;user=root;password=;database=student_enrollment_application";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                connection.Open();
+                connection.Open(); // Open the database connection
 
                 // Define a query to retrieve a row from a table based on the student number
                 string query = "SELECT * FROM app_student_records WHERE student_id = @idNumber";
                 MySqlCommand command = new MySqlCommand(query, connection);
 
-                // Add a parameter to the query based on the value of the TextBox
+                // Add a parameter to the query based on the value of idNumber
                 command.Parameters.AddWithValue("@idNumber", idNumber);
 
-                // Execute the query and retrieve the row
+                // Execute the query and retrieve the result as a MySqlDataReader
                 MySqlDataReader reader = command.ExecuteReader();
+
+                // Check if a row was retrieved
                 if (reader.Read())
                 {
-
-                    // MessageBox.Show(String.Format("Student Number: {0}", reader["student_number"]));
-                    // last_name = string.
+                    // Retrieve values from the reader for each column
                     string student_number = string.Format("{0}", reader["student_number"]);
                     string student_id = string.Format("{0}", reader["student_id"]);
                     string academic_year = string.Format("{0}", reader["academic_year"]);
@@ -70,11 +61,13 @@ namespace Login_Form
                     string email = string.Format("{0}", reader["email"]);
                     string birthday = string.Format("{0}", reader["birthday"]);
 
+                    // Convert the birthday string to a DateTime object
                     DateTime birthdayDate;
                     if (DateTime.TryParse(birthday, out birthdayDate))
                     {
+                        // Format the birthday as "MM/dd/yyyy"
                         string formattedBirthday = birthdayDate.ToString("MM/dd/yyyy");
-                        BirthdayLbl.Text += formattedBirthday;
+                        BirthdayLbl.Text += formattedBirthday; // Append the formattedBirthday to the text of the BirthdayLbl
                         Console.WriteLine(formattedBirthday); // Output: 05/16/2023
                                                               // Use the formattedBirthday value as needed in your Windows Forms application
                     }
@@ -84,6 +77,7 @@ namespace Login_Form
                         Console.WriteLine("Invalid birthday");
                     }
 
+                    // Retrieve values from the reader for other columns
                     string gender = string.Format("{0}", reader["gender"]);
                     string age = string.Format("{0}", reader["age"]);
                     string birth_place = string.Format("{0}", reader["birth_place"]);
@@ -94,13 +88,13 @@ namespace Login_Form
                     string program = string.Format("{0}", reader["program"]);
                     string creation_date = string.Format("{0}", reader["creation_date"]);
 
+                    // Append the retrieved values to the corresponding label controls
                     StudentNumberLbl.Text += student_number;
                     StudentIDLbl.Text += student_id;
                     LastNameLbl.Text += last_name;
                     FirstNameLbl.Text += first_name;
                     MiddleNameLbl.Text += middle_name;
                     AcademicYearLbl.Text += academic_year;
-                    // BirthdayLbl.Text += formattedBirthday;
                     EmailLbl.Text += email;
                     AgeLbl.Text += age;
                     BirthplaceLbl.Text += birth_place;
@@ -125,17 +119,17 @@ namespace Login_Form
                     // Set the Image property of the PictureBox control to the Image object
                     StudentPhoto.Image = image;
                 }
-                reader.Close();
-                command.Dispose();
-                connection.Close();
+                reader.Close(); // Close the reader
+                command.Dispose(); // Close the reader
+                connection.Close(); // Close the database connection
             }
         }
 
         private void AppExitBtn_Click(object sender, EventArgs e)
         {
-            StudentRecordsForm recordsForm = new StudentRecordsForm();
-            this.Close();
-            recordsForm.Show();
+            StudentRecordsForm recordsForm = new StudentRecordsForm();  // Create a new instance of the StudentRecordsForm
+            this.Close(); // Close the current form
+            recordsForm.Show(); // Show the StudentRecordsForm
         }
     }
 }
