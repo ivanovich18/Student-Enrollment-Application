@@ -9,14 +9,6 @@ namespace Login_Form
             InitializeComponent(); // Initialize the form's controls.
         }
 
-        private void SettingsBackBtn_Click(object sender, EventArgs e)
-        {
-            // Hide this form and show the AdminSettingsForm.
-            this.Hide();
-            AdminSettingsForm adminSettingsForm = new AdminSettingsForm();
-            adminSettingsForm.ShowDialog();
-        }
-
         private bool CheckPassword(string password, string newPassword)
         {
             MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application"); // Create a new MySqlConnection object.
@@ -54,6 +46,22 @@ namespace Login_Form
             }
 
             return false; // Return false if the passwords do not match.
+        }
+
+        void ClearFields()
+        {
+            // Clear the text boxes.
+            OldPasswordTxtBox.Clear();
+            NewPasswordTxtBox.Clear();
+            ConfirmNewPasswordTxtBox.Clear();
+        }
+
+        private void SettingsBackBtn_Click(object sender, EventArgs e)
+        {
+            // Hide this form and show the AdminSettingsForm.
+            this.Hide();
+            AdminSettingsForm adminSettingsForm = new AdminSettingsForm();
+            adminSettingsForm.ShowDialog();
         }
 
         private void UpdatePassword(string password, string newPassword)
@@ -117,14 +125,6 @@ namespace Login_Form
                     ClearFields();
                 }
             }
-        }
-
-        void ClearFields()
-        {
-            // Clear the text boxes.
-            OldPasswordTxtBox.Clear();
-            NewPasswordTxtBox.Clear();
-            ConfirmNewPasswordTxtBox.Clear();
         }
     }
 }
