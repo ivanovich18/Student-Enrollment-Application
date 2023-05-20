@@ -141,7 +141,7 @@ namespace Login_Form
                 string id_number = row.Cells["Student ID"].Value.ToString();
 
                 // Create and show the new form, passing the number as a parameter
-                Student_Found student_Found = new Student_Found(id_number); // Create an instance of the Student_Found form, passing the id_number as a parameter
+                Student_Found student_Found = new Student_Found(id_number, this); // Create an instance of the Student_Found form, passing the id_number as a parameter
                 student_Found.Show(); // Show the Student_Found form
             }
         }

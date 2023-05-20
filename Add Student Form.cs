@@ -78,6 +78,7 @@ namespace Login_Form
 
         private void BackBtn_Click(object sender, EventArgs e)
         {
+            StopCamera();
             this.Hide(); // Hides the current form.
             AdminDashboardForm mainForm = new AdminDashboardForm(); // Creates an instance of the AdminDashboardForm.
             mainForm.ShowDialog(); // Shows the AdminDashboardForm as a dialog.

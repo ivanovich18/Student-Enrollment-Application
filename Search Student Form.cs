@@ -40,8 +40,8 @@ namespace Login_Form
                     DialogResult result = MessageBox.Show("Student ID number exists!\n\nDo you want to view record?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information); // Asks the user if they want to view the student record
                     if (result == DialogResult.Yes) // If the user chooses to view the record
                     {
-                        Student_Found student_Found = new Student_Found(idNumber); // Creates a new instance of the Student_Found form, passing the student ID number
-                        student_Found.ShowDialog(); // Displays the Student_Found form as a dialog
+                        Student_Found student_Found = new Student_Found(idNumber, this); // Creates a new instance of the Student_Found form, passing the student ID number
+                        student_Found.Show(); // Displays the Student_Found form as a dialog
                     }
                 }
                 else

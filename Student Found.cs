@@ -5,6 +5,7 @@ namespace Login_Form
     public partial class Student_Found : Form
     {
         private string id_number;
+        private Form callingForm;
 
         // Constructor without parameters
         public Student_Found()
@@ -13,10 +14,11 @@ namespace Login_Form
         }
 
         // Constructor with the student ID number parameter
-        public Student_Found(string id_number)
+        public Student_Found(string id_number, Form callingForm)
         {
             InitializeComponent();
             this.id_number = id_number;
+            this.callingForm = callingForm;
         }
 
         private void Student_Found_Load(object sender, EventArgs e)
@@ -65,9 +67,10 @@ namespace Login_Form
                     DateTime birthdayDate;
                     if (DateTime.TryParse(birthday, out birthdayDate))
                     {
+                        BirthdayLblplc.Text = string.Empty;
                         // Format the birthday as "MM/dd/yyyy"
                         string formattedBirthday = birthdayDate.ToString("MM/dd/yyyy");
-                        BirthdayLbl.Text += formattedBirthday; // Append the formattedBirthday to the text of the BirthdayLbl
+                        BirthdayLblplc.Text += formattedBirthday; // Append the formattedBirthday to the text of the BirthdayLbl
                         Console.WriteLine(formattedBirthday); // Output: 05/16/2023
                                                               // Use the formattedBirthday value as needed in your Windows Forms application
                     }
@@ -88,23 +91,41 @@ namespace Login_Form
                     string program = string.Format("{0}", reader["program"]);
                     string creation_date = string.Format("{0}", reader["creation_date"]);
 
+                    // Clear default value of placeholder texts
+                    StudentNumberLblplc.Text = string.Empty;
+                    StudentIDLblplc.Text = string.Empty;
+                    LastNameLblplc.Text = string.Empty;
+                    FirstNameLblplc.Text = string.Empty;
+                    MiddleNameLblplc.Text = string.Empty;
+                    AcademicYearLblplc.Text = string.Empty;
+                    EmailLblplc.Text = string.Empty;
+                    AgeLblplc.Text = string.Empty;
+                    BirthplaceLblplc.Text = string.Empty;
+                    CurrentAddressLblplc.Text = string.Empty;
+                    PermanentAddressLblplc.Text = string.Empty;
+                    GenderLblplc.Text = string.Empty;
+                    StudentTypeLblplc.Text = string.Empty;
+                    DepartmentLblplc.Text = string.Empty;
+                    ProgramLblplc.Text = string.Empty;
+                    CreationDateLblplc.Text = string.Empty;
+
                     // Append the retrieved values to the corresponding label controls
-                    StudentNumberLbl.Text += student_number;
-                    StudentIDLbl.Text += student_id;
-                    LastNameLbl.Text += last_name;
-                    FirstNameLbl.Text += first_name;
-                    MiddleNameLbl.Text += middle_name;
-                    AcademicYearLbl.Text += academic_year;
-                    EmailLbl.Text += email;
-                    AgeLbl.Text += age;
-                    BirthplaceLbl.Text += birth_place;
-                    CurrentAddressLbl.Text += current_address;
-                    PermanentAddressLbl.Text += permanent_address;
-                    GenderLbl.Text += gender;
-                    StudentTypeLbl.Text += student_type;
-                    DepartmentLbl.Text += department;
-                    ProgramLbl.Text += program;
-                    CreationDateLbl.Text += creation_date;
+                    StudentNumberLblplc.Text += student_number;
+                    StudentIDLblplc.Text += student_id;
+                    LastNameLblplc.Text += last_name;
+                    FirstNameLblplc.Text += first_name;
+                    MiddleNameLblplc.Text += middle_name;
+                    AcademicYearLblplc.Text += academic_year;
+                    EmailLblplc.Text += email;
+                    AgeLblplc.Text += age;
+                    BirthplaceLblplc.Text += birth_place;
+                    CurrentAddressLblplc.Text += current_address;
+                    PermanentAddressLblplc.Text += permanent_address;
+                    GenderLblplc.Text += gender;
+                    StudentTypeLblplc.Text += student_type;
+                    DepartmentLblplc.Text += department;
+                    ProgramLblplc.Text += program;
+                    CreationDateLblplc.Text += creation_date;
 
                     // Create a MemoryStream object to store the binary data of the picture blob
                     MemoryStream stream = new MemoryStream();
@@ -127,9 +148,8 @@ namespace Login_Form
 
         private void AppExitBtn_Click(object sender, EventArgs e)
         {
-            StudentRecordsForm recordsForm = new StudentRecordsForm();  // Create a new instance of the StudentRecordsForm
-            this.Close(); // Close the current form
-            recordsForm.Show(); // Show the StudentRecordsForm
+            callingForm.Show(); // Show the calling form
+            this.Close(); // Close the main form
         }
     }
 }
