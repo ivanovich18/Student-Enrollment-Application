@@ -65,25 +65,27 @@
             // 
             UsernameTxtBox.BackColor = SystemColors.Control;
             UsernameTxtBox.BorderStyle = BorderStyle.None;
+            UsernameTxtBox.Cursor = Cursors.IBeam;
             UsernameTxtBox.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             UsernameTxtBox.ForeColor = SystemColors.WindowText;
             UsernameTxtBox.Location = new Point(61, 13);
             UsernameTxtBox.Name = "UsernameTxtBox";
             UsernameTxtBox.PlaceholderText = "Username";
             UsernameTxtBox.Size = new Size(270, 36);
-            UsernameTxtBox.TabIndex = 2;
+            UsernameTxtBox.TabIndex = 1;
             // 
             // PasswordTxtBox
             // 
             PasswordTxtBox.BackColor = SystemColors.Control;
             PasswordTxtBox.BorderStyle = BorderStyle.None;
+            PasswordTxtBox.Cursor = Cursors.IBeam;
             PasswordTxtBox.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             PasswordTxtBox.Location = new Point(61, 13);
             PasswordTxtBox.Name = "PasswordTxtBox";
             PasswordTxtBox.PasswordChar = '•';
             PasswordTxtBox.PlaceholderText = "Password";
             PasswordTxtBox.Size = new Size(270, 36);
-            PasswordTxtBox.TabIndex = 3;
+            PasswordTxtBox.TabIndex = 2;
             // 
             // LoginBtn
             // 
@@ -94,7 +96,7 @@
             LoginBtn.Location = new Point(58, 508);
             LoginBtn.Name = "LoginBtn";
             LoginBtn.Size = new Size(341, 65);
-            LoginBtn.TabIndex = 4;
+            LoginBtn.TabIndex = 3;
             LoginBtn.Text = "Login";
             LoginBtn.UseVisualStyleBackColor = false;
             LoginBtn.Click += LoginBtn_Click;

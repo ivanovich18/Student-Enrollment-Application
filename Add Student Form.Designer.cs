@@ -125,7 +125,7 @@ namespace Login_Form
             RegisterBtn.Location = new Point(781, 46);
             RegisterBtn.Name = "RegisterBtn";
             RegisterBtn.Size = new Size(201, 57);
-            RegisterBtn.TabIndex = 41;
+            RegisterBtn.TabIndex = 17;
             RegisterBtn.Text = "         Register";
             RegisterBtn.UseVisualStyleBackColor = false;
             RegisterBtn.Click += RegisterBtn_Click;
@@ -152,7 +152,7 @@ namespace Login_Form
             ClearBtn.Location = new Point(1010, 46);
             ClearBtn.Name = "ClearBtn";
             ClearBtn.Size = new Size(201, 57);
-            ClearBtn.TabIndex = 43;
+            ClearBtn.TabIndex = 18;
             ClearBtn.Text = "        Clear";
             ClearBtn.UseVisualStyleBackColor = false;
             ClearBtn.Click += ClearBtn_Click;
@@ -179,7 +179,7 @@ namespace Login_Form
             BackBtn.Location = new Point(1229, 46);
             BackBtn.Name = "BackBtn";
             BackBtn.Size = new Size(201, 57);
-            BackBtn.TabIndex = 45;
+            BackBtn.TabIndex = 19;
             BackBtn.Text = "     Back";
             BackBtn.UseVisualStyleBackColor = false;
             BackBtn.Click += BackBtn_Click;
@@ -194,7 +194,7 @@ namespace Login_Form
             LastNameTxtBox.Name = "LastNameTxtBox";
             LastNameTxtBox.PlaceholderText = " Last Name";
             LastNameTxtBox.Size = new Size(394, 39);
-            LastNameTxtBox.TabIndex = 48;
+            LastNameTxtBox.TabIndex = 2;
             // 
             // FirstNameTxtBox
             // 
@@ -206,7 +206,7 @@ namespace Login_Form
             FirstNameTxtBox.Name = "FirstNameTxtBox";
             FirstNameTxtBox.PlaceholderText = " First Name";
             FirstNameTxtBox.Size = new Size(394, 39);
-            FirstNameTxtBox.TabIndex = 49;
+            FirstNameTxtBox.TabIndex = 3;
             // 
             // MiddleNameTxtBox
             // 
@@ -218,7 +218,7 @@ namespace Login_Form
             MiddleNameTxtBox.Name = "MiddleNameTxtBox";
             MiddleNameTxtBox.PlaceholderText = " Middle Name";
             MiddleNameTxtBox.Size = new Size(394, 39);
-            MiddleNameTxtBox.TabIndex = 50;
+            MiddleNameTxtBox.TabIndex = 4;
             // 
             // AgeTxtBox
             // 
@@ -230,7 +230,7 @@ namespace Login_Form
             AgeTxtBox.Name = "AgeTxtBox";
             AgeTxtBox.PlaceholderText = " Age";
             AgeTxtBox.Size = new Size(394, 39);
-            AgeTxtBox.TabIndex = 51;
+            AgeTxtBox.TabIndex = 7;
             // 
             // BirthdayPicker
             // 
@@ -247,7 +247,7 @@ namespace Login_Form
             BirthdayPicker.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             BirthdayPicker.Name = "BirthdayPicker";
             BirthdayPicker.Size = new Size(259, 39);
-            BirthdayPicker.TabIndex = 53;
+            BirthdayPicker.TabIndex = 5;
             BirthdayPicker.Value = new DateTime(2023, 4, 25, 0, 0, 0, 0);
             // 
             // GenderCmbBox
@@ -259,7 +259,7 @@ namespace Login_Form
             GenderCmbBox.Location = new Point(970, 501);
             GenderCmbBox.Name = "GenderCmbBox";
             GenderCmbBox.Size = new Size(394, 40);
-            GenderCmbBox.TabIndex = 54;
+            GenderCmbBox.TabIndex = 11;
             // 
             // BirthPlaceTxtBox
             // 
@@ -271,7 +271,7 @@ namespace Login_Form
             BirthPlaceTxtBox.Name = "BirthPlaceTxtBox";
             BirthPlaceTxtBox.PlaceholderText = " Place of Birth";
             BirthPlaceTxtBox.Size = new Size(394, 39);
-            BirthPlaceTxtBox.TabIndex = 55;
+            BirthPlaceTxtBox.TabIndex = 8;
             // 
             // CurrentAddressTxtBox
             // 
@@ -283,7 +283,7 @@ namespace Login_Form
             CurrentAddressTxtBox.Name = "CurrentAddressTxtBox";
             CurrentAddressTxtBox.PlaceholderText = " Current Address";
             CurrentAddressTxtBox.Size = new Size(394, 39);
-            CurrentAddressTxtBox.TabIndex = 56;
+            CurrentAddressTxtBox.TabIndex = 9;
             // 
             // PermanentAddressTxtBox
             // 
@@ -295,7 +295,7 @@ namespace Login_Form
             PermanentAddressTxtBox.Name = "PermanentAddressTxtBox";
             PermanentAddressTxtBox.PlaceholderText = " Permanent Address";
             PermanentAddressTxtBox.Size = new Size(394, 39);
-            PermanentAddressTxtBox.TabIndex = 57;
+            PermanentAddressTxtBox.TabIndex = 10;
             // 
             // AcademicYearCmbBox
             // 
@@ -307,7 +307,7 @@ namespace Login_Form
             AcademicYearCmbBox.Location = new Point(464, 362);
             AcademicYearCmbBox.Name = "AcademicYearCmbBox";
             AcademicYearCmbBox.Size = new Size(394, 40);
-            AcademicYearCmbBox.TabIndex = 58;
+            AcademicYearCmbBox.TabIndex = 1;
             AcademicYearCmbBox.Text = " Academic Year";
             AcademicYearCmbBox.SelectedIndexChanged += AcademicYearCmbBox_SelectedIndexChanged;
             // 
@@ -321,7 +321,7 @@ namespace Login_Form
             StudentTypeCmbBox.Location = new Point(970, 571);
             StudentTypeCmbBox.Name = "StudentTypeCmbBox";
             StudentTypeCmbBox.Size = new Size(394, 40);
-            StudentTypeCmbBox.TabIndex = 59;
+            StudentTypeCmbBox.TabIndex = 12;
             StudentTypeCmbBox.Text = " Student Type";
             // 
             // DepartmentCmbBox
@@ -333,7 +333,7 @@ namespace Login_Form
             DepartmentCmbBox.Location = new Point(970, 641);
             DepartmentCmbBox.Name = "DepartmentCmbBox";
             DepartmentCmbBox.Size = new Size(394, 40);
-            DepartmentCmbBox.TabIndex = 60;
+            DepartmentCmbBox.TabIndex = 13;
             DepartmentCmbBox.Text = " Department";
             DepartmentCmbBox.SelectedIndexChanged += DepartmentCmbBox_SelectedIndexChanged;
             // 
@@ -346,7 +346,7 @@ namespace Login_Form
             ProgramCmbBox.Location = new Point(970, 711);
             ProgramCmbBox.Name = "ProgramCmbBox";
             ProgramCmbBox.Size = new Size(394, 40);
-            ProgramCmbBox.TabIndex = 61;
+            ProgramCmbBox.TabIndex = 14;
             ProgramCmbBox.Text = " Program";
             // 
             // StudentImageCoverPic
@@ -368,7 +368,7 @@ namespace Login_Form
             OpenCameraBtn.Location = new Point(139, 494);
             OpenCameraBtn.Name = "OpenCameraBtn";
             OpenCameraBtn.Size = new Size(240, 43);
-            OpenCameraBtn.TabIndex = 63;
+            OpenCameraBtn.TabIndex = 15;
             OpenCameraBtn.Text = "Open Camera";
             OpenCameraBtn.UseVisualStyleBackColor = false;
             OpenCameraBtn.Click += OpenCameraBtn_Click;
@@ -406,7 +406,7 @@ namespace Login_Form
             EmailTxtBox.Name = "EmailTxtBox";
             EmailTxtBox.PlaceholderText = " Email";
             EmailTxtBox.Size = new Size(394, 39);
-            EmailTxtBox.TabIndex = 66;
+            EmailTxtBox.TabIndex = 6;
             // 
             // bunifuElipse1
             // 
@@ -467,7 +467,7 @@ namespace Login_Form
             CaptureBtn.Location = new Point(139, 555);
             CaptureBtn.Name = "CaptureBtn";
             CaptureBtn.Size = new Size(240, 43);
-            CaptureBtn.TabIndex = 71;
+            CaptureBtn.TabIndex = 16;
             CaptureBtn.Text = "Capture";
             CaptureBtn.UseVisualStyleBackColor = false;
             CaptureBtn.Click += CaptureBtn_Click;

@@ -114,8 +114,8 @@ namespace Login_Form
                             writer.Write(","); // Add a comma separator if it's not the last column.
                         }
                     }
-                writer.WriteLine(); // Start a new line after writing the values for each record.
-            }
+                    writer.WriteLine(); // Start a new line after writing the values for each record.
+                }
 
                 MessageBox.Show("Data exported successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information); // Display a success message box.
 

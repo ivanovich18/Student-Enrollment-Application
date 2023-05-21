@@ -45,12 +45,13 @@
             // ChangeUsernameBtn
             // 
             ChangeUsernameBtn.BackColor = Color.Orange;
+            ChangeUsernameBtn.Cursor = Cursors.Hand;
             ChangeUsernameBtn.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
             ChangeUsernameBtn.ForeColor = SystemColors.ControlLightLight;
             ChangeUsernameBtn.Location = new Point(198, 300);
             ChangeUsernameBtn.Name = "ChangeUsernameBtn";
             ChangeUsernameBtn.Size = new Size(614, 88);
-            ChangeUsernameBtn.TabIndex = 8;
+            ChangeUsernameBtn.TabIndex = 1;
             ChangeUsernameBtn.Text = "Change Username";
             ChangeUsernameBtn.UseVisualStyleBackColor = false;
             ChangeUsernameBtn.Click += ChangeUsernameBtn_Click;
@@ -58,12 +59,13 @@
             // ChangePasswordBtn
             // 
             ChangePasswordBtn.BackColor = Color.Orange;
+            ChangePasswordBtn.Cursor = Cursors.Hand;
             ChangePasswordBtn.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
             ChangePasswordBtn.ForeColor = SystemColors.ControlLightLight;
             ChangePasswordBtn.Location = new Point(198, 426);
             ChangePasswordBtn.Name = "ChangePasswordBtn";
             ChangePasswordBtn.Size = new Size(614, 88);
-            ChangePasswordBtn.TabIndex = 9;
+            ChangePasswordBtn.TabIndex = 2;
             ChangePasswordBtn.Text = "Change Password";
             ChangePasswordBtn.UseVisualStyleBackColor = false;
             ChangePasswordBtn.Click += ChangePasswordBtn_Click;
@@ -76,6 +78,7 @@
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.Orange;
+            pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = Properties.Resources.Back;
             pictureBox2.Location = new Point(793, 56);
             pictureBox2.Name = "pictureBox2";
@@ -83,16 +86,18 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 62;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += SettingsBackBtn_Click;
             // 
             // SettingsBackBtn
             // 
             SettingsBackBtn.BackColor = Color.Orange;
+            SettingsBackBtn.Cursor = Cursors.Hand;
             SettingsBackBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             SettingsBackBtn.ForeColor = SystemColors.ControlLightLight;
             SettingsBackBtn.Location = new Point(734, 42);
             SettingsBackBtn.Name = "SettingsBackBtn";
             SettingsBackBtn.Size = new Size(201, 57);
-            SettingsBackBtn.TabIndex = 61;
+            SettingsBackBtn.TabIndex = 3;
             SettingsBackBtn.Text = "     Back";
             SettingsBackBtn.UseVisualStyleBackColor = false;
             SettingsBackBtn.Click += SettingsBackBtn_Click;
