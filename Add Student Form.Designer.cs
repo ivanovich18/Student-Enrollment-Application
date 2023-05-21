@@ -451,6 +451,7 @@ namespace Login_Form
             // 
             // StudentActualPic
             // 
+            StudentActualPic.BorderStyle = BorderStyle.FixedSingle;
             StudentActualPic.Location = new Point(139, 225);
             StudentActualPic.Name = "StudentActualPic";
             StudentActualPic.Size = new Size(240, 240);
