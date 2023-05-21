@@ -184,6 +184,8 @@ namespace Login_Form
 
             CaptureBtn.Click -= RetakeBtn_Click; // Removes the current event handler from CaptureBtn's click event.
             CaptureBtn.Click += new EventHandler(CaptureBtn_Click); // Adds a new event handler to CaptureBtn's click event.
+
+            // StartCamera();
         }
 
         private void AcademicYearCmbBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -344,9 +346,10 @@ namespace Login_Form
 
         private void OpenCameraBtn_Click(object sender, EventArgs e)
         {
+            StartCamera(); // Starts the camera capture.
             StudentActualPic.SizeMode = PictureBoxSizeMode.CenterImage; // Sets the picture box size mode to CenterImage.
             StudentImageCoverPic.Hide(); // Hides the StudentImageCoverPic.
-            StartCamera(); // Starts the camera capture.
+            
 
             System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender; // Retrieves the button that triggered the event.
             btn.Text = "Stop Camera"; // Sets the button text to "Stop Camera".
@@ -376,7 +379,7 @@ namespace Login_Form
             {
                 MessageBox.Show("Please open camera first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning); // Displays a warning message if the camera is not open.
             }
-            else if (AcademicYearCmbBox.SelectedIndex == 0)
+            if (AcademicYearCmbBox.SelectedIndex == 0)
             {
                 MessageBox.Show("Please select academic year first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning); // Displays a warning message if the academic year is not selected.
             }
