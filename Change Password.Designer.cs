@@ -52,12 +52,13 @@
             // UpdatePasswordBtn
             // 
             UpdatePasswordBtn.BackColor = Color.Orange;
+            UpdatePasswordBtn.Cursor = Cursors.Hand;
             UpdatePasswordBtn.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             UpdatePasswordBtn.ForeColor = SystemColors.ControlLightLight;
             UpdatePasswordBtn.Location = new Point(404, 546);
             UpdatePasswordBtn.Name = "UpdatePasswordBtn";
             UpdatePasswordBtn.Size = new Size(201, 57);
-            UpdatePasswordBtn.TabIndex = 88;
+            UpdatePasswordBtn.TabIndex = 4;
             UpdatePasswordBtn.Text = "Update";
             UpdatePasswordBtn.UseVisualStyleBackColor = false;
             UpdatePasswordBtn.Click += UpdatePasswordBtn_Click;
@@ -66,13 +67,14 @@
             // 
             ConfirmNewPasswordTxtBox.BackColor = Color.Orange;
             ConfirmNewPasswordTxtBox.BorderStyle = BorderStyle.None;
+            ConfirmNewPasswordTxtBox.Cursor = Cursors.IBeam;
             ConfirmNewPasswordTxtBox.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
             ConfirmNewPasswordTxtBox.ForeColor = Color.White;
             ConfirmNewPasswordTxtBox.Location = new Point(571, 329);
             ConfirmNewPasswordTxtBox.Margin = new Padding(13);
             ConfirmNewPasswordTxtBox.Name = "ConfirmNewPasswordTxtBox";
             ConfirmNewPasswordTxtBox.Size = new Size(302, 43);
-            ConfirmNewPasswordTxtBox.TabIndex = 86;
+            ConfirmNewPasswordTxtBox.TabIndex = 3;
             // 
             // ConfirmNewPasswordLbl
             // 
@@ -89,13 +91,14 @@
             // 
             NewPasswordTxtBox.BackColor = Color.Orange;
             NewPasswordTxtBox.BorderStyle = BorderStyle.None;
+            NewPasswordTxtBox.Cursor = Cursors.IBeam;
             NewPasswordTxtBox.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
             NewPasswordTxtBox.ForeColor = Color.White;
             NewPasswordTxtBox.Location = new Point(148, 456);
             NewPasswordTxtBox.Margin = new Padding(13);
             NewPasswordTxtBox.Name = "NewPasswordTxtBox";
             NewPasswordTxtBox.Size = new Size(302, 43);
-            NewPasswordTxtBox.TabIndex = 84;
+            NewPasswordTxtBox.TabIndex = 2;
             // 
             // NewPasswordLbl
             // 
@@ -112,13 +115,14 @@
             // 
             OldPasswordTxtBox.BackColor = Color.Orange;
             OldPasswordTxtBox.BorderStyle = BorderStyle.None;
+            OldPasswordTxtBox.Cursor = Cursors.IBeam;
             OldPasswordTxtBox.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
             OldPasswordTxtBox.ForeColor = Color.White;
             OldPasswordTxtBox.Location = new Point(148, 329);
             OldPasswordTxtBox.Margin = new Padding(13);
             OldPasswordTxtBox.Name = "OldPasswordTxtBox";
             OldPasswordTxtBox.Size = new Size(302, 43);
-            OldPasswordTxtBox.TabIndex = 75;
+            OldPasswordTxtBox.TabIndex = 1;
             // 
             // OldPasswordLbl
             // 
@@ -152,6 +156,7 @@
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.Orange;
+            pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = Properties.Resources.Back;
             pictureBox2.Location = new Point(793, 56);
             pictureBox2.Name = "pictureBox2";
@@ -159,16 +164,18 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 81;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += SettingsBackBtn_Click;
             // 
             // SettingsBackBtn
             // 
             SettingsBackBtn.BackColor = Color.Orange;
+            SettingsBackBtn.Cursor = Cursors.Hand;
             SettingsBackBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             SettingsBackBtn.ForeColor = SystemColors.ControlLightLight;
             SettingsBackBtn.Location = new Point(734, 42);
             SettingsBackBtn.Name = "SettingsBackBtn";
             SettingsBackBtn.Size = new Size(201, 57);
-            SettingsBackBtn.TabIndex = 80;
+            SettingsBackBtn.TabIndex = 5;
             SettingsBackBtn.Text = "     Back";
             SettingsBackBtn.UseVisualStyleBackColor = false;
             SettingsBackBtn.Click += SettingsBackBtn_Click;

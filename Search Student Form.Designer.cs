@@ -81,6 +81,7 @@
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.Orange;
+            pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = Properties.Resources.Back;
             pictureBox2.Location = new Point(793, 56);
             pictureBox2.Name = "pictureBox2";
@@ -88,16 +89,18 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 57;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += BackBtn_Click;
             // 
             // BackBtn
             // 
             BackBtn.BackColor = Color.Orange;
+            BackBtn.Cursor = Cursors.Hand;
             BackBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             BackBtn.ForeColor = SystemColors.ControlLightLight;
             BackBtn.Location = new Point(734, 42);
             BackBtn.Name = "BackBtn";
             BackBtn.Size = new Size(201, 57);
-            BackBtn.TabIndex = 56;
+            BackBtn.TabIndex = 3;
             BackBtn.Text = "     Back";
             BackBtn.UseVisualStyleBackColor = false;
             BackBtn.Click += BackBtn_Click;
@@ -116,13 +119,14 @@
             // 
             StudentNumberTxtBox.BackColor = Color.Orange;
             StudentNumberTxtBox.BorderStyle = BorderStyle.None;
+            StudentNumberTxtBox.Cursor = Cursors.IBeam;
             StudentNumberTxtBox.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
             StudentNumberTxtBox.ForeColor = Color.White;
             StudentNumberTxtBox.Location = new Point(76, 11);
             StudentNumberTxtBox.Margin = new Padding(13);
             StudentNumberTxtBox.Name = "StudentNumberTxtBox";
             StudentNumberTxtBox.Size = new Size(597, 43);
-            StudentNumberTxtBox.TabIndex = 59;
+            StudentNumberTxtBox.TabIndex = 1;
             // 
             // StudentImagePic
             // 
@@ -138,12 +142,13 @@
             // SearchBtn
             // 
             SearchBtn.BackColor = Color.Orange;
+            SearchBtn.Cursor = Cursors.Hand;
             SearchBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             SearchBtn.ForeColor = SystemColors.ControlLightLight;
             SearchBtn.Location = new Point(409, 468);
             SearchBtn.Name = "SearchBtn";
             SearchBtn.Size = new Size(201, 57);
-            SearchBtn.TabIndex = 61;
+            SearchBtn.TabIndex = 2;
             SearchBtn.Text = "      Search";
             SearchBtn.UseVisualStyleBackColor = false;
             SearchBtn.Click += SearchBtn_Click;
@@ -151,6 +156,7 @@
             // SearchPic
             // 
             SearchPic.BackColor = Color.Orange;
+            SearchPic.Cursor = Cursors.Hand;
             SearchPic.Image = Properties.Resources.search_new;
             SearchPic.Location = new Point(446, 480);
             SearchPic.Name = "SearchPic";
@@ -158,6 +164,7 @@
             SearchPic.SizeMode = PictureBoxSizeMode.AutoSize;
             SearchPic.TabIndex = 62;
             SearchPic.TabStop = false;
+            SearchPic.Click += SearchBtn_Click;
             // 
             // SearchStudentPnl
             // 

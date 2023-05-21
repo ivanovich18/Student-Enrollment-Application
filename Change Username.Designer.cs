@@ -52,6 +52,7 @@
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.Orange;
+            pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = Properties.Resources.Back;
             pictureBox2.Location = new Point(793, 56);
             pictureBox2.Name = "pictureBox2";
@@ -59,16 +60,18 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 67;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += SettingsBackBtn_Click;
             // 
             // SettingsBackBtn
             // 
             SettingsBackBtn.BackColor = Color.Orange;
+            SettingsBackBtn.Cursor = Cursors.Hand;
             SettingsBackBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             SettingsBackBtn.ForeColor = SystemColors.ControlLightLight;
             SettingsBackBtn.Location = new Point(734, 42);
             SettingsBackBtn.Name = "SettingsBackBtn";
             SettingsBackBtn.Size = new Size(201, 57);
-            SettingsBackBtn.TabIndex = 66;
+            SettingsBackBtn.TabIndex = 5;
             SettingsBackBtn.Text = "     Back";
             SettingsBackBtn.UseVisualStyleBackColor = false;
             SettingsBackBtn.Click += SettingsBackBtn_Click;
@@ -135,25 +138,27 @@
             // 
             OldUsernameTxtBox.BackColor = Color.Orange;
             OldUsernameTxtBox.BorderStyle = BorderStyle.None;
+            OldUsernameTxtBox.Cursor = Cursors.IBeam;
             OldUsernameTxtBox.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
             OldUsernameTxtBox.ForeColor = Color.White;
             OldUsernameTxtBox.Location = new Point(148, 329);
             OldUsernameTxtBox.Margin = new Padding(13);
             OldUsernameTxtBox.Name = "OldUsernameTxtBox";
             OldUsernameTxtBox.Size = new Size(302, 43);
-            OldUsernameTxtBox.TabIndex = 59;
+            OldUsernameTxtBox.TabIndex = 1;
             // 
             // NewUsernameTxtBox
             // 
             NewUsernameTxtBox.BackColor = Color.Orange;
             NewUsernameTxtBox.BorderStyle = BorderStyle.None;
+            NewUsernameTxtBox.Cursor = Cursors.IBeam;
             NewUsernameTxtBox.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
             NewUsernameTxtBox.ForeColor = Color.White;
             NewUsernameTxtBox.Location = new Point(148, 456);
             NewUsernameTxtBox.Margin = new Padding(13);
             NewUsernameTxtBox.Name = "NewUsernameTxtBox";
             NewUsernameTxtBox.Size = new Size(302, 43);
-            NewUsernameTxtBox.TabIndex = 70;
+            NewUsernameTxtBox.TabIndex = 2;
             // 
             // NewUsernameLbl
             // 
@@ -170,13 +175,14 @@
             // 
             ConfirmNewUsernameTxtBox.BackColor = Color.Orange;
             ConfirmNewUsernameTxtBox.BorderStyle = BorderStyle.None;
+            ConfirmNewUsernameTxtBox.Cursor = Cursors.IBeam;
             ConfirmNewUsernameTxtBox.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
             ConfirmNewUsernameTxtBox.ForeColor = Color.White;
             ConfirmNewUsernameTxtBox.Location = new Point(571, 329);
             ConfirmNewUsernameTxtBox.Margin = new Padding(13);
             ConfirmNewUsernameTxtBox.Name = "ConfirmNewUsernameTxtBox";
             ConfirmNewUsernameTxtBox.Size = new Size(302, 43);
-            ConfirmNewUsernameTxtBox.TabIndex = 72;
+            ConfirmNewUsernameTxtBox.TabIndex = 3;
             // 
             // ConfirmNewUsernameLbl
             // 
@@ -192,12 +198,13 @@
             // UpdateUsernameBtn
             // 
             UpdateUsernameBtn.BackColor = Color.Orange;
+            UpdateUsernameBtn.Cursor = Cursors.Hand;
             UpdateUsernameBtn.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             UpdateUsernameBtn.ForeColor = SystemColors.ControlLightLight;
             UpdateUsernameBtn.Location = new Point(404, 546);
             UpdateUsernameBtn.Name = "UpdateUsernameBtn";
             UpdateUsernameBtn.Size = new Size(201, 57);
-            UpdateUsernameBtn.TabIndex = 74;
+            UpdateUsernameBtn.TabIndex = 4;
             UpdateUsernameBtn.Text = "Update";
             UpdateUsernameBtn.UseVisualStyleBackColor = false;
             UpdateUsernameBtn.Click += UpdateUsernameBtn_Click;

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentRecordsForm));
             StudentRecordsTable = new DataGridView();
             pictureBox2 = new PictureBox();
@@ -56,33 +56,33 @@
             StudentRecordsTable.AllowUserToAddRows = false;
             StudentRecordsTable.BackgroundColor = Color.Orange;
             StudentRecordsTable.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Orange;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            StudentRecordsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.Orange;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            StudentRecordsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             StudentRecordsTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            StudentRecordsTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            StudentRecordsTable.DefaultCellStyle = dataGridViewCellStyle5;
             StudentRecordsTable.Location = new Point(77, 208);
             StudentRecordsTable.Name = "StudentRecordsTable";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            StudentRecordsTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            StudentRecordsTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             StudentRecordsTable.RowTemplate.Height = 25;
             StudentRecordsTable.Size = new Size(1354, 554);
             StudentRecordsTable.TabIndex = 4;
@@ -92,6 +92,7 @@
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.Orange;
+            pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = Properties.Resources.Back;
             pictureBox2.Location = new Point(1287, 60);
             pictureBox2.Name = "pictureBox2";
@@ -104,12 +105,13 @@
             // BackBtn
             // 
             BackBtn.BackColor = Color.Orange;
+            BackBtn.Cursor = Cursors.Hand;
             BackBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             BackBtn.ForeColor = SystemColors.ControlLightLight;
             BackBtn.Location = new Point(1229, 46);
             BackBtn.Name = "BackBtn";
             BackBtn.Size = new Size(201, 57);
-            BackBtn.TabIndex = 54;
+            BackBtn.TabIndex = 3;
             BackBtn.Text = "     Back";
             BackBtn.UseVisualStyleBackColor = false;
             BackBtn.Click += BackBtn_Click;
@@ -117,6 +119,7 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Orange;
+            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = Properties.Resources.export;
             pictureBox1.Location = new Point(1053, 57);
             pictureBox1.Name = "pictureBox1";
@@ -129,12 +132,13 @@
             // ExportBtn
             // 
             ExportBtn.BackColor = Color.Orange;
+            ExportBtn.Cursor = Cursors.Hand;
             ExportBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             ExportBtn.ForeColor = SystemColors.ControlLightLight;
             ExportBtn.Location = new Point(1010, 46);
             ExportBtn.Name = "ExportBtn";
             ExportBtn.Size = new Size(201, 57);
-            ExportBtn.TabIndex = 52;
+            ExportBtn.TabIndex = 2;
             ExportBtn.Text = "       Export";
             ExportBtn.UseVisualStyleBackColor = false;
             ExportBtn.Click += ExportBtn_Click;
@@ -176,12 +180,13 @@
             // DeleteBtn
             // 
             DeleteBtn.BackColor = Color.Orange;
+            DeleteBtn.Cursor = Cursors.Hand;
             DeleteBtn.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             DeleteBtn.ForeColor = SystemColors.ControlLightLight;
             DeleteBtn.Location = new Point(791, 46);
             DeleteBtn.Name = "DeleteBtn";
             DeleteBtn.Size = new Size(201, 57);
-            DeleteBtn.TabIndex = 57;
+            DeleteBtn.TabIndex = 1;
             DeleteBtn.Text = "      Delete";
             DeleteBtn.UseVisualStyleBackColor = false;
             DeleteBtn.Click += DeleteBtn_Click;
@@ -189,6 +194,7 @@
             // pictureBox3
             // 
             pictureBox3.BackColor = Color.Orange;
+            pictureBox3.Cursor = Cursors.Hand;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(833, 57);
             pictureBox3.Name = "pictureBox3";

@@ -17,7 +17,7 @@ namespace Login_Form
         FilterInfoCollection filterInfo; // Declaration of a FilterInfoCollection object to store filter information.
 
         MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application"); // Creation of a MySqlConnection object and initialization with the connection string.
-        
+
         public Add_Students()
         {
             InitializeComponent(); // Initializes the components of the form.
@@ -88,7 +88,7 @@ namespace Login_Form
         {
             MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application"); // Creates a MySqlConnection object and initializes it with the connection string.
             connection.Open(); // Opens the database connection.
-            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(student_number) + 1 FROM app_student_records;", connection); // Creates a MySqlCommand object with the SQL query to retrieve the count of student numbers.
+            MySqlCommand cmd = new MySqlCommand("SELECT MAX(student_number) + 1 FROM app_student_records;", connection); // Creates a MySqlCommand object with the SQL query to retrieve the count of student numbers.
             object result = cmd.ExecuteScalar(); // Executes the query and retrieves the count value as an object.
             countStr = result.ToString(); // Converts the object to a string and stores it in the countStr variable.
             connection.Close(); // Closes the database connection.

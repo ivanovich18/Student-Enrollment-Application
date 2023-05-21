@@ -12,7 +12,7 @@ namespace Login_Form
         private bool CheckPassword(string password, string newPassword)
         {
             MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application"); // Create a new MySqlConnection object.
-            
+
             string query = "SELECT password FROM app_admin_credentials WHERE password=@password"; // Create a new MySqlCommand object and set the query.
             MySqlCommand command = new MySqlCommand(query, connection);
 
@@ -103,7 +103,7 @@ namespace Login_Form
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to change password?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question); // Display a confirmation message to the user.
             if (dialogResult == DialogResult.Yes) // If the user clicks yes, check if the current password is valid.
             {
-                if (CheckPassword(password, newPassword)) 
+                if (CheckPassword(password, newPassword))
                 {
                     // If the current password is valid, check if the new password and confirm new password match.
                     if (newPassword == confirmNewPassword)

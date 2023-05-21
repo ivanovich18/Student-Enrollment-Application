@@ -102,7 +102,7 @@ namespace Login_Form
 
             // Display a confirmation message to the user.
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to change username?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            
+
             if (dialogResult == DialogResult.Yes) // If the user clicks yes, check if the current username is valid.
             {
                 if (CheckUsername(username, newUsername)) // Check if the current username is valid.

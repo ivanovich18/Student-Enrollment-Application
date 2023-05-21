@@ -85,7 +85,7 @@
             AddStudentBtn.Location = new Point(517, 147);
             AddStudentBtn.Name = "AddStudentBtn";
             AddStudentBtn.Size = new Size(347, 98);
-            AddStudentBtn.TabIndex = 7;
+            AddStudentBtn.TabIndex = 1;
             AddStudentBtn.Text = "       Add Student";
             AddStudentBtn.UseVisualStyleBackColor = false;
             AddStudentBtn.Click += AddStudentBtn_Click;
@@ -99,7 +99,7 @@
             SearchStudentBtn.Location = new Point(517, 389);
             SearchStudentBtn.Name = "SearchStudentBtn";
             SearchStudentBtn.Size = new Size(347, 98);
-            SearchStudentBtn.TabIndex = 8;
+            SearchStudentBtn.TabIndex = 3;
             SearchStudentBtn.Text = "           Search Student";
             SearchStudentBtn.UseVisualStyleBackColor = false;
             SearchStudentBtn.Click += SearchStudentBtn_Click;
@@ -113,7 +113,7 @@
             StudentRecordsBtn.Location = new Point(517, 268);
             StudentRecordsBtn.Name = "StudentRecordsBtn";
             StudentRecordsBtn.Size = new Size(347, 98);
-            StudentRecordsBtn.TabIndex = 9;
+            StudentRecordsBtn.TabIndex = 2;
             StudentRecordsBtn.Text = "             Student Records";
             StudentRecordsBtn.UseVisualStyleBackColor = false;
             StudentRecordsBtn.Click += StudentRecordsBtn_Click;
@@ -127,7 +127,7 @@
             SettingsBtn.Location = new Point(517, 510);
             SettingsBtn.Name = "SettingsBtn";
             SettingsBtn.Size = new Size(347, 98);
-            SettingsBtn.TabIndex = 10;
+            SettingsBtn.TabIndex = 4;
             SettingsBtn.Text = "Settings";
             SettingsBtn.UseVisualStyleBackColor = false;
             SettingsBtn.Click += SettingsBtn_Click;
@@ -174,7 +174,7 @@
             LogoutBtn.Location = new Point(34, 57);
             LogoutBtn.Name = "LogoutBtn";
             LogoutBtn.Size = new Size(153, 48);
-            LogoutBtn.TabIndex = 18;
+            LogoutBtn.TabIndex = 5;
             LogoutBtn.Text = "        Logout";
             LogoutBtn.UseVisualStyleBackColor = true;
             LogoutBtn.Click += LogoutBtn_Click;
