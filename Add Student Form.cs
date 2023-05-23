@@ -25,6 +25,7 @@ namespace Login_Form
 
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
+            
             DialogResult result = MessageBox.Show("Are you sure you want to add new student?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question); // Displays a confirmation dialog with a question message and Yes/No buttons.
             if (result == DialogResult.Yes) // User clicked "Yes"
             {
@@ -58,6 +59,7 @@ namespace Login_Form
                     ClearFields(); // Call the user-defined ClearFields function to clear the fields
 
                     MessageBox.Show("Successfully registered!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information); // Displays a success message box.
+                    Application.Restart();
                 }
                 else
                 {
@@ -90,10 +92,24 @@ namespace Login_Form
             connection.Open(); // Opens the database connection.
             MySqlCommand cmd = new MySqlCommand("SELECT MAX(student_number) + 1 FROM app_student_records;", connection); // Creates a MySqlCommand object with the SQL query to retrieve the count of student numbers.
             object result = cmd.ExecuteScalar(); // Executes the query and retrieves the count value as an object.
-            countStr = result.ToString(); // Converts the object to a string and stores it in the countStr variable.
+            int maxResult = Convert.ToInt32(result);
+
+            // Check if the result is 0 and set it to 1
+            int labelValue;
+            if (maxResult == 0)
+            {
+                labelValue = 1;
+            }
+            else
+            {
+                labelValue = maxResult;
+            }
+
+            countStr = labelValue.ToString(); // Converts the object to a string and stores it in the countStr variable.
             connection.Close(); // Closes the database connection.
 
-            StudentNumberCountLbl.Text = StudentNumberCountLbl.Text + " " + countStr; // Updates the StudentNumberCountLbl text by appending the count value.
+            studentNumCountLbl.Text = countStr;
+            // StudentNumberCountLbl.Text = StudentNumberCountLbl.Text + " " + countStr; // Updates the StudentNumberCountLbl text by appending the count value.
 
             // Gender
             GenderCmbBox.Items.Insert(0, "Gender"); // Adds a default "Gender" item at index 0.
@@ -185,7 +201,28 @@ namespace Login_Form
             CaptureBtn.Click -= RetakeBtn_Click; // Removes the current event handler from CaptureBtn's click event.
             CaptureBtn.Click += new EventHandler(CaptureBtn_Click); // Adds a new event handler to CaptureBtn's click event.
 
-            // StartCamera();
+            // StartCamera();MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application"); // Creates a MySqlConnection object and initializes it with the connection string.
+            connection.Open(); // Opens the database connection.
+
+            MySqlCommand cmd = new MySqlCommand("SELECT MAX(student_number) + 1 FROM app_student_records;", connection); // Creates a MySqlCommand object with the SQL query to retrieve the count of student numbers.
+            object result = cmd.ExecuteScalar(); // Executes the query and retrieves the count value as an object.
+            int maxResult = Convert.ToInt32(result);
+
+            // Check if the result is 0 and set it to 1
+            int labelValue;
+            if (maxResult == 0)
+            {
+                labelValue = 1;
+            }
+            else
+            {
+                labelValue = maxResult;
+            }
+
+            countStr = labelValue.ToString(); // Converts the object to a string and stores it in the countStr variable.
+            connection.Close(); // Closes the database connection.
+
+            studentNumCountLbl.Text = countStr;
         }
 
         private void AcademicYearCmbBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -349,7 +386,7 @@ namespace Login_Form
             StartCamera(); // Starts the camera capture.
             StudentActualPic.SizeMode = PictureBoxSizeMode.CenterImage; // Sets the picture box size mode to CenterImage.
             StudentImageCoverPic.Hide(); // Hides the StudentImageCoverPic.
-            
+
 
             System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender; // Retrieves the button that triggered the event.
             btn.Text = "Stop Camera"; // Sets the button text to "Stop Camera".
@@ -383,25 +420,23 @@ namespace Login_Form
             {
                 MessageBox.Show("Please select academic year first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning); // Displays a warning message if the academic year is not selected.
             }
-            else
-            {
-                isCaptured = !isCaptured; // Toggles the isCaptured variable.
-                string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-id-photo" + ".jpg"; // Constructs the filename for the captured image.
-                var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height); // Creates a bitmap with the same size as StudentActualPic.
-                StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle); // Draws the contents of StudentActualPic onto the bitmap.
-                System.Drawing.Imaging.ImageFormat imageFormat = null; // Initializes the image format variable.
-                imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg; // Sets the image format to JPEG.
-                bitmap.Save(filename, imageFormat); // Saves the bitmap to the specified filename as a JPEG image.
+                
+            isCaptured = !isCaptured; // Toggles the isCaptured variable.
+            string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-id-photo" + ".jpg"; // Constructs the filename for the captured image.
+            var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height); // Creates a bitmap with the same size as StudentActualPic.
+            StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle); // Draws the contents of StudentActualPic onto the bitmap.
+            System.Drawing.Imaging.ImageFormat imageFormat = null; // Initializes the image format variable.
+            imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg; // Sets the image format to JPEG.
+            bitmap.Save(filename, imageFormat); // Saves the bitmap to the specified filename as a JPEG image.
 
-                imageData = File.ReadAllBytes(filename); // Reads the image file into a byte array.
+            imageData = File.ReadAllBytes(filename); // Reads the image file into a byte array.
 
-                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender; // Retrieves the button that triggered the event.
-                btn.Text = "Retake"; // Sets the button text to "Retake".
+            System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender; // Retrieves the button that triggered the event.
+            btn.Text = "Retake"; // Sets the button text to "Retake".
 
-                btn.Click -= CaptureBtn_Click; // Removes the current event handler.
-                btn.Click += new EventHandler(RetakeBtn_Click); // Adds the new event handler for the RetakeBtn_Click method.
-            }
-        }
+            btn.Click -= CaptureBtn_Click; // Removes the current event handler.
+            btn.Click += new EventHandler(RetakeBtn_Click); // Adds the new event handler for the RetakeBtn_Click method.
+    }
 
         private void RetakeBtn_Click(object sender, EventArgs e)
         {
