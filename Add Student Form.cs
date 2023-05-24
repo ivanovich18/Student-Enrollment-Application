@@ -415,27 +415,31 @@ namespace Login_Form
             if (StudentActualPic.Image == null)
             {
                 MessageBox.Show("Please open camera first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning); // Displays a warning message if the camera is not open.
+                return;
             }
             if (AcademicYearCmbBox.SelectedIndex == 0)
             {
                 MessageBox.Show("Please select academic year first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning); // Displays a warning message if the academic year is not selected.
+                return;
             }
-                
-            isCaptured = !isCaptured; // Toggles the isCaptured variable.
-            string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-id-photo" + ".jpg"; // Constructs the filename for the captured image.
-            var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height); // Creates a bitmap with the same size as StudentActualPic.
-            StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle); // Draws the contents of StudentActualPic onto the bitmap.
-            System.Drawing.Imaging.ImageFormat imageFormat = null; // Initializes the image format variable.
-            imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg; // Sets the image format to JPEG.
-            bitmap.Save(filename, imageFormat); // Saves the bitmap to the specified filename as a JPEG image.
+            else
+            {
+                isCaptured = !isCaptured; // Toggles the isCaptured variable.
+                string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-id-photo" + ".jpg"; // Constructs the filename for the captured image.
+                var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height); // Creates a bitmap with the same size as StudentActualPic.
+                StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle); // Draws the contents of StudentActualPic onto the bitmap.
+                System.Drawing.Imaging.ImageFormat imageFormat = null; // Initializes the image format variable.
+                imageFormat = System.Drawing.Imaging.ImageFormat.Jpeg; // Sets the image format to JPEG.
+                bitmap.Save(filename, imageFormat); // Saves the bitmap to the specified filename as a JPEG image.
 
-            imageData = File.ReadAllBytes(filename); // Reads the image file into a byte array.
+                imageData = File.ReadAllBytes(filename); // Reads the image file into a byte array.
 
-            System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender; // Retrieves the button that triggered the event.
-            btn.Text = "Retake"; // Sets the button text to "Retake".
+                System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender; // Retrieves the button that triggered the event.
+                btn.Text = "Retake"; // Sets the button text to "Retake".
 
-            btn.Click -= CaptureBtn_Click; // Removes the current event handler.
-            btn.Click += new EventHandler(RetakeBtn_Click); // Adds the new event handler for the RetakeBtn_Click method.
+                btn.Click -= CaptureBtn_Click; // Removes the current event handler.
+                btn.Click += new EventHandler(RetakeBtn_Click); // Adds the new event handler for the RetakeBtn_Click method.
+            }
     }
 
         private void RetakeBtn_Click(object sender, EventArgs e)
