@@ -65,6 +65,7 @@ namespace Login_Form
             label2 = new Label();
             StudentActualPic = new PictureBox();
             CaptureBtn = new Button();
+            studentNumCountLbl = new Label();
             ((System.ComponentModel.ISupportInitialize)CTULogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AddStudentPic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -451,6 +452,7 @@ namespace Login_Form
             // 
             // StudentActualPic
             // 
+            StudentActualPic.BorderStyle = BorderStyle.FixedSingle;
             StudentActualPic.Location = new Point(139, 225);
             StudentActualPic.Name = "StudentActualPic";
             StudentActualPic.Size = new Size(240, 240);
@@ -472,12 +474,25 @@ namespace Login_Form
             CaptureBtn.UseVisualStyleBackColor = false;
             CaptureBtn.Click += CaptureBtn_Click;
             // 
+            // studentNumCountLbl
+            // 
+            studentNumCountLbl.AutoSize = true;
+            studentNumCountLbl.Font = new Font("Segoe UI", 18.75F, FontStyle.Regular, GraphicsUnit.Point);
+            studentNumCountLbl.ForeColor = Color.Black;
+            studentNumCountLbl.Location = new Point(677, 225);
+            studentNumCountLbl.Name = "studentNumCountLbl";
+            studentNumCountLbl.Size = new Size(30, 35);
+            studentNumCountLbl.TabIndex = 71;
+            studentNumCountLbl.Text = "...";
+            studentNumCountLbl.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // Add_Students
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1504, 827);
+            Controls.Add(studentNumCountLbl);
             Controls.Add(label2);
             Controls.Add(StudentIDLbl);
             Controls.Add(StudentNumberCountLbl);
@@ -562,5 +577,6 @@ namespace Login_Form
         public Button OpenCameraBtn;
         private PictureBox StudentActualPic;
         public Button CaptureBtn;
+        private Label studentNumCountLbl;
     }
 }

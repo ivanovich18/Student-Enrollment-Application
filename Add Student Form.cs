@@ -25,6 +25,7 @@ namespace Login_Form
 
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
+            
             DialogResult result = MessageBox.Show("Are you sure you want to add new student?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question); // Displays a confirmation dialog with a question message and Yes/No buttons.
             if (result == DialogResult.Yes) // User clicked "Yes"
             {
@@ -58,6 +59,7 @@ namespace Login_Form
                     ClearFields(); // Call the user-defined ClearFields function to clear the fields
 
                     MessageBox.Show("Successfully registered!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information); // Displays a success message box.
+                    Application.Restart();
                 }
                 else
                 {
@@ -90,10 +92,24 @@ namespace Login_Form
             connection.Open(); // Opens the database connection.
             MySqlCommand cmd = new MySqlCommand("SELECT MAX(student_number) + 1 FROM app_student_records;", connection); // Creates a MySqlCommand object with the SQL query to retrieve the count of student numbers.
             object result = cmd.ExecuteScalar(); // Executes the query and retrieves the count value as an object.
-            countStr = result.ToString(); // Converts the object to a string and stores it in the countStr variable.
+            int maxResult = Convert.ToInt32(result);
+
+            // Check if the result is 0 and set it to 1
+            int labelValue;
+            if (maxResult == 0)
+            {
+                labelValue = 1;
+            }
+            else
+            {
+                labelValue = maxResult;
+            }
+
+            countStr = labelValue.ToString(); // Converts the object to a string and stores it in the countStr variable.
             connection.Close(); // Closes the database connection.
 
-            StudentNumberCountLbl.Text = StudentNumberCountLbl.Text + " " + countStr; // Updates the StudentNumberCountLbl text by appending the count value.
+            studentNumCountLbl.Text = countStr;
+            // StudentNumberCountLbl.Text = StudentNumberCountLbl.Text + " " + countStr; // Updates the StudentNumberCountLbl text by appending the count value.
 
             // Gender
             GenderCmbBox.Items.Insert(0, "Gender"); // Adds a default "Gender" item at index 0.
@@ -184,6 +200,29 @@ namespace Login_Form
 
             CaptureBtn.Click -= RetakeBtn_Click; // Removes the current event handler from CaptureBtn's click event.
             CaptureBtn.Click += new EventHandler(CaptureBtn_Click); // Adds a new event handler to CaptureBtn's click event.
+
+            // StartCamera();MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application"); // Creates a MySqlConnection object and initializes it with the connection string.
+            connection.Open(); // Opens the database connection.
+
+            MySqlCommand cmd = new MySqlCommand("SELECT MAX(student_number) + 1 FROM app_student_records;", connection); // Creates a MySqlCommand object with the SQL query to retrieve the count of student numbers.
+            object result = cmd.ExecuteScalar(); // Executes the query and retrieves the count value as an object.
+            int maxResult = Convert.ToInt32(result);
+
+            // Check if the result is 0 and set it to 1
+            int labelValue;
+            if (maxResult == 0)
+            {
+                labelValue = 1;
+            }
+            else
+            {
+                labelValue = maxResult;
+            }
+
+            countStr = labelValue.ToString(); // Converts the object to a string and stores it in the countStr variable.
+            connection.Close(); // Closes the database connection.
+
+            studentNumCountLbl.Text = countStr;
         }
 
         private void AcademicYearCmbBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -344,9 +383,10 @@ namespace Login_Form
 
         private void OpenCameraBtn_Click(object sender, EventArgs e)
         {
+            StartCamera(); // Starts the camera capture.
             StudentActualPic.SizeMode = PictureBoxSizeMode.CenterImage; // Sets the picture box size mode to CenterImage.
             StudentImageCoverPic.Hide(); // Hides the StudentImageCoverPic.
-            StartCamera(); // Starts the camera capture.
+
 
             System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender; // Retrieves the button that triggered the event.
             btn.Text = "Stop Camera"; // Sets the button text to "Stop Camera".
@@ -375,10 +415,12 @@ namespace Login_Form
             if (StudentActualPic.Image == null)
             {
                 MessageBox.Show("Please open camera first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning); // Displays a warning message if the camera is not open.
+                return;
             }
-            else if (AcademicYearCmbBox.SelectedIndex == 0)
+            if (AcademicYearCmbBox.SelectedIndex == 0)
             {
                 MessageBox.Show("Please select academic year first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning); // Displays a warning message if the academic year is not selected.
+                return;
             }
             else
             {
@@ -398,7 +440,7 @@ namespace Login_Form
                 btn.Click -= CaptureBtn_Click; // Removes the current event handler.
                 btn.Click += new EventHandler(RetakeBtn_Click); // Adds the new event handler for the RetakeBtn_Click method.
             }
-        }
+    }
 
         private void RetakeBtn_Click(object sender, EventArgs e)
         {

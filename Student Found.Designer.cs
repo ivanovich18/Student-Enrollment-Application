@@ -322,6 +322,7 @@
             // 
             // StudentPhoto
             // 
+            StudentPhoto.BorderStyle = BorderStyle.FixedSingle;
             StudentPhoto.Location = new Point(68, 150);
             StudentPhoto.Name = "StudentPhoto";
             StudentPhoto.Size = new Size(270, 270);
