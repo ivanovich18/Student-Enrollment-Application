@@ -151,5 +151,15 @@ namespace Login_Form
             callingForm.Show(); // Show the calling form
             this.Close(); // Close the main form
         }
+
+        private void saveIDBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to save student ID?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes) // User clicked "Yes"
+            {
+                StudentIDPhotoForm photo_Form = new StudentIDPhotoForm(id_number);
+                photo_Form.Show();
+            }
+        }
     }
 }

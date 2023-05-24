@@ -94,8 +94,10 @@
             panel26 = new Panel();
             panel27 = new Panel();
             panel28 = new Panel();
+            saveIDBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)StudentPhoto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AppExitBtn).BeginInit();
+            panel5.SuspendLayout();
             panel6.SuspendLayout();
             panel12.SuspendLayout();
             panel3.SuspendLayout();
@@ -136,7 +138,7 @@
             StudentNumberLbl.BackColor = Color.White;
             StudentNumberLbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             StudentNumberLbl.ForeColor = Color.Black;
-            StudentNumberLbl.Location = new Point(125, 436);
+            StudentNumberLbl.Location = new Point(125, 409);
             StudentNumberLbl.Name = "StudentNumberLbl";
             StudentNumberLbl.Size = new Size(162, 25);
             StudentNumberLbl.TabIndex = 2;
@@ -148,7 +150,7 @@
             StudentIDLbl.BackColor = Color.White;
             StudentIDLbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             StudentIDLbl.ForeColor = Color.Black;
-            StudentIDLbl.Location = new Point(125, 502);
+            StudentIDLbl.Location = new Point(125, 475);
             StudentIDLbl.Name = "StudentIDLbl";
             StudentIDLbl.Size = new Size(108, 25);
             StudentIDLbl.TabIndex = 3;
@@ -160,7 +162,7 @@
             AcademicYearLbl.BackColor = Color.White;
             AcademicYearLbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             AcademicYearLbl.ForeColor = Color.Black;
-            AcademicYearLbl.Location = new Point(125, 568);
+            AcademicYearLbl.Location = new Point(125, 541);
             AcademicYearLbl.Name = "AcademicYearLbl";
             AcademicYearLbl.Size = new Size(140, 25);
             AcademicYearLbl.TabIndex = 4;
@@ -323,7 +325,7 @@
             // StudentPhoto
             // 
             StudentPhoto.BorderStyle = BorderStyle.FixedSingle;
-            StudentPhoto.Location = new Point(68, 150);
+            StudentPhoto.Location = new Point(68, 123);
             StudentPhoto.Name = "StudentPhoto";
             StudentPhoto.Size = new Size(270, 270);
             StudentPhoto.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -344,6 +346,7 @@
             // panel5
             // 
             panel5.BackColor = Color.White;
+            panel5.Controls.Add(saveIDBtn);
             panel5.ForeColor = Color.Orange;
             panel5.Location = new Point(38, 255);
             panel5.Name = "panel5";
@@ -670,7 +673,7 @@
             StudentNumberLblplc.AutoSize = true;
             StudentNumberLblplc.BackColor = Color.White;
             StudentNumberLblplc.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            StudentNumberLblplc.Location = new Point(125, 461);
+            StudentNumberLblplc.Location = new Point(125, 434);
             StudentNumberLblplc.Name = "StudentNumberLblplc";
             StudentNumberLblplc.Size = new Size(61, 21);
             StudentNumberLblplc.TabIndex = 52;
@@ -681,7 +684,7 @@
             StudentIDLblplc.AutoSize = true;
             StudentIDLblplc.BackColor = Color.White;
             StudentIDLblplc.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            StudentIDLblplc.Location = new Point(125, 527);
+            StudentIDLblplc.Location = new Point(125, 500);
             StudentIDLblplc.Name = "StudentIDLblplc";
             StudentIDLblplc.Size = new Size(61, 21);
             StudentIDLblplc.TabIndex = 53;
@@ -692,7 +695,7 @@
             AcademicYearLblplc.AutoSize = true;
             AcademicYearLblplc.BackColor = Color.White;
             AcademicYearLblplc.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            AcademicYearLblplc.Location = new Point(125, 593);
+            AcademicYearLblplc.Location = new Point(125, 566);
             AcademicYearLblplc.Name = "AcademicYearLblplc";
             AcademicYearLblplc.Size = new Size(61, 21);
             AcademicYearLblplc.TabIndex = 54;
@@ -766,6 +769,20 @@
             panel28.Size = new Size(328, 2);
             panel28.TabIndex = 27;
             // 
+            // saveIDBtn
+            // 
+            saveIDBtn.BackColor = Color.Orange;
+            saveIDBtn.Cursor = Cursors.Hand;
+            saveIDBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            saveIDBtn.ForeColor = SystemColors.ControlLightLight;
+            saveIDBtn.Location = new Point(45, 343);
+            saveIDBtn.Name = "saveIDBtn";
+            saveIDBtn.Size = new Size(240, 43);
+            saveIDBtn.TabIndex = 56;
+            saveIDBtn.Text = "Save Student ID";
+            saveIDBtn.UseVisualStyleBackColor = false;
+            saveIDBtn.Click += saveIDBtn_Click;
+            // 
             // Student_Found
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -837,6 +854,7 @@
             Load += Student_Found_Load;
             ((System.ComponentModel.ISupportInitialize)StudentPhoto).EndInit();
             ((System.ComponentModel.ISupportInitialize)AppExitBtn).EndInit();
+            panel5.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel12.ResumeLayout(false);
             panel3.ResumeLayout(false);
@@ -916,5 +934,6 @@
         private Panel panel26;
         private Panel panel27;
         private Panel panel28;
+        public Button saveIDBtn;
     }
 }
