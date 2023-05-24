@@ -425,7 +425,7 @@ namespace Login_Form
             else
             {
                 isCaptured = !isCaptured; // Toggles the isCaptured variable.
-                string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-id-photo" + ".jpg"; // Constructs the filename for the captured image.
+                string filename = @"C:\Users\ivang\Downloads\c# files\ID Photo Capture" + StudentIDLbl.Text + "-id-photo" + ".jpg"; // Constructs the filename for the captured image.
                 var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height); // Creates a bitmap with the same size as StudentActualPic.
                 StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle); // Draws the contents of StudentActualPic onto the bitmap.
                 System.Drawing.Imaging.ImageFormat imageFormat = null; // Initializes the image format variable.
@@ -454,7 +454,7 @@ namespace Login_Form
                 btn.Click += new EventHandler(CaptureBtn_Click); // Add the new event handler
 
                 isCaptured = !isCaptured; // Toggles the isCaptured variable.
-                string filename = @"C:\Users\ivang\Downloads\c# files\student id capture\" + StudentIDLbl.Text + "-id-photo" + ".jpg"; // Constructs the filename for the captured image.
+                string filename = @"C:\Users\ivang\Downloads\c# files\ID Photo Capture" + StudentIDLbl.Text + "-id-photo" + ".jpg"; // Constructs the filename for the captured image.
                 var bitmap = new Bitmap(StudentActualPic.Width, StudentActualPic.Height); // Creates a bitmap with the same size as StudentActualPic.
                 StudentActualPic.DrawToBitmap(bitmap, StudentActualPic.ClientRectangle); // Draws the contents of StudentActualPic onto the bitmap.
                 System.Drawing.Imaging.ImageFormat imageFormat = null; // Initializes the image format variable.
