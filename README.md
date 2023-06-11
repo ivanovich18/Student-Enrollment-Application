@@ -7,13 +7,13 @@
 - **C#**
 - **MySQL**
 ### Project Preview:
-![PaO8uK0L5Mw](https://github.com/ivanovich18/Student-Enrollment-Application/assets/88656474/8ea7f3b5-bf29-41c4-a844-deef04cafccb)
-![PaO8uK0L5Mw (2)](https://github.com/ivanovich18/Student-Enrollment-Application/assets/88656474/675ed2fe-5c5a-4573-88f9-440da0d8a23c)
-![PaO8uK0L5Mw (3)](https://github.com/ivanovich18/Student-Enrollment-Application/assets/88656474/67d9ec7e-bc49-4e57-80b1-df8d306fdbfe)
+![2](https://github.com/ivanovich18/Student-Enrollment-Application/assets/88656474/077ca519-e2a7-415b-af4b-d1bb2e1b634d)
+![1](https://github.com/ivanovich18/Student-Enrollment-Application/assets/88656474/829e9511-415e-4f9b-a9b4-3f240ad6f363)
+![3](https://github.com/ivanovich18/Student-Enrollment-Application/assets/88656474/23b54b25-181a-445e-915d-af0ea9450efb)
 ### How to use:
--This application uses MySQL using XAMPP control panel as its database.
+- This application uses MySQL using XAMPP control panel as its database.
 #### Step 1: Download and Install XAMPP
-- Go to the XAMPP website (https://www.apachefriends.org/index.html) and download the appropriate version for your operating system (Windows, macOS, or Linux).
+- Go to the XAMPP website (https://www.apachefriends.org/index.html) and download the appropriate version for Windows.
 - Run the installer and follow the on-screen instructions to install XAMPP.
 #### Step 2: Start the XAMPP Control Panel
 - Once the installation is complete, locate the XAMPP Control Panel and launch it.
@@ -30,5 +30,5 @@
 - Locate the file or code section where the database connection string is defined.
 - Update the connection string to point to the MySQL database running on your local machine. The connection string should include the hostname (localhost), port number (usually 3306), database name, username, and password.
 #### Step 5: Build and Run the C# App
-- Build your C# app to ensure that all dependencies are resolved and there are no compilation errors.
+- Build the C# app to ensure that all dependencies are resolved and there are no compilation errors.
 - Once the build is successful, run the C# app. It should connect to the MySQL database and be ready for use.
