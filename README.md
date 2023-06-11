@@ -11,10 +11,9 @@
 - **MySQL**
 
 #### Project Preview:
-![image](https://user-images.githubusercontent.com/88656474/234764050-967cba34-c095-4c63-b8b8-f09f01194fc7.png)
-![image](https://user-images.githubusercontent.com/88656474/235610009-ce8f5d6f-c265-4749-8092-ed8bfaa73c3b.png)
 ![PaO8uK0L5Mw](https://github.com/ivanovich18/Student-Enrollment-Application/assets/88656474/8ea7f3b5-bf29-41c4-a844-deef04cafccb)
-
+![PaO8uK0L5Mw (2)](https://github.com/ivanovich18/Student-Enrollment-Application/assets/88656474/675ed2fe-5c5a-4573-88f9-440da0d8a23c)
+![PaO8uK0L5Mw (3)](https://github.com/ivanovich18/Student-Enrollment-Application/assets/88656474/67d9ec7e-bc49-4e57-80b1-df8d306fdbfe)
 
 
 #### Disclaimer:
