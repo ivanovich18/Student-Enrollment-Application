@@ -6,6 +6,7 @@
 ### Technologies Used:
 - **C#**
 - **MySQL**
+- **Figma**
 ### Project Preview:
 ![2](https://github.com/ivanovich18/Student-Enrollment-Application/assets/88656474/077ca519-e2a7-415b-af4b-d1bb2e1b634d)
 ![1](https://github.com/ivanovich18/Student-Enrollment-Application/assets/88656474/829e9511-415e-4f9b-a9b4-3f240ad6f363)
