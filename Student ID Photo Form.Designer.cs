@@ -95,11 +95,11 @@
             departmentLbl.BackColor = Color.Orange;
             departmentLbl.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point);
             departmentLbl.ForeColor = Color.White;
-            departmentLbl.Location = new Point(96, 9);
+            departmentLbl.Location = new Point(90, 9);
             departmentLbl.Name = "departmentLbl";
-            departmentLbl.Size = new Size(160, 65);
+            departmentLbl.Size = new Size(171, 65);
             departmentLbl.TabIndex = 4;
-            departmentLbl.Text = "CCICT";
+            departmentLbl.Text = "  COE  ";
             departmentLbl.TextAlign = ContentAlignment.TopCenter;
             // 
             // StudentPhoto
@@ -140,11 +140,11 @@
             // studentIDLbl
             // 
             studentIDLbl.AutoSize = true;
-            studentIDLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            studentIDLbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             studentIDLbl.Location = new Point(81, 386);
             studentIDLbl.MaximumSize = new Size(300, 0);
             studentIDLbl.Name = "studentIDLbl";
-            studentIDLbl.Size = new Size(191, 21);
+            studentIDLbl.Size = new Size(201, 21);
             studentIDLbl.TabIndex = 5;
             studentIDLbl.Text = "Student ID: 2023-2024-01";
             studentIDLbl.TextAlign = ContentAlignment.TopCenter;

@@ -50,10 +50,7 @@
             StudentPhoto = new PictureBox();
             AppExitBtn = new PictureBox();
             panel5 = new Panel();
-            panel6 = new Panel();
-            panel1 = new Panel();
-            panel12 = new Panel();
-            panel13 = new Panel();
+            saveIDBtn = new Button();
             panel10 = new Panel();
             panel2 = new Panel();
             panel4 = new Panel();
@@ -94,18 +91,20 @@
             panel26 = new Panel();
             panel27 = new Panel();
             panel28 = new Panel();
-            saveIDBtn = new Button();
+            panel29 = new Panel();
+            panel32 = new Panel();
+            panel30 = new Panel();
+            panel31 = new Panel();
+            panel33 = new Panel();
             ((System.ComponentModel.ISupportInitialize)StudentPhoto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AppExitBtn).BeginInit();
-            panel5.SuspendLayout();
-            panel6.SuspendLayout();
-            panel12.SuspendLayout();
             panel3.SuspendLayout();
             panel9.SuspendLayout();
             panel14.SuspendLayout();
             panel16.SuspendLayout();
             panel18.SuspendLayout();
             panel20.SuspendLayout();
+            panel29.SuspendLayout();
             SuspendLayout();
             // 
             // LastNameLbl
@@ -138,7 +137,7 @@
             StudentNumberLbl.BackColor = Color.White;
             StudentNumberLbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             StudentNumberLbl.ForeColor = Color.Black;
-            StudentNumberLbl.Location = new Point(125, 409);
+            StudentNumberLbl.Location = new Point(125, 434);
             StudentNumberLbl.Name = "StudentNumberLbl";
             StudentNumberLbl.Size = new Size(162, 25);
             StudentNumberLbl.TabIndex = 2;
@@ -150,7 +149,7 @@
             StudentIDLbl.BackColor = Color.White;
             StudentIDLbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             StudentIDLbl.ForeColor = Color.Black;
-            StudentIDLbl.Location = new Point(125, 475);
+            StudentIDLbl.Location = new Point(125, 505);
             StudentIDLbl.Name = "StudentIDLbl";
             StudentIDLbl.Size = new Size(108, 25);
             StudentIDLbl.TabIndex = 3;
@@ -162,7 +161,7 @@
             AcademicYearLbl.BackColor = Color.White;
             AcademicYearLbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             AcademicYearLbl.ForeColor = Color.Black;
-            AcademicYearLbl.Location = new Point(125, 541);
+            AcademicYearLbl.Location = new Point(125, 571);
             AcademicYearLbl.Name = "AcademicYearLbl";
             AcademicYearLbl.Size = new Size(140, 25);
             AcademicYearLbl.TabIndex = 4;
@@ -325,7 +324,7 @@
             // StudentPhoto
             // 
             StudentPhoto.BorderStyle = BorderStyle.FixedSingle;
-            StudentPhoto.Location = new Point(68, 123);
+            StudentPhoto.Location = new Point(68, 130);
             StudentPhoto.Name = "StudentPhoto";
             StudentPhoto.Size = new Size(270, 270);
             StudentPhoto.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -346,48 +345,25 @@
             // panel5
             // 
             panel5.BackColor = Color.White;
-            panel5.Controls.Add(saveIDBtn);
             panel5.ForeColor = Color.Orange;
             panel5.Location = new Point(38, 255);
             panel5.Name = "panel5";
             panel5.Size = new Size(329, 408);
             panel5.TabIndex = 23;
             // 
-            // panel6
+            // saveIDBtn
             // 
-            panel6.BackColor = Color.Orange;
-            panel6.Controls.Add(panel1);
-            panel6.Controls.Add(panel12);
-            panel6.Location = new Point(393, 101);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(923, 562);
-            panel6.TabIndex = 24;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.Black;
-            panel1.Location = new Point(4, 564);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(718, 3);
-            panel1.TabIndex = 34;
-            // 
-            // panel12
-            // 
-            panel12.BackColor = Color.Black;
-            panel12.Controls.Add(panel13);
-            panel12.Location = new Point(32, 192);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(859, 2);
-            panel12.TabIndex = 37;
-            panel12.Visible = false;
-            // 
-            // panel13
-            // 
-            panel13.BackColor = Color.Black;
-            panel13.Location = new Point(4, 564);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(718, 3);
-            panel13.TabIndex = 34;
+            saveIDBtn.BackColor = Color.Orange;
+            saveIDBtn.Cursor = Cursors.Hand;
+            saveIDBtn.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            saveIDBtn.ForeColor = SystemColors.ControlLightLight;
+            saveIDBtn.Location = new Point(1100, 26);
+            saveIDBtn.Name = "saveIDBtn";
+            saveIDBtn.Size = new Size(162, 34);
+            saveIDBtn.TabIndex = 56;
+            saveIDBtn.Text = "Generate ID";
+            saveIDBtn.UseVisualStyleBackColor = false;
+            saveIDBtn.Click += saveIDBtn_Click;
             // 
             // panel10
             // 
@@ -673,7 +649,7 @@
             StudentNumberLblplc.AutoSize = true;
             StudentNumberLblplc.BackColor = Color.White;
             StudentNumberLblplc.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            StudentNumberLblplc.Location = new Point(125, 434);
+            StudentNumberLblplc.Location = new Point(125, 459);
             StudentNumberLblplc.Name = "StudentNumberLblplc";
             StudentNumberLblplc.Size = new Size(61, 21);
             StudentNumberLblplc.TabIndex = 52;
@@ -684,7 +660,7 @@
             StudentIDLblplc.AutoSize = true;
             StudentIDLblplc.BackColor = Color.White;
             StudentIDLblplc.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            StudentIDLblplc.Location = new Point(125, 500);
+            StudentIDLblplc.Location = new Point(125, 530);
             StudentIDLblplc.Name = "StudentIDLblplc";
             StudentIDLblplc.Size = new Size(61, 21);
             StudentIDLblplc.TabIndex = 53;
@@ -695,7 +671,7 @@
             AcademicYearLblplc.AutoSize = true;
             AcademicYearLblplc.BackColor = Color.White;
             AcademicYearLblplc.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            AcademicYearLblplc.Location = new Point(125, 566);
+            AcademicYearLblplc.Location = new Point(125, 596);
             AcademicYearLblplc.Name = "AcademicYearLblplc";
             AcademicYearLblplc.Size = new Size(61, 21);
             AcademicYearLblplc.TabIndex = 54;
@@ -769,19 +745,51 @@
             panel28.Size = new Size(328, 2);
             panel28.TabIndex = 27;
             // 
-            // saveIDBtn
+            // panel29
             // 
-            saveIDBtn.BackColor = Color.Orange;
-            saveIDBtn.Cursor = Cursors.Hand;
-            saveIDBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            saveIDBtn.ForeColor = SystemColors.ControlLightLight;
-            saveIDBtn.Location = new Point(45, 343);
-            saveIDBtn.Name = "saveIDBtn";
-            saveIDBtn.Size = new Size(240, 43);
-            saveIDBtn.TabIndex = 56;
-            saveIDBtn.Text = "Save Student ID";
-            saveIDBtn.UseVisualStyleBackColor = false;
-            saveIDBtn.Click += saveIDBtn_Click;
+            panel29.BackColor = Color.Orange;
+            panel29.Controls.Add(panel32);
+            panel29.ForeColor = Color.Orange;
+            panel29.Location = new Point(393, 103);
+            panel29.Name = "panel29";
+            panel29.Size = new Size(2, 559);
+            panel29.TabIndex = 26;
+            // 
+            // panel32
+            // 
+            panel32.BackColor = Color.Orange;
+            panel32.ForeColor = Color.Orange;
+            panel32.Location = new Point(0, 557);
+            panel32.Name = "panel32";
+            panel32.Size = new Size(923, 2);
+            panel32.TabIndex = 28;
+            // 
+            // panel30
+            // 
+            panel30.BackColor = Color.Orange;
+            panel30.ForeColor = Color.Orange;
+            panel30.Location = new Point(1314, 101);
+            panel30.Name = "panel30";
+            panel30.Size = new Size(2, 559);
+            panel30.TabIndex = 26;
+            // 
+            // panel31
+            // 
+            panel31.BackColor = Color.Orange;
+            panel31.ForeColor = Color.Orange;
+            panel31.Location = new Point(393, 101);
+            panel31.Name = "panel31";
+            panel31.Size = new Size(923, 2);
+            panel31.TabIndex = 27;
+            // 
+            // panel33
+            // 
+            panel33.BackColor = Color.Orange;
+            panel33.ForeColor = Color.Orange;
+            panel33.Location = new Point(393, 660);
+            panel33.Name = "panel33";
+            panel33.Size = new Size(923, 2);
+            panel33.TabIndex = 28;
             // 
             // Student_Found
             // 
@@ -789,6 +797,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1354, 698);
+            Controls.Add(panel33);
+            Controls.Add(panel31);
+            Controls.Add(panel30);
+            Controls.Add(panel29);
+            Controls.Add(saveIDBtn);
             Controls.Add(panel28);
             Controls.Add(panel27);
             Controls.Add(panel26);
@@ -843,7 +856,6 @@
             Controls.Add(FirstNameLbl);
             Controls.Add(LastNameLbl);
             Controls.Add(panel3);
-            Controls.Add(panel6);
             Controls.Add(panel5);
             ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.None;
@@ -854,15 +866,13 @@
             Load += Student_Found_Load;
             ((System.ComponentModel.ISupportInitialize)StudentPhoto).EndInit();
             ((System.ComponentModel.ISupportInitialize)AppExitBtn).EndInit();
-            panel5.ResumeLayout(false);
-            panel6.ResumeLayout(false);
-            panel12.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel9.ResumeLayout(false);
             panel14.ResumeLayout(false);
             panel16.ResumeLayout(false);
             panel18.ResumeLayout(false);
             panel20.ResumeLayout(false);
+            panel29.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -892,14 +902,10 @@
         private Panel panel4;
         private PictureBox AppExitBtn;
         private Panel panel5;
-        private Panel panel6;
         private Panel panel10;
         private Panel panel8;
-        private Panel panel1;
         private Panel panel3;
         private Panel panel7;
-        private Panel panel12;
-        private Panel panel13;
         private Panel panel9;
         private Panel panel11;
         private Panel panel14;
@@ -935,5 +941,10 @@
         private Panel panel27;
         private Panel panel28;
         public Button saveIDBtn;
+        private Panel panel31;
+        private Panel panel29;
+        private Panel panel30;
+        private Panel panel32;
+        private Panel panel33;
     }
 }
