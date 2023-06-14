@@ -86,7 +86,6 @@ namespace Login_Form
 
                 StreamWriter writer = new StreamWriter(filePath); // Create a StreamWriter object to write the data to the file.
 
-
                 for (int i = 0; i < reader.FieldCount; i++)
                 {
                     writer.Write("\"" + reader.GetName(i) + "\""); // Write the column headers enclosed in double quotes.
@@ -133,7 +132,7 @@ namespace Login_Form
 
         private void StudentRecordsTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // Check if a valid row is clicked
+            if (e.RowIndex >= 0 && e.RowIndex < StudentRecordsTable.Rows.Count) // Check if a valid row is clicked
             {
                 DataGridViewRow row = StudentRecordsTable.Rows[e.RowIndex];
 

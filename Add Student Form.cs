@@ -58,8 +58,7 @@ namespace Login_Form
                     connection.Close(); // Close the connection
                     ClearFields(); // Call the user-defined ClearFields function to clear the fields
 
-                    MessageBox.Show("Successfully registered!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information); // Displays a success message box.
-                    Application.Restart();
+                    MessageBox.Show("Successfully registered!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information); // Displays a success message
                 }
                 else
                 {
@@ -90,7 +89,7 @@ namespace Login_Form
         {
             MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;database=student_enrollment_application"); // Creates a MySqlConnection object and initializes it with the connection string.
             connection.Open(); // Opens the database connection.
-            MySqlCommand cmd = new MySqlCommand("SELECT MAX(student_number) + 1 FROM app_student_records;", connection); // Creates a MySqlCommand object with the SQL query to retrieve the count of student numbers.
+            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(student_number) + 1 FROM app_student_records;", connection); // Creates a MySqlCommand object with the SQL query to retrieve the count of student numbers.
             object result = cmd.ExecuteScalar(); // Executes the query and retrieves the count value as an object.
             int maxResult = Convert.ToInt32(result);
 
@@ -359,7 +358,7 @@ namespace Login_Form
         {
             try
             {
-                filterInfo = new FilterInfoCollection(AForge.Video.DirectShow.FilterCategory.VideoInputDevice);
+                filterInfo = new FilterInfoCollection(AForge.Video.DirectShow.FilterCategory.VideoInputDevice); // Retrieve a collection of available video input devices using AForge.Video.DirectShow.FilterCategory.VideoInputDevice.
                 videoCapture = new VideoCaptureDevice(filterInfo[0].MonikerString); // Initializes the video capture device using the first device in the filterInfo collection.
                 videoCapture.NewFrame += new NewFrameEventHandler(Camera_On); // Registers the Camera_On event handler for the NewFrame event.
                 videoCapture.Start(); // Starts the video capture.

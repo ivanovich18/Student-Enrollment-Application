@@ -59,7 +59,7 @@ namespace Login_Form
 
                     if (department == "(CAS) College of Arts and Sciences")
                     {
-                        newDepartment = " CAS ";
+                        newDepartment = "  CAS  ";
                     }
                     if (department == "(CCICT) College of Computer, Information and Communications Technology")
                     {
@@ -67,19 +67,19 @@ namespace Login_Form
                     }
                     if (department == "(COEd) College of Education")
                     {
-                        newDepartment = " COED";
+                        newDepartment = "COED";
                     }
                     if (department == "(COE) College of Engineering")
                     {
-                        newDepartment = " COE ";
+                        newDepartment = "  COE  ";
                     }
                     if (department == "(CME) College of Management and Entrepreneurship")
                     {
-                        newDepartment = " CME ";
+                        newDepartment = "  CME  ";
                     }
                     if (department == "(COT) College of Technology")
                     {
-                        newDepartment = " COT ";
+                        newDepartment = "  COT  ";
                     }
 
                     // Clear default value of placeholder texts
